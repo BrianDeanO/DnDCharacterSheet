@@ -11,3 +11,175 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+html {
+  background-color: rgb(255, 255, 255);
+}
+
+/* 
+  CSS Styles for Character Sheet Header
+*/
+
+.Header {
+  display: flex;
+  flex-direction: row;
+  height: 120px;
+  max-height: 100%;
+  min-width: 100%;
+  margin: 0 auto;
+  background-color: #222;
+  position: relative;
+}
+
+.Character-Info {
+  display: flex;
+  flex-direction: row;
+}
+
+.Player-ImageSVG {
+  margin: 10px 0px 10px 10px;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.Player-Image {
+  display: flex;
+  height: auto;
+  max-width: 100%;
+  width: 69px;
+}
+
+.Image-Circle {
+  margin: 0px  0px 0px 0px;
+}
+
+.Character-Info-Box {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  max-height: 100%;
+  min-width: 200px;
+  margin: 10px 10px 10px 10px;
+  /* background-color: rgb(135, 166, 170); */
+  border-radius: 13px;
+  position: relative;
+}
+
+.Character-Name-Lvl {
+  display: flex;
+  flex-direction: row;
+  /* height: 100px;
+  max-height: 100%;
+  min-width: 200px;
+  margin: 10px 10px 10px 10px;
+  background-color: rgb(135, 166, 170);
+  border-radius: 13px;
+  position: relative; */
+}
+
+.Character-Name-Text {
+  color: whitesmoke;
+  font-size: 24px;
+  font-style: italic;
+  margin: 0px 10px 10px 10px;
+}
+
+.Character-Level-Title {
+  color: whitesmoke;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 5px 10px 0px;
+}
+
+.Character-Level {
+  color: whitesmoke;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
+  margin: 10px 10px 10px 0px;
+}
+
+.Character-Race-Class {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  min-width: 50px;
+}
+
+.Character-Race-Class  h2 {
+  color: whitesmoke;
+  font-size: 14px;
+  text-align: center;
+  font-weight: normal;
+  margin: 0px 10px 10px 10px;
+}
+
+.Character-XP {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  min-width: 50px;
+}
+
+.Character-XP h2 {
+  color: whitesmoke;
+  font-size: 14px;
+  text-align: center;
+  font-weight: normal;
+  margin: 0px 0px 10px 10px;
+}
+
+.Header-Buttons {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin: 0px 0px 0px 690px;
+  background-color: rgba(74, 69, 69, 0.808);
+  border-color: rgb(80, 199, 12);
+  border-radius: 20px;
+  color: white;
+}
+
+.Header-Buttons button {
+  background-color: rgba(74, 69, 69, 0.808);
+  border-color: rgb(80, 199, 12);
+  border-radius: 13px;
+  color: white;
+}
+
+
+
+.Save-And-Load {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  /* background-color: rgb(104, 46, 4);
+  border-radius: 13px; */
+}
+
+.Save-And-Load button {
+  height: 20px;
+  width: 60px;
+  margin: 10px 10px;
+}
+
+.Short-Long-Rests {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  margin: 40px 10px 10px 0px;
+  /* background-color: rgb(104, 46, 4);
+  border-radius: 13px; */
+}
+
+.Short-Long-Rests button {
+  height: 30px;
+  width: 140px;
+  margin: 0px 10px 10px 10px;
+  border-radius: 0px;
+}
+
+
+
+
