@@ -8,7 +8,7 @@
 
 .HitPoint-DeathSavesAndInfoBox {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color:rgb(231, 24, 66);
     width: 600px;
   }

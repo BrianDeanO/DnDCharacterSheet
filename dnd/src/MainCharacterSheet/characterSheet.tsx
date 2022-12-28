@@ -38,6 +38,11 @@ const CharacterSheet = () => {
     const deathSaveFailArray = [-1, -1, -1];
     const revivalChoiceArray = [-1, -1];
 
+    const [proficiencyBonus, setProfiencyBonus] = useState<number>(2);
+    const [armorClass, setArmorClass] = useState<number>(10);
+    const [characterSpeed, setCharacterSpeed] = useState<number>(30);
+    const [perceptionModifier, setPerceptionModifier] = useState<number>(2);
+
     // Function to calculate the modifier given the character's ability score 
     const abilityModifierSetter = (ability: string, score: number) => {
         const modifier = Math.floor((score - 10) / 2);
@@ -483,6 +488,32 @@ const HitPointTrackerBox = () => {
     )
 }
 
+const AdditionalCharacterInfoBox = () => {
+    return (
+        <div className="ProficiencyBonus-Armor-Speed-OuterBox">
+            <div className="ProfBonusBox">
+                <span id="ProfTextTop"> Proficiency </span>
+                <span id="ProfTextValue"> +{proficiencyBonus} </span>
+                <span id="ProfTextBottom"> Bonus </span>
+            </div>
+            <div className="ArmorClassBox">
+                <span id="ArmorTextTop"> Armor </span>
+                <span id="ArmorTextValue"> {armorClass} </span>
+                <span id="ArmorTextBottom"> Class </span>
+            </div>
+            <div className="SpeedBox">
+                <span id="SpeedTextValue"> {characterSpeed} </span>
+                <span id="SpeedTextBottom"> Speed </span>
+            </div>
+            <div className="PassiveWisdomBox">
+                <span id="PassiveTextValue"> {determineModifierSign(perceptionModifier)} </span>
+                <span id="PassiveTextMiddle"> Passive Wisdom </span>
+                <span id="PassiveTextBottom"> (Perception) </span>
+            </div>
+        </div>
+    )
+}
+
 return (
     <div className="CharacterSheet">
         <div className="MainAbilityAndHitPointRow">
@@ -524,22 +555,9 @@ return (
                 </div>
             </div>
             <div className="HitPoint-DeathSavesAndInfoBox">
-                {(currentHealth <= 0) ? <DeathSavingThrowsBox /> : <HitPointTrackerBox />}            
-                <div className="ProfArmorSpeedBox">
-
-                </div>
-                <div className="PassiveWisdomBox">
-
-                </div>
-
+                {(currentHealth <= 0) ? <DeathSavingThrowsBox /> : <HitPointTrackerBox />}   
+                <AdditionalCharacterInfoBox />
             </div>
-        </div>
-        
-
-        <div className="SheetLayer1">
-            <h1 className="Title_Text">
-                D&D Character Sheet
-            </h1>
         </div>
     </div>
 )
