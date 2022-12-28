@@ -44,6 +44,8 @@ const CharacterInfo = () => {
                 </div>
             </div>
 
+            <Spacer />
+
             <div className="Header-Buttons">
                 <div className="Save-And-Load">
                     <button className="Save-Button"> Save </button>
@@ -56,8 +58,10 @@ const CharacterInfo = () => {
                 </div>
             </div>
         </div>
+        
     )
 }
 
+const Spacer = () => <div className="Spacer"/>;
 
 export default CharacterInfo;

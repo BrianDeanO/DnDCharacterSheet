@@ -1,0 +1,237 @@
+/* 
+***************************************************
+ 
+    CSS Styles for Hit Point Tracker Box
+  
+***************************************************
+*/
+
+.HitPoint-DeathSavesAndInfoBox {
+    display: flex;
+    flex-direction: row;
+    background-color:rgb(231, 24, 66);
+    width: 600px;
+  }
+  
+  .HitPointBox {
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(193, 231, 24);
+    width: 600px;
+    height: 200px;
+  }
+  
+  .HitPointsTitle {
+    margin: 0px auto 5px auto;
+  }
+  
+  .HealAndDamageBox {
+    display: flex;
+    flex-direction: row;
+    background-color:rgb(24, 131, 231);
+    width: 500px;
+    height: 200px;
+    border-style: solid;
+    border-color: rgb(255, 139, 255);
+    margin: 0px auto;
+  }
+  
+  .PointCounter {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    width: 90px;
+    height: 90px;
+    margin: 30px 5px 10px 30px;
+  }
+  
+  .SaveThrowPointCounter {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    width: 90px;
+    height: 90px;
+    margin: 60px 5px 10px 10px;
+  }
+
+.PointCounter #Up, .SaveThrowPointCounter #Up {
+    background-color: transparent;
+    height: 20px;
+    width: 20px;
+    border-bottom: 0px transparent;
+    border-right: 0px transparent;
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+    transform: translateY(25%) rotate(45deg);
+    margin: 0px auto;
+    cursor: pointer
+  }
+  
+  .PointCounter #Down, .SaveThrowPointCounter #Down {
+    background-color: transparent;
+    height: 20px;
+    width: 20px;
+    border-bottom: 0px transparent;
+    border-right: 0px transparent;
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+    transform: translateY(25%) rotate(225deg);
+    margin: -5px auto 0px auto;
+    cursor: pointer;
+  }
+
+  .PointNumberBox {
+    height: 50px;
+    width: 50px;
+    background-color: rgb(138, 56, 56);
+    margin: 0px auto -5px auto;
+    border-radius: 10px;
+  }
+
+  .PointNumberBox input::-webkit-outer-spin-button,
+.PointNumberBox input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.HealAndDamageButtons {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 90px;
+    margin: 30px 5px 10px -10px;
+  }
+  
+  .HealButton {
+    background-color: rgba(74, 69, 69, 0.808);
+    border-color: #ffd300;
+    border-radius: 9px;
+    color: rgb(7, 214, 7);
+    height: 25px;
+    font-weight: bold;
+    margin: auto 0px;
+  }
+  
+  .DamageButton {
+    background-color: rgba(74, 69, 69, 0.808);
+    border-color: #ffd300;
+    border-radius: 9px;
+    color: rgb(224, 44, 44);
+    height: 25px;
+    font-weight: bold;
+    margin: auto 0px;
+  }
+  
+  .PointInput {
+    height: 40px;
+    width: 40px;
+    margin: 0px 0px 10px 0px;
+    background: none rgb(138, 56, 56);
+    color: rgb(255, 255, 255);
+    padding: 4px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+  }
+
+  
+.HitPointsBox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  .HitPointTracker {
+    display: flex;
+    flex-direction: row;
+    margin: 35px auto -5px 10px;
+  }
+  
+  .CurrentHitPoints {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color:rgb(0, 0, 0);
+    margin-top: -15px;
+    margin-right: 0px;
+  }
+  
+  .CurrentHitPoints text {
+    font-size: 36px;
+    color:rgb(0, 0, 0);
+    margin: -23px -20px 0px 13px;
+  }
+  
+  .HitPointDivider h3 {
+    font-size: 32px;
+    font-weight: normal;
+    color:darkgrey;
+    margin: 25px 10px 0px 0px;
+  }
+  
+  .MaxHitPoints {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color:rgb(0, 0, 0);
+    margin-top: -15px;
+    margin-right: 0px;
+  }
+  
+  .MaxHitPoints text {
+    font-size: 36px;
+    color:rgb(0, 0, 0);
+    margin: -23px -20px 0px 0px;
+  }
+  
+  .TemporaryHitPoints {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .TempHitPointSurroundingBox {
+    display: flex;
+    width: 55px;
+    height: 35px;
+    margin: -5px 0px 0px 43px;
+    text-align: center;
+    font-size: 38px;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+  
+  }
+  
+  .TempHitPointBox {
+    width: 50px;
+    height: 30px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    font-size: 28px;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+  }
+  
+  .TempHitPointBoxText {
+    margin: -13px auto 0px auto;
+  }
+  
+  .TemporaryHitPoints h4 {
+    margin: 5px 0px 10px 30px;
+  }
+  
+  .TemporaryPointInput {
+    height: 40px;
+    width: 40px;
+    margin: 0px 0px 10px 0px;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    padding: 4px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .blankSpace {
+    width: 35px;
+  }

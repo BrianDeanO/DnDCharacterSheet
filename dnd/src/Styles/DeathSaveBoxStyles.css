@@ -1,0 +1,241 @@
+  /* 
+***************************************************
+
+    CSS Styles for Death Saves Alternate Box
+
+***************************************************
+*/
+
+.SaveThrowCounterAndButtonBox {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .SaveThrowPointCounter {
+    margin: 32px 5px 10px 10px;
+  }
+  
+  .SavingThrowHealBox {
+    display: flex;
+    width: 90px;
+    height: 90px;
+    margin: 32px 5px 10px 0px;
+  }
+  
+  .SavingThrowHealButton {
+    background-color: rgba(74, 69, 69, 0.808);
+    border-color: #ffd300;
+    border-radius: 9px;
+    color: rgb(7, 214, 7);
+    height: 40px;
+    width: 65px;
+    font-weight: bold;
+    margin: auto 0px;
+  }
+
+  .DeathSavingThrowsOuterBox {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+  }
+  
+  .DeathSavingThrowsInnerBox {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .DeathSavesBox {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 150px;
+    background-color: #000000;
+    border-style: solid;
+    border-color: rgb(255, 139, 255);
+    margin: 0px auto;
+  }
+  
+  .DeathSavesTitle {
+    margin: 0px auto 5px auto;
+    color: whitesmoke;
+  }
+  
+  .SuccessesBox {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 75px;
+    background-color: #d3d3d3;
+    margin: 0px auto;
+  }
+  
+  .FailsBox {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 75px;
+    background-color: rgb(189, 189, 189);
+    margin: 0px auto;
+  }
+  
+  .DeathSavesTextSuccess {
+    margin: auto 5px auto 10px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .DeathSavesTextFail {
+    margin: auto 45px auto 10px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .Success input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .Fail input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* #FirstSuccess, #SecondSuccess, #ThirdSuccess,
+  #FirstFail, #SecondFail, #ThirdFail {
+    position: flex;
+    margin: 30px 5px 0px 5px;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 40px;
+  } */
+  
+  .SavesBoxes {
+    position: flex;
+    margin: 27px 5px 0px 5px;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 40px;
+  }
+  
+  .SuccessesBox .SavesBoxesActive {
+    position: flex;
+    margin: 23px 5px 0px 5px;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(47, 218, 98);
+    border-radius: 40px;
+  }
+  
+  .FailsBox .SavesBoxesActive {
+    position: flex;
+    margin: 23px 5px 0px 5px;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(253, 30, 30);
+    border-radius: 40px;
+  }
+  
+  #FirstSuccess:hover, 
+  #SecondSuccess:hover, 
+  #ThirdSuccess:hover {
+    background-color: rgb(47, 218, 98);
+  }
+  
+  
+  #FirstFail:hover, 
+  #SecondFail:hover, 
+  #ThirdFail:hover {
+    background-color: rgb(253, 30, 30);
+  }
+  
+  .Fail input:checked ~ .SavesBoxes {
+    background-color: rgb(253, 30, 30);
+  }
+
+  /* .ReviveBox {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    height: 100px;
+    margin: 32px 5px 10px 25px;
+  } */
+
+  .ReviveBox {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 154px;
+    background-color: rgb(134, 231, 255);
+    margin: 0px auto;
+  }
+
+  .ReviveTextTitle {
+    margin: 0px auto;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+  }
+
+  .ReviveChoicesBox {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 75px;
+  }
+
+  .OneHPReviveBox {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+
+  .FullHPReviveBox {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    height: 30px;
+  }
+
+  .ReviveChoicesBox text {
+    margin: 11px 0px 0px 0px;
+  }
+
+  .ReviveChoice {
+    position: flex;
+    margin: 10px 5px 0px 20px;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 40px;
+  }
+  
+.ReviveChoiceActive {
+    position: flex;
+    margin: 10px 5px 0px 20px;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 40px;
+  }
+
+.ConfirmReviveBox {
+    margin: 10px auto 0px auto;
+}
+
+.ConfirmReviveButton {
+    height: 25px;
+    width: 75px;
+    background-color: rgb(112, 162, 255);
+    align-items: center;
+    border-color: #000000;
+}
