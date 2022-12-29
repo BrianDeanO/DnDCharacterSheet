@@ -1,0 +1,71 @@
+Notes-MultiSelectOuterBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.Notes-MultiSelectHeaderBox {
+    display: flex;
+    flex-direction: row;
+    background-color: cadetblue;
+    width: 500px;
+    height: 45px;
+}
+
+.AttacksBoxButton {
+    margin: 10px 3px 0px 7px;
+    background-color: bisque;
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.SpellsBoxButton {
+    margin: 10px 3px 0px 2px;
+    background-color: bisque;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.InventoryBoxButton {
+    margin: 10px 3px 0px 2px;
+    background-color: bisque;
+    width: 75px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.FeaturesAndTraitsBoxButton {
+    margin: 10px 3px 0px 2px;
+    background-color: bisque;
+    width: 130px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.DescriptionBoxButton {
+    margin: 10px 3px 0px 2px;
+    background-color: bisque;
+    width: 90px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.NotesBoxButton {
+    margin: 10px 3px 0px 2px;
+    background-color: bisque;
+    width: 55px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.Notes-MultiSelectBox {
+    height: 625px;
+    width: 500px;
+}

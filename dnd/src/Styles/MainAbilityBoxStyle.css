@@ -1,0 +1,58 @@
+.MainAbilityAndHitPointRow {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+  }
+  
+  .AbilityBox {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+  }
+  
+  .AbilityBoxTopRow {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 195, 255);
+  }
+  
+  .AbilityBoxBottomRow {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 255, 55);
+  }
+  
+  .LoneAbilityBox {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #222;
+    width: 80px;
+    height: 100px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color: moccasin;
+  }
+  
+  .AbilityHeader {
+    font-size: 14px;
+    margin: 2px auto -5px auto;
+  }
+  
+  .AbilityModifier {
+    font-size: 32px;
+    height: 60px;
+    margin: 10px auto 0px auto;
+  }
+  
+  .AbilityScore {
+    font-size: 16px;
+    border-style: solid;
+    border-width: 2px;
+    width: 45px;
+    padding-bottom: 2px;
+    height: 20px;
+    margin: -4px auto 0px auto;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+  }

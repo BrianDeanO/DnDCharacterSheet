@@ -1,0 +1,160 @@
+/* 
+*****************************************
+  CSS Styles for Character Sheet Header
+*****************************************
+*/
+
+.Header {
+    display: flex;
+    flex-direction: row;
+    flex: auto;
+    height: 120px;
+    max-height: 100%;
+    width: 1000px;
+    padding-bottom: 10px;
+    background-color: #222;
+    margin: 0px auto 0px auto;
+  }
+  
+  .Character-Info {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 10px 10px 20px;
+  }
+  
+  .Player-ImageSVG {
+    margin: 10px 0px 10px 10px;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+  }
+  
+  .Player-Image {
+    display: flex;
+    height: auto;
+    max-width: 100%;
+    width: 69px;
+  }
+  
+  .Image-Circle {
+    margin: 0px  0px 0px 0px;
+  }
+  
+  .Character-Info-Box {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    max-height: 100%;
+    min-width: 200px;
+    margin: 10px 10px 10px 10px;
+    /* background-color: rgb(135, 166, 170); */
+    border-radius: 13px;
+    position: relative;
+  }
+  
+  .Character-Name-Lvl {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .Character-Name-Text {
+    color: whitesmoke;
+    font-size: 24px;
+    font-style: italic;
+    margin: 0px 10px 10px 10px;
+  }
+  
+  .Character-Level-Title {
+    color: whitesmoke;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 5px 10px 0px;
+  }
+  
+  .Character-Level {
+    color: whitesmoke;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 10px 10px 10px 0px;
+  }
+  
+  .Character-Race-Class {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    min-width: 50px;
+  }
+  
+  .Character-Race-Class  h2 {
+    color: whitesmoke;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0px 10px 10px 10px;
+  }
+  
+  .Character-XP {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    min-width: 50px;
+  }
+  
+  .Character-XP h2 {
+    color: whitesmoke;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0px 0px 10px 10px;
+  }
+  
+  .Spacer {
+    width: 375px;
+    /* flex: 1 1 auto;
+    @media screen and (max-width: 200px) {
+    display: none;
+    } */
+  }
+  
+  .Header-Buttons {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    border-color:  #ffd300;
+    border-radius: 20px;
+    color: white;
+    margin: 10px 0px 0px 0px;
+    white-space: nowrap;
+  }
+  
+  .Header-Buttons button {
+    background-color: rgba(74, 69, 69, 0.808);
+    border-color: #ffd300;
+    border-radius: 13px;
+    color: white;
+  }
+  
+  .Save-And-Load {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .Save-And-Load button {
+    height: 20px;
+    width: 60px;
+    margin: 10px 10px;
+  }
+  
+  .Short-Long-Rests {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 10px 0px;
+  }
+  
+  .Short-Long-Rests button {
+    height: 30px;
+    width: 140px;
+    margin: 0px 10px 10px 10px;
+    border-radius: 0px;
+  }

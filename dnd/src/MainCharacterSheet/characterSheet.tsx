@@ -43,6 +43,8 @@ const CharacterSheet = () => {
     const [characterSpeed, setCharacterSpeed] = useState<number>(30);
     const [perceptionModifier, setPerceptionModifier] = useState<number>(2);
 
+    const [multiBoxSelection, setMultiBoxSelection] = useState<string>();
+
     // Function to calculate the modifier given the character's ability score 
     const abilityModifierSetter = (ability: string, score: number) => {
         const modifier = Math.floor((score - 10) / 2);
@@ -559,8 +561,71 @@ return (
                 <AdditionalCharacterInfoBox />
             </div>
         </div>
+        <div className="SecondLayerOfCharacterSheet">
+            <SkillsBox />
+            <div className="SavingThrows-ProficiencesAndLanguagesBox">
+                <div className="SavingThrowsOuterBox">
+                <span className="SavingThrowText"> Saving Throws </span>
+                <div className="SavingThrowInnerBox">
+                    <div className="SavingThrowsFirstColumn">
+
+                    </div>
+                    <div className="SavingThrowsSecondColumn">
+                        
+                    </div>
+                </div>
+
+                </div>
+                <div className="ProfAndLangOuterBox">
+                
+                    <span className="ProfAndLangText"> Proficiences & Languages </span>
+                </div>
+            </div>
+            <div className="Notes-MultiSelectOuterBox">
+                <div className="Notes-MultiSelectHeaderBox">
+                    <span 
+                        className="AttacksBoxButton"
+                        onClick={() => setMultiBoxSelection('ATTACKS')}> Attacks </span>
+                    <span 
+                        className="SpellsBoxButton"
+                        onClick={() => setMultiBoxSelection('SPELLS')}> Spells </span>
+                    <span 
+                        className="InventoryBoxButton"
+                        onClick={() => setMultiBoxSelection('INVENTORY')}> Inventory </span>
+                    <span 
+                        className="FeaturesAndTraitsBoxButton"
+                        onClick={() => setMultiBoxSelection('FEATS&TRAITS')}> Features & Traits </span>
+                    <span 
+                        className="DescriptionBoxButton"
+                        onClick={() => setMultiBoxSelection('DESCRIPTION')}> Description </span>
+                    <span 
+                        className="NotesBoxButton"
+                        onClick={() => setMultiBoxSelection('NOTES')}> Notes </span>
+                </div>
+                <MultiSelectBox />
+
+
+                
+            </div>
+        </div>
     </div>
 )
 }
 
 export default CharacterSheet;
+
+const SkillsBox = () => {
+    return (
+        <div className="SkillsBox">
+            <span className="SkillsText"> Skills </span>
+        </div>
+    )
+}
+
+const MultiSelectBox = () => {
+    return (
+        <div className="Notes-MultiSelectBox">
+
+        </div>
+    )
+}

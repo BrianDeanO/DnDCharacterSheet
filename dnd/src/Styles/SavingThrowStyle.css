@@ -1,0 +1,44 @@
+.SavingThrows-ProficiencesAndLanguagesBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.SavingThrowsOuterBox {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 200px;
+    background-color: rgb(255, 0, 200);
+}
+
+.SavingThrowText {
+    margin: 5px auto 0px auto;
+    font-size: 20px;
+    border-bottom-style: solid;
+    width: 200px;
+    text-align: center;
+}
+
+.SavingThrowInnerBox {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    height: 200px;
+    background-color: rgb(255, 0, 200);
+}
+
+.SavingThrowsFirstColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.SavingThrowsSecondColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfAndLangOuterBox {
+    width: 250px;
+    height: 500px;
+    background-color: rgb(89, 63, 151);
+}

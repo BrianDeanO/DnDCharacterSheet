@@ -1,0 +1,15 @@
+.SkillsBox {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 700px;
+    background-color: aquamarine;
+}
+
+.SkillsText {
+    margin: 5px auto 0px auto;
+    font-size: 20px;
+    border-bottom-style: solid;
+    width: 60px;
+    text-align: center;
+}

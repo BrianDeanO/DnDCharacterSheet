@@ -1,0 +1,15 @@
+.ProfAndLangOuterBox {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.ProfAndLangText {
+    margin: 5px auto 0px auto;
+    font-size: 17px;
+    border-bottom-style: solid;
+    border-block-width: 1.5px;
+    width: 200px;
+    text-align: center;
+    color:ghostwhite
+}

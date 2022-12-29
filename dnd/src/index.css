@@ -1,6 +1,12 @@
+@import "./Styles/HeaderStyle.css";
+@import "./Styles/MainAbilityBoxStyle.css";
 @import "./Styles/HitPointBoxStyles.css";
 @import "./Styles/DeathSaveBoxStyles.css";
 @import "./Styles/AdditionalCharacterInfo.css";
+@import "./Styles/SkillsBoxStyle.css";
+@import "./Styles/SavingThrowStyle.css";
+@import "./Styles/ProfAndLanguagesStyle.css";
+@import "./Styles/NotesAndMultiSelectStyles.css";
 
 body {
   margin: 0;
@@ -20,276 +26,30 @@ html {
   background-color: rgb(255, 255, 255);
 }
 
-.MainPage {
-  display: flex;
-  flex-direction: column;
-}
-
-/* 
-*****************************************
-  CSS Styles for Navigation Bar
-*****************************************
-*/
-.NavBar {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(184, 140, 140);
-  position: relative;
-  height: 50px;
-  max-height: 100%;
-}
-
-/* 
-*****************************************
-  CSS Styles for Character Sheet Header
-*****************************************
-*/
-
-.Header {
-  display: flex;
-  flex-direction: row;
-  flex: auto;
-  height: 120px;
-  max-height: 100%;
-  min-width: 100%;
-  padding-bottom: 10px;
-  background-color: #222;
-  position: fixed;
-  float: left;
-}
-
-.Character-Info {
-  display: flex;
-  flex-direction: row;
-  white-space: nowrap;
-  margin: 10px 10px 10px 20px;
-}
-
-.Player-ImageSVG {
-  margin: 10px 0px 10px 10px;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-}
-
-.Player-Image {
-  display: flex;
-  height: auto;
-  max-width: 100%;
-  width: 69px;
-}
-
-.Image-Circle {
-  margin: 0px  0px 0px 0px;
-}
-
-.Character-Info-Box {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-  max-height: 100%;
-  min-width: 200px;
-  margin: 10px 10px 10px 10px;
-  /* background-color: rgb(135, 166, 170); */
-  border-radius: 13px;
-  position: relative;
-}
-
-.Character-Name-Lvl {
-  display: flex;
-  flex-direction: row;
-  /* height: 100px;
-  max-height: 100%;
-  min-width: 200px;
-  margin: 10px 10px 10px 10px;
-  background-color: rgb(135, 166, 170);
-  border-radius: 13px;
-  position: relative; */
-}
-
-.Character-Name-Text {
-  color: whitesmoke;
-  font-size: 24px;
-  font-style: italic;
-  margin: 0px 10px 10px 10px;
-}
-
-.Character-Level-Title {
-  color: whitesmoke;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 10px 5px 10px 0px;
-}
-
-.Character-Level {
-  color: whitesmoke;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: normal;
-  margin: 10px 10px 10px 0px;
-}
-
-.Character-Race-Class {
-  display: flex;
-  flex-direction: row;
-  display: flex;
-  min-width: 50px;
-}
-
-.Character-Race-Class  h2 {
-  color: whitesmoke;
-  font-size: 14px;
-  text-align: center;
-  font-weight: normal;
-  margin: 0px 10px 10px 10px;
-}
-
-.Character-XP {
-  display: flex;
-  flex-direction: row;
-  display: flex;
-  min-width: 50px;
-}
-
-.Character-XP h2 {
-  color: whitesmoke;
-  font-size: 14px;
-  text-align: center;
-  font-weight: normal;
-  margin: 0px 0px 10px 10px;
-}
-
-.Spacer {
-  flex: 1 1 auto;
-  @media screen and (max-width: 2000px) {
-  display: none;
-  }
-}
-
-.Header-Buttons {
-  display: flex;
-  flex: auto;
-  flex-direction: column;
-  border-color:  #ffd300;
-  border-radius: 20px;
-  color: white;
-  position: relative;
-  margin-top: 10px;
-  margin-right: -150px;
-  white-space: nowrap;
-}
-
-.Header-Buttons button {
-  background-color: rgba(74, 69, 69, 0.808);
-  border-color: #ffd300;
-  border-radius: 13px;
-  color: white;
-}
-
-.Save-And-Load {
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  /* background-color: rgb(104, 46, 4);
-  border-radius: 13px; */
-}
-
-.Save-And-Load button {
-  height: 20px;
-  width: 60px;
-  margin: 10px 10px;
-}
-
-.Short-Long-Rests {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  margin: 40px 10px 10px 0px;
-  /* background-color: rgb(104, 46, 4);
-  border-radius: 13px; */
-}
-
-.Short-Long-Rests button {
-  height: 30px;
-  width: 140px;
-  margin: 0px 10px 10px 10px;
-  border-radius: 0px;
-}
-
-
 /* 
 *****************************************
   CSS Styles for Chracter Sheet
 *****************************************
 */
 
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 241, 241);
+}
+
 .CharacterSheet {
-  display: fixed;
+  display: flex;
   flex-direction: column;
   background-color: rgb(184, 140, 140);
-  position: relative;
-  margin: 130px auto;
+  margin: 0px auto;
   width: 1000px;
   max-width: 100%;
 }
 
-.MainAbilityAndHitPointRow {
+.SecondLayerOfCharacterSheet {
   display: flex;
   flex-direction: row;
-  width: 1000px;
+  background-color: darkseagreen;
 }
-
-.AbilityBox {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-}
-
-.AbilityBoxTopRow {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(0, 195, 255);
-}
-
-.AbilityBoxBottomRow {
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(0, 255, 55);
-}
-
-.LoneAbilityBox {
-  border-width: 2px;
-  border-style: solid;
-  border-color: #222;
-  width: 80px;
-  height: 100px;
-  margin: 20px auto;
-  text-align: center;
-  border-radius: 10px;
-  background-color: moccasin;
-}
-
-.AbilityHeader {
-  font-size: 14px;
-  margin: 2px auto -5px auto;
-}
-
-.AbilityModifier {
-  font-size: 32px;
-  height: 60px;
-  margin: 10px auto 0px auto;
-}
-
-.AbilityScore {
-  font-size: 16px;
-  border-style: solid;
-  border-width: 2px;
-  width: 45px;
-  padding-bottom: 2px;
-  height: 20px;
-  margin: -4px auto 0px auto;
-  border-radius: 20px;
-  background-color: rgb(255, 255, 255);
-}
-
 
