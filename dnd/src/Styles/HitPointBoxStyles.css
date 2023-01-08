@@ -10,13 +10,20 @@
     display: flex;
     flex-direction: column;
     background-color:rgb(231, 24, 66);
+    background-color: transparent;
     width: 600px;
+    /* border-top-style: dashed;
+    border-right-style: dashed;
+    border-bottom-style: dashed;
+    border-color: #222; */
+    height: 288px;
   }
   
   .HitPointBox {
     display: flex;
     flex-direction: column;
     background-color:rgb(193, 231, 24);
+    background-color: transparent;
     width: 600px;
     height: 200px;
   }
@@ -29,10 +36,12 @@
     display: flex;
     flex-direction: row;
     background-color:rgb(24, 131, 231);
+    background-color: transparent;
     width: 500px;
-    height: 200px;
+    height: 180px;
     border-style: solid;
-    border-color: rgb(255, 139, 255);
+    border-color: rgb(0, 0, 0);
+    border-radius: 10px;
     margin: 0px auto;
   }
   
@@ -41,7 +50,7 @@
     flex-direction: column;
     background-color: transparent;
     width: 90px;
-    height: 90px;
+    height: 80px;
     margin: 30px 5px 10px 30px;
   }
   
@@ -86,6 +95,10 @@
     background-color: rgb(138, 56, 56);
     margin: 0px auto -5px auto;
     border-radius: 10px;
+  }
+
+  .PointNumberBox input[type=number] {
+    -moz-appearance: textfield;
   }
 
   .PointNumberBox input::-webkit-outer-spin-button,

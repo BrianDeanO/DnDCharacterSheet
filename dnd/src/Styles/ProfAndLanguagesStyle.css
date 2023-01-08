@@ -11,5 +11,27 @@
     border-block-width: 1.5px;
     width: 200px;
     text-align: center;
-    color:ghostwhite
+    color:ghostwhite;
+}
+
+.ProfAndLangBoxText {
+    font-size: 16px;
+    font-weight: bold;
+    width: 200px;
+    margin: 5px 0px 2px 0px;
+    color:ghostwhite;
+}
+
+.ArmorBox, .WeaponsBox, .ToolsBox, .LanguagesBox {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    margin: 5px auto;
+}
+
+.ArmorInput {
+    /* width: 200px;
+    height: 100px; */
+    resize: none;
+    overflow-y: scroll;
 }

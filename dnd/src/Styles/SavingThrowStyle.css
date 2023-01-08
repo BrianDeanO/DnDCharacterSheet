@@ -6,16 +6,18 @@
 .SavingThrowsOuterBox {
     display: flex;
     flex-direction: column;
-    width: 250px;
-    height: 200px;
+    width: 244px;
+    height: 203px;
     background-color: rgb(255, 0, 200);
+    background-color: transparent;
+    border-style: solid;
 }
 
 .SavingThrowText {
-    margin: 5px auto 0px auto;
+    margin: 0px auto 0px auto;
     font-size: 20px;
     border-bottom-style: solid;
-    width: 200px;
+    width: 150px;
     text-align: center;
 }
 
@@ -24,17 +26,54 @@
     flex-direction: row;
     width: 250px;
     height: 200px;
-    background-color: rgb(255, 0, 200);
+    background-color: rgb(245, 128, 128);
+    background-color: transparent;
 }
 
 .SavingThrowsFirstColumn {
     display: flex;
     flex-direction: column;
+    margin: 0px 0px 5px 15px;
 }
 
 .SavingThrowsSecondColumn {
     display: flex;
     flex-direction: column;
+    margin: 0px 15px 5px 0px;
+}
+
+.LoneSavesBox {
+    display: flex;
+    flex-direction: column;
+    width: 125px;
+    height: 35px;
+    margin: 6px auto 13px auto;
+    /* background-color: rgb(139, 155, 150); */
+}
+
+.LoneSavesBoxInnerTop {
+    display: flex;
+    flex-direction: row;
+    width: 125px;
+    height: 35px;
+}
+
+.SaveModifierValue {
+    width: 30px;
+    height: 30px;
+    margin: 0px 5px;
+    border-bottom-style: solid;
+    border-color: black;
+    border-width: 2px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.SaveNameText {
+    font-size: 16px;
+    margin: 0px 5px;
+    font-weight: 500;
 }
 
 .ProfAndLangOuterBox {

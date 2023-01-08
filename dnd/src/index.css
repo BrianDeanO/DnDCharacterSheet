@@ -7,6 +7,7 @@
 @import "./Styles/SavingThrowStyle.css";
 @import "./Styles/ProfAndLanguagesStyle.css";
 @import "./Styles/NotesAndMultiSelectStyles.css";
+@import "./Styles/MultiSelect-AttacksStyle.css";
 
 body {
   margin: 0;

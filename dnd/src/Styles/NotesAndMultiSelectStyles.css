@@ -1,4 +1,4 @@
-Notes-MultiSelectOuterBox {
+.Notes-MultiSelectOuterBox {
     display: flex;
     flex-direction: column;
 }
@@ -9,6 +9,10 @@ Notes-MultiSelectOuterBox {
     background-color: cadetblue;
     width: 500px;
     height: 45px;
+}
+
+.activeButton {
+    background-color: rgb(255, 203, 139);
 }
 
 .AttacksBoxButton {
@@ -56,6 +60,7 @@ Notes-MultiSelectOuterBox {
     border-radius: 3px;
 }
 
+
 .NotesBoxButton {
     margin: 10px 3px 0px 2px;
     background-color: bisque;
@@ -65,7 +70,27 @@ Notes-MultiSelectOuterBox {
     border-radius: 3px;
 }
 
-.Notes-MultiSelectBox {
-    height: 625px;
-    width: 500px;
+.AttacksBoxButton:hover,
+.SpellsBoxButton:hover,
+.InventoryBoxButton:hover,
+.FeaturesAndTraitsBoxButton:hover,
+.DescriptionBoxButton:hover, 
+.NotesBoxButton:hover {
+    cursor: pointer;
 }
+
+.AttacksBoxButton:active {
+    background-color: rgb(255, 203, 139);
+}
+
+
+
+.Notes-MultiSelectBox {
+    display: flex;
+    flex-direction: column;
+    height: 615px;
+    width: 490px;
+    margin: 10px 0px 0px 10px;
+    overflow: auto;
+}
+

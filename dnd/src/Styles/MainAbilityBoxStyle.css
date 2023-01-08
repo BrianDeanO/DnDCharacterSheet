@@ -7,19 +7,24 @@
   .AbilityBox {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 396px;
+    border-right-style: solid;
+    border-color: #222;
+    height: 292px;
   }
   
   .AbilityBoxTopRow {
     display: flex;
     flex-direction: row;
     background-color: rgb(0, 195, 255);
+    background-color: transparent;
   }
   
   .AbilityBoxBottomRow {
     display: flex;
     flex-direction: row;
     background-color: rgb(0, 255, 55);
+    background-color: transparent;
   }
   
   .LoneAbilityBox {

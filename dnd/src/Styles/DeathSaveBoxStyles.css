@@ -42,16 +42,21 @@
   .DeathSavingThrowsInnerBox {
     display: flex;
     flex-direction: row;
+    width: 400px;
+    height: 159px;
+    border-style: solid;
+    border-bottom-style: solid;
+    border-color: rgb(0, 0, 0);
   }
   
   .DeathSavesBox {
     display: flex;
     flex-direction: column;
     width: 200px;
-    height: 150px;
+    height: 159px;
     background-color: #000000;
-    border-style: solid;
-    border-color: rgb(255, 139, 255);
+    border-right-style: solid;
+    border-color: rgb(0, 0, 0);
     margin: 0px auto;
   }
   
@@ -64,7 +69,7 @@
     display: flex;
     flex-direction: row;
     width: 200px;
-    height: 75px;
+    height: 80px;
     background-color: #d3d3d3;
     margin: 0px auto;
   }
@@ -73,7 +78,7 @@
     display: flex;
     flex-direction: row;
     width: 200px;
-    height: 75px;
+    height: 80px;
     background-color: rgb(189, 189, 189);
     margin: 0px auto;
   }

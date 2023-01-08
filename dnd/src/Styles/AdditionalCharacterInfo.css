@@ -4,6 +4,8 @@
     height: 88px;
     width: 600px;
     background-color: blueviolet;
+    background-color: transparent;
+    margin: 5px auto 0px auto;
 }
 
 .ProfBonusBox {
