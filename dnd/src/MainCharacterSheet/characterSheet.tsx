@@ -2,6 +2,8 @@ import { ChangeEvent, Component, ReactComponentElement, useCallback, useEffect, 
 import React from "react";
 
 const CharacterSheet = () => {
+    console.log('Testing Git Connection From Macbook Pro.');
+
     let strScore = 12;
     let dexScore = 10;
     let constScore = 16;
