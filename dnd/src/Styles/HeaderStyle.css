@@ -20,6 +20,8 @@
     display: flex;
     flex-direction: row;
     margin: 10px 10px 10px 20px;
+    max-height: 100%;
+    min-width: 200px;
   }
   
   .Player-ImageSVG {
@@ -63,6 +65,15 @@
     font-style: italic;
     margin: 0px 10px 10px 10px;
   }
+
+  .Character-Name-Input {
+    color: whitesmoke;
+    font-size: 20px;
+    font-style: italic;
+    margin: 0px 10px 10px 10px;
+    background-color: #222;
+    border-color: #ffd300;
+  }
   
   .Character-Level-Title {
     color: whitesmoke;
@@ -77,6 +88,16 @@
     font-style: italic;
     font-weight: normal;
     margin: 10px 10px 10px 0px;
+  }
+
+  .Character-Level-Input {
+    color: whitesmoke;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 10px 10px 10px 0px;
+    background-color: #222;
+    border-color: #ffd300;
   }
   
   .Character-Race-Class {
@@ -93,7 +114,18 @@
     font-weight: normal;
     margin: 0px 10px 10px 10px;
   }
-  
+
+  .Character-Race-Class-Input {
+    color: whitesmoke;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0px 10px 10px 10px;
+    width: 150px;
+    background-color: #222;
+    border-color: #ffd300;
+  }
+
   .Character-XP {
     display: flex;
     flex-direction: row;
@@ -108,6 +140,17 @@
     font-weight: normal;
     margin: 0px 0px 10px 10px;
   }
+
+  .Character-XP-Input {
+    color: whitesmoke;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    margin: 0px 0px 10px 10px;
+    width: 100px;
+    background-color: #222;
+    border-color: #ffd300;
+  }
   
   .Spacer {
     width: 375px;
@@ -116,16 +159,25 @@
     display: none;
     } */
   }
+
+  .Character-Header-Edit-Button {
+    height: 25px;
+    width: 40px;
+    margin: 5px 10px 0px 30px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+  }
   
   .Header-Buttons {
     display: flex;
-    flex: auto;
     flex-direction: column;
     border-color:  #ffd300;
     border-radius: 20px;
     color: white;
-    margin: 10px 0px 0px 0px;
-    white-space: nowrap;
+    margin-left: auto; 
+    margin-right: 0;
   }
   
   .Header-Buttons button {

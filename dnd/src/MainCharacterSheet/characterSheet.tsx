@@ -1,21 +1,57 @@
-import { ChangeEvent, Component, ReactComponentElement, useCallback, useEffect, useRef, useState } from "react";
 import React from "react";
+import { ChangeEvent, Component, ReactComponentElement, useCallback, useEffect, useRef, useState } from "react";
+import { AbilityBoxInfo } from "./abilityBox";
+import { SkillsBox } from "./skillsBox";
+import { determineModifier } from "../helpers/determineModSign";
 
-const CharacterSheet = () => {
-    console.log('Testing Git Connection From Macbook Pro.');
-
-    let strScore = 12;
-    let dexScore = 10;
-    let constScore = 16;
-    let intScore = 13;
-    let wisScore = 8;
-    let chaScore = 12;
+const CharacterSheet = ({abilityBoxInfo, skillsBoxInfo}) => {
+    // let strScore = 12;
+    // let dexScore = 10;
+    // let constScore = 16;
+    // let intScore = 13;
+    // let wisScore = 8;
+    // let chaScore = 12;
     let currentHitPoints = 1;
     let maxHitPoints = 20;
     let tempHitPoints = 0;
     let isEdit = false;
+    let abilityBoxEdit = false;
+
+    const [strengthScore, setStrengthScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.str : 15);
+    const [dexterityScore, setDexterityScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.dex : 14);
+    const [constitutionScore, setConstitutionScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.const : 8);
+    const [intelligenceScore, setIntelligenceScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.int : 10);
+    const [wisdomScore, setWisdomScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.wis : 12);
+    const [charismaScore, setCharismaScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.cha : 13);
+
+    const abilityBoxObj = {str: strengthScore, dex: dexterityScore, const: constitutionScore, int: intelligenceScore, wis: wisdomScore, cha: charismaScore};
+
+    if(!abilityBoxInfo) {
+        localStorage.setItem("abilityBoxInfo", JSON.stringify(abilityBoxObj));
+    }
+
+    function updateAbilityBoxInfo(str: number, dex: number, constituion: number, int: number, wis: number, cha: number,) {
+        setStrengthScore(str);
+        setDexterityScore(dex);
+        setConstitutionScore(constituion);
+        setIntelligenceScore(int);
+        setWisdomScore(wis);
+        setCharismaScore(cha);
+    }
+
+    useEffect(() => {
+        localStorage.setItem("abilityBoxInfo", JSON.stringify(
+            {str: strengthScore, dex: dexterityScore, const: constitutionScore, int: intelligenceScore, wis: wisdomScore, cha: charismaScore}));
+    }, [strengthScore, dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore]);
 
     const [skillsIsEdit, setSkillsIsEdit] = useState<boolean>(false);
+
+    const [strScore, setSTRScore] = useState<number>(0);
+    const [dexScore, setDEXScore] = useState<number>(0);
+    const [constScore, setCONSTScore] = useState<number>(0);
+    const [intScore, setINTScore] = useState<number>(0);
+    const [wisScore, setWISScore] = useState<number>(0);
+    const [chaScore, setCHAScore] = useState<number>(0);
 
     // React State Components to set the character's ability modifier scores
     const [STRModifier, setSTRModifier] = useState<number>(0);
@@ -24,6 +60,56 @@ const CharacterSheet = () => {
     const [INTModifier, setINTModifier] = useState<number>(0);
     const [WISModifier, setWISModifier] = useState<number>(0);
     const [CHAModifier, setCHAModifier] = useState<number>(0);
+
+    const abilityModObj = {str: STRModifier, dex: DEXModifier, const: CONSTModifier, int: INTModifier, wis: WISModifier, cha: CHAModifier};
+
+    // // Function to calculate the modifier given the character's ability score
+    // const abilityModifierSetter = (ability: string, score: number) => {
+    //     const modifier = Math.floor((score - 10) / 2);
+    //     switch(ability) {
+    //         case 'STR':
+    //             setSTRModifier(modifier);
+    //             break;
+    //         case 'DEX':
+    //             setDEXModifier(modifier);
+    //             break;
+    //         case 'CONST':
+    //             setCONSTModifier(modifier);
+    //             break;
+    //         case 'INT':
+    //             setINTModifier(modifier);
+    //             break;
+    //         case 'WIS':
+    //             setWISModifier(modifier);
+    //             break;
+    //         case 'CHA':
+    //             setCHAModifier(modifier);
+    //             break;
+    //     }
+    // }
+
+    // function updateModInfo(abilityBoxObj) {
+    //     abilityModifierSetter('STR', abilityBoxObj.str);
+    //     abilityModifierSetter('DEX', abilityBoxObj.dex);
+    //     abilityModifierSetter('CONST', abilityBoxObj.const);
+    //     abilityModifierSetter('INT', abilityBoxObj.int);
+    //     abilityModifierSetter('WIS', abilityBoxObj.wis);
+    //     abilityModifierSetter('CHA', abilityBoxObj.cha);
+    // }
+
+    // // React Effect Hook to dynamically determine and set ability modifiers
+    // useEffect(() => {
+    //     abilityModifierSetter('STR', strScore);
+    //     abilityModifierSetter('DEX', dexScore);
+    //     abilityModifierSetter('CONST', constScore);
+    //     abilityModifierSetter('INT', intScore);
+    //     abilityModifierSetter('WIS', wisScore);
+    //     abilityModifierSetter('CHA', chaScore);
+    // });
+
+    // useEffect(() => {
+    //     localStorage.setItem("abilityBox", JSON.stringify(abilityBoxObj));
+    // }, [strScore, dexScore, constScore, intScore, wisScore, chaScore]);
 
     const [pointValue, setPointValue] = useState<number>(0);
 
@@ -47,30 +133,10 @@ const CharacterSheet = () => {
     const [characterSpeed, setCharacterSpeed] = useState<number>(30);
     const [perceptionModifier, setPerceptionModifier] = useState<number>(2);
 
-    const skillNamesArray = [
-        'Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 
-        'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion', 'Sleight of Hand',
-        'Stealth', 'Survival'];
-
-    const proficientSkillsArray = skillNamesArray.map((skillName) => {
-        return(
-            {skill: skillName, proficient: false, modifier: 0}
-        )
-    });
-
-    console.log(proficientSkillsArray);
-
-    useEffect(() => {
-        proficientSkillsArray.forEach(() => {
-            
-        })
-    });
-
     const [armorProficiencies,setArmorProficiencies] = useState<string>('');
     const [weaponProficiencies,setWeaponProficiencies] = useState<string>('None');
     const [toolProficiencies,setToolProficiencies] = useState<string>('None');
     const [languageProficiencies,setLanguageProficiencies] = useState<string>('None');
-
 
     const [multiBoxSelection, setMultiBoxSelection] = useState<string>('ATTACKS');
 
@@ -106,40 +172,7 @@ const CharacterSheet = () => {
 
     attackCardArray.push(testAttackCard);
 
-    // Function to calculate the modifier given the character's ability score
-    const abilityModifierSetter = (ability: string, score: number) => {
-        const modifier = Math.floor((score - 10) / 2);
-        switch(ability) {
-            case 'STR':
-                setSTRModifier(modifier);
-                break;
-            case 'DEX':
-                setDEXModifier(modifier);
-                break;
-            case 'CONST':
-                setCONSTModifier(modifier);
-                break;
-            case 'INT':
-                setINTModifier(modifier);
-                break;
-            case 'WIS':
-                setWISModifier(modifier);
-                break;
-            case 'CHA':
-                setCHAModifier(modifier);
-                break;
-        }
-    }
 
-    // React Effect Hook to dynamically determine and set ability modifiers
-    useEffect(() => {
-        abilityModifierSetter('STR', strScore);
-        abilityModifierSetter('DEX', dexScore);
-        abilityModifierSetter('CONST', constScore);
-        abilityModifierSetter('INT', intScore);
-        abilityModifierSetter('WIS', wisScore);
-        abilityModifierSetter('CHA', chaScore);
-    });
 
     useEffect(() => {
         setCurrentHealth(currentHitPoints);
@@ -155,11 +188,7 @@ const CharacterSheet = () => {
 
 
 
-    // Function to get the correct sign on the ability modifier
-    function determineModifierSign(abilityMod) {
-        const signedMod = abilityMod >= 0 ? `+${abilityMod}` : `${abilityMod}`;
-        return signedMod;
-    }
+
 
     function healPlayer(pointValue: number) {
         if((currentHealth + pointValue) >= maxHealth) {
@@ -374,58 +403,6 @@ const CharacterSheet = () => {
         }
     }
 
-    function determineSkillCheckBonus(skillName: string, skillAbilityAcronym: string) {
-        let skillBonus = 0;
-        const skillProfCircle = document.getElementById(skillName)!;
-        const skillIndex = proficientSkillsArray.findIndex((skillElement) => (skillElement.skill === skillName));
-        console.log('skill prof circle', skillProfCircle);
-        console.log('skill index', skillIndex);
-
-        if(skillProfCircle?.className === 'ProficiencyCheckBox') {
-            skillProfCircle.className = 'ProficiencyCheckBoxActive';
-        } else {
-            skillProfCircle.className = 'ProficiencyCheckBox';
-        }
-
-        if(skillIndex !== -1) {
-            if(proficientSkillsArray[skillIndex].proficient) {
-                proficientSkillsArray[skillIndex].proficient = false;
-            } else{
-                proficientSkillsArray[skillIndex].proficient = true;
-                skillBonus += proficiencyBonus;
-            }
-        }
-
-        switch(skillAbilityAcronym) {
-            case 'STR':
-                skillBonus += STRModifier;
-                break;
-            case 'DEX':
-                skillBonus += DEXModifier;
-                break;
-            case 'CONST':
-                skillBonus += CONSTModifier;
-                break;
-            case 'INT':
-                skillBonus += INTModifier;
-                break;
-            case 'WIS':
-                skillBonus += WISModifier;
-                break;
-            case 'CHA':
-                skillBonus += CHAModifier;
-                break;
-        }
-
-        console.log('newElement', proficientSkillsArray[skillIndex]);
-        console.log('bonus', skillBonus);
-
-        proficientSkillsArray[skillIndex].modifier += skillBonus;
-
-        console.log(' after newElement', proficientSkillsArray[skillIndex]);
-        return skillBonus;
-    }
-
     function determineSaveThrowBonus(abilityName: string) {
         let savingThrowBonus = 0;
 
@@ -454,7 +431,7 @@ const CharacterSheet = () => {
         //     savingThrowBonus += proficiencyBonus;
         // }
 
-        console.log('skill', savingThrowBonus);
+       // console.log('skill', savingThrowBonus);
 
         return savingThrowBonus;
     }
@@ -672,7 +649,7 @@ const CharacterSheet = () => {
                     <span id="SpeedTextBottom"> Speed </span>
                 </div>
                 <div className="PassiveWisdomBox">
-                    <span id="PassiveTextValue"> {determineModifierSign(perceptionModifier)} </span>
+                    <span id="PassiveTextValue"> {determineModifier(perceptionModifier)} </span>
                     <span id="PassiveTextMiddle"> Passive Wisdom </span>
                     <span id="PassiveTextBottom"> (Perception) </span>
                 </div>
@@ -768,235 +745,236 @@ const CharacterSheet = () => {
 
     }
 
-    const SkillsBox = () => {
-
-        return (
-            <div className="SkillsBox">
-                <div className="SkillsBoxHeader">
-                    <span className="SkillsText"> Skills </span>
-                    <button 
-                        className="SkillsEditButton"
-                        onClick={(e) => {setSkillsIsEdit(!skillsIsEdit)}}>edit</button>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Acrobatics"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Acrobatics', 'DEX');
-                        }}}></span>
-                    <span className="SkillModifierValue"> {determineModifierSign(proficientSkillsArray[0].modifier)} </span>
-                    <span className="SkillsNameText"> Acrobatics </span>
-                    <span className="SkillsNameAbilityMod"> (DEX) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                        className="ProficiencyCheckBox"
-                        id="Animal Handling"
-                        onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Animal Handling', 'WIS');
-                        }}}></span>
-                    <span className="SkillModifierValue"> +1 </span>
-                    <span className="SkillsNameText"> Animal Handling </span>
-                    <span className="SkillsNameAbilityMod"> (WIS) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Arcana"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Arcana', 'INT');
-                    }}}></span>
-                    <span className="SkillModifierValue"> -1 </span>
-                    <span className="SkillsNameText"> Arcana </span>
-                    <span className="SkillsNameAbilityMod"> (INT) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Athletics"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Athletics', 'STR');}
-                    }}></span>
-                    <span className="SkillModifierValue"> +3 </span>
-                    <span className="SkillsNameText"> Athletics </span>
-                    <span className="SkillsNameAbilityMod"> (STR) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Deception"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Deception', 'CHA');
-                    }}}></span>
-                    <span className="SkillModifierValue"> +2 </span>
-                    <span className="SkillsNameText"> Deception </span>
-                    <span className="SkillsNameAbilityMod"> (CHA) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                        className="ProficiencyCheckBox"
-                        id="History"
-                        onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('History', 'INT');
-                        }}}></span>
-                    <span className="SkillModifierValue"> -1 </span>
-                    <span className="SkillsNameText"> History </span>
-                    <span className="SkillsNameAbilityMod"> (INT) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Insight"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Insight', 'WIS');
-                    }}}></span>
-                    <span className="SkillModifierValue"> +1 </span>
-                    <span className="SkillsNameText"> Insight </span>
-                    <span className="SkillsNameAbilityMod"> (WIS) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Intimidation"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Intimidation', 'CHA');
-                    }}}></span>
-                    <span className="SkillModifierValue"> +2 </span>
-                    <span className="SkillsNameText"> Intimidation </span>
-                    <span className="SkillsNameAbilityMod"> (CHA) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Investigation"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Investigation', 'INT');
-                    }}}></span>
-                    <span className="SkillModifierValue"> -1 </span>
-                    <span className="SkillsNameText"> Investigation </span>
-                    <span className="SkillsNameAbilityMod"> (INT) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Medicine"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Medicine', 'WIS');
-                    }}}></span>
-                    <span className="SkillModifierValue"> +1 </span>
-                    <span className="SkillsNameText"> Medicine </span>
-                    <span className="SkillsNameAbilityMod"> (WIS) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Nature"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Nature', 'INT');
-                    }}} ></span>
-                    <span className="SkillModifierValue"> -1 </span>
-                    <span className="SkillsNameText"> Nature </span>
-                    <span className="SkillsNameAbilityMod"> (INT) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Perception"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Perception', 'WIS');
-                    }}}></span>
-                    <span className="SkillModifierValue"> +3 </span>
-                    <span className="SkillsNameText"> Perception </span>
-                    <span className="SkillsNameAbilityMod"> (WIS) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Performance"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Performance', 'CHA');
-                    }}} ></span>
-                    <span className="SkillModifierValue"> +2 </span>
-                    <span className="SkillsNameText"> Performance </span>
-                    <span className="SkillsNameAbilityMod"> (CHA) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Persuasion"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Persuasion', 'CHA');
-                    }}}></span>
-                    <span className="SkillModifierValue"> +4 </span>
-                    <span className="SkillsNameText"> Persuasion </span>
-                    <span className="SkillsNameAbilityMod"> (CHA) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Religion"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Religion', 'INT');}
-                    }}></span>
-                    <span className="SkillModifierValue"> -1 </span>
-                    <span className="SkillsNameText"> Religion </span>
-                    <span className="SkillsNameAbilityMod"> (INT) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Sleight of Hand"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Sleight of Hand', 'DEX');}
-                    }}></span>
-                    <span className="SkillModifierValue"> +0 </span>
-                    <span className="SkillsNameText"> Sleight of Hand </span>
-                    <span className="SkillsNameAbilityMod"> (DEX) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Stealth"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Stealth', 'DEX');}
-                    }}></span>
-                    <span className="SkillModifierValue"> +0 </span>
-                    <span className="SkillsNameText"> Stealth </span>
-                    <span className="SkillsNameAbilityMod"> (DEX) </span>
-                </div>
-                <div className="LoneSkillsBox">
-                    <span 
-                    className="ProficiencyCheckBox"
-                    id="Survival"
-                    onClick={() => {
-                        if(skillsIsEdit) {
-                            determineSkillCheckBonus('Survival', 'WIS');}
-                    }}></span>
-                    <span className="SkillModifierValue"> +1 </span>
-                    <span className="SkillsNameText"> Survival </span>
-                    <span className="SkillsNameAbilityMod"> (WIS) </span>
-                </div>
-            </div>
-        )
-    }
+    // const SkillsBox = () => {
+    //     return (
+    //         <div className="SkillsBox">
+    //             <div className="SkillsBoxHeader">
+    //                 <span className="SkillsText"> Skills </span>
+    //                 <button 
+    //                     className="SkillsEditButton"
+    //                     onClick={(e) => {
+    //                         setSkillsIsEdit(!skillsIsEdit);
+    //                         }}>{skillsIsEdit ? 'save' : 'edit'}</button>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Acrobatics"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Acrobatics', 'DEX');
+    //                     }}}></span>
+    //                 <span className="SkillModifierValue"> {determineModifierSign(Acrobatics)} </span>
+    //                 <span className="SkillsNameText"> Acrobatics </span>
+    //                 <span className="SkillsNameAbilityMod"> (DEX) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                     className="ProficiencyCheckBox"
+    //                     id="Animal Handling"
+    //                     onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Animal Handling', 'WIS');
+    //                     }}}></span>
+    //                 <span className="SkillModifierValue"> {determineModifierSign(proficientSkillsArray[1].modifier)} </span>
+    //                 <span className="SkillsNameText"> Animal Handling </span>
+    //                 <span className="SkillsNameAbilityMod"> (WIS) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Arcana"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Arcana', 'INT');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> -1 </span>
+    //                 <span className="SkillsNameText"> Arcana </span>
+    //                 <span className="SkillsNameAbilityMod"> (INT) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Athletics"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Athletics', 'STR');}
+    //                 }}></span>
+    //                 <span className="SkillModifierValue"> +3 </span>
+    //                 <span className="SkillsNameText"> Athletics </span>
+    //                 <span className="SkillsNameAbilityMod"> (STR) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Deception"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Deception', 'CHA');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> +2 </span>
+    //                 <span className="SkillsNameText"> Deception </span>
+    //                 <span className="SkillsNameAbilityMod"> (CHA) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                     className="ProficiencyCheckBox"
+    //                     id="History"
+    //                     onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('History', 'INT');
+    //                     }}}></span>
+    //                 <span className="SkillModifierValue"> -1 </span>
+    //                 <span className="SkillsNameText"> History </span>
+    //                 <span className="SkillsNameAbilityMod"> (INT) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Insight"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Insight', 'WIS');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> +1 </span>
+    //                 <span className="SkillsNameText"> Insight </span>
+    //                 <span className="SkillsNameAbilityMod"> (WIS) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Intimidation"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Intimidation', 'CHA');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> +2 </span>
+    //                 <span className="SkillsNameText"> Intimidation </span>
+    //                 <span className="SkillsNameAbilityMod"> (CHA) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Investigation"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Investigation', 'INT');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> -1 </span>
+    //                 <span className="SkillsNameText"> Investigation </span>
+    //                 <span className="SkillsNameAbilityMod"> (INT) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Medicine"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Medicine', 'WIS');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> +1 </span>
+    //                 <span className="SkillsNameText"> Medicine </span>
+    //                 <span className="SkillsNameAbilityMod"> (WIS) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Nature"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Nature', 'INT');
+    //                 }}} ></span>
+    //                 <span className="SkillModifierValue"> -1 </span>
+    //                 <span className="SkillsNameText"> Nature </span>
+    //                 <span className="SkillsNameAbilityMod"> (INT) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Perception"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Perception', 'WIS');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> +3 </span>
+    //                 <span className="SkillsNameText"> Perception </span>
+    //                 <span className="SkillsNameAbilityMod"> (WIS) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Performance"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Performance', 'CHA');
+    //                 }}} ></span>
+    //                 <span className="SkillModifierValue"> +2 </span>
+    //                 <span className="SkillsNameText"> Performance </span>
+    //                 <span className="SkillsNameAbilityMod"> (CHA) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Persuasion"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Persuasion', 'CHA');
+    //                 }}}></span>
+    //                 <span className="SkillModifierValue"> +4 </span>
+    //                 <span className="SkillsNameText"> Persuasion </span>
+    //                 <span className="SkillsNameAbilityMod"> (CHA) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Religion"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Religion', 'INT');}
+    //                 }}></span>
+    //                 <span className="SkillModifierValue"> -1 </span>
+    //                 <span className="SkillsNameText"> Religion </span>
+    //                 <span className="SkillsNameAbilityMod"> (INT) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Sleight of Hand"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Sleight of Hand', 'DEX');}
+    //                 }}></span>
+    //                 <span className="SkillModifierValue"> +0 </span>
+    //                 <span className="SkillsNameText"> Sleight of Hand </span>
+    //                 <span className="SkillsNameAbilityMod"> (DEX) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Stealth"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Stealth', 'DEX');}
+    //                 }}></span>
+    //                 <span className="SkillModifierValue"> +0 </span>
+    //                 <span className="SkillsNameText"> Stealth </span>
+    //                 <span className="SkillsNameAbilityMod"> (DEX) </span>
+    //             </div>
+    //             <div className="LoneSkillsBox">
+    //                 <span 
+    //                 className="ProficiencyCheckBox"
+    //                 id="Survival"
+    //                 onClick={() => {
+    //                     if(skillsIsEdit) {
+    //                         determineSkillCheckBonus('Survival', 'WIS');}
+    //                 }}></span>
+    //                 <span className="SkillModifierValue"> +1 </span>
+    //                 <span className="SkillsNameText"> Survival </span>
+    //                 <span className="SkillsNameAbilityMod"> (WIS) </span>
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
     const SavingThrowsBox = () => {
         return (
@@ -1226,6 +1204,7 @@ const CharacterSheet = () => {
             <div className="finalAttackBonusOuterBox">
                 <span className="attackBonusText">ATK Bonus</span>
                 <div className="finalAttackInnerBox">
+                    {/*@ts-ignore*/}
                     <span className="finalAttackBonusText">{`+${attackCardArray[attackCardArray.length-1].atkBonus}`} </span> 
                 </div>
             </div>
@@ -1429,50 +1408,17 @@ const CharacterSheet = () => {
     return (
         <div className="CharacterSheet">
             <div className="MainAbilityAndHitPointRow">
-                <div className="AbilityBox">
-                    <div className="AbilityBoxTopRow">
-                        <div className="LoneAbilityBox">
-                            <div className="AbilityHeader"> Strength  </div>
-                            <div className="AbilityModifier"> {determineModifierSign(STRModifier)} </div>
-                            <div className="AbilityScore"> {strScore} </div>
-                        </div>
-                        <div className="LoneAbilityBox">
-                            <div className="AbilityHeader"> Dexterity  </div>
-                            <div className="AbilityModifier"> {determineModifierSign(DEXModifier)} </div>
-                            <div className="AbilityScore"> {dexScore} </div>
-                        </div>
-                        <div className="LoneAbilityBox">
-                            <div className="AbilityHeader"> Constitution  </div>
-                            <div className="AbilityModifier"> {determineModifierSign(CONSTModifier)} </div>
-                            <div className="AbilityScore"> {constScore} </div>
-                        </div>
-                    </div>
-
-                    <div className="AbilityBoxBottomRow">
-                            <div className="LoneAbilityBox">
-                                <div className="AbilityHeader"> Intelligence  </div>
-                                <div className="AbilityModifier"> {determineModifierSign(INTModifier)} </div>
-                                <div className="AbilityScore"> {intScore} </div>
-                            </div>
-                            <div className="LoneAbilityBox">
-                                <div className="AbilityHeader"> Wisdom  </div>
-                                <div className="AbilityModifier"> {determineModifierSign(WISModifier)} </div>
-                                <div className="AbilityScore"> {wisScore} </div>
-                            </div>
-                            <div className="LoneAbilityBox">
-                                <div className="AbilityHeader"> Charisma  </div>
-                                <div className="AbilityModifier"> {determineModifierSign(CHAModifier)} </div>
-                                <div className="AbilityScore"> {chaScore} </div>
-                            </div>
-                    </div>
-                </div>
+                <AbilityBoxInfo abilityBoxInfo={abilityBoxInfo}/>
                 <div className="HitPoint-DeathSavesAndInfoBox">
                     {(currentHealth <= 0) ? <DeathSavingThrowsBox /> : <HitPointTrackerBox />}
                     <AdditionalCharacterInfoBox />
                 </div>
             </div>
             <div className="SecondLayerOfCharacterSheet">
-                <SkillsBox />
+                <SkillsBox 
+                    abilityBoxInfo={abilityBoxInfo}
+                    skillsBoxInfo={skillsBoxInfo} 
+                    proficiencyBonus={proficiencyBonus} />
                 <SavingThrowsBox />
                 <div className="Notes-MultiSelectOuterBox">
                     <div className="Notes-MultiSelectHeaderBox">

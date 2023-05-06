@@ -61,3 +61,31 @@
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
   }
+
+  .AbilityBoxEditButton {
+    height: 27px;
+    width: 40px;
+    margin: -5px 0px -10px 177px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .AbilityScoreInput {
+    font-size: 16px;
+    border-style: solid;
+    border-width: 2px;
+    width: 45px;
+    padding-bottom: 2px;
+    height: 20px;
+    margin: -4px auto 0px auto;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    border-color: #222;
+    text-align: center;
+  }
