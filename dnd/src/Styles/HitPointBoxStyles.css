@@ -28,8 +28,25 @@
     height: 200px;
   }
   
-  .HitPointsTitle {
-    margin: 0px auto 5px auto;
+  .HitPointsTitle {    
+    display: flex;
+    flex-direction: row;
+    margin: -15px auto 0px 225px;
+    height: 60px;
+  }
+
+  .HealthEditButton {
+    height: 25px;
+    width: 80px;
+    margin: 25px 10px 0px 30px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+  }
+  
+  button:hover {
+    cursor: pointer;
   }
   
   .HealAndDamageBox {
@@ -197,10 +214,25 @@
     color:rgb(0, 0, 0);
     margin: -23px -20px 0px 0px;
   }
+
+  .MaxHitPointInput {
+    font-size: 16px;
+    border-style: solid;
+    border-width: 2px;
+    width: 45px;
+    padding-bottom: 2px;
+    height: 30px;
+    margin: -15px -10px 0px 0px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    border-color: #222;
+    text-align: center;
+  }
   
   .TemporaryHitPoints {
     display: flex;
     flex-direction: column;
+    margin: 0px auto auto auto;
   }
   
   .TempHitPointSurroundingBox {

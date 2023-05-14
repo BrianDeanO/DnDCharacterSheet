@@ -1,0 +1,38 @@
+OLD SKILLS BOX determineModSign
+
+<div className="LoneSkillsBox">
+                <span 
+                                className= {
+                                    profInAcrobatics ? 
+                                        'ProficiencyCheckBoxActive' : 
+                                        'ProficiencyCheckBox'}
+                // className= {
+                //     proficientSkillsArray[0].proficient ? 
+                //         'ProficiencyCheckBoxActive' : 
+                //         'ProficiencyCheckBox'}
+                id="Acrobatics"
+                onClick={() => {
+                    if(skillsIsEdit) {
+                        setProfInAcrobatics(!profInAcrobatics);
+                    }
+                    // if(skillsIsEdit) {
+                    //     (proficientSkillsArray[0].proficient = !proficientSkillsArray[0].proficient );
+                    //     console.log("acro prof", proficientSkillsArray[0].proficient);
+                    // }
+                    }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInAcrobatics ? 
+                        (((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) >= 0) ?
+                           `+${((parseInt(determineModifier(Acrobatics)) + proficiencyBonus))}` 
+                           : ((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) 
+                        : determineModifier(Acrobatics)}
+
+                    {/* { proficientSkillsArray[0].proficient ? 
+                        (((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) >= 0) ?
+                           `+${((parseInt(determineModifier(Acrobatics)) + proficiencyBonus))}` 
+                           : ((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) 
+                        : determineModifier(Acrobatics)}  */}
+                </span>
+                <span className="SkillsNameText"> Acrobatics </span>
+                <span className="SkillsNameAbilityMod"> (DEX) </span>
+            </div>

@@ -9,7 +9,6 @@
     width: 244px;
     height: 203px;
     background-color: rgb(255, 0, 200);
-    background-color: transparent;
     border-style: solid;
 }
 
@@ -27,7 +26,28 @@
     width: 250px;
     height: 200px;
     background-color: rgb(245, 128, 128);
-    background-color: transparent;
+}
+
+.SavingsThrowHeader {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    height: 35px;
+    background-color: rgb(167, 167, 167);
+}
+
+.SaveThrowsEditButton {
+    height: 25px;
+    width: 40px;
+    margin: 5px 10px 0px -40px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 .SavingThrowsFirstColumn {

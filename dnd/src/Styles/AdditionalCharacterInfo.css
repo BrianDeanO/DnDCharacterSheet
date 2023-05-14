@@ -21,7 +21,7 @@
     margin: -2px auto 2px auto;
 }
 
-#ProfTextValue {
+.ProfTextValue {
     margin: -2px auto 0px auto;
     border-style: dotted;
     border-width: 3px;
@@ -33,6 +33,20 @@
 
 #ProfTextBottom {
     margin: -1px auto 0px auto;
+}
+
+.ProfInput {
+    font-size: 16px;
+    border-style: solid;
+    border-width: 2px;
+    width: 45px;
+    padding-bottom: 2px;
+    height: 20px;
+    margin: 3px auto 2.5px auto;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    border-color: #222;
+    text-align: center;
 }
 
 .ArmorClassBox {
@@ -50,7 +64,7 @@
     margin: -2px auto 2px auto;
 }
 
-#ArmorTextValue {
+.ArmorTextValue {
     margin: -2px auto 0px auto;
     width: 30px;
     text-align: center;
@@ -62,6 +76,34 @@
     margin: -1px auto 0px auto;
 }
 
+.ArmorIncrement {
+    font-size: 16px;
+    border-style: solid;
+    border-width: 2px;
+    width: 45px;
+    padding-bottom: 2px;
+    height: 20px;
+    margin: 0px auto -1px auto;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    border-color: #222;
+    text-align: center;
+}
+
+.AdditionalInfoEditButton {
+    height: 25px;
+    width: 40px;
+    margin: 30px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 .SpeedBox {
     display: flex;
     flex-direction: column;
@@ -71,7 +113,7 @@
     margin: auto;
 }
 
-#SpeedTextValue {
+.SpeedTextValue {
     margin: 5px auto 0px auto;
     border-style: solid;
     border-width: 3px;
@@ -87,6 +129,20 @@
     margin: 3px auto 0px auto;
 }
 
+.SpeedInput {
+    font-size: 16px;
+    border-style: solid;
+    border-width: 2px;
+    width: 45px;
+    padding-bottom: 2px;
+    height: 30px;
+    margin: 5px auto 0px auto;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    border-color: #222;
+    text-align: center;
+}
+
 .PassiveWisdomBox {
     display: flex;
     flex-direction: column;
@@ -96,7 +152,7 @@
     margin: auto;
 }
 
-#PassiveTextValue {
+.PassiveTextValue {
     margin: 0px auto 0px auto;
     width: 30px;
     text-align: center;

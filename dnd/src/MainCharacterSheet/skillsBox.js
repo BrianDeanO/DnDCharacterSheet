@@ -5,124 +5,105 @@ import { determineSkillCheckBonus } from "../helpers/determineSkillCheck";
 
 export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => {
 
+    //console.log("skillbs box", skillsBoxInfo);
+
     const [skillsIsEdit, setSkillsIsEdit] = useState(false);
 
-    const [Acrobatics, setAcrobatics] = useState(abilityBoxInfo ? abilityBoxInfo.dex : 2);
+    const [Acrobatics, setAcrobatics] = useState(abilityBoxInfo ? abilityBoxInfo.dex : 14);
     const [profInAcrobatics, setProfInAcrobatics] = useState(skillsBoxInfo ? skillsBoxInfo.Acrobatics[1] : false);
 
-    const [AnimalHandling, setAnimalHandling] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 1);
-    const [Arcana, setArcana] = useState(abilityBoxInfo ? abilityBoxInfo.int : 0);
-    const [Athletics, setAthletics] = useState(abilityBoxInfo ? abilityBoxInfo.str : 2);
-    const [Deception, setDeception] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 1);
-    const [History, setHistory] = useState(abilityBoxInfo ? abilityBoxInfo.int : 0);
-    const [Insight, setInsight] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 1);
-    const [Intimidation, setIntimidation] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 1);
-    const [Investigation, setInvestigation] = useState(abilityBoxInfo ? abilityBoxInfo.int : 0);
-    const [Medicine, setMedicine] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 1);
-    const [Nature, setNature] = useState(abilityBoxInfo ? abilityBoxInfo.int : 0);
-    const [Perception, setPerception] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 1);
-    const [Performance, setPerformance] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 1);
-    const [Persuasion, setPersuasion] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 1);
-    const [Religion, setReligion] = useState(abilityBoxInfo ? abilityBoxInfo.int : 0);
-    const [SleightOfHand, setSleightOfHand] = useState(abilityBoxInfo ? abilityBoxInfo.dex : 2);
-    const [Stealth, setStealth] = useState(abilityBoxInfo ? abilityBoxInfo.dex : 2);
-    const [Survival, setSurvival] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 1);
+    const [AnimalHandling, setAnimalHandling] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 12);
+    const [profInAnimalHandling, setProfInAnimalHandling] = useState((skillsBoxInfo) ? skillsBoxInfo.AnimalHandling[1] : false);
 
-    const skillNamesArray = [
-        ['Acrobatics', 'DEX'], ['Animal Handling', 'WIS'], ['Arcana','INT'], ['Athletics', 'STR'], ['Deception', 'CHA'], 
-        ['History', 'INT'], ['Insight', 'WIS'], ['Intimidation', 'CHA'], ['Investigation', 'INT'], ['Medicine', 'WIS'], 
-        ['Nature', 'INT'], ['Perception', 'WIS'], ['Performance', 'CHA'], ['Persuasion', 'CHA'], ['Religion', 'INT'], 
-        ['Sleight of Hand', 'DEX'], ['Stealth', 'DEX'], ['Survival', 'WIS']];
+    const [Arcana, setArcana] = useState(abilityBoxInfo ? abilityBoxInfo.int : 10);
+    const [profInArcana, setProfInArcana] = useState(skillsBoxInfo ? skillsBoxInfo.Arcana[1] : false);
 
-    const proficientSkillsArray = skillNamesArray.map((skillName) => {
-        return(
-            {skill: skillName[0], ability: skillName[1], proficient: false, modifier: 0}
-        )
-    });
+    const [Athletics, setAthletics] = useState(abilityBoxInfo ? abilityBoxInfo.str : 15);
+    const [profInAthletics, setProfInAthletics] = useState(skillsBoxInfo ? skillsBoxInfo.Athletics[1] : false);
 
-        /////////////////////////////////// DO THIS WITH All OF THEM  PROFIENCITENINSSES
+    const [Deception, setDeception] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 13);
+    const [profInDeception, setProfInDeception] = useState(skillsBoxInfo ? skillsBoxInfo.Deception[1] : false);
+
+    const [History, setHistory] = useState(abilityBoxInfo ? abilityBoxInfo.int : 10);
+    const [profInHistory, setProfInHistory] = useState(skillsBoxInfo ? skillsBoxInfo.History[1] : false);
+
+    const [Insight, setInsight] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 12);
+    const [profInInsight, setProfInInsight] = useState(skillsBoxInfo ? skillsBoxInfo.Insight[1] : false);
+
+    const [Intimidation, setIntimidation] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 13);
+    const [profInIntimidation, setProfInIntimidation] = useState(skillsBoxInfo ? skillsBoxInfo.Intimidation[1] : false);
+
+    const [Investigation, setInvestigation] = useState(abilityBoxInfo ? abilityBoxInfo.int : 10);
+    const [profInInvestigation, setProfInInvestigation] = useState(skillsBoxInfo ? skillsBoxInfo.Investigation[1] : false);
+
+    const [Medicine, setMedicine] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 12);
+    const [profInMedicine, setProfInMedicine] = useState(skillsBoxInfo ? skillsBoxInfo.Medicine[1] : false);
+
+    const [Nature, setNature] = useState(abilityBoxInfo ? abilityBoxInfo.int : 10);
+    const [profInNature, setProfInNature] = useState(skillsBoxInfo ? skillsBoxInfo.Nature[1] : false);
+
+    const [Perception, setPerception] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 12);
+    const [profInPerception, setProfInPerception] = useState(skillsBoxInfo ? skillsBoxInfo.Perception[1] : false);
+
+    const [Performance, setPerformance] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 13);
+    const [profInPerformance, setProfInPerformance] = useState(skillsBoxInfo ? skillsBoxInfo.Performance[1] : false);
+
+    const [Persuasion, setPersuasion] = useState(abilityBoxInfo ? abilityBoxInfo.cha : 13);
+    const [profInPersuasion, setProfInPersuasion] = useState(skillsBoxInfo ? skillsBoxInfo.Persuasion[1] : false);
+
+    const [Religion, setReligion] = useState(abilityBoxInfo ? abilityBoxInfo.int : 10);
+    const [profInReligion, setProfInReligion] = useState(skillsBoxInfo ? skillsBoxInfo.Religion[1] : false);
+
+    const [SleightOfHand, setSleightOfHand] = useState(abilityBoxInfo ? abilityBoxInfo.dex : 14);
+    const [profInSleightOfHand, setProfInSleightOfHand] = useState(skillsBoxInfo ? skillsBoxInfo.SleightOfHand[1] : false);
+
+    const [Stealth, setStealth] = useState(abilityBoxInfo ? abilityBoxInfo.dex : 14);
+    const [profInStealth, setProfInStealth] = useState(skillsBoxInfo ? skillsBoxInfo.Stealth[1] : false);
+
+    const [Survival, setSurvival] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 12);
+    const [profInSurvival, setProfInSurvival] = useState(skillsBoxInfo ? skillsBoxInfo.Survival[1] : false);
+
+
+    // const skillNamesArray = [
+    //     ['Acrobatics', 'DEX'], ['Animal Handling', 'WIS'], ['Arcana','INT'], ['Athletics', 'STR'], ['Deception', 'CHA'], 
+    //     ['History', 'INT'], ['Insight', 'WIS'], ['Intimidation', 'CHA'], ['Investigation', 'INT'], ['Medicine', 'WIS'], 
+    //     ['Nature', 'INT'], ['Perception', 'WIS'], ['Performance', 'CHA'], ['Persuasion', 'CHA'], ['Religion', 'INT'], 
+    //     ['Sleight of Hand', 'DEX'], ['Stealth', 'DEX'], ['Survival', 'WIS']];
+
+    // const proficientSkillsArray = skillNamesArray.map((skillName) => {
+    //     return(
+    //         {skill: skillName[0], ability: skillName[1], proficient: false, modifier: 0}
+    //     )
+    // });
+
     useEffect(() => {
         localStorage.setItem("skillsBoxInfo", JSON.stringify(
-            {Acrobatics: [Acrobatics, profInAcrobatics]}));
-    }, [Acrobatics, profInAcrobatics]);
-
-    //console.log('acrobatics', Acrobatics);
-    console.log("prof skills array", proficientSkillsArray);
-   // console.log('ability box in skills', abilityBoxInfo);
-    //console.log('prof bonus', proficiencyBonus);
-    console.log("acro prof", proficientSkillsArray[0].proficient);
-
-    useEffect(() => {
-        proficientSkillsArray.forEach((skill, index) => {
-
-            switch(index){
-                // case 0:
-                //     setAcrobatics(abilityBoxInfo ? abilityBoxInfo.dex : 2);
-                //     break;
-                default:
-                    break;
-                // case 1:
-                //     setAnimalHandling(skill.modifier);
-                //     break;
-                // case 2:
-                //     setArcana(skill.modifier);
-                //     break;
-                // case 3:
-                //     setAthletics(skill.modifier);
-                //     break;   
-                // case 4:
-                //     setDeception(skill.modifier);
-                //     break;
-                // case 5:
-                //     setHistory(skill.modifier);
-                //     break;
-                // case 6:
-                //     setInsight(skill.modifier);
-                //     break;
-                // case 7:
-                //     setIntimidation(skill.modifier);
-                //     break;    
-                // case 8:
-                //     setInvestigation(skill.modifier);
-                //     break;
-                // case 9:
-                //     setMedicine(skill.modifier);
-                //     break;
-                // case 10:
-                //     setNature(skill.modifier);
-                //     break;
-                // case 11:
-                //     setPerception(skill.modifier);
-                //     break;     
-                // case 12:
-                //     setPerformance(skill.modifier);
-                //     break;    
-                // case 13:
-                //     setPersuasion(skill.modifier);
-                //     break;
-                // case 14:
-                //     setReligion(skill.modifier);
-                //     break;
-                // case 15:
-                //     setSleightOfHand(skill.modifier);
-                //     break;
-                // case 16:
-                //     setStealth(skill.modifier);
-                //     break;  
-                // case 17:
-                //     setSurvival(skill.modifier);
-                //     break;  
-            }
-
-            // if(skill.proficient === true) {
-            //     skill.modifier += proficiencyBonus;
-            // }
-           // determineSkillCheckBonus(skill.skill, skill.ability);
-        })
-    });
-
-
-    // WE JUST NEED TO determineModifierSign THEN ADD PROF BONUS IF CHECKED
+            {Acrobatics: [Acrobatics, profInAcrobatics],
+             AnimalHandling: [AnimalHandling, profInAnimalHandling],
+             Arcana: [Arcana, profInArcana],
+             Athletics: [Athletics, profInAthletics],
+             Deception: [Deception, profInDeception],
+             History: [History, profInHistory],
+             Insight: [Insight, profInInsight],
+             Intimidation: [Intimidation, profInIntimidation],
+             Investigation: [Investigation, profInInvestigation],
+             Medicine: [Medicine, profInMedicine],
+             Nature: [Nature, profInNature],
+             Perception: [Perception, profInPerception],
+             Performance: [Performance, profInPerformance],
+             Persuasion: [Persuasion, profInPersuasion],
+             Religion: [Religion, profInReligion],
+             SleightOfHand: [SleightOfHand, profInSleightOfHand],
+             Stealth: [Stealth, profInStealth],
+             Survival: [Survival, profInSurvival]
+        }));
+    }, [Acrobatics, profInAcrobatics, AnimalHandling, profInAnimalHandling,
+        Arcana, profInArcana, Athletics, profInAthletics, Deception, profInDeception,
+        History, profInHistory, Insight, profInInsight, Intimidation, profInIntimidation, 
+        Investigation, profInInvestigation, Medicine, profInMedicine, Nature, profInNature,
+        Perception, profInPerception, Performance, profInPerformance, Persuasion, profInPersuasion,
+        Religion, profInReligion, SleightOfHand, profInSleightOfHand, Stealth, profInStealth,
+        Survival, profInSurvival]);
 
     return (
         <div className="SkillsBox">
@@ -136,248 +117,400 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                                className= {
-                                    profInAcrobatics ? 
-                                        'ProficiencyCheckBoxActive' : 
-                                        'ProficiencyCheckBox'}
-                // className= {
-                //     proficientSkillsArray[0].proficient ? 
-                //         'ProficiencyCheckBoxActive' : 
-                //         'ProficiencyCheckBox'}
+                className= {
+                    profInAcrobatics ? 
+                        'ProficiencyCheckBoxActive' : 
+                        'ProficiencyCheckBox'}
                 id="Acrobatics"
                 onClick={() => {
                     if(skillsIsEdit) {
                         setProfInAcrobatics(!profInAcrobatics);
                     }
-                    // if(skillsIsEdit) {
-                    //     (proficientSkillsArray[0].proficient = !proficientSkillsArray[0].proficient );
-                    //     console.log("acro prof", proficientSkillsArray[0].proficient);
-                    // }
                     }}></span>
                 <span className="SkillModifierValue"> 
                     { profInAcrobatics ? 
-                        (((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) >= 0) ?
-                           `+${((parseInt(determineModifier(Acrobatics)) + proficiencyBonus))}` 
-                           : ((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) 
+                        (((parseInt(determineModifier(Acrobatics)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Acrobatics)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Acrobatics)) + parseInt(proficiencyBonus))) 
                         : determineModifier(Acrobatics)}
-
-                    {/* { proficientSkillsArray[0].proficient ? 
-                        (((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) >= 0) ?
-                           `+${((parseInt(determineModifier(Acrobatics)) + proficiencyBonus))}` 
-                           : ((parseInt(determineModifier(Acrobatics)) + proficiencyBonus)) 
-                        : determineModifier(Acrobatics)}  */}
                 </span>
                 <span className="SkillsNameText"> Acrobatics </span>
                 <span className="SkillsNameAbilityMod"> (DEX) </span>
             </div>
-            {/* <div className="LoneSkillsBox">
+            <div className="LoneSkillsBox">
                 <span 
-                    className="ProficiencyCheckBox"
-                    id="Animal Handling"
+                    className= {
+                        profInAnimalHandling ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
+                    id="AnimalHandling"
                     onClick={() => {
-                    if(skillsIsEdit) {
-                        determineSkillCheckBonus('Animal Handling', 'WIS', proficientSkillsArray);
-                    }}}></span>
-                <span className="SkillModifierValue"> {determineModifierSign(proficientSkillsArray[1].modifier)} </span>
+                        if(skillsIsEdit) {
+                            setProfInAnimalHandling(!profInAnimalHandling);
+                        }
+                    }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInAnimalHandling ? 
+                        (((parseInt(determineModifier(AnimalHandling)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(AnimalHandling)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(AnimalHandling)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(AnimalHandling)}
+                </span>                
                 <span className="SkillsNameText"> Animal Handling </span>
                 <span className="SkillsNameAbilityMod"> (WIS) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInArcana ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Arcana"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Arcana', 'INT', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> -1 </span>
+                        setProfInArcana(!profInArcana);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInArcana ? 
+                        (((parseInt(determineModifier(Arcana)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Arcana)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Arcana)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Arcana)}
+                </span>                
                 <span className="SkillsNameText"> Arcana </span>
                 <span className="SkillsNameAbilityMod"> (INT) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInAthletics ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Athletics"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Athletics', 'STR', proficientSkillsArray);}
+                        setProfInAthletics(!profInAthletics);
+                    }
                 }}></span>
-                <span className="SkillModifierValue"> +3 </span>
+                <span className="SkillModifierValue"> 
+                    { profInAthletics ? 
+                        (((parseInt(determineModifier(Athletics)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Athletics)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Athletics)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Athletics)}
+                </span>                
                 <span className="SkillsNameText"> Athletics </span>
                 <span className="SkillsNameAbilityMod"> (STR) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInDeception ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Deception"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Deception', 'CHA', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> +2 </span>
+                        setProfInDeception(!profInDeception);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInDeception ? 
+                        (((parseInt(determineModifier(Deception)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Deception)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Deception)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Deception)}
+                </span>                
                 <span className="SkillsNameText"> Deception </span>
                 <span className="SkillsNameAbilityMod"> (CHA) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                    className="ProficiencyCheckBox"
+                    className= {
+                        profInHistory ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                     id="History"
                     onClick={() => {
-                    if(skillsIsEdit) {
-                        determineSkillCheckBonus('History', 'INT', proficientSkillsArray);
-                    }}}></span>
-                <span className="SkillModifierValue"> -1 </span>
+                        if(skillsIsEdit) {
+                            setProfInHistory(!profInHistory);
+                        }
+                    }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInHistory ? 
+                        (((parseInt(determineModifier(History)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(History)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(History)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(History)}
+                </span>                
                 <span className="SkillsNameText"> History </span>
                 <span className="SkillsNameAbilityMod"> (INT) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInInsight ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Insight"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Insight', 'WIS', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> +1 </span>
+                        setProfInInsight(!profInInsight);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInInsight ? 
+                        (((parseInt(determineModifier(Insight)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Insight)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Insight)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Insight)}
+                </span>                
                 <span className="SkillsNameText"> Insight </span>
                 <span className="SkillsNameAbilityMod"> (WIS) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInIntimidation ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Intimidation"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Intimidation', 'CHA', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> +2 </span>
+                        setProfInIntimidation(!profInIntimidation);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInIntimidation ? 
+                        (((parseInt(determineModifier(Intimidation)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Intimidation)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Intimidation)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Intimidation)}
+                </span>                
                 <span className="SkillsNameText"> Intimidation </span>
                 <span className="SkillsNameAbilityMod"> (CHA) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInInvestigation ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Investigation"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Investigation', 'INT', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> -1 </span>
+                        setProfInInvestigation(!profInInvestigation);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInInvestigation ? 
+                        (((parseInt(determineModifier(Investigation)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Investigation)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Investigation)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Investigation)}
+                </span>                
                 <span className="SkillsNameText"> Investigation </span>
                 <span className="SkillsNameAbilityMod"> (INT) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInMedicine ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Medicine"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Medicine', 'WIS', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> +1 </span>
+                        setProfInMedicine(!profInMedicine);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInMedicine ? 
+                        (((parseInt(determineModifier(Medicine)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Medicine)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Medicine)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Medicine)}
+                </span>                
                 <span className="SkillsNameText"> Medicine </span>
                 <span className="SkillsNameAbilityMod"> (WIS) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInNature ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Nature"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Nature', 'INT', proficientSkillsArray);
-                }}} ></span>
-                <span className="SkillModifierValue"> -1 </span>
+                        setProfInNature(!profInNature);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInNature ? 
+                        (((parseInt(determineModifier(Nature)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Nature)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Nature)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Nature)}
+                </span>                
                 <span className="SkillsNameText"> Nature </span>
                 <span className="SkillsNameAbilityMod"> (INT) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInPerception ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Perception"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Perception', 'WIS', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> +3 </span>
+                        setProfInPerception(!profInPerception);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInPerception ? 
+                        (((parseInt(determineModifier(Perception)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Perception)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Perception)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Perception)}
+                </span>                
                 <span className="SkillsNameText"> Perception </span>
                 <span className="SkillsNameAbilityMod"> (WIS) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInPerformance ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Performance"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Performance', 'CHA', proficientSkillsArray);
-                }}} ></span>
-                <span className="SkillModifierValue"> +2 </span>
+                        setProfInPerformance(!profInPerformance);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInPerformance ? 
+                        (((parseInt(determineModifier(Performance)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Performance)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Performance)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Performance)}
+                </span>                
                 <span className="SkillsNameText"> Performance </span>
                 <span className="SkillsNameAbilityMod"> (CHA) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInPersuasion ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Persuasion"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Persuasion', 'CHA', proficientSkillsArray);
-                }}}></span>
-                <span className="SkillModifierValue"> +4 </span>
+                        setProfInPersuasion(!profInPersuasion);
+                    }
+                }}></span>
+                <span className="SkillModifierValue"> 
+                    { profInPersuasion ? 
+                        (((parseInt(determineModifier(Persuasion)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Persuasion)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Persuasion)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Persuasion)}
+                </span>                
                 <span className="SkillsNameText"> Persuasion </span>
                 <span className="SkillsNameAbilityMod"> (CHA) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInReligion ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Religion"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Religion', 'INT', proficientSkillsArray);
+                        setProfInReligion(!profInReligion);
                     }
                 }}></span>
-                <span className="SkillModifierValue"> -1 </span>
+                <span className="SkillModifierValue"> 
+                    { profInReligion ? 
+                        (((parseInt(determineModifier(Religion)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Religion)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Religion)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Religion)}
+                </span>                
                 <span className="SkillsNameText"> Religion </span>
                 <span className="SkillsNameAbilityMod"> (INT) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
-                id="Sleight of Hand"
+                    className= {
+                        profInSleightOfHand ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
+                id="SleightOfHand"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Sleight of Hand', 'DEX', proficientSkillsArray);
+                        setProfInSleightOfHand(!profInSleightOfHand);
                     }
                 }}></span>
-                <span className="SkillModifierValue"> +0 </span>
+                <span className="SkillModifierValue"> 
+                    { profInSleightOfHand ? 
+                        (((parseInt(determineModifier(SleightOfHand)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(SleightOfHand)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(SleightOfHand)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(SleightOfHand)}
+                </span>                
                 <span className="SkillsNameText"> Sleight of Hand </span>
                 <span className="SkillsNameAbilityMod"> (DEX) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInStealth ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Stealth"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Stealth', 'DEX', proficientSkillsArray);
+                        setProfInStealth(!profInStealth);
                     }
                 }}></span>
-                <span className="SkillModifierValue"> +0 </span>
+                <span className="SkillModifierValue"> 
+                    { profInStealth ? 
+                        (((parseInt(determineModifier(Stealth)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Stealth)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Stealth)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Stealth)}
+                </span>                
                 <span className="SkillsNameText"> Stealth </span>
                 <span className="SkillsNameAbilityMod"> (DEX) </span>
             </div>
             <div className="LoneSkillsBox">
                 <span 
-                className="ProficiencyCheckBox"
+                    className= {
+                        profInSurvival ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Survival"
                 onClick={() => {
                     if(skillsIsEdit) {
-                        determineSkillCheckBonus('Survival', 'WIS', proficientSkillsArray);
+                        setProfInSurvival(!profInSurvival);
                     }
                 }}></span>
-                <span className="SkillModifierValue"> +1 </span>
+                <span className="SkillModifierValue"> 
+                    { profInSurvival ? 
+                        (((parseInt(determineModifier(Survival)) + parseInt(proficiencyBonus))) >= 0) ?
+                           `+${((parseInt(determineModifier(Survival)) + parseInt(proficiencyBonus)))}` 
+                           : ((parseInt(determineModifier(Survival)) + parseInt(proficiencyBonus))) 
+                        : determineModifier(Survival)}
+                </span>                
                 <span className="SkillsNameText"> Survival </span>
                 <span className="SkillsNameAbilityMod"> (WIS) </span>
-            </div> */}
+            </div>
         </div>
     );
 }

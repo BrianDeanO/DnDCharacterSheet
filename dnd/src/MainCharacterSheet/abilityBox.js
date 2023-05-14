@@ -7,8 +7,8 @@ export const AbilityBoxInfo = ({abilityBoxInfo}) => {
     //localStorage.setItem("abilityBoxInfo", JSON.stringify(abilityBoxObj));
    // const abilityScores = JSON.parse(abilityBoxInfo);
 
-   const abilityBoxInfo2 = JSON.parse(localStorage.getItem("abilityBoxInfo"));
-   console.log(abilityBoxInfo2);
+//    const abilityBoxInfo2 = JSON.parse(localStorage.getItem("abilityBoxInfo"));
+//    console.log(abilityBoxInfo2);
 
    const [abilityBoxEdit, setAbilityBoxEdit] = useState(false);
    const [strengthScore, setStrengthScore] = useState(abilityBoxInfo ? abilityBoxInfo.str : 15);
@@ -83,16 +83,12 @@ export const AbilityBoxInfo = ({abilityBoxInfo}) => {
                         className="AbilityBoxEditButton"
                         onClick={(e) => {
                             abilityBoxEdit ? 
-                                            //@ts-ignore
                             updateAbilityBoxInfo( document.getElementById('STR')?.value, document.getElementById('DEX')?.value,
-                                            //@ts-ignore 
-                                            document.getElementById('CONST')?.value, document.getElementById('INT')?.value, 
-                                            //@ts-ignore
+                                            document.getElementById('CONST')?.value, document.getElementById('INT')?.value,
                                             document.getElementById('WIS')?.value, document.getElementById('CHA')?.value) :
                             updateAbilityBoxInfo( strengthScore, dexterityScore, constitutionScore, intelligenceScore,  wisdomScore, charismaScore);
                             setAbilityBoxEdit(!abilityBoxEdit);
-                             }}
-                            >{abilityBoxEdit ? 'save' : 'edit'}</button> 
+                            }}>{abilityBoxEdit ? 'save' : 'edit'}</button> 
 
             <div className="AbilityBoxBottomRow">
                     <div className="LoneAbilityBox">

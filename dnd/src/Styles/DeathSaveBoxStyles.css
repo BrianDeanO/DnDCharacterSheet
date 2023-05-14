@@ -59,6 +59,52 @@
     border-color: rgb(0, 0, 0);
     margin: 0px auto;
   }
+
+  .StableBox {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 159px;
+    background-color: #df7373;
+    border-right-style: solid;
+    border-color: rgb(0, 0, 0);
+    margin: 0px auto;
+    color: darkcyan;
+  }
+
+  .StableTitle {
+    display: flex;
+    width: 50px;
+    height: 40px;
+    margin: 0px auto;
+    color: rgb(253, 253, 253);
+    margin: auto 105px 65px auto;
+    font-weight: bold;
+    font-size: 33px;
+  }
+
+  .DeadBox {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 159px;
+    background-color: #2f7c6f;
+    border-right-style: solid;
+    border-color: rgb(0, 0, 0);
+    margin: 0px auto;
+    color: rgb(173, 212, 212);
+  }
+
+  .DeadTitle {
+    display: flex;
+    width: 50px;
+    height: 40px;
+    margin: 0px auto;
+    color: rgb(211, 208, 212);
+    margin: auto 95px 65px auto;
+    font-weight: bold;
+    font-size: 33px;
+  }
   
   .DeathSavesTitle {
     margin: 0px auto 5px auto;

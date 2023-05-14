@@ -15,6 +15,10 @@ const CharacterPage = () => {
     const character = JSON.parse(localStorage.getItem("characterInfo"));
     const abilityBoxInfo = JSON.parse(localStorage.getItem("abilityBoxInfo"));
     const skillsBoxInfo = JSON.parse(localStorage.getItem("skillsBoxInfo"));
+    const savingThrowsBoxInfo = JSON.parse(localStorage.getItem("savingThrowsBoxInfo"));
+    const profAndLangBoxInfo = JSON.parse(localStorage.getItem("profAndLangBoxInfo"));
+    const additionalInfoBoxInfo = JSON.parse(localStorage.getItem("additionalInfoBoxInfo"));
+    const healthBoxInfo = JSON.parse(localStorage.getItem("healthBoxInfo"));
 
     //console.log('first char', character);
  
@@ -24,6 +28,10 @@ const CharacterPage = () => {
             <CharacterSheet 
                 abilityBoxInfo={abilityBoxInfo}
                 skillsBoxInfo={skillsBoxInfo}
+                savingThrowsBoxInfo={savingThrowsBoxInfo}
+                profAndLangBoxInfo={profAndLangBoxInfo}
+                additionalInfoBoxInfo={additionalInfoBoxInfo}
+                healthBoxInfo={healthBoxInfo}
             />
         </div>
 
