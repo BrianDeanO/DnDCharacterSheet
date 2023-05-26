@@ -73,11 +73,12 @@ export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBo
             </div>
             <div className="PassiveWisdomBox">
                 <div className="PassiveTextValue"> 
-                    { passivePerception[1] ? 
+                    {/* { passivePerception[1] ? 
                         (((parseInt(determineModifier(passivePerception[0])) + parseInt(profBonus))) >= 0) ?
                            `+${((parseInt(determineModifier(passivePerception[0])) + parseInt(profBonus)))}` 
                            : ((parseInt(determineModifier(passivePerception[0])) + parseInt(profBonus))) 
-                        : determineModifier(passivePerception[0])}
+                        : determineModifier(passivePerception[0])} */}
+                    {passivePerception[0]}
                 </div>
                 <span id="PassiveTextMiddle"> Passive Wisdom </span>
                 <span id="PassiveTextBottom"> (Perception) </span>

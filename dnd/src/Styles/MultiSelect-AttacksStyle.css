@@ -40,7 +40,6 @@
     width: 450px;
     margin: 10px 0px 0px 0px;
     background-color: azure;
-
 }
 
 .newLoneAttackBox {
@@ -221,4 +220,17 @@
 .attackNotesInputBox {
     height: 40px;
     width: 390px;
+}
+
+.Test {
+    height: 50px;
+    width: 200px;
+    background-color: rgb(114, 141, 111);
+    color:rgb(0, 0, 0);
+}
+.Test2 {
+    height: 600px;
+    width: 200px;
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
 }

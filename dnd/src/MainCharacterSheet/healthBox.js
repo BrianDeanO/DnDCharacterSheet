@@ -1,15 +1,5 @@
 import { useEffect, useState } from "react";
 import React from "react";
-// import {
-//     healPlayer, 
-//     damagePlayer, 
-//     TempHitPointsBox, 
-//     playerRevival, 
-//     RevivePlayer,
-//     RevivePlayerBox,
-//     handleDeathSavingThrows}  from "../helpers/healthBoxHelper";
-
-
 
 export const HealthBox = ({healthBoxInfo}) => {
     console.log('health box', healthBoxInfo);

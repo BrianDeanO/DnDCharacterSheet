@@ -19,6 +19,12 @@ const CharacterPage = () => {
     const profAndLangBoxInfo = JSON.parse(localStorage.getItem("profAndLangBoxInfo"));
     const additionalInfoBoxInfo = JSON.parse(localStorage.getItem("additionalInfoBoxInfo"));
     const healthBoxInfo = JSON.parse(localStorage.getItem("healthBoxInfo"));
+    const attacks = JSON.parse(localStorage.getItem("attacks"));
+    const spells = JSON.parse(localStorage.getItem("spells"));
+    const inventory = JSON.parse(localStorage.getItem("inventory"));
+    const featsAndTraits = JSON.parse(localStorage.getItem("featsAndTraits"));
+    const description = JSON.parse(localStorage.getItem("description"));
+    const notes = JSON.parse(localStorage.getItem("notes"));
 
     //console.log('first char', character);
  
@@ -32,6 +38,12 @@ const CharacterPage = () => {
                 profAndLangBoxInfo={profAndLangBoxInfo}
                 additionalInfoBoxInfo={additionalInfoBoxInfo}
                 healthBoxInfo={healthBoxInfo}
+                attacks={attacks}
+                spells={spells}
+                inventory={inventory}
+                featsAndTraits={featsAndTraits}
+                description={description}
+                notes={notes}
             />
         </div>
 

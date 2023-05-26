@@ -7,6 +7,12 @@ import { SavingThrowsBox } from "./savingThrowsBox";
 import { ProfAndLanguagesBox } from "./profsAndLangsBox";
 import { AdditionalCharacterInfoBox } from "./additional_InfoBox";
 import { HealthBox } from "./healthBox";
+import AttacksSelectionBox  from "./MultiSelectBoxes/attacksBox.js";
+import { NotesSelectionBox } from "./MultiSelectBoxes/notesBox";
+import { SpellsSelectionBox } from "./MultiSelectBoxes/spellsBox";
+import { FeatsAndTraitsSelectionBox } from "./MultiSelectBoxes/featsAndTraitsBox";
+import { DecriptionSelectionBox } from "./MultiSelectBoxes/descriptionBox";
+import { InventorySelectionBox } from "./MultiSelectBoxes/inventoryBox";
 
 const CharacterSheet = ({
         abilityBoxInfo, 
@@ -14,77 +20,19 @@ const CharacterSheet = ({
         savingThrowsBoxInfo, 
         profAndLangBoxInfo,
         additionalInfoBoxInfo,
-        healthBoxInfo}) => {
-
-    // let strScore = 12;
-    // let dexScore = 10;
-    // let constScore = 16;
-    // let intScore = 13;
-    // let wisScore = 8;
-    // let chaScore = 12;
-    let currentHitPoints = 1;
-    let maxHitPoints = 20;
-    let tempHitPoints = 0;
-    let isEdit = false;
-    let abilityBoxEdit = false;
-
-    // const [strengthScore, setStrengthScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.str : 15);
-    // const [dexterityScore, setDexterityScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.dex : 14);
-    // const [constitutionScore, setConstitutionScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.const : 8);
-    // const [intelligenceScore, setIntelligenceScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.int : 10);
-    // const [wisdomScore, setWisdomScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.wis : 12);
-    // const [charismaScore, setCharismaScore] = useState<number>(abilityBoxInfo ? abilityBoxInfo.cha : 13);
-
-    // const abilityBoxObj = {str: strengthScore, dex: dexterityScore, const: constitutionScore, int: intelligenceScore, wis: wisdomScore, cha: charismaScore};
-
-    // if(!abilityBoxInfo) {
-    //     localStorage.setItem("abilityBoxInfo", JSON.stringify(abilityBoxObj));
-    // }
-
-    // function updateAbilityBoxInfo(str: number, dex: number, constituion: number, int: number, wis: number, cha: number,) {
-    //     setStrengthScore(str);
-    //     setDexterityScore(dex);
-    //     setConstitutionScore(constituion);
-    //     setIntelligenceScore(int);
-    //     setWisdomScore(wis);
-    //     setCharismaScore(cha);
-    // }
-
-    // useEffect(() => {
-    //     localStorage.setItem("abilityBoxInfo", JSON.stringify(
-    //         {str: strengthScore, dex: dexterityScore, const: constitutionScore, int: intelligenceScore, wis: wisdomScore, cha: charismaScore}));
-    // }, [strengthScore, dexterityScore, constitutionScore, intelligenceScore, wisdomScore, charismaScore]);
-
-
-
-    // React State Components to set the character's ability modifier scores
-    const [STRModifier, setSTRModifier] = useState<number>(0);
-    const [DEXModifier, setDEXModifier] = useState<number>(0);
-    const [CONSTModifier, setCONSTModifier] = useState<number>(0);
-    const [INTModifier, setINTModifier] = useState<number>(0);
-    const [WISModifier, setWISModifier] = useState<number>(0);
-    const [CHAModifier, setCHAModifier] = useState<number>(0);
-
-    // const [pointValue, setPointValue] = useState<number>(0);
-
-    // const [currentHealth, setCurrentHealth] = useState<number>(0);
-    // const [maxHealth, setMaxHealth] = useState<number>(0);
-
-    // const [hasTempHitPoints, setHasTempHitPoints] = useState<boolean>(false);
-    // const [tempPointValue, setTempPointValue] = useState<number>(0);
-
-    // const [stableStatus, setStableStatus] = useState<boolean>(true);
-    // const [deadStatus, setDeadStatus] = useState<boolean>(false);
-
-    // const [firstSuccessSaveThrow, setFirstSuccessSaveThrow] = useState<string>();
-
-    // const deathSaveSuccessArray = [-1, -1, -1];
-    // const deathSaveFailArray = [-1, -1, -1];
-    // const revivalChoiceArray = [-1, -1];
+        healthBoxInfo,
+        attacks,
+        spells,
+        inventory,
+        featsAndTraits,
+        description,
+        notes
+}) => {
 
     const [proficiencyBonus, setProfiencyBonus] = useState<number>(additionalInfoBoxInfo ? additionalInfoBoxInfo.profBonus : 2);
 
     const [multiBoxSelection, setMultiBoxSelection] = useState<string>('ATTACKS');
+    
 
     const [numberOfAttacks, setNumberOfAttacks] =  useState<number>(0);
     const [attackBonus, setAttackBonus] = useState<number>(0);
@@ -117,23 +65,6 @@ const CharacterSheet = ({
     const attackCardArray: {}[] = [];
 
     attackCardArray.push(testAttackCard);
-
-
-
-
-
-    // useEffect(() => {
-    //     setCurrentHealth(currentHitPoints);
-    //     setMaxHealth(maxHitPoints);
-    //     setTempPointValue(tempHitPoints);
-    // }, [currentHitPoints, maxHitPoints, tempHitPoints]);
-
-
-
-
-
-
-
 
     const Sarry = (skill) => {
         return (
@@ -372,139 +303,27 @@ const CharacterSheet = ({
         }
     }
 
-
-
-
-
-    const AttacksSelectionBox = () => {
-        function handleAttackClick() {
-            console.log('attack click');
-            const attackButton = document.getElementById('AttacksBoxButton')!;
-            if(attackButton.className === 'activeButton') {
-                attackButton.className = 'AttacksBoxButton';
-            } else {
-                attackButton.className = 'activeButton';
-            }
-            // attackButton.className = 'AttacksBoxButtonActive';
-            const newAttackBox = document.createElement('div');
-            newAttackBox.innerHTML = `<div> hello there! </div>`;
-            newAttackBox.className = 'newLoneAttackBox';
-            document.getElementById('attackTest')!.appendChild(newAttackBox);
-        }
-
-        return (
-            <div className="Notes-MultiSelectBox" id="attackTest">
-                <div className="attackHeader">
-                    <div className="attackHeaderText">ATTACKS</div>
-                    <button
-                    className="attackHeaderNewButton"
-                    onClick={() => {handleNewAttackBox()}}
-                    // onClick={() => {
-
-                    // console.log('new attack click');
-                    // const newAttackBox = document.createElement('div');
-                    // newAttackBox.innerHTML = newAttackBoxString(0);
-                    // newAttackBox.className = 'newLoneAttackBox';
-                    // document.getElementById('attackTest')!.appendChild(newAttackBox);
-                    // // setNumberOfAttacks(numberOfAttacks + 1);
-                    // // const newAttackBoxClassName = 'newLoneAttackBox';
-                    // // const newNumberOfAttacks = numberOfAttacks.toString();
-                    // // console.log(newAttackBoxClassName.concat(newNumberOfAttacks));
-                    // // newAttackBox.className = newAttackBoxClassName.concat(newNumberOfAttacks);
-                    // }}
-                    >+</button>
-                </div>
-                <div className="loneAttackBox">
-                    <div className="attackInfoUpperBox">
-                        <div className="attackInfoNameBox">
-                            <span>Name</span>
-                            <input className="attackNameInput" id="AttackName" type={'text'}></input>
-                        </div>
-                        {proficientWithWeaponAnswer ? <FinalAttackBonusBox /> :
-                        (<div className="attackBonusOuterBox">
-                            <span className="attackBonusText">Attack Bonus</span>
-                            <div className="attackBonusChoicesBox">
-                            {proficientWithWeaponAnswer ? <FinalAttackBonusBox /> :
-                                (rangedOrMeleeAnswer ?
-                                (finesseWeaponAnswer ? <ProficientWithWeaponBoxQuestion /> :
-                                    <FinesseWeaponBoxQuestion />) :
-                                        <RangedOrMeleeBoxQuestion />)}
-                            </div>
-                        </div>)}
-
-                    </div>
-                    <div className="attackNotesLowerBox">
-                        <span className="attackNotesText">Notes</span>
-                        <textarea className="attackNotesInputBox"></textarea>
-                    </div>
-                </div>
-                {/* {<Sarry />} */}
-
-
-            </div>
-        )
-    }
-
-    const SpellsSelectionBox = () => {
-        return (
-            <div className="Notes-MultiSelectBox">
-                SPELLS
-            </div>
-        )
-    }
-
-    const InventorySelectionBox = () => {
-        return (
-            <div className="Notes-MultiSelectBox">
-                INVENTORY
-            </div>
-        )
-    }
-
-    const FeatsAndTraitsSelectionBox = () => {
-        return (
-            <div className="Notes-MultiSelectBox">
-                FEATS&TRAITS
-            </div>
-        )
-    }
-
-    const DecriptionSelectionBox = () => {
-        return (
-            <div className="Notes-MultiSelectBox">
-                DESCRIPTION
-            </div>
-        )
-    }
-
-    const NotesSelectionBox = () => {
-        return (
-            <div className="Notes-MultiSelectBox">
-                NOTES
-            </div>
-        )
-    }
-
     const MultiSelectBox = () => {
         switch(multiBoxSelection) {
             case 'ATTACKS':
-                return (<AttacksSelectionBox />)
+                return (<AttacksSelectionBox attacks={attacks} abilityBoxInfo={abilityBoxInfo}/>)
             case 'SPELLS':
-                return (<SpellsSelectionBox />)
+                return (<SpellsSelectionBox spells={spells}/>)
             case 'INVENTORY':
-                return (<InventorySelectionBox />)
+                return (<InventorySelectionBox inventory={inventory}/>)
             case 'FEATS&TRAITS':
-                return (<FeatsAndTraitsSelectionBox />)
+                return (<FeatsAndTraitsSelectionBox featsAndTraits={featsAndTraits}/>)
             case 'DESCRIPTION':
-                return (<DecriptionSelectionBox />)
+                return (<DecriptionSelectionBox description={description}/>)
             case 'NOTES':
-                return (<NotesSelectionBox />)
+                return (<NotesSelectionBox notes={notes}/>)
             default:
-                return (<AttacksSelectionBox />)
+                return (<AttacksSelectionBox attacks={attacks} abilityBoxInfo={abilityBoxInfo}/>)
         }
     }
 
     console.log('skillsBxin', skillsBoxInfo);
+    const test = ["One", "Two", "Three"];
 
     return (
         <div className="CharacterSheet">
@@ -557,16 +376,11 @@ const CharacterSheet = ({
                             className="NotesBoxButton"
                             onClick={() => setMultiBoxSelection('NOTES')}> Notes </span>
                     </div>
-                    {/* <div id="multiTest">
-
-                    </div> */}
-                   <MultiSelectBox />
+                   <MultiSelectBox />                
                 </div>
             </div>
         </div>
     )
-
-
 }
 
 export default CharacterSheet;
