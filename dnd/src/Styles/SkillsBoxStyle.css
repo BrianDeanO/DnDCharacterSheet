@@ -36,7 +36,7 @@ button:hover {
     cursor: pointer;
 }
 
-.LoneSkillsBox {
+.LoneSkillsBox, .versatileOption {
     display: flex;
     flex-direction: row;
     width: 250px;

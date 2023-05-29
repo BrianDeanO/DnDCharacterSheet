@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import React from "react";
 
-const AttackCard = ({attackObj, index}) => {
+const AttackCard2 = ({attackCardArray, attackObj, index}) => {
     // let testArray = [];
     // console.log("t", attackObj);
 
@@ -13,11 +13,16 @@ const AttackCard = ({attackObj, index}) => {
     // } else {
     //     testArray = ["One", "Two", "Three"];
     // }
-    console.log('attack OBJ', attackObj);
+    console.log('attack card', attackCardArray);
+    const [attackCards, setAttackCards] = useState(attackCardArray ? attackCardArray : []);
+    console.log('in attack cards', attackCards);
 
     return (
         <Fragment>
-            <div className="newLoneAttackBox" key={`${attackObj.name}_${index}`} id={`${attackObj.name}`}>
+            <div className="newLoneAttackBox" 
+                 key={`${attackObj.name}_${index}`} 
+                //  id={`${attackObj.name}_${index}`}
+                 id={`${index}`}>
                  <div className="attackInfoUpperBox">
                      <div className="attackInfoNameBox">
                          <span>Name: {attackObj.name}</span>
@@ -29,6 +34,18 @@ const AttackCard = ({attackObj, index}) => {
                              <span className="finalAttackBonusText"> {attackObj.atkBonus} </span> 
                          </div>
                      </div>
+                     <div 
+                        className="DeleteAttackBox"
+                        id={`${index}`}
+                        onClick={(e) => {
+                            attackCardArray.splice(e.target.id, 1);
+                            setAttackCards(attackCardArray);
+                        }}>
+                        X
+                     </div>
+                     <button 
+                        className="AttackBoxSaveButton"
+                        onClick={(e) => {setAttackCards(attackCardArray);}}>{'save'}</button> 
                  </div>
                  <div className="attackNotesLowerBox">
                      <span className="attackNotesText">Notes</span>
@@ -43,4 +60,4 @@ const AttackCard = ({attackObj, index}) => {
         </Fragment>
     )
 };
-export default AttackCard;
+export default AttackCard2;

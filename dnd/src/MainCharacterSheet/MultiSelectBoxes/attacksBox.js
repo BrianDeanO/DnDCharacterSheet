@@ -1,8 +1,18 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useMemo } from "react";
 import React from "react";
-import AttackCard from "../../helpers/attackCard";
+import AttackCard2 from "../../helpers/attackCard";
+import MakeAttackCard from "../../helpers/makeAttackCard";
+import { determineModifier } from "../../helpers/determineModSign";
 
-const AttacksSelectionBox = ({attacks, abilityBoxInfo}) => {
+function fillAttackCardArray(attCards) {
+    const temp = [];
+    attCards.forEach((obj) => {
+        temp.push(obj);
+    })
+    return temp;
+}
+
+const AttacksSelectionBox = ({attacks, abilityBoxInfo, newAttackInfo}) => {
 
     // function AttackCard (
     //     name,
@@ -23,27 +33,80 @@ const AttacksSelectionBox = ({attacks, abilityBoxInfo}) => {
     //     this.longRange =  longRange;
     //     this.notes = notes;
     // }
-    
+    console.log('attacks', attacks);
+
+    const [attackCards, setAttackCards] = useState(attacks ? attacks.attackCardArray : []);
+    //const [makeNewAttack, setMakeNewAttack] = useState(newAttackInfo ? newAttackInfo.makeNewAttack : false);
+    const [makeNewAttack, setMakeNewAttack] = useState(false);
+    const [isEdit, setIsEdit] = useState(false);
+    const [attackCardBeingEdited, setAttackCardBeingEdited] = useState(-1);
+
+    const [resetInfo, setResetInfo] = useState(false);
 
     const [numberOfAttacks, setNumberOfAttacks] =  useState(0);
-    const [attackBonus, setAttackBonus] = useState(0);
-    const [rangedOrMeleeAnswer, setRangedOrMeleeAnswer] = useState(false);
+    // const [attackBonus, setAttackBonus] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.attackBonus : 0);
+    // const [rangedOrMeleeAnswer, setRangedOrMeleeAnswer] = useState(newAttackInfo ? 
+    //     resetInfo ? '' : newAttackInfo.rangedOrMeleeAnswer : '');
+    // const [newAttackName, setNewAttackName] = useState(newAttackInfo ? 
+    //     resetInfo ? '' : newAttackInfo.newAttackName : '');
+    // const [newAttackNotes, setNewAttackNotes] = useState(newAttackInfo ? 
+    //     resetInfo ? '' : newAttackInfo.newAttackNotes : '');
+    // const [shortRange, setShortRange] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.shortRange : 5);
+    // const [longRange, setLongRange] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.longRange : 5);
+    // const [typeOfHitDice, setTypeOfHitDice] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.typeOfHitDice : 4);
+    // const [numberOfHitDice, setNumberOfHitDice] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.numberOfHitDice : 1);
+    // const [diceTypeSelected, setDiceTypeSelected] = useState(false);
+
+    // const [attackBonus, setAttackBonus] = useState(0);
+    // const [rangedOrMeleeAnswer, setRangedOrMeleeAnswer] = useState('');
+    // const [newAttackName, setNewAttackName] = useState('');
+    // const [newAttackNotes, setNewAttackNotes] = useState('');
+    // const [shortRange, setShortRange] = useState(5);
+    // const [longRange, setLongRange] = useState(5);
+    // const [typeOfHitDice, setTypeOfHitDice] = useState(4);
+    // const [numberOfHitDice, setNumberOfHitDice] = useState(1);
+
+    const [diceTypeSelected, setDiceTypeSelected] = useState(false);
+
+
+    // useEffect(() => {
+    //     setNewAttackName(newAttackName);
+    // }, [newAttackName]);
+
+
     const [finesseWeaponAnswer, setFinesseWeaponAnswer] = useState(false);
     const [proficientWithWeaponAnswer, setProficientWithWeaponAnswer] = useState(false);
-    const [attackCards, setAttackCards] = useState(attacks ? attacks : []);
 
     
     //const attackCardArray = ["1One", "2Two", "3Three"];
     console.log('attacks', attacks);
     console.log('attacks cards ', attackCards);
 
-    let attackCardArray = [];
-    if(attacks) {
-        attacks.attackCardArray.forEach((attackObj) => {
-            console.log('keys', attackObj)
-            attackCardArray.push(attackObj);
-        })
-    }
+    // const attackCardArray = [];
+    // if(attackCards) {
+    //     attackCards.forEach((attackObj) => {
+    //         console.log('keys', attackObj);
+    //         attackCardArray.push(attackObj);
+    //     })
+    // }
+
+    // function Attack({attackCards}) {
+    //     const attackC = useMemo(() => MediaKeyStatusMap(attackCards), [attackCards]);
+    // }
+
+
+    const attackCardArray = useMemo(() => fillAttackCardArray(attackCards), [attackCards]);
+
+    const aC = fillAttackCardArray(attackCards);
+
+  //console.log('attackC', attackC)
+    console.log('aC', aC)
+
 
     console.log('attacks', attacks);
     //console.log('attack card array', attacks.attackCardArray);
@@ -58,17 +121,7 @@ const AttacksSelectionBox = ({attacks, abilityBoxInfo}) => {
     //     // )
     // })
 
-    useEffect(() => {
-        localStorage.setItem("attacks", JSON.stringify(
-            {attackCardArray: attackCardArray}));
-    }, [attackCardArray]);
- 
-
-
-    // const testAttackCard = new AttackCard('Trident', 0, 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown');
-    // const testAttackCard2 = new AttackCard('Spear', 0, 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown');
-
-    //const testCard = {name: "test"};
+    let attackCardArray2 = [];
     const testCard = {
         name:'Trident', 
         atkBonus: 0, 
@@ -90,186 +143,269 @@ const AttacksSelectionBox = ({attacks, abilityBoxInfo}) => {
             notes: 'Finesse, Thrown'};
 
     // {name:'Trident'; atkBonus: 0; typeOfHitDice: 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown'};
-    // attackCardArray.push(testCard);
+    // if(!attackCardArray[0]) {
+    //     attackCardArray.push(testCard);
     
-    // attackCardArray.push(testCard2);
+    //     attackCardArray.push(testCard2);
+    // }
+
+    console.log('attack card array beofre', attackCardArray)
+
+
+    useEffect(() => {
+        // const temp = {
+        //     name:'Hammer', 
+        //     atkBonus: 0, 
+        //     typeOfHitDice: 4, 
+        //     numberOfHitDice: 1, 
+        //     typeOfDamage: 'Piercing',
+        //     shortRange: 20,
+        //     longRange: 60,
+        //     notes: 'Finesse, Thrown'
+        // };
+        // attackCardArray.push(temp);
+        //setNewAttackName(newAttackName);
+
+        localStorage.setItem("attacks", JSON.stringify(
+            {attackCardArray}));
+
+
+    }, [attackCardArray]);
+
+    
+
+//     useEffect(() => {
+//         // setTempName(tempName);
+//         // setTempNotes(tempNotes);
+//         // setNewAttackName(tempName);
+//         // setNewAttackNotes(tempNotes);
+//     localStorage.setItem("newAttackInfo", JSON.stringify({
+//         attackBonus: attackBonus,
+//         rangedOrMeleeAnswer: rangedOrMeleeAnswer,
+//         newAttackName: newAttackName,
+//         newAttackNotes: newAttackNotes,
+//         shortRange: shortRange,
+//         longRange: longRange,
+//         typeOfHitDice: typeOfHitDice,
+//         numberOfHitDice: numberOfHitDice,
+//         resetInfo: resetInfo,
+//     }));
+// }, [attackBonus, rangedOrMeleeAnswer, newAttackName, 
+//     newAttackNotes, shortRange, longRange, typeOfHitDice, numberOfHitDice, resetInfo]);
+
+
+    // useEffect(() => {
+    //     localStorage.setItem("attacks", JSON.stringify(
+    //         {attackCards}));
+    // }, [attackCards]);
+ 
+
+
+    // const testAttackCard = new AttackCard('Trident', 0, 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown');
+    // const testAttackCard2 = new AttackCard('Spear', 0, 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown');
+
+    //const testCard = {name: "test"};
+
 
     console.log('attackCard array', attackCardArray);
 
-    // // WILL JUST HAVE TO DO THIS
-
-    // function createNewAttackBox(index: number) {
-    //     console.log('new attack click');
-    //     const newAttackBox = document.createElement('div');
-    //     newAttackBox.innerHTML = newAttackBoxString(index);
-    //     newAttackBox.className = 'newLoneAttackBox';
-    //     document.getElementById('attackTest')!.appendChild(newAttackBox);
+    // function resetNewAttackInfo() {
+    //     localStorage.setItem("newAttackInfo", JSON.stringify({
+    //         attackBonus: 0,
+    //         rangedOrMeleeAnswer: '',
+    //         newAttackName: '',
+    //         newAttackNotes: '',
+    //         shortRange: 5,
+    //         longRange: 5,
+    //         typeOfHitDice: 4,
+    //         numberOfHitDice: 1,
+    //         makeNewAttack: false,
+    //     }));
     // }
+    
 
-    // function newAttackBoxString(index) {
+    const AttackCard = ({attackCardArray, attackObj, index}) => {
+        console.log('attack card', attackCardArray);
+        
+        const [notes, setNotes] = useState(attackObj ? attackObj.notes : "");
+        const damageBonus = attackObj.versatile ? 
+        ((abilityBoxInfo.str >= abilityBoxInfo.dex) ? 
+            determineModifier(abilityBoxInfo.str) : determineModifier(abilityBoxInfo.dex)) : 
+        ((attackObj.longRange === -1) ? 
+        determineModifier(abilityBoxInfo.str) :  determineModifier(abilityBoxInfo.dex));
 
-    //     return (
-    //         `<div className="newLoneAttackBox">
-    //             <div className="attackInfoUpperBox">
-    //                 <div className="attackInfoNameBox">
-    //                     <span>Name</span>
-    //                     <input className="attackNameInput" id="AttackName" type={'text'}></input>
-    //                 </div>
-    //                 <div className="finalAttackBonusOuterBox">
-    //                     <span className="attackBonusText">ATK Bonus</span>
-    //                     <div className="finalAttackInnerBox">
-    //                         <span className="finalAttackBonusText"> +${attackCardArray[attackCardArray.length-1].atkBonus} </span> 
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //             <div className="attackNotesLowerBox">
-    //                 <span className="attackNotesText">Notes</span>
-    //                 <textarea className="attackNotesInputBox"></textarea>
-    //             </div>
-    //         </div>
-    //     `)
-    // };
+        console.log("damage bons", damageBonus);
+        console.log('str', determineModifier(abilityBoxInfo.str));
+        console.log('dex', determineModifier(abilityBoxInfo.dex));
 
-    const attackObj = {
+        useEffect(() => {
+            setNotes(notes);
+        }, [notes]);
+    
+        return (
+            <Fragment>
+                <div className="newLoneAttackBox" 
+                     key={`${attackObj.name}_${index}`} 
+                    //  id={`${attackObj.name}_${index}`}
+                     id={`${index}`}>
+                     <div className="attackInfoUpperBox">
+                         <div className="attackNameBox">
+                             <span>{attackObj.name}</span>
+                             <span className="attackTypeIndicatorText">
+                                {(attackObj.longRange === -1) ? '(Melee)' : '(Ranged)'}
+                            </span>
+                         </div>
+                         <div className="finalRangeBox">
+                            <div>Range</div>
+                            {
+                                (attackObj.longRange === -1) ? 
+                                <div className="reachBox">
+                                    <div className="finalReachTop">
+                                        {attackObj.shortRange} ft.
+                                    </div>
+                                    <div className="finalReachBottom">
+                                        Reach
+                                    </div>
+                                </div> : 
+                                <div className="rangeBox">
+                                    <div className="finalShortRange">
+                                        {attackObj.shortRange}
+                                    </div>
+                                    <div className="finalLongRange">
+                                        ({attackObj.longRange})
+                                    </div>
+                                </div>
+                            }
+                         </div>
+                         <div className="finalAttackBonusOuterBox">
+                             <span className="finalAttackBonusHeaderText">HIT</span>
+                             <div className="finalAttackInnerBox">
+                                 <span className="finalAttackBonusValueText"> +{attackObj.atkBonus} </span> 
+                             </div>
+                         </div>
+                         
+                         <div className="finalDamageBox">
+                            <div className="finalDamageTitle">Damage</div>
+                            <div className="finalInnerDamageBox">
+                                <div className="finalHitDiceBox">
+                                    {attackObj.numberOfHitDice}{attackObj.typeOfHitDice}{damageBonus} 
+                                </div>
+                                <div className="finalTypeOfDamageBox">
+                                    ({attackObj.typeOfDamage})
+                                </div>
+                            </div>
+                         </div>
 
-    }
+                        
+                         <div 
+                            className="DeleteAttackBox"
+                            id={`${index}`}
+                            onClick={(e) => {
+                                attackCardArray.splice(e.target.id, 1);
+                                setAttackCards(attackCardArray);
+                            }}>X</div>
+                     </div>
+                     <div className="attackNotesLowerBox">
+                        <div className="attackNotesInnerBox">
+                            <span className="attackNotesText">Notes</span>
+                            <button 
+                            className="AttackBoxSaveButton"
+                            id={`${index}`}
+                            onClick={(e) => {
+                                (attackCardBeingEdited === -1) ? 
+                                    setAttackCardBeingEdited(index) : setAttackCardBeingEdited(-1);
+                                setIsEdit(!isEdit);
+                                }}>
+                                    {(isEdit && (attackCardBeingEdited === index)) ? 'save notes' : 'edit notes'}
+                            </button> 
+                        </div>
 
-    /*
-
-
-        MAKE THE ATTACK CARD OBJECT.
-        ADD EACH NEW OBJECT TO THE LOCAL STORAGE ARRAY
-            attackCards.push(newObj);
-        WRITE TO LOCAL STORAGE EACH TIME.
-        THE FUNCTION THAT DISPLAYS THE CARD WILL BE A FOR LOOP THAT CREATES THE DIV ELEMENTS
-
-    */
-
-    function handleAttackClick() {
-        console.log('attack click');
-        const attackButton = document.getElementById('AttacksBoxButton');
-        if(attackButton.className === 'activeButton') {
-            attackButton.className = 'AttacksBoxButton';
-        } else {
-            attackButton.className = 'activeButton';
-        }
-        // attackButton.className = 'AttacksBoxButtonActive';
-        const newAttackBox = document.createElement('div');
-        newAttackBox.innerHTML = `<div> hello there! </div>`;
-        newAttackBox.className = 'newLoneAttackBox';
-        document.getElementById('attackTest').appendChild(newAttackBox);
-    }
-
-    // function handleNewAttackBox() {
-    //     // const attackName = document.getElementById('AttackName')!.value;
-    //     // console.log(attackName);
-    //     // // if(numberOfAttacks === 0) {
-    //     // //     const temp = new AttackCard(attackName, 5, 4, 2, 'Piercing', 20, 60, 'Finesse, Thrown' );
-    //     // //     attackCardArray[numberOfAttacks] = temp;
-    //     // // } else {
-
-    //     // // }
-    //     // const temp = new AttackCard(attackName, 5, 4, 2, 'Piercing', 20, 60, 'Finesse, Thrown' );
-    //     // attackCardArray.push(temp);
-    //     // console.log('temp', temp);
-    //     console.log('attacks', numberOfAttacks);
-    //     console.log('arrayTemp', attackCardArray[numberOfAttacks]);
-    //     //setNumberOfAttacks(numberOfAttacks + 1);
-    //     //createNewAttackBox(0);
-    //     if(proficientWithWeaponAnswer === false) {
-    //         alert('Not Finished Creating Attack');
-    //     } else {
-    //         createNewAttackBox(0);
-    //     }
-    // }
-
+                        <textarea
+                        className="finalAttackNotesBox"
+                        value={attackObj.notes}
+                        id={`${index}`}
+                        // onFocus={()  => {
+                        //     setAttackCards(attackCardArray);
+                        // }}
+                        onChange={(e) => {
+                            //setWeaponProficiencies(e.target.value.toString());
+                            console.log('id', e.target.id, 'notes', attackCardArray[e.target.id]);
+                            console.log('entered', e.target.value);
+                            attackCardArray[e.target.id].notes = e.target.value.toString();
+                            //attackObj.notes = e.target.value.toString();
+                            setNotes(attackObj.notes);
+                            //setAttackCards(attackCardArray);
+                        }}
+                        cols={1}
+                        rows={4}></textarea>
+                     </div>
+                 </div>
+            </Fragment>
+        )
+    };
 
     return (
         <Fragment>
             <div className="Notes-MultiSelectBox" id="attackTest">
-                
-
                 <div className="attackHeader">
                     <div className="attackHeaderText">ATTACKS</div>
                     <button
                     className="attackHeaderNewButton"
                     onClick={() => {
-
                         // const test = new AttackCard('Hammer', 0, 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown');
-
-                        const temp = {
-                            name:'Hammer', 
-                            atkBonus: 0, 
-                            typeOfHitDice: 4, 
-                            numberOfHitDice: 1, 
-                            typeOfDamage: 'Piercing',
-                            shortRange: 20,
-                            longRange: 60,
-                            notes: 'Finesse, Thrown'
-                        };
-                        attackCards.attackCardArray.push(temp);
-                        setAttackCards(attackCards);
-                        console.log('attack card', attackCardArray);
-                        console.log('attack cardaa', attackCards);
-                    }}
-                    // onClick={() => {
-
-                    // console.log('new attack click');
-                    // const newAttackBox = document.createElement('div');
-                    // newAttackBox.innerHTML = newAttackBoxString(0);
-                    // newAttackBox.className = 'newLoneAttackBox';
-                    // document.getElementById('attackTest')!.appendChild(newAttackBox);
-                    // // setNumberOfAttacks(numberOfAttacks + 1);
-                    // // const newAttackBoxClassName = 'newLoneAttackBox';
-                    // // const newNumberOfAttacks = numberOfAttacks.toString();
-                    // // console.log(newAttackBoxClassName.concat(newNumberOfAttacks));
-                    // // newAttackBox.className = newAttackBoxClassName.concat(newNumberOfAttacks);
-                    // }}
-                    >+</button>
+                        if(makeNewAttack) {
+                            if( (document.getElementById('rangedOrMeleeAnswer')?.value !== '') &&
+                                (document.getElementById('typeOfHitDice')?.value !== 'Type') &&
+                                (document.getElementById('typeOfDamage')?.value !== 'Select Type')) {
+                                const newAttack = {
+                                    name: document.getElementById('NewAttackName')?.value, 
+                                    atkBonus: document.getElementById('attackBonus')?.value, 
+                                    typeOfHitDice: document.getElementById('typeOfHitDice')?.value, 
+                                    numberOfHitDice: document.getElementById('numberOfHitDice')?.value,
+                                    versatile:  (document.getElementById('Versatile').className === 'versatileOptionBoxactive') ? true : false, 
+                                    typeOfDamage: document.getElementById('typeOfDamage')?.value,
+                                    shortRange: document.getElementById('shortRange')?.value,
+                                    longRange: document.getElementById('longRange')?.value ? 
+                                        document.getElementById('longRange')?.value : -1,
+                                    notes: document.getElementById('NewAttackNotes')?.value,
+                                };
+                                console.log('IN temp2', newAttack);
+                                attackCardArray.push(newAttack);
+                                setAttackCards(attackCardArray);
+                            }
+                            setResetInfo(true);
+                            // resetNewAttackInfo();
+                            setMakeNewAttack(false);
+                        } else {
+                            setResetInfo(true);
+                            // resetNewAttackInfo();
+                            setMakeNewAttack(true);
+                        }
+                    }}> {makeNewAttack ? 'Add Attack' : 'Make New Attack'}</button>
                 </div>
-                <div className="loneAttackBox">
-                    
-                     <div className="attackInfoUpperBox">
-                        <div className="attackInfoNameBox">
-                            <span>Name</span>
-                            <input className="attackNameInput" id="AttackName" type={'text'}></input>
-                        </div>
+                {makeNewAttack ? 
+                    <MakeAttackCard 
+                        newAttackInfo={newAttackInfo} 
+                        makeNewAttack={makeNewAttack}
+                        resetInfo={resetInfo}/> : <div></div>}
 
-                         {/* {proficientWithWeaponAnswer ? <FinalAttackBonusBox /> :
-                        (<div className="attackBonusOuterBox">
-                            <span className="attackBonusText">Attack Bonus</span>
-                            <div className="attackBonusChoicesBox">
-                            {proficientWithWeaponAnswer ? <FinalAttackBonusBox /> :
-                                (rangedOrMeleeAnswer ?
-                                (finesseWeaponAnswer ? <ProficientWithWeaponBoxQuestion /> :
-                                    <FinesseWeaponBoxQuestion />) :
-                                        <RangedOrMeleeBoxQuestion />)}
-                            </div>
-                        </div>)}  */}
-
-                    </div>
-                    <div className="attackNotesLowerBox">
-                        <span className="attackNotesText">Notes</span>
-                        <textarea className="attackNotesInputBox"></textarea>
-                    </div>
-
+                <div className="Test2">
+                    {attackCardArray.map((attackObj, index) => {
+                        console.log('attackObj', attackObj);
+                        console.log('attackObj name', attackObj.name);
+                        return (
+                            <AttackCard 
+                                attackCardArray={attackCardArray}
+                                attackObj={attackObj} 
+                                index={index}/>
+                            // <TestBox2 attName={attackObj} index={index}/>
+                            // <div key={index} className="Test">
+                            //     {attackObj}
+                            // </div>
+                            
+                        );
+                    })}                
                 </div>
-
-            <div className="Test2">
-                
-                {attackCardArray.map((attackObj, index) => {
-                    console.log('attackObj', attackObj);
-                    console.log('attackObj name', attackObj.name);
-                    return (
-                        <AttackCard attackObj={attackObj} index={index}/>
-                        // <TestBox2 attName={attackObj} index={index}/>
-                        // <div key={index} className="Test">
-                        //     {attackObj}
-                        // </div>
-                        
-                    );
-                })}                
-            </div>
 
 
             </div>

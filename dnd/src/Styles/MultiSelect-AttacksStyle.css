@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     height: 30px;
-    width: 200px;
+    width: 300px;
     margin: 5px 10px 0px 0px;
     
 }
@@ -17,26 +17,26 @@
 .attackHeaderNewButton {
     background-color: rgb(35, 73, 73);
     height: 23px;
-    width: 30px;
+    width: 130px;
     margin: 2px 0px 0px 10px;
     font-weight: bolder;
     font-size: 13px;
     color:ghostwhite;
 }
 
-.loneAttackBoxHolder > div {
+/* .loneAttackBoxHolder > div {
     display: flex;
     flex-direction: column;
     height: 100px;
     width: 450px;
     margin: 10px 0px 0px 0px;
     background-color: azure;
-}
+} */
 
 .loneAttackBox {
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 110px;
     width: 450px;
     margin: 10px 0px 0px 0px;
     background-color: azure;
@@ -55,7 +55,7 @@
 .attackInfoUpperBox {
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: 90px;
     width: 450px;
     background-color: rgb(5, 109, 109);
 }
@@ -64,30 +64,379 @@
     display: flex;
     flex-direction: column;
     height: 50px;
-    width: 120px;
+    width: 100px;
     margin: 0px 0px 0px 5px;
     background-color: rgb(5, 109, 109);
     color:aliceblue;
+    align-items: center;
+}
+
+.attackNameBox {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 130px;
+    margin: 5px 0px 0px 5px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.attackTypeIndicatorText {
+    font-size: 8pt;
 }
 
 .attackNameInput {
     height: 20px;
-    width: 120px;
-    font-size: 12px;
+    width: 95px;
+    font-size: 14px;
 }
 
-.attackBonusOuterBox {
+.attackCardTypeText {
+    font-size: 12pt;
+    margin: 10px 0px 0px 0px;
+}
+.attackChoiceBox {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 110px;
+    margin: 0px 0px 0px 10px;
+    color:rgb(255, 255, 255);
+    text-align: center;
+}
+
+.attackTypeChoice {
+    width: 40px;
     display: flex;
     flex-direction: column;
     height: 50px;
-    width: 155px;
-    margin: 0px 0px 0px 15px;
-    background-color: rgb(9, 66, 33);
+    width: 150px;
+    margin: -2px 0px 0px 0px;
+    font-size: 13pt;
+    font-weight: bold;
+    color: rgb(223, 139, 139);
+    text-align: center;
+    align-items: center;
+}
+
+.attackChosenBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 80px;
+    margin: 0px 15px 0px 20px;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    align-items: center;
+}
+
+.attackTypeBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 130px;
+    margin: 0px 0px 0px 0px;
+    background-color: rgb(161, 159, 248);
+    text-align: center;
+}
+
+.MeleeChoice {
+    height: 25px;
+    width: 60px;
+    margin: 5px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+}
+
+.RangedChoice {
+    height: 25px;
+    width: 70px;
+    margin: 5px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+}
+.rangedRangeBox {
+    display: flex;
+    flex-direction: row;
+    margin: -3px 0px 0px 10px;
+}
+.meleeRangeBox {
+    display: flex;
+    flex-direction: column;
+    margin: -3px 0px 0px 10px;
+}
+.typeAnswerText {
+    font-size: 12pt;
+    margin: 0px 0px 0px 10px;
+    font-weight: bold;
+}
+
+.shortRangeBox {
+    margin: 0px 3px 0px 0px;
+}
+.shortLongRangeText {
+    font-size: 8pt;
+}
+.rangeDial {
+    width: 40px;
+    height: 20px;
+    margin: 0px auto 0px auto;
+    text-align: center;
+    font-size: 12pt;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+
+.finalAttackBonusOuterBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 35px;
+    margin: 0px 10px 0px 10px;
+    color: rgb(255, 255, 255);
+}
+
+.finalAttackInnerBox {
+    display: flex;
+    height: 25px;
+    width: 35px;
+    margin: 0px 10px 0px 0px;
+    border-radius: 5px;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.finalAttackBonusHeaderText {
+    margin: 0px auto;
+    color:rgb(253, 253, 253);
+    font-weight: bold;
+}
+
+.finalAttackBonusValueText {
+    margin: 0px auto;
+    color:rgb(255, 255, 255);
+}
+
+
+.finalRangeBox {
+    display: column;
+    flex-direction: column;
+    height: 20px;
+    width: 40px;
+    margin: 0px 15px 0px 5px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.reachBox {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 35px;
+    margin: 0px 0px 0px 5px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: light;
+    text-align: center;
+}
+
+.finalReachTop {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 35px;
+    margin: -1px 0px 0px 0px;
+    color:aliceblue;
+    font-size: 10pt;
+    font-weight: 500;
+    text-align: center;
+}
+.finalReachBottom {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 35px;
+    margin: -3px 0px 0px 0px;
+    color:aliceblue;
+    font-size: 9pt;
+    font-weight: 500;
+    text-align: center;
+}
+
+.rangeBox {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    width: 40px;
+    margin: 0px 0px 0px 0px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 13pt;
+    text-align: center;
+}
+.finalShortRange {
+    font-size: 13pt;
+}
+.finalLongRange {
+    margin: 3px 0px 0px 3px;
+    font-size: 8pt;
+}
+
+.finalDamageBox {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 110px;
+    margin: 0px 10px 0px 10px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+.finalInnerDamageBox {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    width: 110px;
+    margin: 0px 10px 0px 0px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    align-items: center;
+}
+
+.finalDiceBox {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    width: 40px;
+}
+
+.finalHitDiceBox {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    width: 40px;
+    margin: 0px 10px 0px 0px;
+}
+
+.finalTypeOfDamageBox {
+    font-size: 9pt;
+    font-weight: 500;
+}
+
+.attackCardText {
+    font-size: 12pt;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+}
+
+.attackBonusBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 120px;
+    margin: 0px 0px 0px 10px;
     color: aliceblue;
+    align-items: center;
 }
 
 .attackBonusText {
-    margin: 0px auto;
+    color:azure;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    width: 90px;
+}
+
+.attackBonusDial {
+    width: 40px;
+    height: 20px;
+    margin: 5px 10px 0px 0px;
+    text-align: center;
+    font-size: 12pt;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+
+.attackDMGText {
+    color: aliceblue;
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 0px 0px 0px 0px;
+}
+.attackDMGTypeInput {
+    height: 20px;
+    width: 120px;
+    font-size: 12px;
+}
+.dmgTypeBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 150px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    align-items: center;
+}
+
+.DamageSelector {
+    width: 100px;
+}
+
+.versatileOption {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 130px;
+    margin: 0px 0px 0px -10px;
+    /* background-color: rgb(215, 233, 134); */
+    text-align: center;
+    align-items: center;
+    color: aliceblue;
+}
+.versatileText {
+    margin: 0px 0px 0px 20px;
+    font-size: 11pt;
+}
+
+.versatileOptionBox {
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border-radius: 50px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1.5px;
+    margin: 2px 5px 0px 5px;
+}
+
+.versatileOptionBoxactive {
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 50px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1.5px;
+    margin: auto 5px;
+}
+
+.versatileOptionBox:hover, 
+.versatileOptionBoxactive:hover {
+    cursor: pointer;
 }
 
 .MeleeOrRangedBox {
@@ -130,6 +479,8 @@
 .MeleeBox:hover, .RangeBox:hover {
     cursor: pointer;
 }
+
+
 
 .FinesseWeaponBox {
     display: flex;
@@ -181,28 +532,6 @@
     flex-direction: row;
 }
 
-.finalAttackBonusOuterBox {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    width: 120px;
-    color: rgb(255, 255, 255);
-}
-
-.finalAttackInnerBox {
-    display: flex;
-    height: 25px;
-    width: 45px;
-    margin: 0px 10px 0px 37px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-
-}
-
-.finalAttackBonusText {
-    margin: 0px auto;
-    color:rgb(0, 0, 0);
-}
 
 .attackNotesLowerBox {
     display: flex;
@@ -212,25 +541,106 @@
     background-color: rgb(114, 141, 111);
 }
 
+.attackNotesInnerBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 90px;
+    background-color: rgb(114, 141, 111);
+    align-items: end;
+}
+
 .attackNotesText {
     margin: 2.5px 5px 0px 5px;
     color: aliceblue;
+    font-weight: bold;
 }
 
 .attackNotesInputBox {
     height: 40px;
-    width: 390px;
+    width: 200px;
 }
 
-.Test {
-    height: 50px;
-    width: 200px;
-    background-color: rgb(114, 141, 111);
-    color:rgb(0, 0, 0);
+.finalAttackNotesBox {
+    height: 40px;
+    width: 340px;
 }
-.Test2 {
-    height: 600px;
-    width: 200px;
-    background-color: rgb(255, 255, 255);
+
+.diceSelectionBox {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 180px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+}
+
+.diceTypeBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 80px;
+    margin: 0px 10px 0px 10px;
+    text-align: center;
+}
+
+.diceSelector {
+    width: 80px;
+    margin: 2px 0px 0px 0px;
+}
+
+.numberOfDiceBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 100px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    align-items: center;
+}
+
+.numberOfDiceDial {
+    width: 40px;
+    height: 20px;
+    margin: 0px 10px 0px 10px;
+    text-align: center;
+    font-size: 12pt;
     color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+
+.DeleteAttackBox {
+    height: 25px;
+    width: 25px;
+    margin: 5px 5px 0px 35px;
+    background-color: rgb(197, 197, 199);
+    color:rgb(255, 61, 2);
+    font-weight: bolder;
+    font-size: 13pt;
+    border-radius: 10px;
+    border-width: 1.5px;
+    text-align: center;
+}
+.DeleteAttackBox:hover {
+    cursor: pointer;
+}
+
+.AttackBoxSaveButton {
+    height: 20px;
+    width: 80px;
+    margin: 2px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+}
+
+.AttackBoxSaveButtonActive {
+    height: 20px;
+    width: 40px;
+    margin: 2px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
 }

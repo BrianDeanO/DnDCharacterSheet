@@ -80,8 +80,9 @@ html {
   height: 45px;
 }
 
-.activeButton {
+#activeButton {
   background-color: rgb(255, 203, 139);
+  text-decoration: underline;
 }
 
 .AttacksBoxButton {

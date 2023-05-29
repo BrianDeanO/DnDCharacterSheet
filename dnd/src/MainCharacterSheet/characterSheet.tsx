@@ -22,6 +22,7 @@ const CharacterSheet = ({
         additionalInfoBoxInfo,
         healthBoxInfo,
         attacks,
+        newAttackInfo,
         spells,
         inventory,
         featsAndTraits,
@@ -66,247 +67,15 @@ const CharacterSheet = ({
 
     attackCardArray.push(testAttackCard);
 
-    const Sarry = (skill) => {
-        return (
-        <div className="loneAttackBox">
-            <div className="attackInfoUpperBox">
-                <div className="attackInfoNameBox">
-                    <span>Name</span>
-                    <input className="attackNameInput" type={'text'}></input>
-                </div>
-                {proficientWithWeaponAnswer ? <FinalAttackBonusBox /> :
-                (<div className="attackBonusOuterBox">
-                    <span className="attackBonusText">Attack Bonus</span>
-                    <div className="attackBonusChoicesBox">
-                    {proficientWithWeaponAnswer ? <FinalAttackBonusBox /> :
-                        (rangedOrMeleeAnswer ?
-                        (finesseWeaponAnswer ? <ProficientWithWeaponBoxQuestion /> :
-                            <FinesseWeaponBoxQuestion />) :
-                                <RangedOrMeleeBoxQuestion />)}
-                    </div>
-                </div>)}
-            </div>
-            <div className="attackNotesLowerBox">
-                <span className="attackNotesText">Notes</span>
-                <textarea className="attackNotesInputBox"></textarea>
-            </div>
-        </div>
-    )};
-
-
-        // function renderArray() {
-        //     return skillsArray.map((skill, index) => {
-        //         <Sarry skill={skill}/>
-        //     })
-        // }
-
-
-
-        // const sarry = skillsArray.forEach((skill, index) => {
-        //     console.log(skill);
-        //     <div className="LoneSkillsBox">
-        //             <span
-        //                 className="ProficiencyCheckBox"
-        //                 onClick={() => determineSkillCheckBonus(skill.SkillName, skill.SkillAbility)}></span>
-        //             <span className="SkillModifierValue"> {skill.SkillsMod} </span>
-        //             <span className="SkillsNameText"> {skill.SkillName} </span>
-        //             <span className="SkillsNameAbilityMod"> ({skill.SkillAbility}) </span>
-        //     </div>
-        // })
-
-        // return (
-        //     <div className="SkillsBox">
-        //         <span className="SkillsText"> Skills </span>
-        //         <>
-        //         {renderArray()}
-        //         </>
-        //     </div>
-        // )
-
-    function fillProficientSkillCircle() {
-
-    }
-
-    // function AttacksSelectionBoxF() {
-    //     console.log('attack');
-    //     const test = document.createElement('div');
-    //     document.getElementById('multiTest')?.appendChild(<AttacksSelectionBox />);
-    //     return (
-    //         <div className="Notes-MultiSelectBox">
-    //             ATTACKSaaaaaaaaaaaa
-    //         </div>
-    //     )
-    // }
-
-    // function SpellsSelectionBoxF() {
-    //     console.log('spell')
-    //     return (
-    //         <div className="Notes-MultiSelectBox">
-    //             SPELLS
-    //         </div>
-    //     )
-    // }
-
-
-    const RangedOrMeleeBoxQuestion = () => {
-        return (
-            <div className="MeleeOrRangedBox">
-                <div
-                    className="MeleeBox"
-                    id="Melee"
-                    onClick={() => {
-                        setAttackBonus(DEXModifier);
-                        setRangedOrMeleeAnswer(true);
-                    }}>
-                    <span className="MeleeText">Melee</span>
-                </div>
-                <span>or</span>
-                <div
-                    className="RangeBox"
-                    id="Melee"
-                    onClick={() => {
-                        setAttackBonus(STRModifier);
-                        setRangedOrMeleeAnswer(true);
-                    }}>
-                    <span className="RangedText">Ranged</span>
-                </div>
-            </div>
-        )
-    };
-
-    const FinesseWeaponBoxQuestion = () => {
-        return (
-            <div className="FinesseWeaponBox">
-                <span>Finesse?</span>
-                <div
-                    className="YesBox"
-                    id="YesFinesse"
-                    onClick={() => {
-                        ((STRModifier >= DEXModifier)
-                            ? setAttackBonus(STRModifier) :
-                            setAttackBonus(DEXModifier))
-                        setFinesseWeaponAnswer(true);
-                    }}>
-                    <span className="MeleeText">Yes</span>
-                </div>
-                <div
-                    className="NoBox"
-                    id="NoFinesse"
-                    onClick={() => {
-                        setFinesseWeaponAnswer(true);
-                    }}>
-                    <span className="RangedText">No</span>
-                </div>
-            </div>
-        )
-    };
-
-    const ProficientWithWeaponBoxQuestion = () => {
-        return (
-            <div className="proficientWeaponQuestionBox">
-                <span>Proficient?</span>
-                <div
-                    className="YesBox"
-                    id="Proficient"
-                    onClick={() => {
-                        setAttackBonus(attackBonus + proficiencyBonus);
-                        setProficientWithWeaponAnswer(true);
-                        setFinesseWeaponAnswer(false);
-                        setRangedOrMeleeAnswer(false);
-                    }}>
-                    <span className="MeleeText">Yes</span>
-                </div>
-                <div
-                    className="NoBox"
-                    id="NotProficient"
-                    onClick={() => {
-                        setProficientWithWeaponAnswer(true);
-                        setFinesseWeaponAnswer(false);
-                        setRangedOrMeleeAnswer(false);
-                    }}>
-                    <span className="RangedText">No</span>
-                </div>
-            </div>
-        )
-    };
-
-    const FinalAttackBonusBox = () => {
-        return (
-            <div className="finalAttackBonusOuterBox">
-                <span className="attackBonusText">ATK Bonus</span>
-                <div className="finalAttackInnerBox">
-                    {/*@ts-ignore*/}
-                    <span className="finalAttackBonusText">{`+${attackCardArray[attackCardArray.length-1].atkBonus}`} </span> 
-                </div>
-            </div>
-        )
-    };
-
-    function resetAttackBonusQuestions() {
-        setProficientWithWeaponAnswer(false);
-        setFinesseWeaponAnswer(false);
-        setRangedOrMeleeAnswer(false);
-    };
-
-    function newAttackBoxString(index) {
-
-        return (
-            `<div className="newLoneAttackBox">
-                <div className="attackInfoUpperBox">
-                    <div className="attackInfoNameBox">
-                        <span>Name</span>
-                        <input className="attackNameInput" id="AttackName" type={'text'}></input>
-                    </div>
-                    <div className="finalAttackBonusOuterBox">
-                        <span className="attackBonusText">ATK Bonus</span>
-                        <div className="finalAttackInnerBox">
-                            <span className="finalAttackBonusText"> +${attackCardArray[attackCardArray.length-1].atkBonus} </span> 
-                        </div>
-                    </div>
-                </div>
-                <div className="attackNotesLowerBox">
-                    <span className="attackNotesText">Notes</span>
-                    <textarea className="attackNotesInputBox"></textarea>
-                </div>
-            </div>
-        `)
-    };
-
-    function createNewAttackBox(index: number) {
-        console.log('new attack click');
-        const newAttackBox = document.createElement('div');
-        newAttackBox.innerHTML = newAttackBoxString(index);
-        newAttackBox.className = 'newLoneAttackBox';
-        document.getElementById('attackTest')!.appendChild(newAttackBox);
-    }
-
-    function handleNewAttackBox() {
-        // const attackName = document.getElementById('AttackName')!.value;
-        // console.log(attackName);
-        // // if(numberOfAttacks === 0) {
-        // //     const temp = new AttackCard(attackName, 5, 4, 2, 'Piercing', 20, 60, 'Finesse, Thrown' );
-        // //     attackCardArray[numberOfAttacks] = temp;
-        // // } else {
-
-        // // }
-        // const temp = new AttackCard(attackName, 5, 4, 2, 'Piercing', 20, 60, 'Finesse, Thrown' );
-        // attackCardArray.push(temp);
-        // console.log('temp', temp);
-        console.log('attacks', numberOfAttacks);
-        console.log('arrayTemp', attackCardArray[numberOfAttacks]);
-        //setNumberOfAttacks(numberOfAttacks + 1);
-        //createNewAttackBox(0);
-        if(proficientWithWeaponAnswer === false) {
-            alert('Not Finished Creating Attack');
-        } else {
-            createNewAttackBox(0);
-        }
-    }
-
     const MultiSelectBox = () => {
+        console.log('mult select', multiBoxSelection);
         switch(multiBoxSelection) {
             case 'ATTACKS':
-                return (<AttacksSelectionBox attacks={attacks} abilityBoxInfo={abilityBoxInfo}/>)
+                return (
+                    <AttacksSelectionBox 
+                        attacks={attacks} 
+                        abilityBoxInfo={abilityBoxInfo}
+                        newAttackInfo={newAttackInfo}/>)
             case 'SPELLS':
                 return (<SpellsSelectionBox spells={spells}/>)
             case 'INVENTORY':
@@ -318,12 +87,14 @@ const CharacterSheet = ({
             case 'NOTES':
                 return (<NotesSelectionBox notes={notes}/>)
             default:
-                return (<AttacksSelectionBox attacks={attacks} abilityBoxInfo={abilityBoxInfo}/>)
+                return (<AttacksSelectionBox 
+                            attacks={attacks} 
+                            abilityBoxInfo={abilityBoxInfo}
+                            newAttackInfo={newAttackInfo}/>)
         }
     }
 
     console.log('skillsBxin', skillsBoxInfo);
-    const test = ["One", "Two", "Three"];
 
     return (
         <div className="CharacterSheet">
@@ -358,22 +129,27 @@ const CharacterSheet = ({
                     <div className="Notes-MultiSelectHeaderBox">
                         <span
                             className="AttacksBoxButton"
-                            id="AttacksBoxButton"
+                            id={multiBoxSelection === 'ATTACKS' ? 'activeButton' : 'notActiveButton'}
                             onClick={() => setMultiBoxSelection('ATTACKS')}> Attacks </span>
                         <span
                             className="SpellsBoxButton"
+                            id={multiBoxSelection === 'SPELLS' ? 'activeButton' : 'notActiveButton'}
                             onClick={() => setMultiBoxSelection('SPELLS')}> Spells </span>
                         <span
                             className="InventoryBoxButton"
+                            id={multiBoxSelection === 'INVENTORY' ? 'activeButton' : 'notActiveButton'}
                             onClick={() => setMultiBoxSelection('INVENTORY')}> Inventory </span>
                         <span
                             className="FeaturesAndTraitsBoxButton"
+                            id={multiBoxSelection === 'FEATS&TRAITS' ? 'activeButton' : 'notActiveButton'}
                             onClick={() => setMultiBoxSelection('FEATS&TRAITS')}> Features & Traits </span>
                         <span
                             className="DescriptionBoxButton"
+                            id={multiBoxSelection === 'DESCRIPTION' ? 'activeButton' : 'notActiveButton'}
                             onClick={() => setMultiBoxSelection('DESCRIPTION')}> Description </span>
                         <span
                             className="NotesBoxButton"
+                            id={multiBoxSelection === 'NOTES' ? 'activeButton' : 'notActiveButton'}
                             onClick={() => setMultiBoxSelection('NOTES')}> Notes </span>
                     </div>
                    <MultiSelectBox />                
