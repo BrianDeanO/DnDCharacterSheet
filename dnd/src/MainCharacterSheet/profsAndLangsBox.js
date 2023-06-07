@@ -4,7 +4,7 @@ import { determineModifier } from "../helpers/determineModSign";
 
 export const ProfAndLanguagesBox = ({profAndLangBoxInfo}) => {
 
-    console.log('profs and langs', profAndLangBoxInfo);
+   // console.log('profs and langs', profAndLangBoxInfo);
 
     const [armorProficiencies,setArmorProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.armor : 'None');
     const [weaponProficiencies,setWeaponProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.weapons : 'None');

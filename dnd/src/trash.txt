@@ -277,3 +277,57 @@ OLD ATTACK STUFF
             createNewAttackBox(0);
         }
     }
+
+
+ATTACK CARD CSS
+
+
+.FinesseWeaponBox {
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    width: 150px;
+    margin: 0px 0px 0px 10px;
+    color: aliceblue;
+}
+
+.FinesseBox {
+    display: flex;
+    height: 25px;
+    width: 60px;
+    margin: 0px 5px 0px 5px;
+    background-color: rgb(156, 114, 134);
+    border-radius: 5px;
+}
+
+.FinesseText {
+    color: rgb(255, 255, 255);
+    margin: 0px 0px 0px 2.5px;
+}
+
+.YesBox {
+    display: flex;
+    height: 25px;
+    width: 30px;
+    margin: 0px 5px 0px 5px;
+    background-color: rgb(88, 244, 255);
+    border-radius: 5px;
+}
+
+.NoBox {
+    display: flex;
+    height: 25px;
+    width: 30px;
+    margin: 0px 5px 0px 5px;
+    background-color: rgb(139, 154, 204);
+    border-radius: 5px;
+}
+
+.YesBox:hover, .NoBox:hover {
+    cursor: pointer;
+}
+
+.proficientWeaponQuestionBox {
+    display: flex;
+    flex-direction: row;
+}

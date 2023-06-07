@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 export const HealthBox = ({healthBoxInfo}) => {
-    console.log('health box', healthBoxInfo);
+    //console.log('health box', healthBoxInfo);
     const [isHealthEdit, setIsHealthEdit] = useState(false);
     const [pointValue, setPointValue] = useState(healthBoxInfo ? healthBoxInfo.pointValue : 0);
 
@@ -44,15 +44,20 @@ export const HealthBox = ({healthBoxInfo}) => {
                 secondFailedSaveThrow: secondFailedSaveThrow,
                 thirdFailedSaveThrow: thirdFailedSaveThrow,
                 revivalChoiceArray: revivalChoiceArray}));
+        
+        if(tempPointValue === 0) {
+            setHasTempHitPoints(false);
+        }
     }, [pointValue, currentHealth, maxHealth, hasTempHitPoints, tempPointValue, 
         stableStatus, deadStatus, firstFailedSaveThrow, secondFailedSaveThrow, firstSuccessSaveThrow, 
         secondSuccessSaveThrow, thirdSuccessSaveThrow, thirdFailedSaveThrow, revivalChoiceArray]);
 
     function adjustMaxHealth(maxHealth) {
         setMaxHealth(maxHealth);
-        if(currentHealth > maxHealth) {
-            setCurrentHealth(maxHealth);
-        }
+        setCurrentHealth(maxHealth);
+        // if(currentHealth < maxHealth) {
+        //     setCurrentHealth(maxHealth);
+        // }
     }
 
     function resetSaves() {
@@ -135,7 +140,10 @@ export const HealthBox = ({healthBoxInfo}) => {
                 </input> :
                 <text
                     className="TempHitPointBoxText"
-                    onClick={() => { setHasTempHitPoints(true) }}> -- </text>
+                    onClick={() => { 
+                        setHasTempHitPoints(true);
+                        setTempPointValue(1);
+                    }}> -- </text>
         )
     }
     
@@ -332,7 +340,7 @@ export const HealthBox = ({healthBoxInfo}) => {
             </div>
         )
     }
-    console.log('max health', maxHealth);
+   // console.log('max health', maxHealth);
     
     const HitPointTrackerBox = () => {
         
@@ -347,7 +355,7 @@ export const HealthBox = ({healthBoxInfo}) => {
                             adjustMaxHealth(document.getElementById('MAX_HEALTH')?.value) :
                             adjustMaxHealth(maxHealth);
                             setIsHealthEdit(!isHealthEdit);
-                            }}>{isHealthEdit ? 'Save HP' : 'Add HP'}</button>
+                            }}>{isHealthEdit ? 'Save HP' : 'Adjust Max HP'}</button>
                 </div>
 
                 <div className="HealAndDamageBox">

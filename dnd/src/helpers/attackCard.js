@@ -13,6 +13,33 @@ const AttackCard2 = ({attackCardArray, attackObj, index}) => {
     // } else {
     //     testArray = ["One", "Two", "Three"];
     // }
+
+    // const [attackBonus, setAttackBonus] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.attackBonus : 0);
+    // const [rangedOrMeleeAnswer, setRangedOrMeleeAnswer] = useState(newAttackInfo ? 
+    //     resetInfo ? '' : newAttackInfo.rangedOrMeleeAnswer : '');
+    // const [newAttackName, setNewAttackName] = useState(newAttackInfo ? 
+    //     resetInfo ? '' : newAttackInfo.newAttackName : '');
+    // const [newAttackNotes, setNewAttackNotes] = useState(newAttackInfo ? 
+    //     resetInfo ? '' : newAttackInfo.newAttackNotes : '');
+    // const [shortRange, setShortRange] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.shortRange : 5);
+    // const [longRange, setLongRange] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.longRange : 5);
+    // const [typeOfHitDice, setTypeOfHitDice] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.typeOfHitDice : 4);
+    // const [numberOfHitDice, setNumberOfHitDice] = useState(newAttackInfo ? 
+    //     resetInfo ? 0 : newAttackInfo.numberOfHitDice : 1);
+    // const [diceTypeSelected, setDiceTypeSelected] = useState(false);
+
+    // const [attackBonus, setAttackBonus] = useState(0);
+    // const [rangedOrMeleeAnswer, setRangedOrMeleeAnswer] = useState('');
+    // const [newAttackName, setNewAttackName] = useState('');
+    // const [newAttackNotes, setNewAttackNotes] = useState('');
+    // const [shortRange, setShortRange] = useState(5);
+    // const [longRange, setLongRange] = useState(5);
+    // const [typeOfHitDice, setTypeOfHitDice] = useState(4);
+    // const [numberOfHitDice, setNumberOfHitDice] = useState(1);
     console.log('attack card', attackCardArray);
     const [attackCards, setAttackCards] = useState(attackCardArray ? attackCardArray : []);
     console.log('in attack cards', attackCards);

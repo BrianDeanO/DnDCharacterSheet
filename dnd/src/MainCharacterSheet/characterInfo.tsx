@@ -129,7 +129,11 @@ const CharacterInfo = ({character}) => {
 
             <div className="Header-Buttons">
                 <div className="Save-And-Load">
-                    <button className="Save-Button"> Save </button>
+                    <button 
+                    className="Save-Button"
+                    onClick={() => {
+                        
+                    }}>Save</button>
                     <button className="Load-Button"> Load </button>
                 </div>
 

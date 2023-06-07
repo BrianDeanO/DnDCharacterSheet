@@ -118,9 +118,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                 className= {
-                    profInAcrobatics ? 
-                        'ProficiencyCheckBoxActive' : 
-                        'ProficiencyCheckBox'}
+                    skillsIsEdit ? 
+                        profInAcrobatics ? 
+                            'ProficiencyCheckBoxActiveEdit' : 
+                            'ProficiencyCheckBoxEdit' :
+                        profInAcrobatics ? 
+                            'ProficiencyCheckBoxActive' : 
+                            'ProficiencyCheckBox'}
                 id="Acrobatics"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -140,9 +144,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInAnimalHandling ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInAnimalHandling ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInAnimalHandling ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                     id="AnimalHandling"
                     onClick={() => {
                         if(skillsIsEdit) {
@@ -162,9 +170,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInArcana ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInArcana ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInArcana ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Arcana"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -184,9 +196,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInAthletics ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInAthletics ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInAthletics ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Athletics"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -206,9 +222,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInDeception ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInDeception ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInDeception ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Deception"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -228,9 +248,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInHistory ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInHistory ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInHistory ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                     id="History"
                     onClick={() => {
                         if(skillsIsEdit) {
@@ -250,9 +274,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInInsight ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInInsight ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInInsight ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Insight"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -272,9 +300,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInIntimidation ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInIntimidation ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInIntimidation ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Intimidation"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -294,9 +326,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInInvestigation ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInInvestigation ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInInvestigation ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Investigation"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -316,9 +352,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInMedicine ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInMedicine ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInMedicine ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Medicine"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -338,9 +378,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInNature ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInNature ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInNature ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Nature"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -360,9 +404,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInPerception ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInPerception ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInPerception ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Perception"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -382,9 +430,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInPerformance ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInPerformance ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInPerformance ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Performance"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -404,9 +456,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInPersuasion ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInPersuasion ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInPersuasion ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Persuasion"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -426,9 +482,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInReligion ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInReligion ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInReligion ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Religion"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -448,9 +508,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInSleightOfHand ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInSleightOfHand ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInSleightOfHand ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="SleightOfHand"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -470,9 +534,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInStealth ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInStealth ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInStealth ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Stealth"
                 onClick={() => {
                     if(skillsIsEdit) {
@@ -492,9 +560,13 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
             <div className="LoneSkillsBox">
                 <span 
                     className= {
-                        profInSurvival ? 
-                            'ProficiencyCheckBoxActive' : 
-                            'ProficiencyCheckBox'}
+                        skillsIsEdit ? 
+                            profInSurvival ? 
+                                    'ProficiencyCheckBoxActiveEdit' : 
+                                    'ProficiencyCheckBoxEdit' :
+                            profInSurvival ? 
+                                'ProficiencyCheckBoxActive' : 
+                                'ProficiencyCheckBox'}
                 id="Survival"
                 onClick={() => {
                     if(skillsIsEdit) {

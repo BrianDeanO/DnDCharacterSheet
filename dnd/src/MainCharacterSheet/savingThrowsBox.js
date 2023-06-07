@@ -42,9 +42,13 @@ export const SavingThrowsBox = ({abilityBoxInfo, savingThrowsBoxInfo, proficienc
                             <div className="LoneSavesBoxInnerTop">
                                 <span 
                                 className= {
-                                    profInSTR ? 
-                                        'ProficiencyCheckBoxActive' : 
-                                        'ProficiencyCheckBox'}
+                                    throwsIsEdit ? 
+                                        profInSTR ? 
+                                            'ProficiencyCheckBoxActiveEdit' : 
+                                            'ProficiencyCheckBoxEdit' :
+                                        profInSTR ? 
+                                            'ProficiencyCheckBoxActive' : 
+                                            'ProficiencyCheckBox'}
                                 id="strSave"
                                 onClick={() => {
                                     if(throwsIsEdit) {
@@ -65,9 +69,13 @@ export const SavingThrowsBox = ({abilityBoxInfo, savingThrowsBoxInfo, proficienc
                             <div className="LoneSavesBoxInnerTop">
                             <span 
                                 className= {
-                                    profInDEX ? 
-                                        'ProficiencyCheckBoxActive' : 
-                                        'ProficiencyCheckBox'}
+                                    throwsIsEdit ? 
+                                        profInDEX ? 
+                                            'ProficiencyCheckBoxActiveEdit' : 
+                                            'ProficiencyCheckBoxEdit' :
+                                        profInDEX ? 
+                                            'ProficiencyCheckBoxActive' : 
+                                            'ProficiencyCheckBox'}
                                 id="dexSave"
                                 onClick={() => {
                                     if(throwsIsEdit) {
@@ -88,9 +96,13 @@ export const SavingThrowsBox = ({abilityBoxInfo, savingThrowsBoxInfo, proficienc
                             <div className="LoneSavesBoxInnerTop">
                             <span 
                                 className= {
-                                    profInCONST ? 
-                                        'ProficiencyCheckBoxActive' : 
-                                        'ProficiencyCheckBox'}
+                                    throwsIsEdit ? 
+                                        profInCONST ? 
+                                                'ProficiencyCheckBoxActiveEdit' : 
+                                                'ProficiencyCheckBoxEdit' :
+                                        profInCONST ? 
+                                            'ProficiencyCheckBoxActive' : 
+                                            'ProficiencyCheckBox'}
                                 id="constSave"
                                 onClick={() => {
                                     if(throwsIsEdit) {
@@ -119,9 +131,13 @@ export const SavingThrowsBox = ({abilityBoxInfo, savingThrowsBoxInfo, proficienc
                             <div className="LoneSavesBoxInnerTop">
                             <span 
                                 className= {
-                                    profInINT ? 
-                                        'ProficiencyCheckBoxActive' : 
-                                        'ProficiencyCheckBox'}
+                                    throwsIsEdit ? 
+                                        profInINT ? 
+                                                'ProficiencyCheckBoxActiveEdit' : 
+                                                'ProficiencyCheckBoxEdit' :
+                                        profInINT ? 
+                                            'ProficiencyCheckBoxActive' : 
+                                            'ProficiencyCheckBox'}
                                 id="intSave"
                                 onClick={() => {
                                     if(throwsIsEdit) {
@@ -142,9 +158,13 @@ export const SavingThrowsBox = ({abilityBoxInfo, savingThrowsBoxInfo, proficienc
                             <div className="LoneSavesBoxInnerTop">
                             <span 
                                 className= {
-                                    profInWIS ? 
-                                        'ProficiencyCheckBoxActive' : 
-                                        'ProficiencyCheckBox'}
+                                    throwsIsEdit ? 
+                                        profInWIS ? 
+                                                'ProficiencyCheckBoxActiveEdit' : 
+                                                'ProficiencyCheckBoxEdit' :
+                                        profInWIS ? 
+                                            'ProficiencyCheckBoxActive' : 
+                                            'ProficiencyCheckBox'}
                                 id="wisSave"
                                 onClick={() => {
                                     if(throwsIsEdit) {
@@ -165,9 +185,13 @@ export const SavingThrowsBox = ({abilityBoxInfo, savingThrowsBoxInfo, proficienc
                             <div className="LoneSavesBoxInnerTop">
                             <span 
                                 className= {
-                                    profInCHA ? 
-                                        'ProficiencyCheckBoxActive' : 
-                                        'ProficiencyCheckBox'}
+                                    throwsIsEdit ? 
+                                        profInCHA ? 
+                                                'ProficiencyCheckBoxActiveEdit' : 
+                                                'ProficiencyCheckBoxEdit' :
+                                        profInCHA ? 
+                                            'ProficiencyCheckBoxActive' : 
+                                            'ProficiencyCheckBox'}
                                 id="chaSave"
                                 onClick={() => {
                                     if(throwsIsEdit) {

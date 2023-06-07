@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import React from "react";
 
-const MakeAttackCard = ({newAttackInfo, makeNewAttack, resetInfo}) => {
+const MakeAttackCard = ({newAttackInfo, makeNewAttack}) => {
     // const [numberOfAttacks, setNumberOfAttacks] =  useState(0);
     // const [attackBonus, setAttackBonus] = useState(newAttackInfo ? 
     //     resetInfo ? 0 : newAttackInfo.attackBonus : 0);
@@ -27,10 +27,9 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack, resetInfo}) => {
     const [newAttackNotes, setNewAttackNotes] = useState('');
     const [shortRange, setShortRange] = useState(5);
     const [longRange, setLongRange] = useState(20);
-    const [typeOfHitDice, setTypeOfHitDice] = useState(4);
     const [numberOfHitDice, setNumberOfHitDice] = useState(1);
     const [diceTypeSelected, setDiceTypeSelected] = useState(false);
-    const [versatile, setVersatile] = useState(false);
+    const [finesse, setFinesse] = useState(false);
 
 //     useEffect(() => {
 //         // setTempName(tempName);
@@ -60,7 +59,7 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack, resetInfo}) => {
     // console.log('name', document.getElementById('NewAttackName')?.value);
 
     return (
-        <div className="loneAttackBox">
+        <div className="loneAttackBox" id="">
         <div className="attackInfoUpperBox">
             <div className="attackInfoNameBox">
                 <span className="attackCardText">Name</span>
@@ -153,10 +152,9 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack, resetInfo}) => {
 
             <div className="dmgTypeBox">
                 <div className="attackDMGText">DMG Type</div>
-                {/* <input className="attackDMGTypeInput" id="AttackDamageType" type={'text'}></input> */}
                 <select 
                     className="DamageSelector" id="typeOfDamage">
-                    <option>Select Type</option>
+                    <option>---</option>
                     <option value={'Acid'}>Acid</option>
                     <option value={'Bludgeoning'}>Bludgeoning</option>
                     <option value={'Cold'}>Cold</option>
@@ -171,16 +169,16 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack, resetInfo}) => {
                     <option value={'Slashing'}>Slashing</option>
                     <option value={'Thunder'}>Thunder</option>
                 </select>
-                <div className="versatileOption" id="versatileOption">
-                    <div className="versatileText">Versatile?</div>
+                <div className="finesseOption" id="finesseOption">
+                    <div className="finesseText">Finesse?</div>
                     <span 
                         className= {
-                            versatile ? 
-                                'versatileOptionBoxactive' : 
-                                'versatileOptionBox'}
-                        id="Versatile"
+                            finesse ? 
+                                'finesseOptionBoxactive' : 
+                                'finesseOptionBox'}
+                        id="Finesse"
                         onClick={() => {
-                            setVersatile(!versatile);}}></span>
+                            setFinesse(!finesse);}}></span>
                     <div></div>
                 </div>
             </div>
@@ -203,11 +201,11 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack, resetInfo}) => {
                     rows={1}></textarea>
             <div className="diceSelectionBox">
                 <div className="diceTypeBox">
-                    <div className="attackDMGText">{diceTypeSelected ? 'sleect' : 'Dice Type'}</div>
+                    <div className="attackDMGText">Dice Type</div>
                     {/* <input className="attackDMGTypeInput" id="AttackDamageType" type={'text'}></input> */}
                     <select className="diceSelector" id="typeOfHitDice">
-                        <option onClick={() => setDiceTypeSelected(true)}>Type</option>
-                        <option onClick={() => setDiceTypeSelected(true)} value={'d4'}>d4</option>
+                        <option>---</option>
+                        <option value={'d4'}>d4</option>
                         <option value={'d6'}>d6</option>
                         <option value={'d8'}>d8</option>
                         <option value={'d12'}>d12</option>

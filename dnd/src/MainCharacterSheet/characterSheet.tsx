@@ -24,6 +24,8 @@ const CharacterSheet = ({
         attacks,
         newAttackInfo,
         spells,
+        spellHeaderInfo,
+        newSpellInfo,
         inventory,
         featsAndTraits,
         description,
@@ -32,7 +34,7 @@ const CharacterSheet = ({
 
     const [proficiencyBonus, setProfiencyBonus] = useState<number>(additionalInfoBoxInfo ? additionalInfoBoxInfo.profBonus : 2);
 
-    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('ATTACKS');
+    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('SPELLS');
     
 
     const [numberOfAttacks, setNumberOfAttacks] =  useState<number>(0);
@@ -68,7 +70,7 @@ const CharacterSheet = ({
     attackCardArray.push(testAttackCard);
 
     const MultiSelectBox = () => {
-        console.log('mult select', multiBoxSelection);
+       // console.log('mult select', multiBoxSelection);
         switch(multiBoxSelection) {
             case 'ATTACKS':
                 return (
@@ -77,7 +79,12 @@ const CharacterSheet = ({
                         abilityBoxInfo={abilityBoxInfo}
                         newAttackInfo={newAttackInfo}/>)
             case 'SPELLS':
-                return (<SpellsSelectionBox spells={spells}/>)
+                return (<SpellsSelectionBox 
+                        spells={spells}
+                        abilityBoxInfo={abilityBoxInfo}
+                        newSpellInfo={newSpellInfo}
+                        spellHeaderInfo={spellHeaderInfo}
+                        />)
             case 'INVENTORY':
                 return (<InventorySelectionBox inventory={inventory}/>)
             case 'FEATS&TRAITS':
@@ -94,7 +101,7 @@ const CharacterSheet = ({
         }
     }
 
-    console.log('skillsBxin', skillsBoxInfo);
+    //console.log('skillsBxin', skillsBoxInfo);
 
     return (
         <div className="CharacterSheet">

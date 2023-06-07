@@ -22,21 +22,9 @@
     text-align: center;
 }
 
-.SkillsEditButton {
-    height: 25px;
-    width: 40px;
-    margin: 5px 10px 0px 30px;
-    background-color: rgb(112, 112, 148);
-    color:azure;
-    border-radius: 10px;
-    border-width: 1.5px;
-}
 
-button:hover {
-    cursor: pointer;
-}
 
-.LoneSkillsBox, .versatileOption {
+.LoneSkillsBox {
     display: flex;
     flex-direction: row;
     width: 250px;
@@ -67,8 +55,30 @@ button:hover {
     margin: auto 5px;
 }
 
-.ProficiencyCheckBox:hover, 
-.ProficiencyCheckBoxActive:hover {
+.ProficiencyCheckBoxEdit {
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border-radius: 50px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1.5px;
+    margin: auto 5px;
+}
+
+.ProficiencyCheckBoxActiveEdit {
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 50px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1.5px;
+    margin: auto 5px;
+}
+
+.ProficiencyCheckBoxEdit:hover, 
+.ProficiencyCheckBoxActiveEdit:hover {
     cursor: pointer;
 }
 

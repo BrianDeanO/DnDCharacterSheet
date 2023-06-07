@@ -22,6 +22,8 @@ const CharacterPage = () => {
     const attacks = JSON.parse(localStorage.getItem("attacks"));
     const newAttackInfo = JSON.parse(localStorage.getItem("newAttackInfo"));
     const spells = JSON.parse(localStorage.getItem("spells"));
+    const spellHeaderInfo = JSON.parse(localStorage.getItem("spellHeaderInfo"));
+    const newSpellInfo = JSON.parse(localStorage.getItem("newSpellInfo"));
     const inventory = JSON.parse(localStorage.getItem("inventory"));
     const featsAndTraits = JSON.parse(localStorage.getItem("featsAndTraits"));
     const description = JSON.parse(localStorage.getItem("description"));
@@ -42,6 +44,7 @@ const CharacterPage = () => {
                 attacks={attacks}
                 newAttackInfo={newAttackInfo}
                 spells={spells}
+                spellHeaderInfo={spellHeaderInfo}
                 inventory={inventory}
                 featsAndTraits={featsAndTraits}
                 description={description}
