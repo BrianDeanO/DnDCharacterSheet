@@ -19,17 +19,15 @@ const CharacterPage = () => {
     const profAndLangBoxInfo = JSON.parse(localStorage.getItem("profAndLangBoxInfo"));
     const additionalInfoBoxInfo = JSON.parse(localStorage.getItem("additionalInfoBoxInfo"));
     const healthBoxInfo = JSON.parse(localStorage.getItem("healthBoxInfo"));
-    const attacks = JSON.parse(localStorage.getItem("attacks"));
-    const newAttackInfo = JSON.parse(localStorage.getItem("newAttackInfo"));
-    const spells = JSON.parse(localStorage.getItem("spells"));
-    const spellHeaderInfo = JSON.parse(localStorage.getItem("spellHeaderInfo"));
-    const newSpellInfo = JSON.parse(localStorage.getItem("newSpellInfo"));
-    const inventory = JSON.parse(localStorage.getItem("inventory"));
+    // const attacks = JSON.parse(localStorage.getItem("attacks"));
+    // const newAttackInfo = JSON.parse(localStorage.getItem("newAttackInfo"));
+    // const spells = JSON.parse(localStorage.getItem("spells"));
+    // const spellHeaderInfo = JSON.parse(localStorage.getItem("spellHeaderInfo"));
+    // const inventory = JSON.parse(localStorage.getItem("inventory"));
+    // const inventoryHeaderInfo = JSON.parse(localStorage.getItem("inventoryHeaderInfo"));
     const featsAndTraits = JSON.parse(localStorage.getItem("featsAndTraits"));
     const description = JSON.parse(localStorage.getItem("description"));
     const notes = JSON.parse(localStorage.getItem("notes"));
-
-    //console.log('first char', character);
  
     return (
         <div className="MainPage">
@@ -41,11 +39,12 @@ const CharacterPage = () => {
                 profAndLangBoxInfo={profAndLangBoxInfo}
                 additionalInfoBoxInfo={additionalInfoBoxInfo}
                 healthBoxInfo={healthBoxInfo}
-                attacks={attacks}
-                newAttackInfo={newAttackInfo}
-                spells={spells}
-                spellHeaderInfo={spellHeaderInfo}
-                inventory={inventory}
+                // attacks={attacks}
+                // newAttackInfo={newAttackInfo}
+                // spells={spells}
+                // spellHeaderInfo={spellHeaderInfo}
+                // inventory={inventory}
+                // inventoryHeaderInfo={inventoryHeaderInfo}
                 featsAndTraits={featsAndTraits}
                 description={description}
                 notes={notes}

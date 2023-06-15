@@ -2,16 +2,19 @@ import { Fragment, useEffect, useState, useMemo } from "react";
 import React from "react";
 import MakeAttackCard from "../../helpers/makeAttackCard";
 import { determineModifier } from "../../helpers/determineModSign";
-import { fillAttackCardArray } from "../../helpers/fillCardArray";
+import { fillCardArray } from "../../helpers/fillCardArrays";
 
-const AttacksSelectionBox = ({attacks, abilityBoxInfo, newAttackInfo}) => {
+const AttacksSelectionBox = ({abilityBoxInfo}) => {
+
+    const attacks = JSON.parse(localStorage.getItem("attacks"));
+    const newAttackInfo = JSON.parse(localStorage.getItem("newAttackInfo"));
 
     const [attackCards, setAttackCards] = useState(attacks ? attacks.attackCardArray : []);
     const [makeNewAttack, setMakeNewAttack] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
     const [attackCardBeingEdited, setAttackCardBeingEdited] = useState(-1);
 
-    const attackCardArray = useMemo(() => fillAttackCardArray(attackCards), [attackCards]);
+    const attackCardArray = useMemo(() => fillCardArray(attackCards), [attackCards]);
 
     useEffect(() => {
         localStorage.setItem("attacks", JSON.stringify({attackCardArray}));
@@ -27,9 +30,9 @@ const AttacksSelectionBox = ({attacks, abilityBoxInfo, newAttackInfo}) => {
         ((attackObj.longRange === -1) ? 
         determineModifier(abilityBoxInfo.str) :  determineModifier(abilityBoxInfo.dex));
 
-        console.log("damage bons", damageBonus);
-        console.log('str', determineModifier(abilityBoxInfo.str));
-        console.log('dex', determineModifier(abilityBoxInfo.dex));
+        // console.log("damage bons", damageBonus);
+        // console.log('str', determineModifier(abilityBoxInfo.str));
+        // console.log('dex', determineModifier(abilityBoxInfo.dex));
 
         useEffect(() => {
             setNotes(notes);
@@ -145,7 +148,6 @@ const AttacksSelectionBox = ({attacks, abilityBoxInfo, newAttackInfo}) => {
                     <button
                     className="attackHeaderNewButton"
                     onClick={() => {
-                        // const test = new AttackCard('Hammer', 0, 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown');
                         if(makeNewAttack) {
                             if( (document.getElementById('rangedOrMeleeAnswer')?.value !== '') &&
                                 (document.getElementById('typeOfHitDice')?.value !== 'Type') &&

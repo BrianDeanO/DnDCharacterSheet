@@ -222,9 +222,8 @@ button:hover {
     margin: 5px 0px 0px 5px;
     background-color: rgb(5, 109, 109);
     color:aliceblue;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: bold;
-    text-align: center;
 }
 .spellTypeIndicatorText {
     font-size: 8pt;
@@ -232,7 +231,8 @@ button:hover {
 .spellNameInput {
     height: 20px;
     width: 95px;
-    font-size: 14px;
+    font-size: 11px;
+    text-align: left;
 }
 
 
@@ -295,9 +295,9 @@ button:hover {
     margin: 0px 0px 0px 5px;
 }
 .spellRangeDial {
-    width: 40px;
+    width: 45px;
     height: 20px;
-    margin: 0px 0px 0px 27px;
+    margin: 0px 0px 0px 22px;
     text-align: center;
     font-size: 12pt;
     color:rgb(0, 0, 0);
@@ -664,17 +664,18 @@ select:hover
 }
 
 /* Spell Name */
-.spellNameBox {
+.spellNameFinalBox {
     display: flex;
     flex-direction: column;
-    height: 20px;
+    height: 40px;
     width: 130px;
     margin: 5px 0px 0px 5px;
     color:aliceblue;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: bold;
     text-align: center;
     font-style: italic;
+    align-items: center;
 }
 
 

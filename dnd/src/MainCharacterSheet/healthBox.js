@@ -409,7 +409,7 @@ export const HealthBox = ({healthBoxInfo}) => {
                                     type="number"
                                     className="MaxHitPointInput"
                                     id="MAX_HEALTH"
-                                    min={0} max={99999}
+                                    min={0} max={9999}
                                     defaultValue={maxHealth}></input>
                                     : 
                                     <text className="MaxHealthText"> {maxHealth} </text>}

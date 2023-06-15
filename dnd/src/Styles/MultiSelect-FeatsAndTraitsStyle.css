@@ -1,0 +1,152 @@
+
+/* Main Feats and Traits Box */
+.FeatsAndTraits-MultiSelectBox {
+    display: flex;
+    flex-direction: column;
+    height: 660px;
+    width: 520px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.featsAndTraitsMainBox {
+    display: flex;
+    flex-direction: column;
+    height: 608px;
+    width: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-arrow-color: rgb(141, 226, 43);
+    scrollbar-gutter: red;
+}
+
+
+/* CSS Styles for Feats and Traits Header */
+.AllButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.ClassFeaturesButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 110px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+} 
+.RaceTraitsButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.BasicFeatsButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+#activeFeatsAndTraitsButton {
+    background-color: rgb(255, 203, 139);
+    text-decoration: underline;
+}
+.featsAndTraitsHeader {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 480px;
+    margin: 5px 10px 0px 10px;
+    background-color: aquamarine;
+}
+
+
+/* Class Feats Box */
+.ClassFeatsSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 5px 10px 0px 10px;
+    background-color: rgb(31, 95, 95);
+    color: aliceblue;
+}
+.classFeatsText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.characterClassText {
+    display: flex;
+    margin: 7px 10px 0px 0px;
+    font-style: italic;
+}
+.addClassFeatButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 170px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* Race Traits Box */
+.RaceTraitsSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 5px 10px 0px 10px;
+    background-color: rgb(93, 109, 36);
+    color: aliceblue;
+}
+.raceTraitsText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.characterRaceText {
+    display: flex;
+    margin: 7px 10px 0px 0px;
+    font-style: italic;
+}
+.addRaceTraitButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* Base Feats Box */
+.BaseFeatsSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 5px 10px 0px 10px;
+    background-color: rgb(146, 92, 151);
+    color: aliceblue;
+}
+.baseFeatsText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.addBaseFeatButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 110px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}

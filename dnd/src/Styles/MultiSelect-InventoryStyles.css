@@ -1,4 +1,4 @@
-.Spells-MultiSelectBox {
+.Inventory-MultiSelectBox {
     display: flex;
     flex-direction: column;
     height: 660px;
@@ -6,31 +6,33 @@
     overflow-y: hidden;
     overflow-x: hidden;
 }
-.spellCardsMainBox {
+.inventoryCardsMainBox {
     display: flex;
     flex-direction: column;
-    height: 608px;
+    height: 600px;
     width: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-arrow-color: rgb(141, 226, 43);
     scrollbar-gutter: red;
 }
-.spellCardText {
+.inventoryCardText {
     font-size: 12pt;
     margin: 0px 0px 0px 0px;
     font-weight: bold;
+    color: aliceblue;
 }
 
-/* Spell Multi Select Header*/
-.spellHeader {
+
+/* Inventory Multi Select Header*/
+.inventoryHeader {
     display: flex;
     flex-direction: row;
-    height: 52px;
+    height: 70px;
     width: 500px;
     margin: 5px 10px 0px 10px;
 }
-.spellTitleAndButtonBox {
+.inventoryTitleAndButtonBox {
     display: flex;
     flex-direction: column;
     height: 30px;
@@ -40,14 +42,14 @@
     border-color: black;
     border: #ffd300;
 }
-.spellHeaderText {
+.inventoryHeaderText {
     margin: 2px 10px 5px 0px;
     font-weight: bold;
     border-bottom-style: solid;
     border-width: 2px;
-    width: 53px;
+    width: 91px;
 }
-.spellHeaderNewButton {
+.inventoryHeaderNewButton {
     background-color: rgb(35, 73, 73);
     height: 35px;
     width: 120px;
@@ -56,111 +58,231 @@
     font-size: 13px;
     color:ghostwhite;
 }
-.spellHeaderInfoBox {
+.inventoryHeaderInfoBox {
     display: flex;
     flex-direction: row;
-    height: 52px;
+    height: 60px;
     width: 340px;
-    margin: 0px 10px 0px 10px;  
-    background-color: #ffd300;
+    margin: 0px 10px 0px 10px;
     align-items: center;
     font-weight: bold;
 }
-.spellModifierBox {
+.coinOuterBox {
     display: flex;
     flex-direction: column;
-    height: 40px;
-    width: 70px;
-    margin: 0px 10px 0px 10px;
-    text-align: center;
-    background-color: aqua;
-}
-.spellBonusBox {
-    display: flex;
-    flex-direction: column;
-    height: 40px;
-    width: 90px;
+    height: 65px;
+    width: 220px;
     margin: 0px 10px 0px 0px;
     text-align: center;
     background-color: rgb(141, 140, 214);
 }
-.spellSaveDCBox{
+.coinHeaderBox {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    width: 220px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    align-items:center;
+}
+.coinTitle {
+    width: 100px;
+    height: 20px;
+    font-size: 13pt;
+    margin: 0px 0px 0px 60px;
+}
+.coinEditButton {
+    width: 45px;
+    height: 20px;
+    margin: 5px 0px 0px 10px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-size: 10pt;
+}
+.allCoinHolderBox {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    width: 220px;
+    margin: 5px 0px 0px 0px;
+    text-align: center;
+    align-items:center;
+    background-color: rgba(67, 214, 124, 0.849);
+}
+.coinLeftBox {
+    display: flex;
+    flex-direction: column;
+    width: 105px;
+    height: 40px;
+    margin: 0px 0px 0px 0px;
+    color:azure;
+    font-size: 11pt;
+}
+.coinRightBox {
+    display: flex;
+    flex-direction: column;
+    width: 105px;
+    height: 40px;
+    margin: 0px 0px 0px 10px;
+    color:azure;
+    font-size: 11pt;
+}
+.coinDisplayBox {
+    display: flex;
+    flex-direction: row;
+    width: 110px;
+    height: 20px;
+    margin: 0px 0px 0px 0px;
+    color:azure;
+    font-size: 11pt;
+}
+.coinDisplayText {
+    display: flex;
+    flex-direction: row;
+    width: 60px;
+    height: 20px;
+    margin: 0px 5px 0px 0px;
+    color:azure;
+    font-size: 11pt;
+}
+/* Platinum Coins */
+.platinumCoinLabelText {
+    width: 65px;
+    height: 20px;
+    margin: 0px 0px 0px 0px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+}
+.platinumCoinValueText {
+    width: 50px;
+    height: 20px;
+    margin: 0px 0px 0px 5px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+    text-align: left;
+}
+.platinumCoinIncrementBox {
+    font-size: 10pt;
+    border-style: solid;
+    border-width: 1px;
+    width: 40px;
+    padding-bottom: 2px;
+    height: 15px;
+    margin: 0px 0px 0px 2px;
+    background-color: rgb(218, 218, 218);
+    border-color: #222;
+    align-items: center;
+}
+/* Silver Coins */
+.silverCoinLabelText {
+    width: 45px;
+    height: 20px;
+    margin: 0px 0px 0px -1px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+}
+.silverCoinValueText {
+    width: 50px;
+    height: 20px;
+    margin: 0px 0px 0px 3px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+    text-align: left;
+}
+.silverCoinIncrementBox {
+    font-size: 10pt;
+    border-style: solid;
+    border-width: 1px;
+    width: 50px;
+    padding-bottom: 2px;
+    height: 15px;
+    margin: 0px 0px 0px 2px;
+    background-color: rgb(218, 218, 218);
+    border-color: #222;
+    align-items: center;
+}
+/* Gold Coins */
+.goldCoinLabelText {
+    width: 35px;
+    height: 20px;
+    margin: 0px 0px 0px 0px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+}
+.goldCoinValueText {
+    width: 50px;
+    height: 20px;
+    margin: 0px 0px 0px 5px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+    text-align: left;
+}
+.goldCoinIncrementBox {
+    font-size: 10pt;
+    border-style: solid;
+    border-width: 1px;
+    width: 50px;
+    padding-bottom: 2px;
+    height: 15px;
+    margin: 0px 0px 0px 5px;
+    background-color: rgb(218, 218, 218);
+    border-color: #222;
+    align-items: center;
+}
+/* Copper Coins */
+.copperCoinLabelText {
+    width: 55px;
+    height: 20px;
+    margin: 0px 0px 0px 0px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+}
+.copperCoinValueText {
+    width: 50px;
+    height: 20px;
+    margin: 0px 0px 0px 5px;
+    color:rgb(0, 0, 0);
+    font-size: 11pt;
+    text-align: left;
+}
+.copperCoinIncrementBox {
+    font-size: 10pt;
+    border-style: solid;
+    border-width: 1px;
+    width: 40px;
+    padding-bottom: 2px;
+    height: 15px;
+    margin: 0px 0px 0px 5px;
+    background-color: rgb(218, 218, 218);
+    border-color: #222;
+    align-items: center;
+}
+button:hover {
+    cursor: pointer;
+}
+.totalWeightBox {
     display: flex;
     flex-direction: column;
     height: 40px;
-    width: 70px;
+    width: 130px;
+    margin: 0px 5px 0px 10px;
+    text-align: center;
+    background-color: aqua;
+    font-size: 11pt;
+}
+.totalWeightText {
+    height: 40px;
     margin: 0px 0px 0px 0px;
     text-align: center;
-    background-color: rgb(162, 206, 122);
-}
-.spellInfoEditButton {
-    height: 25px;
-    width: 40px;
-    margin: 5px 0px 0px 15px;
-    background-color: rgb(112, 112, 148);
-    color:azure;
-    border-radius: 10px;
-    border-width: 1.5px;
-}
-button:hover {
-    cursor: pointer;
-}
-.SkillsEditButton {
-    height: 25px;
-    width: 40px;
-    margin: 5px 10px 0px 30px;
-    background-color: rgb(112, 112, 148);
-    color:azure;
-    border-radius: 10px;
-    border-width: 1.5px;
-}
-
-button:hover {
-    cursor: pointer;
-}
-.spellModifierEditBox {
-    font-size: 16px;
-    border-style: solid;
-    border-width: 2px;
-    width: 45px;
-    padding-bottom: 2px;
-    height: 15px;
-    margin: 0px 0px 0px 10px;
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    border-color: #222;
-    text-align: center; 
-}
-.spellBonusUpperEditBox {
-    font-size: 16px;
-    border-style: solid;
-    border-width: 2px;
-    width: 45px;
-    padding-bottom: 2px;
-    height: 15px;
-    margin: 0px 0px 0px 20px;
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    border-color: #222;
-    text-align: center; 
-}
-.spellSaveDCUpperEditBox {
-    font-size: 16px;
-    border-style: solid;
-    border-width: 2px;
-    width: 45px;
-    padding-bottom: 2px;
-    height: 15px;
-    margin: 0px 0px 0px 10px;
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    border-color: #222;
-    text-align: center; 
+    background-color: aqua;
+    font-size: 11pt;
 }
 
 
-/* Outer Spell Card Boxes for both new cards*/
-.loneSpellBox {
+/* Outer Inventory Card Boxes for both new cards*/
+.loneItemBox {
     display: flex;
     flex-direction: column;
     height: 110px;
@@ -168,14 +290,14 @@ button:hover {
     margin: 30px 0px 0px 10px;
     background-color: azure;
 }
-.newSpellInfoUpperBox {
+.newItemInfoUpperBox {
     display: flex;
     flex-direction: row;
     height: 80px;
     width: 475px;
     background-color: rgb(5, 109, 109);
 }
-.newSpellNotesLowerBox {
+.newItemNotesLowerBox {
     display: flex;
     flex-direction: row;
     height: 50px;
@@ -183,25 +305,10 @@ button:hover {
     background-color: rgb(114, 141, 111);
     margin: 0px 0px 0px 0px;
 }
-.spellUpperInfoAndTimeBox {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    width: 380px;
-    margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
-    color:aliceblue;
-}
-.spellNameToLevelInfoBox {
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    width: 365px;
-    margin: 0px 0px 0px 0px;
-    background-color: rgb(5, 109, 109);
-    color:aliceblue;
-}
-.spellInfoNameBox {
+
+
+/* Spell Name Input Box */
+.itemNameInputBox {
     display: flex;
     flex-direction: column;
     height: 50px;
@@ -211,9 +318,6 @@ button:hover {
     color:aliceblue;
     align-items: center;
 }
-
-
-/* Spell Name Input Box */
 .spellNameBox {
     display: flex;
     flex-direction: column;
@@ -222,422 +326,223 @@ button:hover {
     margin: 5px 0px 0px 5px;
     background-color: rgb(5, 109, 109);
     color:aliceblue;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: bold;
     text-align: center;
+    align-items: center;
 }
 .spellTypeIndicatorText {
     font-size: 8pt;
 }
-.spellNameInput {
+.itemNameInput {
     height: 20px;
     width: 95px;
-    font-size: 14px;
+    font-size: 11px;
 }
 
 
-/* Spell Range Selection Box */
-.spellRangeChoiceBox {
+/* Item Type Selection Box */
+.itemTypeSelectorBox {
     display: flex;
     flex-direction: column;
-    height: 40px;
-    width: 110px;
-    margin: 0px 0px 0px 10px;
-    color:rgb(255, 255, 255);
-    text-align: center;
-}
-.rangedQuestionBox {
-    display: flex;
-    flex-direction: row;
-    height: 40px;
-    width: 110px;
-    margin: 0px 0px 0px 0px;
-    color:rgb(255, 255, 255);
-    background-color: cornflowerblue;
-}
-.rangedQuestionText{
-    font-size: 11pt;
-}
-.rangedQuestionOptionBox {
-    height: 15px;
-    width: 15px;
-    background-color: transparent;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
-    margin: 2px 0px 0px 5px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 9pt;
-}
-.rangedQuestionOptionBoxActive {
-    height: 15px;
-    width: 15px;
-    background-color: black;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
-    margin: 2px 0px 0px 5px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 9pt;
-}
-.spellRangeSelectorBox {
-    display: flex;
-    flex-direction: row;
-    margin: 0px 10px 0px 2px;
-    align-items: center;
+    height: 50px;
     width: 100px;
-}
-.rangedFeetText {
-    font-size: 12pt;
-    font-weight: 500;
-    margin: 0px 0px 0px 5px;
-}
-.spellRangeDial {
-    width: 40px;
-    height: 20px;
-    margin: 0px 0px 0px 27px;
-    text-align: center;
-    font-size: 12pt;
-    color:rgb(0, 0, 0);
-    background-color: #ffd300;
-}
-.spellRangeMultiSelectBox {
-    display: flex;
-    flex-direction: row;
-    margin: 0px 15px 0px 0px;
-    align-items: center;
-    width: 100px;
-}
-.rangeSelector {
-    width: 85px;
-    margin: 0px 0px 0px 12px;
-}
-.RangedChoice {
-    height: 25px;
-    width: 70px;
-    margin: 5px 5px 0px 5px;
-    background-color: rgb(112, 112, 148);
-    color:azure;
-    border-radius: 10px;
-    border-width: 1.5px;
-}
-
-.meleeRangeBox {
-    display: flex;
-    flex-direction: column;
-    margin: -3px 0px 0px 10px;
-}
-.typeAnswerText {
-    font-size: 12pt;
-    margin: 0px 0px 0px 10px;
-    font-weight: bold;
-}
-
-.shortRangeBox {
-    margin: 0px 3px 0px 0px;
-}
-
-
-/* Spell DC Selection Box */
-.spellBonusSelectorBox {
-    display: flex;
-    flex-direction: column;
-    height: 40px;
-    width: 85px;
-    margin: 3px 10px 0px 10px;
+    margin: 1px 10px 0px 10px;
     text-align: center;
     background-color: rgb(141, 140, 214);
 }
-
-.spellBonusSelectorText, .spellLevelSelectorText {
+.itemTypeSelectorText, .spellLevelSelectorText {
     font-weight: bold;
     color:aliceblue;
     margin: 0px 0px 0px 0px;
     font-size: 11pt;
 }
-.DCSelector {
-    width: 70px;
-    height: 40px;
-    font-size: 9pt;
-}
-
-
-/* Spell Level Selection Box */
-.spellLevelSelectorBox {
-    display: flex;
-    flex-direction: column;
-    height: 40px;
-    width: 80px;
-    margin: 4px 10px 0px 0px;
-    text-align: center;
-    background-color: rgb(146, 146, 153);
-}
-
-.spellLevelSelector {
-    width: 65px;
+.itemTypeSelector {
+    width: 100px;
     height: 25px;
+    font-size: 10pt;
+    margin: 0px 0px 0px 0px;
+}
+.itemTypeIndicatorText {
+    font-size: 14pt;
+}
+.itemTypeInput {
+    height: 20px;
+    width: 95px;
     font-size: 9pt;
 }
-
-
-/* Spell Casting Selection */
-.castingTimeBox {
+.itemOtherTypeSelectorTextBox {
     display: flex;
     flex-direction: row;
+    height: 20px;
+    width: 100px;
+    margin: 1px 0px 0px 0px;
+    text-align: center;
+}
+.itemOtherTypeLeftLabel {
+    font-weight: bold;
+    color:aliceblue;
+    margin: 0px 0px 0px 20px;
+    font-size: 11pt;
+}
+.itemOtherTypeRightLabel {
+    margin: 4px 0px 0px 4px;
+    font-size: 8pt;
+    color:aliceblue;
+}
+
+/* Item Cost Selection */
+.itemCostBox {
+    display: flex;
+    flex-direction: column;
     height: 50px;
-    width: 240px;
-    margin: 0px 0px 0px 122px;
+    width: 50px;
+    margin: 0px 15px 0px 10px;
     text-align: center;
     align-items: center;
 }
-.castingTimeTitleText{
-    color: aliceblue;
-    font-weight: bold;
-    font-size: 11pt;
-    width: 100px;
-    margin: -3px 0px 0px 0px;
-}
-.castingTimeTypeSelector {
-    width: 95px;
+.itemCostTitleText {
+    display: flex;
+    flex-direction: row;
     height: 20px;
-    margin: 0px 0px 0px 0px;
-    font-size: 9pt;
-}
-.castingTimeNumberDial {
-    width: 35px;
-    height: 15px;
-    margin: 0px 5px 0px 0px;
+    width: 55px;
+    margin: 1px 0px 0px 0px;
     text-align: center;
-    font-size: 10pt;
+}
+.itemCostLeftLabel {
+    font-weight: bold;
+    color:aliceblue;
+    margin: 0px 0px 0px -4px;
+    font-size: 12pt;
+}
+.itemCostRightLabel {
+    margin: 4px 0px 0px 4px;
+    font-size: 8pt;
+    font-weight: bold;
+    color:aliceblue;
+}
+.itemCostNumberDial {
+    width: 55px;
+    height: 20px;
+    margin: 1px 5px 0px 0px;
+    text-align: center;
+    font-size: 11pt;
     color:rgb(0, 0, 0);
     background-color: #ffd300;
+    text-align: center;
 }
 .castingTimeText{
     color: rgb(0, 0, 0);
     font-weight: 500;
     font-size: 11pt;
 }
-.spellCardTypeText {
-    font-size: 11pt;
-    margin: 1px 0px 1px -5px;
-    font-weight: bold;
-}
 
 
-/* Overall Spell Effect Selection Box */
-.spellEffectTypeBox {
+/* Item Rarity Selection Box */
+.itemRaritySelectorBox {
     display: flex;
     flex-direction: column;
-    height: 80px;
-    width: 125px;
-    color: aliceblue;
-    font-size: 12pt;
+    height: 49px;
+    width: 85px;
+    margin: -1px 10px 0px 0px;
+    text-align: center;
+    background-color: rgb(146, 146, 153);
+}
+.itemRaritySelectorText {
     font-weight: bold;
-    margin: -5px 0px 0px 20px;
-    align-items: center;
+    color:aliceblue;
+    margin: 3px 0px 0px -4px;
+    font-size: 12pt;
+}
+.itemRaritySelector {
+    width: 85px;
+    height: 24px;
+    font-size: 9pt;
+    margin: 0px 0px 0px 0px;
+}
+
+
+
+/* Item Weight Selection Box */
+.itemWeightChoiceBox {
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    width: 50px;
+    margin: 0px 0px 0px 0px;
+    color:rgb(255, 255, 255);
     text-align: center;
 }
-.spellEffectTitleText {
+.itemWeightText {
     font-size: 11pt;
-    margin: 5px 0px 0px 0px;
-    text-decoration: underline;
+    margin: 1px 0px 1px 2px;
+    font-weight: bold;
 }
-.spellEffectTypeText {
+.itemWeightSelectorBox {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 0px 2px;
+    align-items: center;
+    width: 50px;
+}
+.itemWeightDial {
+    width: 43px;
+    height: 20px;
+    margin: 0px 0px 0px 0px;
+    text-align: left;
     font-size: 10pt;
-    margin: 0px 0px 0px 0px;
-}
-
-
-/* Spell Damage Selection Box */
-.spellDamageSelectionBox {
-    display: flex;
-    flex-direction: row;
-    height: 15px;
-    width: 80px;
-    margin: 0px 0px 0px 0px;
-    text-align: center;
-    align-items: center;
-    color: aliceblue;
-}
-.damageEffectOptionBox {
-    height: 15px;
-    width: 15px;
-    background-color: transparent;
-    border-radius: 50px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
-    margin: 2px 0px 0px 5px;
-}
-.damageEffectOptionBoxactive {
-    height: 15px;
-    width: 15px;
-    background-color: black;
-    border-radius: 50px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
-    margin: 0px 0px 0px 5px;
-}
-
-
-/* Spell Healing Selection Box */
-.spellHealingSelectionBox {
-    display: flex;
-    flex-direction: row;
-    height: 15px;
-    width: 80px;
-    margin: 3px 0px 0px 0px;
-    text-align: center;
-    align-items: center;
-    color: aliceblue;
-}
-.healEffectOptionBox {
-    height: 15px;
-    width: 15px;
-    background-color: transparent;
-    border-radius: 50px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
-    margin: 2px 0px 0px 5px;
-}
-.healEffectOptionBoxactive {
-    height: 15px;
-    width: 15px;
-    background-color: black;
-    border-radius: 50px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
-    margin: 0px 0px 0px 5px;
-}
-
-/* Spell Healing or Damage Dice Selection Box */
-.spellDiceSelectionBox {
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    width: 120px;
-    margin: -10px 0px 0px 0px;
-    text-align: center;
-}
-.spellDiceTypeBox {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    width: 55px;
-    margin: 0px 0px 0px 10px;
-    text-align: center;
-}
-.spellDiceSelector {
-    width: 55px;
-    margin: 2px 0px 0px 0px;
-}
-.numberOfSpellDiceBox {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    width: 100px;
-    margin: 0px 0px 0px 0px;
-    text-align: center;
-    align-items: center;
-}
-.numberOfSpellDiceDial {
-    width: 35px;
-    height: 15px;
-    margin: 0px 10px 0px 10px;
-    text-align: center;
-    font-size: 12pt;
     color:rgb(0, 0, 0);
     background-color: #ffd300;
 }
-.spellDiceText {
-    margin: 7px 0px 0px 3px;
-    font-size: 12pt; 
-    color: aliceblue;
-    font-weight: bold;
-}
-
-
-/* Spell Other Selection Box */
-.spellOtherSelectionBox {
-    display: flex;
-    flex-direction: row;
-    height: 15px;
-    width: 80px;
-    margin: 3px 0px 0px 0px;
-    text-align: center;
-    align-items: center;
-    color: aliceblue;
-}
-.otherEffectOptionBox {
-    height: 15px;
-    width: 15px;
-    background-color: transparent;
-    border-radius: 50px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
-    margin: 2px 0px 0px 5px;
-}
-.otherEffectOptionBoxactive {
-    height: 15px;
-    width: 15px;
-    background-color: black;
-    border-radius: 50px;
-    border-color: black;
-    border-style: solid;
-    border-width: 1.5px;
+.itemWeightPoundText {
+    font-size: 11pt;
+    font-weight: 500;
     margin: 0px 0px 0px 5px;
 }
 
-/* Spell Other Selection Input Box */
-.spellOtherSelection {
+/* Item Quantity Selection Box */
+.itemQtyBox {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    height: 50px;
+    width: 80px;
+    margin: 0px 10px 0px 30px;
+    text-align: center;
+    align-items: center;
 }
-.spellOtherEffectBox {
-    display: flex;
-    flex-direction: row;
+.itemQtyTitleText {
     height: 20px;
-    width: 100px;
-    margin: 0px 0px 0px 22px;
+    width: 55px;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size: 12pt;
+    margin: 0px 5px 0px -15px;
 }
-.spellOtherEffectInput {
-    height: 20px;
-    width: 100px;
-    font-size: 13px;
+.itemQtyNumberDial {
+    width: 35px;
+    height: 15px;
+    margin: 3px 0px 0px -10px;
+    text-align: left;
+    font-size: 10pt;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+.itemQtyText{
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    font-size: 11pt;
 }
 
-/* Cursor Hover Boxes */
-.otherEffectOptionBox:hover, 
-.otherEffectOptionBoxactive:hover,
-.healEffectOptionBox:hover, 
-.healEffectOptionBoxactive:hover,
-.damageEffectOptionBox:hover, 
-.damageEffectOptionBoxactive:hover, 
-.rangedQuestionOptionBox:hover, 
-.rangedQuestionOptionBoxActive:hover, 
-.damageEffectOptionBox:hover, 
-.damageEffectOptionBoxactive:hover,
-select:hover
-
-{
-    cursor: pointer;
-}
 
 
 /*
     ********
-    FINAL Spell Card CSS
+    FINAL Inventory Card CSS
     ********
 */
 
-/* General, Outer CSS for Spell Final Cards */
-.newLoneSpellBox {
+/* General, Outer CSS for Inventory Final Cards */
+.newLoneItemBox {
     display: flex;
     flex-direction: column;
     height: 100px;
@@ -645,14 +550,14 @@ select:hover
     margin: 10px 0px 0px 10px;
     background-color: azure;
 }
-.spellInfoUpperBox {
+.itemInfoUpperBox {
     display: flex;
     flex-direction: row;
     height: 80px;
     width: 450px;
     background-color: rgb(5, 109, 109);
 }
-.spellFinalLevelHeader {
+.itemFinalLevelHeader {
     height: 25px;
     width: 450px;
     margin: 15px 0px -5px 10px;
@@ -663,65 +568,116 @@ select:hover
     color: rgb(212, 59, 90);
 }
 
-/* Spell Name */
-.spellNameBox {
+/* Item Name */
+.itemNameBox {
     display: flex;
     flex-direction: column;
     height: 20px;
-    width: 130px;
-    margin: 5px 0px 0px 5px;
+    width: 200px;
+    margin: 6px 0px 0px 5px;
     color:aliceblue;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: bold;
     text-align: center;
     font-style: italic;
 }
+.itemNameTextNormal {
+    font-size: 11pt;
+}
+.itemNameTextLong {
+    margin: -4px 0px 0px 0px;
+    font-size: 9.5pt;
+}
+.itemNameTextExtraLong {
+    margin: -4px 0px 0px 0px;
+    font-size: 9pt;
+}
+.itemTypeIndicatorText {
+    font-size: 8pt;
+}
 
-
-/* Spell Time */
-.spellFinalTimeBox {
+/* Item Weight Final Box */
+.finalWeightBox {
     display: column;
     flex-direction: column;
-    height: 20px;
+    height: 50px;
     width: 40px;
     margin: 0px 15px 0px 5px;
     background-color: rgb(5, 109, 109);
     color:aliceblue;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: bold;
     text-align: center;
 }
-.spellInnerTimeBox {
+.weightBoxText {
     display: flex;
     flex-direction: column;
     height: 20px;
-    width: 40px;
-    margin: 0px 0px 0px 3px;
+    width: 35px;
+    margin: 0px 0px 0px 10px;
     background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: light;
     text-align: center;
 }
-.spellTimeValueBox {
-    height: 20px;
-    width: 30px;
-    font-size: 12pt;
-}
-.spellTimeUnitBox {
-    height: 20px;
-    width: 80px;
-    font-size: 10px;
-    margin: 0px 0px 0px -20px;
-}
 
-
-/* Spell Range CSS */
-.finalSpellRangeBox {
+/* Item Quantity Final Box */
+.finalQtyBox {
     display: column;
     flex-direction: column;
-    height: 20px;
+    height: 50px;
     width: 40px;
+    margin: 0px 5px 0px 8px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+}
+.qtyBoxTitleText {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 35px;
+    margin: 0px 0px 0px 5px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: light;
+    text-align: center;
+}
+.qtyBoxText {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 35px;
+    margin: 0px 0px 0px 5px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: light;
+    text-align: center;
+}
+
+/* Item Cost Final Box */
+.finalCostBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 60px;
+    margin: 0px 15px 0px 8px;
+    background-color: rgb(5, 109, 109);
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+}
+.costGoldUpperBox {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    width: 60px;
     margin: 0px 15px 0px 5px;
     background-color: rgb(5, 109, 109);
     color:aliceblue;
@@ -729,163 +685,38 @@ select:hover
     font-weight: bold;
     text-align: center;
 }
-.spellRangeBox {
+.costGoldLowerBox {
     display: flex;
     flex-direction: row;
     height: 20px;
-    width: 40px;
-    margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
-    color:aliceblue;
-    font-size: 13pt;
-    text-align: center;
-}
-.finalSpellRange {
-    font-size: 13pt;
-}
-.finalSpellRangeFeetText {
-    margin: 7px 0px 0px 3px;
-    font-size: 8pt;
-}
-.spellOtherRangeTypeBox {
-    display: flex;
-    flex-direction: row;
-    height: 20px;
-    width: 40px;
-    margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
-    color:aliceblue;
-    font-size: 13pt;
-    text-align: center;
-}
-.spellOtherRangeTypeText {
-    margin: 3px 0px 0px 3px;
-    font-size: 10pt;
-}
-
-
-/* Spell DC Box */
-.finalSpellDCOuterBox {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
     width: 60px;
-    margin: 0px 5px 0px 5px;
-    color: rgb(255, 255, 255);
-}
-.finalSpellDCHeaderText {
-    margin: 0px 0px 0px 15px;
-    color:rgb(253, 253, 253);
-    font-weight: bold;
-}
-.finalSpellNoDCInnerBox {
-    display: flex;
-    flex-direction: row;
-    height: 25px;
-    width: 50px;
-    margin: 0px 10px 0px 10px;
-    border-radius: 5px;
-    color:rgb(255, 255, 255);
-    font-weight: bold;
-}
-.finalSpellNoDCAbilityText {
-    margin: -2px 0px 0px 6px;
-    color:rgb(255, 255, 255);
-    font-size: 13pt;
-}
-.finalSpellDCInnerBox {
-    display: flex;
-    flex-direction: row;
-    height: 25px;
-    width: 50px;
-    margin: 0px 10px 0px 0px;
-    border-radius: 5px;
-    color:rgb(255, 255, 255);
-    font-weight: bold;
-}
-.finalSpellDCValueText {
-    margin: 0px 2px 0px 0px;
-    color:rgb(255, 255, 255);
-    font-size: 13pt;
-}
-.finalSpellDCAbilityText {
-    margin: 2px 0px 0px 2px;
-    color:rgb(255, 255, 255);
-    font-size: 8pt;
-}
-
-
-/* Final Effect Box */
-.finalEffectBox {
-    display: flex;
-    flex-direction: column;
-    height: 20px;
-    width: 95px;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 0px 0px 17px;
     background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
+    text-align: center;
 }
-.finalSpellBonusOuterBox {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    width: 35px;
-    margin: 0px 10px 0px 10px;
-    color: rgb(255, 255, 255);
-}
-.finalEffectOtherTitle {
-    font-size: 12pt;
-    margin: -1px 0px 0px 10px;
-}
-.finalEffectHealOrDamageTitle {
-    font-size: 12pt;
-    margin: -1px 0px 0px 15px;
-}
-.finalOtherTypeOuterBox {
-    display: flex;
-    height: 25px;
-    width: 35px;
-    margin: 0px 10px 0px 0px;
-    border-radius: 5px;
-    color:rgb(255, 255, 255);
-    font-weight: bold;
-}
-.finalOtherTypeInnerBox {
-    display: flex;
-    margin: 0px 0px 0px 0px;
-    font-size: 10pt;
-}
-.finalHealOrDamageBox {
-    display: flex;
-    flex-direction: row;
-    height: 20px;
-    width: 90px;
-    margin: 0px 0px 0px 0px;
+.costGoldTextTitle {
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
-    align-items: center;
+    text-align: center;
 }
-.finalSpellHealOrDamageTextBox {
+.costGoldText {
+    color:aliceblue;
     font-size: 9pt;
-    font-weight: 500;
-}
-.finalSpellHitDiceBox {
-    display: flex;
-    flex-direction: row;
-    height: 20px;
-    width: auto;
-    margin: 0px 3px 0px 0px;
+    font-weight: light;
+    text-align: center;
+    margin: 2px 0px 0px 5px;
 }
 
 
-/* Spell Delete Button */
-.DeleteSpellBox {
+/* Item Delete Button */
+.DeleteItemBox {
     height: 25px;
     width: 25px;
-    margin: 5px 5px 0px 0px;
+    margin: 5px 5px 0px 15px;
     background-color: rgb(197, 197, 199);
     color:rgb(255, 61, 2);
     font-weight: bolder;
@@ -894,7 +725,7 @@ select:hover
     border-width: 1.5px;
     text-align: center;
 }
-.DeleteSpellBox:hover {
+.DeleteItemBox:hover {
     cursor: pointer;
 }
 

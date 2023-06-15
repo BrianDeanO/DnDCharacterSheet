@@ -1,8 +1,7 @@
 import React from "react";
-import { ChangeEvent, Component, ReactComponentElement, useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { AbilityBoxInfo } from "./abilityBox";
 import { SkillsBox } from "./skillsBox";
-import { determineModifier } from "../helpers/determineModSign";
 import { SavingThrowsBox } from "./savingThrowsBox";
 import { ProfAndLanguagesBox } from "./profsAndLangsBox";
 import { AdditionalCharacterInfoBox } from "./additional_InfoBox";
@@ -21,12 +20,12 @@ const CharacterSheet = ({
         profAndLangBoxInfo,
         additionalInfoBoxInfo,
         healthBoxInfo,
-        attacks,
-        newAttackInfo,
-        spells,
-        spellHeaderInfo,
-        newSpellInfo,
-        inventory,
+        // attacks,
+        // newAttackInfo,
+        // spells,
+        // spellHeaderInfo,
+        // inventory,
+        // inventoryHeaderInfo,
         featsAndTraits,
         description,
         notes
@@ -34,40 +33,7 @@ const CharacterSheet = ({
 
     const [proficiencyBonus, setProfiencyBonus] = useState<number>(additionalInfoBoxInfo ? additionalInfoBoxInfo.profBonus : 2);
 
-    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('SPELLS');
-    
-
-    const [numberOfAttacks, setNumberOfAttacks] =  useState<number>(0);
-    const [attackBonus, setAttackBonus] = useState<number>(0);
-    const [rangedOrMeleeAnswer, setRangedOrMeleeAnswer] = useState<boolean>(false);
-    const [finesseWeaponAnswer, setFinesseWeaponAnswer] = useState<boolean>(false);
-    const [proficientWithWeaponAnswer, setProficientWithWeaponAnswer] = useState<boolean>(false);
-
-    function AttackCard (
-        name: string,
-        atkBonus: number,
-        typeOfHitDice: number,
-        numberOfHitDice: number,
-        typeOfDamage: string,
-        shortRange?: number,
-        longRange?: number,
-        notes?: string) 
-    {
-        this.name = name;
-        this.atkBonus = atkBonus;
-        this.typeOfHitDice = typeOfHitDice;
-        this.numberOfHitDice =  numberOfHitDice;
-        this.typeOfDamage =  typeOfDamage;
-        this.shortRange =  shortRange;
-        this.longRange =  longRange;
-        this.notes = notes;
-    }
-
-    const testAttackCard = new AttackCard('Trident', 0, 4, 1, 'Piercing', 20, 60, 'Finesse, Thrown');
-
-    const attackCardArray: {}[] = [];
-
-    attackCardArray.push(testAttackCard);
+    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('FEATS&TRAITS');
 
     const MultiSelectBox = () => {
        // console.log('mult select', multiBoxSelection);
@@ -75,29 +41,33 @@ const CharacterSheet = ({
             case 'ATTACKS':
                 return (
                     <AttacksSelectionBox 
-                        attacks={attacks} 
+                        // attacks={attacks} 
                         abilityBoxInfo={abilityBoxInfo}
-                        newAttackInfo={newAttackInfo}/>)
+                        // newAttackInfo={newAttackInfo}
+                        />)
             case 'SPELLS':
                 return (<SpellsSelectionBox 
-                        spells={spells}
-                        abilityBoxInfo={abilityBoxInfo}
-                        newSpellInfo={newSpellInfo}
-                        spellHeaderInfo={spellHeaderInfo}
-                        />)
+                            // spells={spells}
+                            abilityBoxInfo={abilityBoxInfo}
+                            // spellHeaderInfo={spellHeaderInfo}
+                            />)
             case 'INVENTORY':
-                return (<InventorySelectionBox inventory={inventory}/>)
+                return (<InventorySelectionBox 
+                            // inventory={inventory}
+                            // inventoryHeaderInfo={inventoryHeaderInfo}
+                            />)
             case 'FEATS&TRAITS':
-                return (<FeatsAndTraitsSelectionBox featsAndTraits={featsAndTraits}/>)
+                return (<FeatsAndTraitsSelectionBox />)
             case 'DESCRIPTION':
                 return (<DecriptionSelectionBox description={description}/>)
             case 'NOTES':
                 return (<NotesSelectionBox notes={notes}/>)
             default:
                 return (<AttacksSelectionBox 
-                            attacks={attacks} 
+                            // attacks={attacks} 
                             abilityBoxInfo={abilityBoxInfo}
-                            newAttackInfo={newAttackInfo}/>)
+                            // newAttackInfo={newAttackInfo}
+                            />)
         }
     }
 
@@ -132,8 +102,8 @@ const CharacterSheet = ({
                     <ProfAndLanguagesBox profAndLangBoxInfo={profAndLangBoxInfo} />
                 </div>
 
-                <div className="Notes-MultiSelectOuterBox">
-                    <div className="Notes-MultiSelectHeaderBox">
+                <div className="MultiSelectOuterBox">
+                    <div className="MultiSelectHeaderBox">
                         <span
                             className="AttacksBoxButton"
                             id={multiBoxSelection === 'ATTACKS' ? 'activeButton' : 'notActiveButton'}

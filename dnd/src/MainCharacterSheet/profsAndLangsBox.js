@@ -70,7 +70,6 @@ export const ProfAndLanguagesBox = ({profAndLangBoxInfo}) => {
                     cols={1}
                     rows={4}></textarea>
             </div>
-
         </div>
     )
 }

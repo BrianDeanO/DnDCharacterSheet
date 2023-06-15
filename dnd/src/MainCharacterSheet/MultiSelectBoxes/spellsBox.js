@@ -2,12 +2,15 @@ import { Fragment, useEffect, useState, useMemo } from "react";
 import React from "react";
 import MakeSpellCard from "../../helpers/makeSpellCard";
 import { determineModifier } from "../../helpers/determineModSign";
-import { fillSpellCardArray } from "../../helpers/fillCardArray";
+import { fillSpellCardArray } from "../../helpers/fillCardArrays";
 import { determineSpellDC } from "../../helpers/determineSpellDC";
 
-export const SpellsSelectionBox = ({spells, abilityBoxInfo, newSpellInfo, spellHeaderInfo}) => {
+export const SpellsSelectionBox = ({abilityBoxInfo}) => {
 
-    console.log('passed in spells', spells);
+    const spells = JSON.parse(localStorage.getItem("spells"));
+    const spellHeaderInfo = JSON.parse(localStorage.getItem("spellHeaderInfo"));
+
+    //console.log('passed in spells', spells);
 
     const [spellCards, setSpellCards] = useState(spells ? spells.spellCardArray : []);
     const [makeNewSpell, setMakeNewSpell] = useState(false);
@@ -18,11 +21,11 @@ export const SpellsSelectionBox = ({spells, abilityBoxInfo, newSpellInfo, spellH
     const [spellBonus, setSpellBonus] = useState(spellHeaderInfo ? spellHeaderInfo.spellBonus : 4);
     const [spellSaveDC, setSpellSaveDC] = useState(spellHeaderInfo ? spellHeaderInfo.spellSaveDC : 15);
 
-    console.log('after spell cards', spellCards);
+    //console.log('after spell cards', spellCards);
 
     const spellCardArray = useMemo(() => fillSpellCardArray(spellCards), [spellCards]);
 
-    console.log('after spell arrat', spellCardArray);
+    //console.log('after spell arrat', spellCardArray);
 
 
     useEffect(() => {
@@ -86,12 +89,11 @@ export const SpellsSelectionBox = ({spells, abilityBoxInfo, newSpellInfo, spellH
         }, [notes]);
     
         return (
-
             <div className="newLoneSpellBox" 
                 key={`${spellObj.name}_${index}`}
                 id={`${spellObj.spellLevel}_${index}`}>
                 <div className="spellInfoUpperBox">
-                    <div className="spellNameBox">
+                    <div className="spellNameFinalBox">
                         <span>{spellObj.spellName}</span>
                     </div>
 
@@ -212,7 +214,9 @@ export const SpellsSelectionBox = ({spells, abilityBoxInfo, newSpellInfo, spellH
                     className="spellHeaderNewButton"
                     onClick={() => {
                         const newSpellEffectChoice = JSON.parse(localStorage.getItem("newSpellEffectChoice"));
-                        console.log('other effect', document.getElementById('spellOtherEffect')?.value);
+                        // console.log('other effect', document.getElementById('spellOtherEffect')?.value);
+                        console.log('dc', document.getElementById('DCType')?.value);
+                        console.log('ability info', abilityBoxInfo);
                         if(makeNewSpell) {
                             if( 
                                 (document.getElementById('NewSpellName')?.value !== '') &&
@@ -332,30 +336,8 @@ export const SpellsSelectionBox = ({spells, abilityBoxInfo, newSpellInfo, spellH
                 </div>
             </div>
             {makeNewSpell ? 
-                <MakeSpellCard 
-                    newSpellInfo={newSpellInfo} 
-                    makeNewSpell={makeNewSpell}/> : null}
+                <MakeSpellCard /> : null}
             <div className="spellCardsMainBox">
-                {/* {spellCardArray.map((spellObj, index) => {
-                    console.log('spell array', spellCardArray);
-                    console.log('spellObj', spellObj);
-                    // console.log('attackObj name', spellObj.name);
-
-                    return (
-                        <Fragment>
-                            {(index === 0 && spellObj[0]) ? 
-                            <div className="spellFinalLevelHeader">
-                                {index} Level
-                            </div> : null}
-
-                            {(spellObj[0]) ? 
-                                <SpellCard 
-                                    spellCardArray={spellCardArray}
-                                    spellObj={spellObj} 
-                                    index={index}/> : null}
-                        </Fragment>
-                    )
-                })}     */}
                 {spellCardArray.map((spellSubArray) => {
                     return (
                         spellSubArray.map((spellObj, index) => {
@@ -367,7 +349,7 @@ export const SpellsSelectionBox = ({spells, abilityBoxInfo, newSpellInfo, spellH
                                 <Fragment>
                                     {(index === 0 && spellObj) ? 
                                     <div className="spellFinalLevelHeader">
-                                        {(spellObj.spellLevel === '0') ? `Cantrip` :
+                                        {(spellObj.spellLevel === 0) ? `Cantrip` :
                                             `${spellObj.spellLevel} Level`}
                                     </div> : null}
         

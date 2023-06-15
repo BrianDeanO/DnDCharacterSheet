@@ -67,12 +67,12 @@ html {
 */
 
 
-.Notes-MultiSelectOuterBox {
+.MultiSelectOuterBox {
   display: flex;
   flex-direction: column;
 }
 
-.Notes-MultiSelectHeaderBox {
+.MultiSelectHeaderBox {
   display: flex;
   flex-direction: row;
   background-color: cadetblue;

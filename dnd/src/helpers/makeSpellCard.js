@@ -22,7 +22,6 @@ const MakeSpellCard = () => {
     useEffect(() => {
        // console.log('ranged Answer', rangedAnswer);
         setRangedAnswer(rangedAnswer);
-        //console.log('get elem ID', document.getElementById('typeOfRange')?.value);
 
         localStorage.setItem('newSpellEffectChoice', JSON.stringify({
             spellEffectChoice:  damageEffect ? 'damage' :
@@ -107,7 +106,7 @@ const MakeSpellCard = () => {
                         }
                         <div className="spellBonusSelectorBox">
                             <div className="spellBonusSelectorText">DC</div>
-                            <select className="DCSelector" id="DCType">
+                            <select  className="DCSelector" id="DCType">
                                     <option>---</option>
                                     <option value={'N/A'}>N/A</option>
                                     <option value={'STR'}>STR</option>

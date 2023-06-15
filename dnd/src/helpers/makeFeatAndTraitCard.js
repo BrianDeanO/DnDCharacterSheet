@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import React from "react";
 
-const MakeAttackCard = ({newAttackInfo, makeNewAttack}) => {
+const MakeFeatAndTraitCard = ({typeOfEntry}) => {
 
     const [attackBonus, setAttackBonus] = useState(0);
     const [rangedOrMeleeAnswer, setRangedOrMeleeAnswer] = useState('');
@@ -214,4 +214,4 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack}) => {
     </div> 
     );
 };
-export default MakeAttackCard;
+export default MakeFeatAndTraitCard;

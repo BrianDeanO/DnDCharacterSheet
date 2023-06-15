@@ -1,4 +1,5 @@
 export function determineSpellDC(spellDCInput, abilityBoxInfo) {
+    console.log('determine', spellDCInput, abilityBoxInfo);
     switch(spellDCInput) {
         case 'N/A':
             return 0;
