@@ -49,8 +49,8 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
                         <div className="attackNameBox">
                             <span>{attackObj.name}</span>
                             <span className="attackTypeIndicatorText">
-                            {(attackObj.longRange === -1) ? '(Melee)' : '(Ranged)'}
-                        </span>
+                                {(attackObj.longRange === -1) ? '(Melee)' : '(Ranged)'}
+                            </span>
                         </div>
                         <div className="finalRangeBox">
                         <div>Range</div>
@@ -170,8 +170,6 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
                                 setAttackCards(attackCardArray);
                                 setMakeNewAttack(false);
                             }
-                            // resetNewAttackInfo();
-                            
                         } else {
                             // resetNewAttackInfo();
                             setMakeNewAttack(true);

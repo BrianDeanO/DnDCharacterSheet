@@ -60,10 +60,9 @@
 .featsAndTraitsHeader {
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: 40px;
     width: 480px;
-    margin: 5px 10px 0px 10px;
-    background-color: aquamarine;
+    margin: 0px 10px 0px 10px;
 }
 
 
@@ -149,4 +148,228 @@
     height: 25px;
     text-align: center;
     border-radius: 3px;
+}
+
+
+
+/*  Outer Entry Card Boxes for both new cards */
+.loneEntryBox {
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
+.entryCardText {
+    color: aliceblue;    
+    font-size: 11pt;
+    font-weight: bold;
+}
+.entryInfoUpperBox {
+    display: flex;
+    flex-direction: row;
+    height: 56px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+}
+
+
+/* Entry Title Input Box */
+.entryInfoTitleBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 165px;
+    margin: 5px 0px 0px 5px;
+    color:aliceblue;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    align-items: center;
+}
+.entryCardTitleAndBookInput {
+    height: 20px;
+    width: 165px;
+    font-size: 9.5pt;
+}
+
+
+/* Entry Source Book Input Box */
+.entryInfoSourceBookBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 165px;
+    margin: 5px 0px 0px 20px;
+    color:aliceblue;
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    align-items: center;
+}
+.entryCardTitleAndBookText {
+    color: aliceblue;
+    font-size: 12pt;
+    font-weight: bold;
+    font-style: normal;
+    margin: -5px 0px 2px 0px;
+}
+
+
+/* Entry Page Number Selection Box */
+.entryPageNumberBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 60px;
+    margin: 0px 0px 0px 23px;
+    color: aliceblue;
+    align-items: center;
+}
+.entryPageNumberText {
+    color:azure;
+    margin: 0px 0px -4px -10px;
+    font-weight: bold;
+    width: 40px;
+    text-align: center;
+}
+.entryPageNumberDial {
+    width: 55px;
+    height: 20px;
+    margin: 5px 10px 0px 0px;
+    text-align: center;
+    font-size: 12pt;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+
+/* Entry Details Box */
+.entryDetailsBox {
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+}
+.entryDetailsText {
+    margin: 2.5px 5px 0px 5px;
+    color: aliceblue;
+    font-weight: bold;
+}
+.entryDetailsInputBox {
+    height: 45px;
+    width: 360px;
+}
+
+
+/* 
+    CSS Styles for Final Entry Card 
+*/
+.newLoneEntryBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
+.finalEntryInfoUpperBox {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 450px;
+    background-color: rgb(5, 109, 109);
+}
+
+/* Final Entry Title Box */
+.finalEntryTitleBox {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 400px;
+    margin: 0px 0px 0px 5px;
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+}
+.finalEntryTitleTextNormal {
+    font-size: 11pt;
+}
+
+/* Final Entry Book and Page Number Box */
+.finalEntryBookAndPageBox {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    width: 200px;
+    margin: 6px 0px 0px 5px;
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+}
+.finalEntryBookAndPageText {
+    font-size: 9pt;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Final Entry Details Box */
+.entryDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    width: 450px;
+    background-color: rgb(114, 141, 111);
+}
+.finalEntryDetailsInnerBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 90px;
+    background-color: rgb(114, 141, 111);
+    align-items: end;
+}
+.finalEntryDetailsText {
+    margin: 2.5px 5px 0px 5px;
+    color: aliceblue;
+    font-weight: bold;
+}
+.finalEntryDetailsBox {
+    height: 54px;
+    width: 340px;
+    font-size: 9pt;
+}
+.EntryBoxSaveButton {
+    height: 20px;
+    width: 80px;
+    margin: 2px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-size: 9pt;
+}
+
+/* Entry Delete Button */
+.DeleteEntryBox {
+    height: 25px;
+    width: 25px;
+    margin: 5px 5px 0px 35px;
+    background-color: rgb(197, 197, 199);
+    color:rgb(255, 61, 2);
+    font-weight: bolder;
+    font-size: 13pt;
+    border-radius: 10px;
+    border-width: 1.5px;
+    text-align: center;
+}
+.DeleteEntryBox:hover {
+    cursor: pointer;
 }

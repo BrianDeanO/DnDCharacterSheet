@@ -34,12 +34,11 @@ export function fillTraitAndFeatArray(cards) {
         temp[i] = [];
     }
 
-    cards.forEach((featTraitArray) => {
+    cards.forEach((featTraitArray, sectionIndex) => {
         console.log('feat array', featTraitArray);
         featTraitArray.forEach((featTraitObj) => {
-            const featTraitIndex = parseInt(featTraitObj.featTraitIndex);
-            console.log('featTraitObj', featTraitObj, 'leve', featTraitIndex);
-            temp[featTraitIndex].push(featTraitObj);
+            console.log('featTraitObj', featTraitObj, 'leve', sectionIndex);
+            temp[sectionIndex].push(featTraitObj);
         })
     })
     console.log('temp', temp);

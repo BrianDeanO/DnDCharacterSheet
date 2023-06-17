@@ -13,33 +13,6 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack}) => {
     const [diceTypeSelected, setDiceTypeSelected] = useState(false);
     const [finesse, setFinesse] = useState(false);
 
-//     useEffect(() => {
-//         // setTempName(tempName);
-//         // setTempNotes(tempNotes);
-//         // setNewAttackName(tempName);
-//         // setNewAttackNotes(tempNotes);
-//     localStorage.setItem("newAttackInfo", JSON.stringify({
-//         attackBonus: attackBonus,
-//         rangedOrMeleeAnswer: rangedOrMeleeAnswer,
-//         newAttackName: newAttackName,
-//         newAttackNotes: newAttackNotes,
-//         shortRange: shortRange,
-//         longRange: longRange,
-//         typeOfHitDice: typeOfHitDice,
-//         numberOfHitDice: numberOfHitDice,
-//         resetInfo: resetInfo,
-//     }));
-// }, [attackBonus, rangedOrMeleeAnswer, newAttackName, 
-//     newAttackNotes, shortRange, longRange, typeOfHitDice, numberOfHitDice, resetInfo]);
-
-    // useEffect(() => {
-    //     localStorage.setItem("testName", JSON.stringify({
-    //         name: document.getElementById('NewAttackName')?.value
-    //     }));
-    // }, [newAttackName]);
-
-    // console.log('name', document.getElementById('NewAttackName')?.value);
-
     return (
         <div className="loneAttackBox" id="">
         <div className="attackInfoUpperBox">

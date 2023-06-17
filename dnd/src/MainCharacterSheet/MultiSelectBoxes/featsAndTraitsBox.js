@@ -13,6 +13,8 @@ export const FeatsAndTraitsSelectionBox = () => {
     const [makeNewEntry, setMakeNewEntry] = useState(false);
     const [itemIsEdit, setItemIsEdit] = useState(-1);
     const [isEdit, setIsEdit] = useState(false);
+    
+    const [entryCardBeingEdited, setEntryCardBeingEdited] = useState('NO');
     const [featAndTraitBoxSelection, setFeatAndTraitBoxSelection] = useState('ALL');
 
     const [isAddClassFeature, setIsAddClassFeature] = useState(false);
@@ -21,20 +23,6 @@ export const FeatsAndTraitsSelectionBox = () => {
     const classFeatureIndex = 0;
     const raceTraitIndex = 1;
     const baseFeatIndex = 2;
-
-
-    // const [armorProficiencies,setArmorProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.armor : 'None');
-    // const [weaponProficiencies,setWeaponProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.weapons : 'None');
-    // const [toolProficiencies,setToolProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.tools : 'None');
-    // const [languageProficiencies,setLanguageProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.languages : 'None');
-
-    // useEffect(() => {
-    //     localStorage.setItem("profAndLangBoxInfo", JSON.stringify(
-    //         {   armor: armorProficiencies, 
-    //             weapons: weaponProficiencies, 
-    //             tools: toolProficiencies, 
-    //             languages: languageProficiencies}));
-    // }, [armorProficiencies, weaponProficiencies, toolProficiencies, languageProficiencies]);
 
     console.log('after cards', featAndTraitCards);
 
@@ -47,55 +35,60 @@ export const FeatsAndTraitsSelectionBox = () => {
     }, [featAndTraitArray]);
 
     const FeatAndTraitCard = ({featAndTraitArray, featTraitCard, index}) => {
-        const [notes, setNotes] = useState(featTraitCard ? featTraitCard.notes : "");
+        const [details, setDetails] = useState(featTraitCard ? featTraitCard.entryDetails : "");
 
         useEffect(() => {
-            setNotes(notes);
+            setDetails(details);
             localStorage.setItem("featsAndTraits", JSON.stringify({featAndTraitArray}));
-        }, [notes, featAndTraitArray]);
+        }, [details, featAndTraitArray]);
 
         // const test = "The Armor Of Agathist - Fire";
         // console.log('test', test.length);
     
         return (
-            <div className="newLoneItemBox" 
-                key={`${featTraitCard.sectionName}_${index}`}
-                id={`${index}`}
+            <div className="newLoneEntryBox" 
+                key={`${featTraitCard.entryCategoryIndex}_${index}`}
+                id={`${featTraitCard.entryCategoryIndex}_${index}`}
                 >
-                <div className="itemInfoUpperBox">
-                    <div className="itemNameBox">
-                        {featTraitCard.entryTitle}
+                <div className="finalEntryInfoUpperBox">
+                    <div className="finalEntryTitleBox">
+                        <span className={"finalEntryTitleTextNormal"}>
+                            {featTraitCard.entryTitle}
+                        </span>
+                        <div className="finalEntryBookAndPageText">
+                            {featTraitCard.entrySourceBook} Pg. {featTraitCard.entryPageNumber}
+                        </div>
                     </div>
                     <div 
-                    className="DeleteItemBox"
-                    id={`${index}`}
+                    className="DeleteEntryBox"
+                    id={`${featTraitCard.entryCategoryIndex}_${index}`}
                     onClick={(e) => {
-                        featAndTraitArray.splice(e.target.id, 1);
+                        featAndTraitArray[featTraitCard.entryCategoryIndex].splice(index, 1);
                         setFeatAndTraitCards(featAndTraitArray);
                     }}>X</div>
                 </div>
-                <div className="attackNotesLowerBox">
-                    <div className="attackNotesInnerBox">
-                        <span className="attackNotesText">Notes</span>
+                <div className="entryDetailsLowerBox">
+                    <div className="finalEntryDetailsInnerBox">
+                        <span className="finalEntryDetailsText">Details</span>
                         <button 
-                        className="AttackBoxSaveButton"
-                        id={`${index}`}
+                        className="EntryBoxSaveButton"
+                        id={`${featTraitCard.entryCategoryIndex}_${index}`}
                         onClick={(e) => {
-                            (itemIsEdit === -1) ? 
-                                setItemIsEdit(index) : setItemIsEdit(-1);
+                            (entryCardBeingEdited === 'NO') ? 
+                            setEntryCardBeingEdited(`${featTraitCard.entryCategoryIndex}_${index}`) : setEntryCardBeingEdited('NO');
                             setIsEdit(!isEdit);
                             }}>
-                                {(isEdit && (itemIsEdit === index)) ? 'save notes' : 'edit notes'}
+                                {(isEdit && (entryCardBeingEdited === `${featTraitCard.entryCategoryIndex}_${index}`)) ? 'save notes' : 'edit notes'}
                         </button> 
                     </div>
 
                     <textarea
-                    className="finalAttackNotesBox"
-                    value={featTraitCard.entry}
-                    id={`${index}`}
+                    className="finalEntryDetailsBox"
+                    value={featTraitCard.entryDetails}
+                    id={`${featTraitCard.entryCategoryIndex}_${index}`}
                     onChange={(e) => {
-                        featAndTraitArray[e.target.id].notes = e.target.value.toString();
-                        setNotes(featTraitCard.notes);
+                        featAndTraitArray[featTraitCard.entryCategoryIndex][index].entryDetails = e.target.value.toString();
+                        setDetails(featTraitCard.entryDetails);
                     }}
                     cols={1}
                     rows={4}></textarea>
@@ -144,7 +137,21 @@ export const FeatsAndTraitsSelectionBox = () => {
                         className="addClassFeatButton"
                         onClick={() => {
                             if(isAddClassFeature) {
-                                setIsAddClassFeature(false);
+                                if( (document.getElementById('NewEntryTitle')?.value !== '') &&
+                                    (document.getElementById('NewEntrySourceBook')?.value !== '') &&
+                                    (document.getElementById('NewEntryDetails')?.value !== '')){
+                                
+                                        const newEntry = {
+                                            entryTitle: document.getElementById('NewEntryTitle')?.value,
+                                            entrySourceBook: document.getElementById('NewEntrySourceBook')?.value,
+                                            entryPageNumber: document.getElementById('newEntryPageNumber')?.value,
+                                            entryDetails: document.getElementById('NewEntryDetails')?.value,
+                                            entryCategoryIndex: classFeatureIndex,
+                                        };
+                                        console.log('new enrt', newEntry);
+                                        featAndTraitArray[classFeatureIndex].push(newEntry);
+                                        setIsAddClassFeature(false);
+                                    }  
                             } else {
                                 setIsAddClassFeature(true);
                             }
@@ -187,6 +194,21 @@ export const FeatsAndTraitsSelectionBox = () => {
                         className="addRaceTraitButton"
                         onClick={() => {
                             if(isAddRaceTrait) {
+                                if( (document.getElementById('NewEntryTitle')?.value !== '') &&
+                                (document.getElementById('NewEntrySourceBook')?.value !== '') &&
+                                (document.getElementById('NewEntryDetails')?.value !== '')){
+
+                                    const newEntry = {
+                                        entryTitle: document.getElementById('NewEntryTitle')?.value,
+                                        entrySourceBook: document.getElementById('NewEntrySourceBook')?.value,
+                                        entryPageNumber: document.getElementById('newEntryPageNumber')?.value,
+                                        entryDetails: document.getElementById('NewEntryDetails')?.value,
+                                        entryCategoryIndex: raceTraitIndex,
+                                    };
+                                    console.log('new enrt', newEntry);
+                                    featAndTraitArray[raceTraitIndex].push(newEntry);
+                                    setIsAddClassFeature(false);
+                                }  
                                 setIsAddRaceTrait(false);
                             } else {
                                 setIsAddRaceTrait(true);
@@ -226,7 +248,21 @@ export const FeatsAndTraitsSelectionBox = () => {
                         className="addBaseFeatButton"
                         onClick={() => {
                             if(isAddBaseFeat) {
-                                setIsAddBaseFeat(false);
+                                if( (document.getElementById('NewEntryTitle')?.value !== '') &&
+                                (document.getElementById('NewEntrySourceBook')?.value !== '') &&
+                                (document.getElementById('NewEntryDetails')?.value !== '')){
+
+                                    const newEntry = {
+                                        entryTitle: document.getElementById('NewEntryTitle')?.value,
+                                        entrySourceBook: document.getElementById('NewEntrySourceBook')?.value,
+                                        entryPageNumber: document.getElementById('newEntryPageNumber')?.value,
+                                        entryDetails: document.getElementById('NewEntryDetails')?.value,
+                                        entryCategoryIndex: baseFeatIndex,
+                                    };
+                                    console.log('new enrt', newEntry);
+                                    featAndTraitArray[baseFeatIndex].push(newEntry);
+                                    setIsAddBaseFeat(false);
+                                }  
                             } else {
                                 setIsAddBaseFeat(true);
                             }
