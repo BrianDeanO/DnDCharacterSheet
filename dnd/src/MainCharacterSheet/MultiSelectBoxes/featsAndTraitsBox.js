@@ -1,7 +1,7 @@
-import { Fragment, useEffect, useState, useMemo } from "react";
+import { Fragment, useEffect, useState, useMemo, useRef } from "react";
 import React from "react";
 import { fillTraitAndFeatArray } from "../../helpers/fillCardArrays";
-import MakeFeatAndTraitCard from "../../helpers/makeFeatAndTraitCard";
+import MakeFeatAndTraitCard from "../../multiSelectCardMakers/makeFeatAndTraitCard";
 
 export const FeatsAndTraitsSelectionBox = () => {
     const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
@@ -13,6 +13,7 @@ export const FeatsAndTraitsSelectionBox = () => {
     const [makeNewEntry, setMakeNewEntry] = useState(false);
     const [itemIsEdit, setItemIsEdit] = useState(-1);
     const [isEdit, setIsEdit] = useState(false);
+    const entryDetailsRef = useRef(null);
     
     const [entryCardBeingEdited, setEntryCardBeingEdited] = useState('NO');
     const [featAndTraitBoxSelection, setFeatAndTraitBoxSelection] = useState('ALL');
@@ -34,6 +35,16 @@ export const FeatsAndTraitsSelectionBox = () => {
         localStorage.setItem("featsAndTraits", JSON.stringify({featAndTraitArray}));
     }, [featAndTraitArray]);
 
+
+    // WORK ON EXPANDING TEXTAREA
+    function increaseDetailsBox(id) {
+        console.log('doc 1', document.getElementById(id).scrollHeight);
+        console.log('height', document.getElementById(id).style.height);
+        console.log('current target', entryDetailsRef.target);
+        document.getElementById(id).style.height = 'auto';
+        document.getElementById(id).style.height = document.getElementById(id).scrollHeight + 'px';
+    }
+
     const FeatAndTraitCard = ({featAndTraitArray, featTraitCard, index}) => {
         const [details, setDetails] = useState(featTraitCard ? featTraitCard.entryDetails : "");
 
@@ -48,7 +59,6 @@ export const FeatsAndTraitsSelectionBox = () => {
         return (
             <div className="newLoneEntryBox" 
                 key={`${featTraitCard.entryCategoryIndex}_${index}`}
-                id={`${featTraitCard.entryCategoryIndex}_${index}`}
                 >
                 <div className="finalEntryInfoUpperBox">
                     <div className="finalEntryTitleBox">
@@ -85,10 +95,13 @@ export const FeatsAndTraitsSelectionBox = () => {
                     <textarea
                     className="finalEntryDetailsBox"
                     value={featTraitCard.entryDetails}
-                    id={`${featTraitCard.entryCategoryIndex}_${index}`}
+                    id={`${featTraitCard.entryCategoryIndex}_${index}_Details`}
+                    ref={entryDetailsRef}
                     onChange={(e) => {
                         featAndTraitArray[featTraitCard.entryCategoryIndex][index].entryDetails = e.target.value.toString();
                         setDetails(featTraitCard.entryDetails);
+                       // console.log('doc', document.getElementById(`${featTraitCard.entryCategoryIndex}_${index}_Details`));
+                        increaseDetailsBox(`${featTraitCard.entryCategoryIndex}_${index}_Details`);
                     }}
                     cols={1}
                     rows={4}></textarea>
@@ -100,13 +113,6 @@ export const FeatsAndTraitsSelectionBox = () => {
     const MultiFeatsAndTraitsBox = () => {
         // console.log('mult select', multiBoxSelection);
         switch(featAndTraitBoxSelection) {
-            case 'ALL':
-                return (
-                    <Fragment>
-                        <ClassFeatsSubBox />
-                        <RaceTraitsSubBox />
-                        <BaseFeatsSubBox />
-                    </Fragment>)
             case 'CLASS_FEATS':
                 return (<ClassFeatsSubBox />)
             case 'RACE_TRAITS':

@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState, useMemo } from "react";
 import React from "react";
-import MakeAttackCard from "../../helpers/makeAttackCard";
+import MakeAttackCard from "../../multiSelectCardMakers/makeAttackCard";
 import { determineModifier } from "../../helpers/determineModSign";
 import { fillCardArray } from "../../helpers/fillCardArrays";
 

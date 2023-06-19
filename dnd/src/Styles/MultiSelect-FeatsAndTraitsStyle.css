@@ -262,6 +262,8 @@
 .entryDetailsInputBox {
     height: 45px;
     width: 360px;
+    resize: vertical;
+    display: block;
 }
 
 

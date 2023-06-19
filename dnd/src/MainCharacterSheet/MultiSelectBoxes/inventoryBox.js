@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import React from "react";
 import { fillCardArray } from "../../helpers/fillCardArrays";
-import MakeInventoryCard from "../../helpers/makeInventoryCard";
+import MakeInventoryCard from "../../multiSelectCardMakers/makeInventoryCard";
 
 export const InventorySelectionBox = () => {
 

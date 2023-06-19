@@ -153,15 +153,6 @@ html {
   background-color: rgb(255, 203, 139);
 }
 
-.Notes-MultiSelectBox {
-  display: flex;
-  flex-direction: column;
-  height: 615px;
-  width: 490px;
-  margin: 10px 0px 0px 10px;
-  overflow: auto;
-}
-
 /* 
 *****************************************
   CSS Styles for Scroll Bars

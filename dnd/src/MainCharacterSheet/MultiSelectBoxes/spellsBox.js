@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState, useMemo } from "react";
 import React from "react";
-import MakeSpellCard from "../../helpers/makeSpellCard";
+import MakeSpellCard from "../../multiSelectCardMakers/makeSpellCard";
 import { determineModifier } from "../../helpers/determineModSign";
 import { fillSpellCardArray } from "../../helpers/fillCardArrays";
 import { determineSpellDC } from "../../helpers/determineSpellDC";

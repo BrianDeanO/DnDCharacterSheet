@@ -33,41 +33,26 @@ const CharacterSheet = ({
 
     const [proficiencyBonus, setProfiencyBonus] = useState<number>(additionalInfoBoxInfo ? additionalInfoBoxInfo.profBonus : 2);
 
-    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('FEATS&TRAITS');
+    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('NOTES');
 
     const MultiSelectBox = () => {
        // console.log('mult select', multiBoxSelection);
         switch(multiBoxSelection) {
             case 'ATTACKS':
                 return (
-                    <AttacksSelectionBox 
-                        // attacks={attacks} 
-                        abilityBoxInfo={abilityBoxInfo}
-                        // newAttackInfo={newAttackInfo}
-                        />)
+                    <AttacksSelectionBox abilityBoxInfo={abilityBoxInfo} />)
             case 'SPELLS':
-                return (<SpellsSelectionBox 
-                            // spells={spells}
-                            abilityBoxInfo={abilityBoxInfo}
-                            // spellHeaderInfo={spellHeaderInfo}
-                            />)
+                return (<SpellsSelectionBox abilityBoxInfo={abilityBoxInfo} />)
             case 'INVENTORY':
-                return (<InventorySelectionBox 
-                            // inventory={inventory}
-                            // inventoryHeaderInfo={inventoryHeaderInfo}
-                            />)
+                return (<InventorySelectionBox />)
             case 'FEATS&TRAITS':
                 return (<FeatsAndTraitsSelectionBox />)
             case 'DESCRIPTION':
-                return (<DecriptionSelectionBox description={description}/>)
+                return (<DecriptionSelectionBox />)
             case 'NOTES':
-                return (<NotesSelectionBox notes={notes}/>)
+                return (<NotesSelectionBox />)
             default:
-                return (<AttacksSelectionBox 
-                            // attacks={attacks} 
-                            abilityBoxInfo={abilityBoxInfo}
-                            // newAttackInfo={newAttackInfo}
-                            />)
+                return (<AttacksSelectionBox abilityBoxInfo={abilityBoxInfo} />)
         }
     }
 

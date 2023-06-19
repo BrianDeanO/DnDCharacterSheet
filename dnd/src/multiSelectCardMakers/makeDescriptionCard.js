@@ -1,7 +1,8 @@
 import { Fragment, useEffect, useState } from "react";
 import React from "react";
 
-const MakeFeatAndTraitCard = ({typeOfEntry}) => {
+const MakeDescriptionCard = () => {
+
 
     const [newEntryTitle, setNewEntryTitle] = useState('');
     const [newEntrySourceBook, setNewEntrySourceBook] = useState('');
@@ -57,4 +58,4 @@ const MakeFeatAndTraitCard = ({typeOfEntry}) => {
     </div> 
     );
 };
-export default MakeFeatAndTraitCard;
+export default MakeDescriptionCard;

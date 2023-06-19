@@ -1,2 +1,445 @@
 
+/* Main Notes Box */
+.Notes-MultiSelectBox {
+    display: flex;
+    flex-direction: column;
+    height: 660px;
+    width: 520px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.notesMainBox {
+    display: flex;
+    flex-direction: column;
+    height: 608px;
+    width: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-arrow-color: rgb(141, 226, 43);
+    scrollbar-gutter: red;
+}
+
+
+/* CSS Styles for Notes Header */
+.notesHeader {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 480px;
+    margin: 0px 10px 0px 10px;
+}
+.NotesAllButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.NotesOrgsButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 105px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+} 
+.NotesAlliesButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.NotesEnemiesButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.NotesBackstoryButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 75px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.NotesOtherButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+#activeNotesButton {
+    background-color: rgb(255, 203, 139);
+    text-decoration: underline;
+}
+
+
+/* Organizations Box */
+.OrganizationsSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 5px 10px 0px 10px;
+    background-color: rgba(31, 95, 95, 0);
+    color: rgb(22, 50, 73);
+}
+.organizationsText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.addOrganizationButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 170px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* Allies Box */
+.AlliesSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 10px 10px 0px 10px;
+    background-color: rgba(143, 243, 243, 0);
+    color: rgb(22, 50, 73);
+    border-top-color: black;
+    border-top-style: solid;
+}
+.alliesText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.addAlliesButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 170px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* Enemies Box */
+.EnemiesSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 10px 10px 0px 10px;
+    background-color: rgba(143, 243, 243, 0);
+    color: rgb(22, 50, 73);
+    border-top-color: black;
+    border-top-style: solid;
+}
+.enemiesText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.addEnemiesButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 170px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* Backstory Box */
+.BackstorySubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 10px 10px 0px 10px;
+    background-color: rgba(143, 243, 243, 0);
+    color: rgb(22, 50, 73);
+    border-top-color: black;
+    border-top-style: solid;
+}
+.backstoryText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.addBackstoryButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 170px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* Other Box */
+.OtherSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 10px 10px 0px 10px;
+    background-color: rgba(143, 243, 243, 0);
+    color: rgb(22, 50, 73);
+    border-top-color: black;
+    border-top-style: solid;
+}
+.otherText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+}
+.addOtherButton {
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 170px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+#selectedNoTopBorder {
+    margin: 0px 10px 0px 10px;
+    border: none;
+}
+
+
+/*  Outer Entry Card Boxes for both new cards */
+.loneNoteBox {
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
+.notesDetailsUpperBox {
+    display: flex;
+    flex-direction: row;
+    height: 35px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+}
+/* CSS for no title Lone Note Box */
+.noTitleLoneNoteBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
+
+
+/* Notes Title Input Box */
+.notesTitleBox {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    width: 400px;
+    margin: 5px 0px 0px 0px;
+    color:aliceblue;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+}
+.notesCardText {
+    color: aliceblue;    
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 0px 10px 0px 5px;
+    /* font-style: italic; */
+}
+.notesCardTitleInput {
+    height: 20px;
+    width: 195px;
+    font-size: 9.5pt;
+}
+
+/* Note Details Box */
+.noteDetailsBox {
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+    margin: 0px 0px 0px 0px;
+}
+.noteDetailsText {
+    margin: 2.5px 5px 0px 5px;
+    color: aliceblue;
+    font-weight: bold;  
+    font-size: 11pt;
+    /* font-style: italic; */
+}
+.noteDetailsInputBox {
+    height: 65px;
+    width: 360px;
+    font-size: 8pt;
+}
+
+/* No Title Note Details Box */
+.noTitleDetailsBox {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+    margin: 0px 0px 0px 0px;
+}
+.noTitleNoteDetailsInputBox {
+    height: 90px;
+    width: 360px;
+    font-size: 8pt;
+}
+
+
+/* 
+    CSS Styles for Final Notes Card 
+*/
+.newLoneNotesBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 475px;
+    margin: 5px 0px 0px 10px;
+    background-color: azure;
+}
+.finalNotesTitleUpperBox {
+    display: flex;
+    flex-direction: row;
+    height: 25px;
+    width: 475px;
+    background-color: rgb(5, 109, 109);
+}
+.longNewLoneNotesBox {
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    width: 475px;
+    margin: 5px 0px 5px 10px;
+    background-color: azure;
+}
+
+
+/* Final Notes Title Box */
+.finalNotesTitleBox {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 475px;
+    margin: 0px 0px 0px 5px;
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: left;
+    font-style: italic;
+}
+.finalNotesTitleText {
+    font-size: 11pt;
+}
+
+/* Final Note Details Box */
+.noteDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 75px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.finalNoteDetailsInnerBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 90px;
+    background-color: rgb(114, 141, 111);
+    align-items: end;
+}
+.finalNoteDetailsText {
+    margin: 2.5px 5px 0px 5px;
+    color: aliceblue;
+    font-weight: bold;
+}
+.finalNoteDetailsBox {
+    height: 70px;
+    width: 475px;
+    font-size: 9pt;
+}
+.longFinalNoteDetailsBox {
+    height: 150px;
+    width: 475px;
+    font-size: 9pt;
+}
+
+/* No Title Final Notes Box */
+.noTitleNewLoneNotesBox {
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+    width: 475px;
+    margin: 5px 0px 10px 10px;
+    background-color: azure;
+}
+.noTitleNoteDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 95px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.noTitleFinalNoteDetailsBox {
+    height: 95px;
+    width: 475px;
+    font-size: 9pt;
+}
+
+
+
+/* Notes Save Button */
+.NoteBoxSaveButton {
+    height: 20px;
+    width: 50px;
+    margin: 10px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-size: 9pt;
+}
+#extendedDetailsBox {
+    height: 545px;
+}
+
+/* Entry Delete Button */
+.DeleteNotesBox {
+    height: 17px;
+    width: 25px;
+    margin: 5px 5px 0px 35px;
+    background-color: rgb(197, 197, 199);
+    color:rgb(255, 61, 2);
+    font-weight: bolder;
+    font-size: 10pt;
+    border-radius: 10px;
+    border-width: 1.5px;
+    text-align: center;
+}
+.DeleteNotesBox:hover {
+    cursor: pointer;
+}
 

@@ -26,19 +26,55 @@ export function fillSpellCardArray(cards) {
 }
 
 export function fillTraitAndFeatArray(cards) {
-    console.log('feat cards', cards);
     const temp = [];
-    const numberOfSections = 3;
+    const numberOfFeatAndTraitSections = 3;
 
-    for(let i = 0; i < numberOfSections; i++) {
+    for(let i = 0; i < numberOfFeatAndTraitSections; i++) {
         temp[i] = [];
     }
 
     cards.forEach((featTraitArray, sectionIndex) => {
-        console.log('feat array', featTraitArray);
         featTraitArray.forEach((featTraitObj) => {
-            console.log('featTraitObj', featTraitObj, 'leve', sectionIndex);
             temp[sectionIndex].push(featTraitObj);
+        })
+    })
+    console.log('temp', temp);
+    return temp;
+}
+
+export function fillDescriptionArray(cards) {
+    console.log('desc cards', cards);
+    const temp = [];
+    const numberOfDescriptionSections = 3;
+
+    for(let i = 0; i < numberOfDescriptionSections; i++) {
+        temp[i] = [];
+    }
+
+    cards.forEach((descriptionArray, sectionIndex) => {
+        descriptionArray.forEach((descObj) => {
+            console.log('descObj', descObj, 'sectionIndex', sectionIndex);
+            temp[sectionIndex].push(descObj);
+        })
+    })
+    console.log('temp', temp);
+    return temp;
+}
+
+export function fillNotesArray(cards) {
+    console.log('note cards passed into function', cards);
+    const temp = [];
+    const numberOfNotesSections = 5;
+
+    for(let i = 0; i < numberOfNotesSections; i++) {
+        temp[i] = [];
+    }
+
+    cards.forEach((notesArray, sectionIndex) => {
+        console.log('card array', notesArray);
+        notesArray.forEach((notesObj) => {
+            console.log('notesObj', notesObj, 'sectionIndex', sectionIndex);
+            temp[sectionIndex].push(notesObj);
         })
     })
     console.log('temp', temp);
