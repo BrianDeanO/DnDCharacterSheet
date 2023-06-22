@@ -33,7 +33,7 @@ const CharacterSheet = ({
 
     const [proficiencyBonus, setProfiencyBonus] = useState<number>(additionalInfoBoxInfo ? additionalInfoBoxInfo.profBonus : 2);
 
-    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('DESCRIPTION');
+    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('ATTACKS');
 
     const MultiSelectBox = () => {
        // console.log('mult select', multiBoxSelection);
@@ -56,7 +56,7 @@ const CharacterSheet = ({
         }
     }
 
-    //console.log('skillsBxin', skillsBoxInfo);
+    console.log('skillsBxin', skillsBoxInfo);
 
     return (
         <div className="CharacterSheet">

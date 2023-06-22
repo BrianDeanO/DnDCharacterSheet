@@ -4,6 +4,10 @@ import { determineModifier } from "../helpers/determineModSign";
 
 export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBonus, passivePerception}) => {
 
+    const skillsBoxInfo = JSON.parse(localStorage.getItem("skillsBoxInfo"));
+    // const passivePerception = skillsBoxInfo ? skillsBoxInfo.Perception : ['12', false];
+    console.log('passive perception', passivePerception);
+
     const [additionalInfoIsEdit, setAdditionalInfoIsEdit] = useState(false);
     const [profBonus, setProfiencyBonus] = useState(proficiencyBonus ? proficiencyBonus : 2);
     const [armorClass, setArmorClass] = useState(additionalInfoBoxInfo ? additionalInfoBoxInfo.armorClass : 10);
@@ -17,8 +21,8 @@ export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBo
 
     useEffect(() => {
         localStorage.setItem("additionalInfoBoxInfo", JSON.stringify(
-            {profBonus: profBonus, armorClass: armorClass, speed: speed, perception: passivePerception}));
-    }, [profBonus, armorClass, speed, passivePerception]);
+            {profBonus: profBonus, armorClass: armorClass, speed: speed}));
+    }, [profBonus, armorClass, speed]);
 
 
     return (

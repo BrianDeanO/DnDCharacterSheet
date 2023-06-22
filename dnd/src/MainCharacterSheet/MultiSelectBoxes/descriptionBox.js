@@ -12,7 +12,7 @@ export const DecriptionSelectionBox = () => {
     const [isEdit, setIsEdit] = useState(false);
     
     const [entryCardBeingEdited, setEntryCardBeingEdited] = useState('NO');
-    const [descriptionBoxSelection, setDescriptionBoxSelection] = useState('CHARACTERISTICS');
+    const [descriptionBoxSelection, setDescriptionBoxSelection] = useState('ALL');
 
     const [isAddBackground, setIsAddBackground] = useState(false);
     const [isAddCharacteristic, setIsAddCharacteristic] = useState(false);

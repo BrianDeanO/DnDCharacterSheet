@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import { saveCharacterData, loadCharacterData } from "../helpers/handleCharacterSaveData";
 
 const CharacterInfo = ({character}) => {
     let name = "Balto Butterdream";
@@ -127,20 +128,30 @@ const CharacterInfo = ({character}) => {
 
             {/* <Spacer /> */}
 
-            <div className="Header-Buttons">
-                <div className="Save-And-Load">
-                    <button 
-                    className="Save-Button"
+            <div className="mainHeaderButtonsBox">
+                <button className="mainSaveButton"
                     onClick={() => {
-                        
+                        const saveData = saveCharacterData();
+                        console.log('save data', saveData);
                     }}>Save</button>
-                    <button className="Load-Button"> Load </button>
-                </div>
-
-                <div className="Short-Long-Rests">
-                    <button className="Short-Rest"> Short Rest </button>
-                    <button className="Long-Rest"> Long Rest </button>
-                </div>
+                    <div className="loadLabel">
+                        <label htmlFor="loadFile" className="loadInnerLabel">
+                                Load
+                            </label>
+                        <input 
+                            type="file"
+                            name="load"
+                            id="loadFile"
+                            accept='.json'
+                            onChange={(e) => {
+                                loadCharacterData(e.target?.files?.[0]);
+                                e.target.value = '';
+                            }}
+                            />
+                    </div>
+                   
+                    
+               
             </div>
         </div>
         

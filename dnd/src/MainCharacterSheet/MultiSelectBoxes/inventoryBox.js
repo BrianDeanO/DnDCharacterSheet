@@ -45,15 +45,15 @@ export const InventorySelectionBox = () => {
     }, [totalWeight, platinumPieces, goldPieces ,silverPieces ,copperPieces]);
 
     function updateCoinInfo(pp, gp, sp, cp) {
-        console.log('PP', document.getElementById('PP')?.value);
-        console.log('GP', document.getElementById('GP')?.value);
-        console.log('SP', document.getElementById('SP')?.value);
-        console.log('CP', document.getElementById('CP')?.value);
+        // console.log('PP', document.getElementById('PP')?.value);
+        // console.log('GP', document.getElementById('GP')?.value);
+        // console.log('SP', document.getElementById('SP')?.value);
+        // console.log('CP', document.getElementById('CP')?.value);
 
-        setPlatinumPieces(pp);
-        setGoldPieces(gp);
-        setSilverPieces(sp);
-        setCopperPieces(cp);
+        setPlatinumPieces(pp ? pp : "0");
+        setGoldPieces(gp ? gp : "0");
+        setSilverPieces(sp ? sp : "0");
+        setCopperPieces(cp ? cp : "0");
     }
 
     console.log('total weight', totalWeight);
