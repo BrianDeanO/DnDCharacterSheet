@@ -1,0 +1,906 @@
+
+/* Main Description Box */
+.Description-MultiSelectBox {
+    display: flex;
+    flex-direction: column;
+    height: 660px;
+    width: 520px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.descriptionMainBox {
+    display: flex;
+    flex-direction: column;
+    height: 608px;
+    width: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-arrow-color: rgb(141, 226, 43);
+    scrollbar-gutter: red;
+}
+.characteristicMainBox {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    /* overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-arrow-color: rgb(141, 226, 43);
+    scrollbar-gutter: red; */
+}
+
+
+/* CSS Styles for Description Header */
+.descriptionHeader {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 480px;
+    margin: 0px 10px 0px 10px;
+}
+.DescriptionAllButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.BackgroundButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+} 
+.CharacteristicsButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 110px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+.AppearanceButton {
+    margin: 10px 3px 0px 5px;
+    background-color: bisque;
+    width: 90px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+#activeDescriptionButton {
+    background-color: rgb(255, 203, 139);
+    text-decoration: underline;
+}
+
+
+/* Background Box */
+.BackgroundSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 10px 10px 0px 10px;
+    background-color: rgba(143, 243, 243, 0);
+    color: rgb(22, 50, 73);
+    border-top-color: black;
+    border-top-style: solid;
+}
+.backgroundText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+    font-size: 13pt;
+}
+.addBackgroundButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 130px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* Characterstics Box */
+.CharacteristicsSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 10px 10px 0px 10px;
+    background-color: rgba(143, 243, 243, 0);
+    color: rgb(22, 50, 73);
+    border-top-color: black;
+    border-top-style: solid;
+}
+.characteristicsHeaderText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+    font-size: 13pt;
+}
+.characteristicsSubBoxHeaderText {
+    display: flex;
+    margin: 7px 10px 0px 20px;
+    font-weight: bold;
+    font-size: 11pt;
+}
+
+/* Characteristic Option Styles */
+.characteristicOptionSubBox {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 90px;
+    margin: 0px 10px 0px 10px;
+    background-color: rgba(201, 116, 137, 0.699);
+    color: rgb(22, 50, 73);
+}
+.characteristicOptionLoneRowBox {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 30px;
+    margin: 0px 10px 0px 0px;
+    background-color: rgba(35, 31, 65, 0.699);
+    color: rgb(22, 50, 73);
+    align-items: center;
+}
+.characteristicOptionTitleText {
+    display: flex;
+    font-weight: bold;
+    font-size: 11pt;
+    color: azure;
+}
+.characteristicOptionText {
+    display: flex;
+    font-weight: 400;
+    font-size: 11pt;
+    color: azure;
+    font-style: italic;
+    margin: 0px 0px 0px 10px;
+}
+.CharactersiticBoxSaveButton {
+    height: 20px;
+    width: 50px;
+    margin: 8px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-size: 9pt;
+}
+
+/* Characteristic Age Option */
+.characteristicOptionLoneAgeBox {
+    display: flex;
+    flex-direction: row;
+    width: 115px;
+    height: 25px;
+    margin: 0px 10px 0px 20px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.ageNumberDial {
+    width: 50px;
+    height: 20px;
+    margin: 0px 3px 0px 5px;
+    text-align: center;
+    font-size: 12pt;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+
+/* Characteristic Height Option */
+.characteristicOptionLoneHeightBox {
+    display: flex;
+    flex-direction: row;
+    width: 130px;
+    height: 25px;
+    margin: 0px 10px 0px 10px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.heightOptionInput {
+    height: 20px;
+    width: 70px;
+    font-size: 9.5pt;
+    margin: 0px 0px 0px 4px;
+}
+
+/* Characteristic Weight Option */
+.characteristicOptionLoneWeightBox {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    height: 25px;
+    margin: 0px 10px 0px 10px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.weightNumberDial {
+    width: 55px;
+    height: 20px;
+    margin: 0px 5px 0px 5px;
+    text-align: center;
+    font-size: 12pt;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+.weightOptionInnerBox {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    height: 25px;
+    margin: 0px 10px 0px 0px;
+    color: rgb(22, 50, 73);
+}
+.characteristicOptionWeightText {
+    display: flex;
+    font-weight: 400;
+    font-size: 11pt;
+    color: azure;
+    font-style: italic;
+    margin: 2.5px 10px 0px 10px;
+}
+.weightOptionPoundsText {
+    color:aliceblue;
+    font-size: 10pt;
+    margin: 3.5px 0px 0px 0px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Characteristic Eyes Option */
+.characteristicOptionLoneEyesBox {
+    display: flex;
+    flex-direction: row;
+    width: 115px;
+    height: 25px;
+    margin: 0px 10px 0px 20px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.eyesOptionInput {
+    height: 20px;
+    width: 75px;
+    font-size: 9.5pt;
+    margin: 0px 0px 0px 4px;
+}
+
+/* Characteristic Skin Option */
+.characteristicOptionLoneSkinBox {
+    display: flex;
+    flex-direction: row;
+    width: 130px;
+    height: 25px;
+    margin: 0px 10px 0px 10px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.skinOptionInput {
+    height: 20px;
+    width: 87px;
+    font-size: 9.5pt;
+    margin: 0px 0px 0px 4px;
+}
+
+/* Characteristic Hair Option */
+.characteristicOptionLoneHairBox {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    height: 25px;
+    margin: 0px 10px 0px 10px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.hairOptionInput {
+    height: 20px;
+    width: 105px;
+    font-size: 9.5pt;
+    margin: 0px 0px 0px 4px;
+}
+
+/* Characteristic Alignment Option */
+.characteristicOptionLoneAlignmentBox {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    height: 25px;
+    margin: 0px 0px 0px 35px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.alignmentSelector {
+    width: 125px;
+    height: 25px;
+    margin: 0px 0px 0px 5px;
+}
+
+/* Characteristic Faith Option */
+.characteristicOptionLoneFaithBox {
+    display: flex;
+    flex-direction: row;
+    width: 240px;
+    height: 25px;
+    margin: 0px 10px 0px 0px;
+    color: rgb(22, 50, 73);
+    align-items: center;
+    text-align: center;
+}
+.faithOptionInput {
+    height: 20px;
+    width: 165px;
+    font-size: 9.5pt;
+    margin: 0px 0px 0px 4px;
+}
+
+    .subBoxHeaderText {
+        display: flex;
+        margin: 7px 10px 0px 20px;
+        font-weight: bold;
+        font-size: 11pt;
+    }
+    /* PersonalTraits SubBox */
+    .personalTraitsSubBox {
+        display: flex;
+        flex-direction: column;
+        width: 480px;
+        height: 40px;
+        margin: 5px 10px 0px 10px;
+        background-color: rgba(90, 202, 202, 0);
+        color: rgb(22, 50, 73);
+    }
+    .personalTraitsSubBoxHeader {
+        display: flex;
+        flex-direction: row;
+        width: 480px;
+        height: 40px;
+        margin: 10px 10px 0px 10px;
+        background-color: rgba(143, 243, 243, 0);
+        color: rgb(22, 50, 73);
+        border-top-color: black;
+        border-top-style: solid;
+    }
+
+    .addPersonalityTraitsButton{
+        margin: 7px 3px 0px 10px;
+        background-color: bisque;
+        width: 150px;
+        height: 20px;
+        text-align: center;
+        border-radius: 3px;
+        font-size: 9pt;
+        border-width: 1.5px;
+    }
+
+    /* Ideals SubBox */
+    .idealsSubBox {
+        display: flex;
+        flex-direction: column;
+        width: 480px;
+        height: 40px;
+        margin: 5px 10px 0px 10px;
+        background-color: rgba(90, 202, 202, 0);
+        color: rgb(22, 50, 73);
+    }
+    .idealsSubBoxHeader {
+        display: flex;
+        flex-direction: row;
+        width: 480px;
+        height: 40px;
+        margin: 10px 10px 0px 10px;
+        background-color: rgba(143, 243, 243, 0);
+        color: rgb(22, 50, 73);
+        border-top-color: black;
+        border-top-style: solid;
+    }
+    .addIdealsButton{
+        margin: 7px 3px 0px 10px;
+        background-color: bisque;
+        width: 95px;
+        height: 20px;
+        text-align: center;
+        border-radius: 3px;
+        font-size: 9pt;
+        border-width: 1.5px;
+    }
+
+    /* Bonds SubBox */
+    .bondsSubBox {
+        display: flex;
+        flex-direction: column;
+        width: 480px;
+        height: 40px;
+        margin: 5px 10px 0px 10px;
+        background-color: rgba(90, 202, 202, 0);
+        color: rgb(22, 50, 73);
+    }
+    .BondsSubBoxHeader {
+        display: flex;
+        flex-direction: row;
+        width: 480px;
+        height: 40px;
+        margin: 10px 10px 0px 10px;
+        background-color: rgba(143, 243, 243, 0);
+        color: rgb(22, 50, 73);
+        border-top-color: black;
+        border-top-style: solid;
+    }
+    .addBondsButton{
+        margin: 7px 3px 0px 10px;
+        background-color: bisque;
+        width: 90px;
+        height: 20px;
+        text-align: center;
+        border-radius: 3px;
+        font-size: 9pt;
+        border-width: 1.5px;
+    }
+
+    /* Flaws SubBox */
+    .flawsSubBox {
+        display: flex;
+        flex-direction: column;
+        width: 480px;
+        height: 40px;
+        margin: 5px 10px 0px 10px;
+        background-color: rgba(90, 202, 202, 0);
+        color: rgb(22, 50, 73);
+    }
+    .flawsSubBoxHeader {
+        display: flex;
+        flex-direction: row;
+        width: 480px;
+        height: 40px;
+        margin: 10px 10px 0px 10px;
+        background-color: rgba(143, 243, 243, 0);
+        color: rgb(22, 50, 73);
+        border-top-color: black;
+        border-top-style: solid;
+    }
+    .addFlawsButton{
+        margin: 7px 3px 0px 10px;
+        background-color: bisque;
+        width: 90px;
+        height: 20px;
+        text-align: center;
+        border-radius: 3px;
+        font-size: 9pt;
+        border-width: 1.5px;
+    }
+
+
+/* Appearance Box */
+.AppearanceSubBoxHeader {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    height: 40px;
+    margin: 10px 10px 0px 10px;
+    background-color: rgba(143, 243, 243, 0);
+    color: rgb(22, 50, 73);
+    border-top-color: black;
+    border-top-style: solid;
+}
+.appearanceText {
+    display: flex;
+    margin: 7px 10px 0px 10px;
+    font-weight: bold;
+    font-size: 13pt;
+}
+.addAppearanceButton{
+    margin: 7px 3px 0px 10px;
+    background-color: bisque;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+/*  Outer Entry Card Boxes for both new cards */
+.loneDescriptionBox {
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
+.descriptionCardText {
+    color: aliceblue;    
+    font-size: 11pt;
+    font-weight: bold;
+}
+.entryInfoUpperBox {
+    display: flex;
+    flex-direction: row;
+    height: 56px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+}
+
+
+/* Desciprtion Title Input Box */
+.descriptionInfoTitleBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 165px;
+    margin: 5px 0px 0px 5px;
+    color:aliceblue;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    align-items: center;
+}
+.descriptionCardTitleAndBookInput {
+    height: 20px;
+    width: 165px;
+    font-size: 9.5pt;
+}
+
+
+/* Description Source Book Input Box */
+.descriptionInfoSourceBookBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 165px;
+    margin: 5px 0px 0px 20px;
+    color:aliceblue;
+    font-size: 13pt;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+    align-items: center;
+}
+.descriptionCardTitleAndBookText {
+    color: aliceblue;
+    font-size: 12pt;
+    font-weight: bold;
+    font-style: normal;
+    margin: -5px 0px 2px 0px;
+}
+
+
+/* Description Page Number Selection Box */
+.descriptionPageNumberBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 60px;
+    margin: 0px 0px 0px 23px;
+    color: aliceblue;
+    align-items: center;
+}
+.descriptionPageNumberText {
+    color:azure;
+    margin: 0px 0px -4px -10px;
+    font-weight: bold;
+    width: 40px;
+    text-align: center;
+}
+.descriptionPageNumberDial {
+    width: 55px;
+    height: 20px;
+    margin: 5px 10px 0px 0px;
+    text-align: center;
+    font-size: 12pt;
+    color:rgb(0, 0, 0);
+    background-color: #ffd300;
+}
+
+/* Description Details Box */
+.descriptionDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 76px;
+    width: 450px;
+    background-color: rgb(114, 141, 111);
+}
+.descriptionDetailsLongLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 460px;
+    width: 450px;
+    background-color: rgb(114, 141, 111);
+}
+.descriptionDetailsBox {
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+}
+.descriptionDetailsText {
+    margin: 2.5px 5px 0px 5px;
+    color: aliceblue;
+    font-weight: bold;
+}
+.descriptionDetailsInputBox {
+    height: 45px;
+    width: 360px;
+    resize: none;
+    display: block;
+}
+
+
+
+
+/* 
+    No Title CSS Styles 
+*/
+/* CSS for no title Lone Appearance Box */
+.noTitleLoneAppearanceBox {
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
+.noTitleAppearanceDetailsBox {
+    display: flex;
+    flex-direction: row;
+    height: 115px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+    margin: 0px 0px 0px 0px;
+}
+.noTitleAppearanceDetailsInputBox {
+    height: 110px;
+    width: 360px;
+    font-size: 8pt;
+}
+
+/* No Title Final Appearance Box */
+.noTitleFinalNewLoneAppearanceBox {
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+    width: 475px;
+    margin: 5px 0px 10px 10px;
+    background-color: azure;
+}
+.noTitleFinalAppearanceDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 95px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.noTitleFinalAppearanceDetailsBox {
+    height: 95px;
+    width: 475px;
+    font-size: 9pt;
+}
+
+/* CSS for no title Lone Sub Characterisits Box */
+.noTitleLoneSubCharacteristicsBox {
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
+.noTitleSubCharacteristicsDetailsBox {
+    display: flex;
+    flex-direction: row;
+    height: 97px;
+    width: 450px;
+    background-color: rgb(78, 100, 100);
+    margin: 0px 0px 0px 0px;
+}
+.noTitleSubCharacteristicsDetailsInputBox {
+    height: 90px;
+    width: 360px;
+    font-size: 8pt;
+}
+
+/* No Title Final Characterisits Box */
+.noTitleFinalNewLoneSubCharacteristicsBox {
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+    width: 475px;
+    margin: 5px 0px 10px 10px;
+    background-color: azure;
+}
+.noTitleFinalSubCharacteristicsDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 95px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.noTitleFinalSubCharacteristicsDetailsBox {
+    height: 95px;
+    width: 475px;
+    font-size: 9pt;
+}
+.finalDescriptionWideDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    width: 450px;
+    background-color: rgb(114, 141, 111);
+}
+.finalDescriptionAppearanceDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 116px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.finalDescriptionAppearanceDetailsLongLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.finalEntryLongDetailsBox {
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    width: 475px;
+    background-color: rgb(255, 255, 255); 
+}
+.finalDescriptionWideDetailsTextBox {
+    height: 95px;
+    width: 450px;
+    font-size: 9pt;
+}
+.finalDescriptionAppearanceDetailsTextBox {
+    height: 115px;
+    width: 475px;
+    font-size: 9pt;
+}
+.finalDescriptionAppearanceLongDetailsTextBox {
+    height: 495px;
+    width: 475px;
+    font-size: 9pt;
+}
+
+
+
+
+/* 
+    CSS Styles for Final Characterisitc Card 
+*/
+.newLoneDescriptionBox {
+    display: flex;
+    flex-direction: column;
+    height: 116px;
+    width: 475px;
+    margin: 5px 0px 0px 10px;
+    background-color: azure;
+}
+.newLoneLongDescriptionBox {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 475px;
+    margin: 5px 0px 0px 10px;
+    background-color: azure;
+}
+.newLoneCharacteristicBox {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 440px;
+    margin: 10px 0px 0px 20px;
+    background-color: azure;
+}
+.finalDescriptionInfoUpperBox {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    width: 475px;
+    background-color: rgb(5, 109, 109);
+}
+
+/* Final Descirption Title Box */
+.finalDescriptionTitleBox {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 400px;
+    margin: 0px 0px 0px 5px;
+    color:aliceblue;
+    font-size: 11pt;
+    font-weight: bold;
+    text-align: center;
+    font-style: italic;
+}
+.finalDescriptionTitleTextNormal {
+    font-size: 11pt;
+}
+
+/* Final Description Book and Page Number Box */
+.finalDescriptionBookAndPageText {
+    font-size: 9pt;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Final Description Details Box */
+.descriptionDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 66px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.descriptionDetailsLongLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 460px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.finalDescriptionDetailsInnerBox {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 90px;
+    background-color: rgb(114, 141, 111);
+    align-items: end;
+}
+.finalDescriptionDetailsText {
+    margin: 2.5px 5px 0px 5px;
+    color: aliceblue;
+    font-weight: bold;
+}
+.finalDescriptionDetailsBox {
+    height: 60px;
+    width: 370px;
+    font-size: 9pt;
+}
+.finalDescriptionLongDetailsBox {
+    height: 450px;
+    width: 375px;
+    font-size: 9pt;
+}
+.DescriptionBoxSaveButton {
+    height: 20px;
+    width: 50px;
+    margin: 2px 5px 0px 5px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-size: 9pt;
+}
+
+/* Description Delete Button */
+.DeleteDescriptionBox {
+    height: 25px;
+    width: 25px;
+    margin: 5px 5px 0px 35px;
+    background-color: rgb(197, 197, 199);
+    color:rgb(255, 61, 2);
+    font-weight: bolder;
+    font-size: 13pt;
+    border-radius: 10px;
+    border-width: 1.5px;
+    text-align: center;
+}
+.DeleteDescriptionBox:hover {
+    cursor: pointer;
+}
+

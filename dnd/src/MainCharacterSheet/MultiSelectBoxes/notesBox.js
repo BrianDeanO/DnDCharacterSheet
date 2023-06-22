@@ -62,22 +62,21 @@ export const NotesSelectionBox = () => {
                 key={`${noteCard.noteCategoryIndex}_${index}`}
                 >
                 {((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) ? null : 
-                <div className="finalNotesTitleUpperBox">
-                    <div className="finalNotesTitleBox">
-                        <span className="finalNotesTitleText">
-                            {noteCard.notesTitle}
-                        </span>
+                    <div className="finalNotesTitleUpperBox">
+                        <div className="finalNotesTitleBox">
+                            <span className="finalNotesTitleText">
+                                {noteCard.notesTitle}
+                            </span>
+                        </div>
+                        <div 
+                        className="DeleteNotesBox"
+                        id={`${noteCard.noteCategoryIndex}_${index}`}
+                        onClick={(e) => {
+                            noteCardArray[noteCard.noteCategoryIndex].splice(index, 1);
+                            setNoteCards(noteCardArray);
+                        }}>X</div>
                     </div>
-                    <div 
-                    className="DeleteNotesBox"
-                    id={`${noteCard.noteCategoryIndex}_${index}`}
-                    onClick={(e) => {
-                        noteCardArray[noteCard.noteCategoryIndex].splice(index, 1);
-                        setNoteCards(noteCardArray);
-                    }}>X</div>
-                </div>
                 }
-
                 <div className={((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) ? "noTitleNoteDetailsLowerBox" : "noteDetailsLowerBox"}>
                     <textarea
                     className={((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) ? "noTitleFinalNoteDetailsBox" : 
@@ -291,7 +290,6 @@ export const NotesSelectionBox = () => {
                                 if((document.getElementById('NewNotesTitle')?.value !== '')){
                                 
                                         const newNotes = {
-                                            notesTitle: document.getElementById('NewNotesTitle')?.value,
                                             noteDetails: document.getElementById('NewNotesDetails')?.value,
                                             noteCategoryIndex: backstoryIndex,
                                         };
@@ -359,7 +357,6 @@ export const NotesSelectionBox = () => {
                                 if((document.getElementById('NewNotesTitle')?.value !== '')){
                                 
                                         const newNotes = {
-                                            notesTitle: document.getElementById('NewNotesTitle')?.value,
                                             noteDetails: document.getElementById('NewNotesDetails')?.value,
                                             noteCategoryIndex: otherIndex,
                                         };

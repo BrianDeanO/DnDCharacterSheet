@@ -235,15 +235,6 @@
     width: 450px;
     background-color: rgb(78, 100, 100);
 }
-/* CSS for no title Lone Note Box */
-.noTitleLoneNoteBox {
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-    width: 450px;
-    margin: 10px 0px 0px 10px;
-    background-color: azure;
-}
 
 
 /* Notes Title Input Box */
@@ -294,20 +285,55 @@
     font-size: 8pt;
 }
 
-/* No Title Note Details Box */
+/* 
+    No Title CSS Styles 
+*/
+/* CSS for no title Lone Note Box */
+.noTitleLoneNoteBox {
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    width: 450px;
+    margin: 10px 0px 0px 10px;
+    background-color: azure;
+}
 .noTitleDetailsBox {
     display: flex;
     flex-direction: row;
-    height: 100px;
+    height: 115px;
     width: 450px;
     background-color: rgb(78, 100, 100);
     margin: 0px 0px 0px 0px;
 }
 .noTitleNoteDetailsInputBox {
-    height: 90px;
+    height: 110px;
     width: 360px;
     font-size: 8pt;
 }
+
+/* No Title Final Notes Box */
+.noTitleNewLoneNotesBox {
+    display: flex;
+    flex-direction: column;
+    height: 95px;
+    width: 475px;
+    margin: 5px 0px 10px 10px;
+    background-color: azure;
+}
+.noTitleNoteDetailsLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 95px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+}
+.noTitleFinalNoteDetailsBox {
+    height: 95px;
+    width: 475px;
+    font-size: 9pt;
+}
+
+
 
 
 /* 
@@ -386,29 +412,6 @@
     width: 475px;
     font-size: 9pt;
 }
-
-/* No Title Final Notes Box */
-.noTitleNewLoneNotesBox {
-    display: flex;
-    flex-direction: column;
-    height: 95px;
-    width: 475px;
-    margin: 5px 0px 10px 10px;
-    background-color: azure;
-}
-.noTitleNoteDetailsLowerBox {
-    display: flex;
-    flex-direction: row;
-    height: 95px;
-    width: 475px;
-    background-color: rgb(114, 141, 111);
-}
-.noTitleFinalNoteDetailsBox {
-    height: 95px;
-    width: 475px;
-    font-size: 9pt;
-}
-
 
 
 /* Notes Save Button */

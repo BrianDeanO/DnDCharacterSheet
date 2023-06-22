@@ -172,3 +172,7 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #e6a01e;
 }
+
+textarea {
+  resize: none;
+}

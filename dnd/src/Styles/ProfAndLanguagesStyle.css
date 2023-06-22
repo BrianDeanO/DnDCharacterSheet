@@ -18,7 +18,7 @@
     font-size: 16px;
     font-weight: bold;
     width: 200px;
-    margin: 5px 0px 2px 0px;
+    margin: 0px 0px 2px 0px;
     color:ghostwhite;
 }
 
@@ -29,14 +29,8 @@
     margin: 5px auto;
 }
 
-.ArmorInput {
-    /* width: 200px;
-    height: 100px; */
-    resize: none;
-    overflow-y: scroll;
-}
-
 textarea {
     font-family: cursive;
     resize: none;
-  }
+    height: 76px;
+}

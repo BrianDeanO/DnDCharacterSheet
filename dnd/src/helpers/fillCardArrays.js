@@ -45,7 +45,7 @@ export function fillTraitAndFeatArray(cards) {
 export function fillDescriptionArray(cards) {
     console.log('desc cards', cards);
     const temp = [];
-    const numberOfDescriptionSections = 3;
+    const numberOfDescriptionSections = 6;
 
     for(let i = 0; i < numberOfDescriptionSections; i++) {
         temp[i] = [];
