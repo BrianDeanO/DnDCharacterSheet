@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { AbilityBoxInfo } from "./abilityBox";
 import { SkillsBox } from "./skillsBox";
@@ -21,10 +21,15 @@ const CharacterSheet = ({
         additionalInfoBoxInfo,
         healthBoxInfo,
 }) => {
-
+    //@ts-ignore
+    const multiSelectionBoxSelection = JSON.parse(localStorage.getItem('multiBoxSelection'));
     const [proficiencyBonus, setProfiencyBonus] = useState<number>(additionalInfoBoxInfo ? additionalInfoBoxInfo.profBonus : 2);
 
-    const [multiBoxSelection, setMultiBoxSelection] = useState<string>('ATTACKS');
+    const [multiBoxSelection, setMultiBoxSelection] = useState<string>(multiSelectionBoxSelection ? multiSelectionBoxSelection.multiBoxSelection : 'ATTACKS');
+
+    useEffect(() => {
+       localStorage.setItem('multiBoxSelection', JSON.stringify({multiBoxSelection: multiBoxSelection}));
+    })
 
     const MultiSelectBox = () => {
         switch(multiBoxSelection) {

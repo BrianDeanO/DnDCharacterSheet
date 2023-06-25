@@ -16,6 +16,7 @@
 
 :root {
   --sheetBackground: rgb(235, 225, 225);
+  --originalGreenBackground: rgb(5, 109, 109);
 }
 
 body {
@@ -81,10 +82,11 @@ html {
   display: flex;
   flex-direction: row;
   width: 499px;
-  height: 35.5px;
+  height: 35px;
   border: 2px solid #222;
   border-left-style: none;
   border-right-style: none;
+  margin: 0px 0px 0px 0px;
 }
 
 #activeButton {

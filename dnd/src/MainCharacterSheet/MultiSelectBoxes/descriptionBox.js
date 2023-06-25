@@ -449,7 +449,7 @@ export const DecriptionSelectionBox = () => {
                         index={singleEntryIndex}/> : null}
 
                 <div className="idealsSubBox">
-                    <div className="CharacteristicsSubBoxHeader">
+                    <div className="idealsSubBoxHeader">
                         <div className="subBoxHeaderText">
                             Ideals
                         </div>

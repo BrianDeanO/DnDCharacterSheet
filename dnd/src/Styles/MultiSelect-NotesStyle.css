@@ -104,6 +104,7 @@
     font-weight: bold;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 
 
@@ -111,7 +112,7 @@
 .AlliesSubBoxHeader {
     display: flex;
     flex-direction: row;
-    width: 480px;
+    width: 460px;
     height: 40px;
     margin: 10px 10px 0px 10px;
     background-color: rgba(143, 243, 243, 0);
@@ -134,6 +135,7 @@
     font-weight: bold;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 
 
@@ -141,7 +143,7 @@
 .EnemiesSubBoxHeader {
     display: flex;
     flex-direction: row;
-    width: 480px;
+    width: 460px;
     height: 40px;
     margin: 10px 10px 0px 10px;
     background-color: rgba(143, 243, 243, 0);
@@ -164,6 +166,7 @@
     font-weight: bold;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 
 
@@ -171,7 +174,7 @@
 .BackstorySubBoxHeader {
     display: flex;
     flex-direction: row;
-    width: 480px;
+    width: 460px;
     height: 40px;
     margin: 10px 10px 0px 10px;
     background-color: rgba(143, 243, 243, 0);
@@ -194,6 +197,7 @@
     font-weight: bold;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 
 
@@ -201,7 +205,7 @@
 .OtherSubBoxHeader {
     display: flex;
     flex-direction: row;
-    width: 480px;
+    width: 460px;
     height: 40px;
     margin: 10px 10px 0px 10px;
     background-color: rgba(143, 243, 243, 0);
@@ -224,6 +228,7 @@
     font-weight: bold;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 #selectedNoTopBorder {
     margin: 0px 10px 0px 10px;
@@ -238,7 +243,7 @@
     height: 110px;
     width: 450px;
     margin: 10px 0px 0px 10px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-radius: 5px;
 }
 .notesDetailsUpperBox {
@@ -306,7 +311,7 @@
     height: 115px;
     width: 450px;
     margin: 10px 0px 0px 10px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-radius: 5px;
 }
 .noTitleDetailsBox {
@@ -314,7 +319,7 @@
     flex-direction: row;
     height: 115px;
     width: 450px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     margin: 2px 0px 0px 0px;
 }
 .noTitleNoteDetailsInputBox {
@@ -337,7 +342,7 @@
     height: 560px;
     width: 475px;
     margin: -5px 0px 5px 10px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
 }
 .noTitleFinalShortNoteDetailsBox {
     height: 100px;
@@ -368,16 +373,16 @@
     height: 100px;
     width: 475px;
     margin: 5px 0px 0px 10px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-radius: 5px;
 }
 .newLoneLongWithTitleNotesBox {
     display: flex;
     flex-direction: column;
-    height: 250px;
+    height: 255px;
     width: 475px;
     margin: 5px 0px 10px 10px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-radius: 5px;
 }
 .finalNotesTitleUpperBox {
@@ -385,8 +390,9 @@
     flex-direction: row;
     height: 25px;
     width: 475px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-radius: 5px;
+    margin: 0px 0px 5px 0px;
 }
 
 
@@ -452,6 +458,7 @@
     height: 225px;
     width: 475px;
     font-size: 9pt;
+    margin: 0px 0px 0px 0px;
 }
 .longFinalNoteShortWithTitleDetailsBox {
     height: 150px;
@@ -470,6 +477,7 @@
     border-radius: 10px;
     border-width: 1.5px;
     font-size: 9pt;
+    font-style: italic;
 }
 #extendedDetailsBox {
     height: 545px;
@@ -481,7 +489,7 @@
     width: 25px;
     margin: 5px 5px 0px 35px;
     background-color: rgb(197, 197, 199);
-    color:rgb(255, 61, 2);
+    color:rgb(214, 50, 0);
     font-weight: bolder;
     font-size: 10pt;
     border-radius: 10px;

@@ -53,6 +53,7 @@
     font-weight: bolder;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 .spellHeaderInfoBox {
     display: flex;
@@ -187,7 +188,7 @@ button:hover {
     flex-direction: row;
     height: 80px;
     width: 475px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -196,7 +197,7 @@ button:hover {
     flex-direction: row;
     height: 50px;
     width: 475px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     margin: 0px 0px 0px 0px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -620,9 +621,9 @@ button:hover {
     margin: 5px 0px 0px 22px;
 }
 .spellOtherEffectInput {
-    height: 20px;
+    height: 18px;
     width: 100px;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* Cursor Hover Boxes */
@@ -656,7 +657,7 @@ select:hover
     height: 100px;
     width: 450px;
     margin: 10px 0px 0px 10px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-radius: 5px;
 }
 .spellInfoUpperBox {
@@ -897,7 +898,7 @@ select:hover
     width: 25px;
     margin: 5px 5px 0px 0px;
     background-color: rgb(197, 197, 199);
-    color:rgb(255, 61, 2);
+    color:rgb(214, 50, 0);
     font-weight: bolder;
     font-size: 13pt;
     border-radius: 10px;
@@ -932,10 +933,12 @@ select:hover
 .spellNotesInputBox {
     height: 40px;
     width: 290px;
+    font-size: 11px;
 }
 .finalSpellNotesBox {
     height: 40px;
     width: 340px;
+    font-size: 11px;
 }
 .SpellBoxSaveButton {
     height: 20px;

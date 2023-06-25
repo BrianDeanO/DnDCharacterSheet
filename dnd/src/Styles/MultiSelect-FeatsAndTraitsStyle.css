@@ -93,6 +93,7 @@
     font-weight: bolder;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 
 
@@ -126,6 +127,7 @@
     font-weight: bolder;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 
 
@@ -154,6 +156,7 @@
     font-weight: bolder;
     font-size: 13px;
     color:ghostwhite;
+    border-radius: 5px;
 }
 
 
@@ -165,7 +168,7 @@
     height: 110px;
     width: 450px;
     margin: 10px 0px 0px 10px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-radius: 5px;
 }
 .entryCardText {
@@ -258,7 +261,7 @@
     flex-direction: row;
     height: 55px;
     width: 450px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -272,6 +275,7 @@
     width: 369px;
     resize: none;
     display: block;
+    font-size: 9pt;
 }
 
 
@@ -285,7 +289,7 @@
     width: 450px;
     margin: 10px 0px 0px 10px;
     border-radius: 5px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
 }
 .finalEntryInfoUpperBox {
     display: flex;
@@ -336,7 +340,7 @@
     flex-direction: row;
     height: 60px;
     width: 450px;
-    background-color: rgb(5, 109, 109);
+    background-color: rgb(5, 97, 150);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -375,7 +379,7 @@
     width: 25px;
     margin: 5px 5px 0px 35px;
     background-color: rgb(197, 197, 199);
-    color:rgb(255, 61, 2);
+    color:rgb(214, 50, 0);
     font-weight: bolder;
     font-size: 13pt;
     border-radius: 10px;

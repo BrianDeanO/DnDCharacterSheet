@@ -181,7 +181,7 @@
     margin-right: 0px;
   }
   
-  .CurrentHitPoints text {
+  .CurrentHitPoints span {
     font-size: 36px;
     color:rgb(0, 0, 0);
     margin: -23px -20px 0px 13px;
@@ -203,7 +203,7 @@
     margin-right: 0px;
   }
   
-  .MaxHitPoints text {
+  .MaxHitPoints span {
     font-size: 36px;
     color:rgb(0, 0, 0);
     margin: -23px -20px 0px 0px;

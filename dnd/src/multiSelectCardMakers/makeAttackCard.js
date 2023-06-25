@@ -43,7 +43,7 @@ const MakeAttackCard = ({newAttackInfo, makeNewAttack}) => {
                             </button>
                         </div>
                     </div> :
-                    <div className="attackChosenBox">
+                    <div className="attackChosenBox" id={(rangedOrMeleeAnswer === 'Ranged') ? 'rangedAttack' : 'meleeAttack'}>
                         <div className="typeAnswerText" id="rangeOrMeleeAnswer">{rangedOrMeleeAnswer}</div>
                         {rangedOrMeleeAnswer === 'Ranged' ?
                             <div className="rangedRangeBox">

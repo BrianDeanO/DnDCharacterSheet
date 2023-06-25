@@ -50,7 +50,9 @@ export const HealthBox = ({healthBoxInfo}) => {
 
     function adjustMaxHealth(maxHealth) {
         setMaxHealth(maxHealth);
-        setCurrentHealth(maxHealth);
+        if(currentHealth !== maxHealth) {
+            setCurrentHealth(maxHealth);
+        }
     }
 
     function resetSaves() {
@@ -330,9 +332,11 @@ export const HealthBox = ({healthBoxInfo}) => {
                     <button 
                         className="HealthEditButton"
                         onClick={(e) => {
-                            isHealthEdit ?
-                            adjustMaxHealth(document.getElementById('MAX_HEALTH')?.value) :
-                            adjustMaxHealth(maxHealth);
+                            if(isHealthEdit) {
+                                adjustMaxHealth(document.getElementById('MAX_HEALTH')?.value);
+                            } else {
+                                adjustMaxHealth(maxHealth);
+                            }
                             setIsHealthEdit(!isHealthEdit);
                             }}>{isHealthEdit ? 'Save HP' : 'Adjust Max HP'}</button>
                 </div>

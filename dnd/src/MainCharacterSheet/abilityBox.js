@@ -72,11 +72,14 @@ export const AbilityBoxInfo = ({abilityBoxInfo}) => {
                 <button 
                     className="AbilityBoxEditButton"
                     onClick={(e) => {
-                        abilityBoxEdit ? 
-                        updateAbilityBoxInfo( document.getElementById('STR')?.value, document.getElementById('DEX')?.value,
-                                        document.getElementById('CONST')?.value, document.getElementById('INT')?.value,
-                                        document.getElementById('WIS')?.value, document.getElementById('CHA')?.value) :
-                        updateAbilityBoxInfo( strengthScore, dexterityScore, constitutionScore, intelligenceScore,  wisdomScore, charismaScore);
+                        if(abilityBoxEdit) {
+                            updateAbilityBoxInfo( document.getElementById('STR')?.value, document.getElementById('DEX')?.value,
+                                document.getElementById('CONST')?.value, document.getElementById('INT')?.value,
+                                document.getElementById('WIS')?.value, document.getElementById('CHA')?.value);
+                            window.location.reload(); 
+                        } else {
+                            updateAbilityBoxInfo( strengthScore, dexterityScore, constitutionScore, intelligenceScore,  wisdomScore, charismaScore);
+                        }
                         setAbilityBoxEdit(!abilityBoxEdit);
                         }}>{abilityBoxEdit ? 'save' : 'edit'}</button> 
             </div>
