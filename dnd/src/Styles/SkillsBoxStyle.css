@@ -3,7 +3,6 @@
     flex-direction: column;
     width: 250px;
     height: 707px;
-    background-color: aquamarine;
 }
 
 .SkillsBoxHeader {
@@ -11,17 +10,27 @@
     flex-direction: row;
     width: 250px;
     height: 35px;
-    background-color: rgb(167, 167, 167);
+    margin: 0px 0px 0px 0px;
+    border: 2px solid #222;
+    border-left-style: none;
 }
 
 .SkillsText {
     margin: 2px 0px 0px 90px;
     font-size: 20px;
-    border-bottom-style: solid;
     width: 60px;
     text-align: center;
 }
-
+.SkillsEditButton {
+    height: 20px;
+    width: 40px;
+    margin: 7px 10px 0px 30px;
+    background-color: rgb(112, 112, 148);
+    color:azure;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-style: italic;
+}
 
 
 .LoneSkillsBox {
@@ -30,7 +39,6 @@
     width: 250px;
     height: 35px;
     margin: 1px auto;
-    /* background-color: rgb(139, 155, 150); */
 }
 
 .ProficiencyCheckBox {

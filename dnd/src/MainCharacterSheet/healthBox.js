@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 export const HealthBox = ({healthBoxInfo}) => {
-    //console.log('health box', healthBoxInfo);
     const [isHealthEdit, setIsHealthEdit] = useState(false);
     const [pointValue, setPointValue] = useState(healthBoxInfo ? healthBoxInfo.pointValue : 0);
 
@@ -23,10 +22,7 @@ export const HealthBox = ({healthBoxInfo}) => {
     const [secondFailedSaveThrow, setSecondFailedSaveThrow] = useState(healthBoxInfo ? healthBoxInfo.secondFailedSaveThrow : false);
     const [thirdFailedSaveThrow, setThirdFailedSaveThrow] = useState(healthBoxInfo ? healthBoxInfo.thirdFailedSaveThrow : false);
 
-    //const [deathSaveSuccessArray, setDeathSaveSuccessArray] = useState(healthBoxInfo ? healthBoxInfo.deathSaveSuccessArray : [-1, -1, -1]);
-    //const deathSaveFailArray = [-1, -1, -1];
     const revivalChoiceArray = [-1, -1];
-
 
     useEffect(() => {
         localStorage.setItem("healthBoxInfo", JSON.stringify(
@@ -55,9 +51,6 @@ export const HealthBox = ({healthBoxInfo}) => {
     function adjustMaxHealth(maxHealth) {
         setMaxHealth(maxHealth);
         setCurrentHealth(maxHealth);
-        // if(currentHealth < maxHealth) {
-        //     setCurrentHealth(maxHealth);
-        // }
     }
 
     function resetSaves() {
@@ -87,15 +80,12 @@ export const HealthBox = ({healthBoxInfo}) => {
                 setHasTempHitPoints(false);
     
                 if((currentHealth - additionalDamage) <= 0) {
-                    console.log('UNCONCISOUS');
                     setCurrentHealth(0);
                 }
-    
                 else if(((currentHealth + maxHealth) - additionalDamage) <= 0) {
                     console.log('INSTANT DEATH');
                     setCurrentHealth(0);
                 }
-    
                 else {
                     setCurrentHealth(currentHealth - additionalDamage);
                 }
@@ -105,17 +95,13 @@ export const HealthBox = ({healthBoxInfo}) => {
             }
         } else {
             if((currentHealth - pointValue) <= 0) {
-                console.log('UNCONCISOUS');
                 setCurrentHealth(0);
                 setStableStatus(false);
             }
-    
             else if(((currentHealth + maxHealth) - pointValue) <= 0) {
-                console.log('INSTANT DEATH');
                 setCurrentHealth(0);
                 setDeadStatus(true);
             }
-    
             else {
                 setCurrentHealth(currentHealth - pointValue);
             }
@@ -138,12 +124,12 @@ export const HealthBox = ({healthBoxInfo}) => {
                     }}
                 >
                 </input> :
-                <text
+                <span
                     className="TempHitPointBoxText"
                     onClick={() => { 
                         setHasTempHitPoints(true);
                         setTempPointValue(1);
-                    }}> -- </text>
+                    }}> -- </span>
         )
     }
     
@@ -198,14 +184,14 @@ export const HealthBox = ({healthBoxInfo}) => {
     const RevivePlayerBox = () => {
         return (
             <div className="ReviveBox">
-                <text className="ReviveTextTitle">Revive?</text>
+                <span className="ReviveTextTitle">Revive?</span>
                 <div className="ReviveChoicesBox">
                     <div className="OneHPReviveBox">
                         <span
                             className="ReviveChoice"
                             id="OneHPRevive"
                             onClick={() => playerRevival('OneHP', 'OneHPRevive')}></span>
-                        <text> Revive With One HP </text>
+                        <span> Revive With One HP </span>
                     </div>
     
                     <div className="FullHPReviveBox">
@@ -213,12 +199,9 @@ export const HealthBox = ({healthBoxInfo}) => {
                             className="ReviveChoice"
                             id="FullHPRevive"
                             onClick={() => playerRevival('FullHP', 'FullHPRevive')}></span>
-                        <text> Revive With Full HP </text>
+                        <span> Revive With Full HP </span>
                     </div>
                 </div>
-                {
-    
-                }
                 <div className="ConfirmReviveBox">
                     <button
                         className="ConfirmReviveButton"
@@ -233,13 +216,11 @@ export const HealthBox = ({healthBoxInfo}) => {
     
     function handleDeathSavingThrows() {
         if( firstSuccessSaveThrow && secondSuccessSaveThrow && thirdSuccessSaveThrow) {
-            console.log('STABLE');
             setStableStatus(true);
             resetSaves();
         }
 
         if( firstFailedSaveThrow && secondFailedSaveThrow && thirdFailedSaveThrow) {
-            console.log('DEAD');
             setDeadStatus(true);
             resetSaves();
         }
@@ -267,7 +248,7 @@ export const HealthBox = ({healthBoxInfo}) => {
                         :
                         <div className="DeathSavesBox">
                             <div className="SuccessesBox">
-                                <text className="DeathSavesTextSuccess"> Success </text>
+                                <span className="DeathSavesTextSuccess"> Success </span>
                                 <span
                                     className={firstSuccessSaveThrow ? "SavesBoxesActive" : "SavesBoxes"}
                                     id="FirstSuccess"
@@ -283,7 +264,7 @@ export const HealthBox = ({healthBoxInfo}) => {
                             </div>
         
                             <div className="FailsBox">
-                                <text className="DeathSavesTextFail"> Fail </text>
+                                <span className="DeathSavesTextFail"> Fail </span>
                                 <span
                                     className={firstFailedSaveThrow ? "SavesBoxesActive" : "SavesBoxes"}
                                     id="FirstFail"
@@ -340,10 +321,8 @@ export const HealthBox = ({healthBoxInfo}) => {
             </div>
         )
     }
-   // console.log('max health', maxHealth);
     
     const HitPointTrackerBox = () => {
-        
         return (
             <div className="HitPointBox">
                 <div className="HitPointsTitle">
@@ -397,7 +376,7 @@ export const HealthBox = ({healthBoxInfo}) => {
                         <div className="HitPointTracker">
                             <div className="CurrentHitPoints">
                                 <h4> CURRENT </h4>
-                                <text> {currentHealth} </text>
+                                <span> {currentHealth} </span>
                             </div>
                             <div className="HitPointDivider">
                                 <h3> / </h3>
@@ -412,7 +391,7 @@ export const HealthBox = ({healthBoxInfo}) => {
                                     min={0} max={9999}
                                     defaultValue={maxHealth}></input>
                                     : 
-                                    <text className="MaxHealthText"> {maxHealth} </text>}
+                                    <span className="MaxHealthText"> {maxHealth} </span>}
                             </div>
                             <div className="TemporaryHitPoints">
                                 <h4> Temporary </h4>
@@ -428,7 +407,6 @@ export const HealthBox = ({healthBoxInfo}) => {
             </div>
         )
     }
-
     return (
         (currentHealth <= 0) ? <DeathSavingThrowsBox /> : <HitPointTrackerBox />
     );

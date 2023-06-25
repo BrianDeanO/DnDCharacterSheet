@@ -9,8 +9,6 @@
 .HitPoint-DeathSavesAndInfoBox {
     display: flex;
     flex-direction: column;
-    background-color:rgb(231, 24, 66);
-    background-color: transparent;
     width: 600px;
     /* border-top-style: dashed;
     border-right-style: dashed;
@@ -22,8 +20,6 @@
   .HitPointBox {
     display: flex;
     flex-direction: column;
-    background-color:rgb(193, 231, 24);
-    background-color: transparent;
     width: 600px;
     height: 200px;
   }
@@ -33,6 +29,7 @@
     flex-direction: row;
     margin: -15px auto 0px 225px;
     height: 60px;
+    color: rgb(63, 63, 63);
   }
 
   .HealthEditButton {
@@ -43,6 +40,7 @@
     color:azure;
     border-radius: 10px;
     border-width: 1.5px;
+    font-style: italic;
   }
   
   button:hover {
@@ -52,8 +50,6 @@
   .HealAndDamageBox {
     display: flex;
     flex-direction: row;
-    background-color:rgb(24, 131, 231);
-    background-color: transparent;
     width: 500px;
     height: 180px;
     border-style: solid;
@@ -133,20 +129,18 @@
   }
   
   .HealButton {
-    background-color: rgba(74, 69, 69, 0.808);
-    border-color: #ffd300;
+    background-color: rgb(123, 187, 123);
     border-radius: 9px;
-    color: rgb(7, 214, 7);
+    color: rgb(0, 0, 0);
     height: 25px;
     font-weight: bold;
     margin: auto 0px;
   }
   
   .DamageButton {
-    background-color: rgba(74, 69, 69, 0.808);
-    border-color: #ffd300;
+    background-color: rgb(187, 49, 49);
     border-radius: 9px;
-    color: rgb(224, 44, 44);
+    color: rgb(255, 255, 255);
     height: 25px;
     font-weight: bold;
     margin: auto 0px;
@@ -233,6 +227,7 @@
     display: flex;
     flex-direction: column;
     margin: 0px auto auto auto;
+
   }
   
   .TempHitPointSurroundingBox {
@@ -243,8 +238,9 @@
     text-align: center;
     font-size: 38px;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
-  
+    background-color: rgb(223, 223, 223);
+    border-width: 1px;
+    border-style: solid;
   }
   
   .TempHitPointBox {
@@ -254,7 +250,7 @@
     text-align: center;
     font-size: 28px;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
+    background-color: rgb(223, 223, 223);
   }
   
   .TempHitPointBoxText {

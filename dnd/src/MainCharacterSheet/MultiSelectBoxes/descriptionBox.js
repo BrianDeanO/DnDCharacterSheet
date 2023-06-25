@@ -6,8 +6,6 @@ export const DecriptionSelectionBox = () => {
     const characteristics = JSON.parse(localStorage.getItem("characteristics"));
     const descriptions = JSON.parse(localStorage.getItem("descriptions"));
 
-    console.log('pass in traits', descriptions);
-
     const [descriptionCards, setDescriptionCards] = useState(descriptions ? descriptions.descriptionArray : []);
     const [isEdit, setIsEdit] = useState(false);
     
@@ -32,11 +30,7 @@ export const DecriptionSelectionBox = () => {
     const appearanceIndex = 5;
     const singleEntryIndex = 0;
 
-    console.log('after cards', descriptionCards);
-
     const descriptionArray = useMemo(() => fillDescriptionArray(descriptionCards), [descriptionCards]);
-
-    console.log('feat array', descriptionArray);
 
     useEffect(() => {
         localStorage.setItem("descriptions", JSON.stringify({descriptionArray}));
@@ -167,7 +161,6 @@ export const DecriptionSelectionBox = () => {
                                                 descriptionPageNumber: document.getElementById('NewDescriptionPageNumber')?.value,
                                                 descriptionCategoryIndex: backgroundIndex,
                                             };
-                                            console.log('new enrt', newEntry);
                                             descriptionArray[backgroundIndex].push(newEntry);
                                             setIsAddBackground(false);
                                         }  
@@ -187,8 +180,6 @@ export const DecriptionSelectionBox = () => {
                 {isAddBackground ? <MakeDescriptionCard typeOfEntry={'Background'} /> : null}
 
                 {descriptionArray[backgroundIndex].map((descriptionCard, index) => {
-                    console.log('spell array', descriptionArray[backgroundIndex]);
-                    console.log('spellObj', descriptionCard);
                     return (
                         <Fragment>
                             {(descriptionCard) ? 
@@ -203,7 +194,6 @@ export const DecriptionSelectionBox = () => {
     }
 
     const CharacteristicsSubBox = () => {
-        console.log('load in sub box', characteristics);
 
         const [characteristicIsEdit, setCharacteristicIsEdit] = useState(false);
         const [age, setAge] = useState(characteristics ? characteristics.age : 1);
@@ -341,7 +331,6 @@ export const DecriptionSelectionBox = () => {
                                 className="alignmentSelector" 
                                 id="ALIGNMENT"
                                 onClick={(e) => {
-                                    console.log('on click alignemnet', e.target.value);
                                     setAlignment(e.target.value);
                                 }}>
                                 <option 
@@ -421,12 +410,10 @@ export const DecriptionSelectionBox = () => {
                             onClick={() => {
                                 if(isAddPersonalityTrait) {
                                     if( (document.getElementById('NewCharacteristicDetails')?.value !== '')){
-
                                         const newEntry = {
                                             descriptionDetails: document.getElementById('NewCharacteristicDetails')?.value,
                                             descriptionCategoryIndex: personalTraitsIndex,
                                         };
-                                        console.log('new enrt', newEntry);
                                         descriptionArray[personalTraitsIndex].push(newEntry);
                                         setIsAddPersonalityTrait(false);
                                     } 
@@ -472,12 +459,10 @@ export const DecriptionSelectionBox = () => {
                             onClick={() => {
                                 if(isAddIdeals) {
                                     if( (document.getElementById('NewCharacteristicDetails')?.value !== '')){
-
                                         const newEntry = {
                                             descriptionDetails: document.getElementById('NewCharacteristicDetails')?.value,
                                             descriptionCategoryIndex: idealsIndex,
                                         };
-                                        console.log('new enrt', newEntry);
                                         descriptionArray[idealsIndex].push(newEntry);
                                         setIsAddIdeals(false);
                                     } 
@@ -524,12 +509,10 @@ export const DecriptionSelectionBox = () => {
                             onClick={() => {
                                 if(isAddBonds) {
                                     if( (document.getElementById('NewCharacteristicDetails')?.value !== '')){
-
                                         const newEntry = {
                                             descriptionDetails: document.getElementById('NewCharacteristicDetails')?.value,
                                             descriptionCategoryIndex: bondsIndex,
                                         };
-                                        console.log('new enrt', newEntry);
                                         descriptionArray[bondsIndex].push(newEntry);
                                         setIsAddBonds(false);
                                     } 
@@ -575,12 +558,10 @@ export const DecriptionSelectionBox = () => {
                             onClick={() => {
                                 if(isAddFlaws) {
                                     if( (document.getElementById('NewCharacteristicDetails')?.value !== '')){
-
                                         const newEntry = {
                                             descriptionDetails: document.getElementById('NewCharacteristicDetails')?.value,
                                             descriptionCategoryIndex: flawsIndex,
                                         };
-                                        console.log('new enrt', newEntry);
                                         descriptionArray[flawsIndex].push(newEntry);
                                         setIsAddFlaws(false);
                                     } 
@@ -631,12 +612,10 @@ export const DecriptionSelectionBox = () => {
                         onClick={() => {
                             if(isAddAppearance) {
                                 if( (document.getElementById('NewAppearanceDetails')?.value !== '')){
-
                                     const newEntry = {
                                         descriptionDetails: document.getElementById('NewAppearanceDetails')?.value,
                                         descriptionCategoryIndex: appearanceIndex,
                                     };
-                                    console.log('new enrt', newEntry);
                                     descriptionArray[appearanceIndex].push(newEntry);
                                     setIsAddAppearance(false);
                                 }  
@@ -675,7 +654,6 @@ export const DecriptionSelectionBox = () => {
     }
 
     const MultiFeatsAndTraitsBox = () => {
-        // console.log('mult select', multiBoxSelection);
         switch(descriptionBoxSelection) {
             case 'BACKGROUND':
                 return (<BackgroundSubBox />)

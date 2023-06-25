@@ -10,8 +10,8 @@
 @import "./Styles/MultiSelect-AttacksStyle.css";
 @import "./Styles/MultiSelect-SpellsStyle.css";
 @import "./Styles/MultiSelect-InventoryStyles.css";
-@import "./Styles/MultiSelect-DescriptionStyle.css";
 @import "./Styles/MultiSelect-FeatsAndTraitsStyle.css";
+@import "./Styles/MultiSelect-DescriptionStyle.css";
 @import "./Styles/MultiSelect-NotesStyle.css";
 
 :root {
@@ -80,69 +80,75 @@ html {
 .MultiSelectHeaderBox {
   display: flex;
   flex-direction: row;
-  background-color: cadetblue;
-  width: 500px;
-  height: 45px;
+  width: 499px;
+  height: 35.5px;
+  border: 2px solid #222;
+  border-left-style: none;
+  border-right-style: none;
 }
 
 #activeButton {
   background-color: rgb(255, 203, 139);
-  text-decoration: underline;
 }
 
 .AttacksBoxButton {
-  margin: 10px 3px 0px 7px;
+  margin: 4px 3px 0px 5px;
   background-color: bisque;
   width: 60px;
   height: 25px;
   text-align: center;
   border-radius: 3px;
+  border: 1.5px solid #222;
 }
 
 .SpellsBoxButton {
-  margin: 10px 3px 0px 2px;
+  margin: 4px 3px 0px 2px;
   background-color: bisque;
   width: 50px;
   height: 25px;
   text-align: center;
   border-radius: 3px;
+  border: 1.5px solid #222;
 }
 
 .InventoryBoxButton {
-  margin: 10px 3px 0px 2px;
+  margin: 4px 3px 0px 2px;
   background-color: bisque;
   width: 75px;
   height: 25px;
   text-align: center;
   border-radius: 3px;
+  border: 1.5px solid #222;
 }
 
 .FeaturesAndTraitsBoxButton {
-  margin: 10px 3px 0px 2px;
+  margin: 4px 3px 0px 2px;
   background-color: bisque;
   width: 130px;
   height: 25px;
   text-align: center;
   border-radius: 3px;
+  border: 1.5px solid #222;
 }
 
 .DescriptionBoxButton {
-  margin: 10px 3px 0px 2px;
+  margin: 4px 3px 0px 2px;
   background-color: bisque;
   width: 90px;
   height: 25px;
   text-align: center;
   border-radius: 3px;
+  border: 1.5px solid #222;
 }
 
-
 .NotesBoxButton {
-  margin: 10px 3px 0px 2px;
+  margin: 4px 5px 0px 2px;
   background-color: bisque;
-  width: 55px;
+  width: 50px;
   height: 25px;
   text-align: center;
   border-radius: 3px;
+  border: 1.5px solid #222;
 }
 
 .AttacksBoxButton:hover,

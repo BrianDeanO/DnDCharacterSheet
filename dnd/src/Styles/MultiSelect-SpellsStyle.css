@@ -13,8 +13,6 @@
     width: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
-    scrollbar-arrow-color: rgb(141, 226, 43);
-    scrollbar-gutter: red;
 }
 .spellCardText {
     font-size: 12pt;
@@ -62,7 +60,7 @@
     height: 52px;
     width: 340px;
     margin: 0px 10px 0px 10px;  
-    background-color: #ffd300;
+    background-color: #92929200;
     align-items: center;
     font-weight: bold;
 }
@@ -73,7 +71,12 @@
     width: 70px;
     margin: 0px 10px 0px 10px;
     text-align: center;
-    background-color: aqua;
+}
+.spellModifierLowerBox {
+    display: flex;
+    flex-direction: column;
+    color: #646464;
+    margin: -4px 0px 0px 0px;
 }
 .spellBonusBox {
     display: flex;
@@ -82,7 +85,12 @@
     width: 90px;
     margin: 0px 10px 0px 0px;
     text-align: center;
-    background-color: rgb(141, 140, 214);
+}
+.spellBonusLowerBox {
+    display: flex;
+    flex-direction: column;
+    color: #646464;
+    margin: -4px 0px 0px 0px;
 }
 .spellSaveDCBox{
     display: flex;
@@ -91,21 +99,27 @@
     width: 70px;
     margin: 0px 0px 0px 0px;
     text-align: center;
-    background-color: rgb(162, 206, 122);
+}
+.spellSaveDCLowerBox {
+    display: flex;
+    flex-direction: column;
+    color: #646464;
+    margin: -4px 0px 0px 0px;
 }
 .spellInfoEditButton {
-    height: 25px;
+    height: 20px;
     width: 40px;
     margin: 5px 0px 0px 15px;
     background-color: rgb(112, 112, 148);
     color:azure;
     border-radius: 10px;
     border-width: 1.5px;
+    font-style: italic;
 }
 button:hover {
     cursor: pointer;
 }
-.SkillsEditButton {
+.SpellsEditButton {
     height: 25px;
     width: 40px;
     margin: 5px 10px 0px 30px;
@@ -113,6 +127,7 @@ button:hover {
     color:azure;
     border-radius: 10px;
     border-width: 1.5px;
+    font-style: italic;
 }
 
 button:hover {
@@ -163,10 +178,9 @@ button:hover {
 .loneSpellBox {
     display: flex;
     flex-direction: column;
-    height: 110px;
+    height: 130px;
     width: 475px;
-    margin: 30px 0px 0px 10px;
-    background-color: azure;
+    margin: 20px 0px 0px 10px;
 }
 .newSpellInfoUpperBox {
     display: flex;
@@ -174,14 +188,18 @@ button:hover {
     height: 80px;
     width: 475px;
     background-color: rgb(5, 109, 109);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .newSpellNotesLowerBox {
     display: flex;
     flex-direction: row;
     height: 50px;
     width: 475px;
-    background-color: rgb(114, 141, 111);
+    background-color: rgb(5, 109, 109);
     margin: 0px 0px 0px 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .spellUpperInfoAndTimeBox {
     display: flex;
@@ -189,7 +207,6 @@ button:hover {
     height: 50px;
     width: 380px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
 }
 .spellNameToLevelInfoBox {
@@ -198,7 +215,6 @@ button:hover {
     height: 50px;
     width: 365px;
     margin: 0px 0px 0px 0px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
 }
 .spellInfoNameBox {
@@ -207,7 +223,6 @@ button:hover {
     height: 50px;
     width: 100px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     align-items: center;
 }
@@ -220,7 +235,6 @@ button:hover {
     height: 20px;
     width: 130px;
     margin: 5px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -253,7 +267,6 @@ button:hover {
     width: 110px;
     margin: 0px 0px 0px 0px;
     color:rgb(255, 255, 255);
-    background-color: cornflowerblue;
 }
 .rangedQuestionText{
     font-size: 11pt;
@@ -273,7 +286,7 @@ button:hover {
 .rangedQuestionOptionBoxActive {
     height: 15px;
     width: 15px;
-    background-color: black;
+    background-color: rgb(131, 131, 131);
     border-color: black;
     border-style: solid;
     border-width: 1.5px;
@@ -301,17 +314,19 @@ button:hover {
     text-align: center;
     font-size: 12pt;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
+    background-color: rgb(223, 223, 223);
 }
 .spellRangeMultiSelectBox {
     display: flex;
     flex-direction: row;
-    margin: 0px 15px 0px 0px;
+    margin: 1px 15px 0px 0px;
     align-items: center;
     width: 100px;
+    height: 20px;
 }
 .rangeSelector {
     width: 85px;
+    height: 20px;
     margin: 0px 0px 0px 12px;
 }
 .RangedChoice {
@@ -348,7 +363,6 @@ button:hover {
     width: 85px;
     margin: 3px 10px 0px 10px;
     text-align: center;
-    background-color: rgb(141, 140, 214);
 }
 
 .spellBonusSelectorText, .spellLevelSelectorText {
@@ -372,7 +386,6 @@ button:hover {
     width: 80px;
     margin: 4px 10px 0px 0px;
     text-align: center;
-    background-color: rgb(146, 146, 153);
 }
 
 .spellLevelSelector {
@@ -388,7 +401,7 @@ button:hover {
     flex-direction: row;
     height: 50px;
     width: 240px;
-    margin: 0px 0px 0px 122px;
+    margin: 2px 0px 0px 122px;
     text-align: center;
     align-items: center;
 }
@@ -412,7 +425,7 @@ button:hover {
     text-align: center;
     font-size: 10pt;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
+    background-color: rgb(223, 223, 223);
 }
 .castingTimeText{
     color: rgb(0, 0, 0);
@@ -474,7 +487,7 @@ button:hover {
 .damageEffectOptionBoxactive {
     height: 15px;
     width: 15px;
-    background-color: black;
+    background-color: rgb(131, 131, 131);
     border-radius: 50px;
     border-color: black;
     border-style: solid;
@@ -507,7 +520,7 @@ button:hover {
 .healEffectOptionBoxactive {
     height: 15px;
     width: 15px;
-    background-color: black;
+    background-color: rgb(131, 131, 131);
     border-radius: 50px;
     border-color: black;
     border-style: solid;
@@ -552,7 +565,7 @@ button:hover {
     text-align: center;
     font-size: 12pt;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
+    background-color: rgb(223, 223, 223);
 }
 .spellDiceText {
     margin: 7px 0px 0px 3px;
@@ -586,7 +599,7 @@ button:hover {
 .otherEffectOptionBoxactive {
     height: 15px;
     width: 15px;
-    background-color: black;
+    background-color: rgb(131, 131, 131);
     border-radius: 50px;
     border-color: black;
     border-style: solid;
@@ -604,12 +617,12 @@ button:hover {
     flex-direction: row;
     height: 20px;
     width: 100px;
-    margin: 0px 0px 0px 22px;
+    margin: 5px 0px 0px 22px;
 }
 .spellOtherEffectInput {
     height: 20px;
     width: 100px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 /* Cursor Hover Boxes */
@@ -643,14 +656,14 @@ select:hover
     height: 100px;
     width: 450px;
     margin: 10px 0px 0px 10px;
-    background-color: azure;
+    background-color: rgb(5, 109, 109);
+    border-radius: 5px;
 }
 .spellInfoUpperBox {
     display: flex;
     flex-direction: row;
     height: 80px;
     width: 450px;
-    background-color: rgb(5, 109, 109);
 }
 .spellFinalLevelHeader {
     height: 25px;
@@ -660,7 +673,7 @@ select:hover
     font-weight: bold;
     text-decoration: underline;
     font-style: italic;
-    color: rgb(212, 59, 90);
+    color: rgb(158, 0, 0);
 }
 
 /* Spell Name */
@@ -686,7 +699,6 @@ select:hover
     height: 20px;
     width: 40px;
     margin: 0px 15px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 12pt;
     font-weight: bold;
@@ -698,7 +710,6 @@ select:hover
     height: 20px;
     width: 40px;
     margin: 0px 0px 0px 3px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: light;
@@ -722,9 +733,8 @@ select:hover
     display: column;
     flex-direction: column;
     height: 20px;
-    width: 40px;
+    width: 42px;
     margin: 0px 15px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -736,16 +746,16 @@ select:hover
     height: 20px;
     width: 40px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 13pt;
     text-align: center;
 }
 .finalSpellRange {
     font-size: 13pt;
+    margin: 0px 0px 0px -4px;
 }
 .finalSpellRangeFeetText {
-    margin: 7px 0px 0px 3px;
+    margin: 7px 0px 0px 2px;
     font-size: 8pt;
 }
 .spellOtherRangeTypeBox {
@@ -753,14 +763,14 @@ select:hover
     flex-direction: row;
     height: 20px;
     width: 40px;
-    margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
+    margin: 0px 0px 0px 0px;
     color:aliceblue;
     font-size: 13pt;
     text-align: center;
+    align-items: center;
 }
 .spellOtherRangeTypeText {
-    margin: 3px 0px 0px 3px;
+    margin: 3px auto 0px auto;
     font-size: 10pt;
 }
 
@@ -820,10 +830,9 @@ select:hover
 .finalEffectBox {
     display: flex;
     flex-direction: column;
-    height: 20px;
+    height: 50px;
     width: 95px;
-    margin: 0px 10px 0px 10px;
-    background-color: rgb(5, 109, 109);
+    margin: 0px 10px 0px 0px;
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -906,7 +915,6 @@ select:hover
     flex-direction: row;
     height: 50px;
     width: 450px;
-    background-color: rgb(114, 141, 111);
     margin: 0px 0px 0px 0px;
 }
 .spellNotesInnerBox {
@@ -914,7 +922,6 @@ select:hover
     flex-direction: column;
     height: 50px;
     width: 90px;
-    background-color: rgb(114, 141, 111);
     align-items: end;
 }
 .spellNotesText {
@@ -938,4 +945,5 @@ select:hover
     color:azure;
     border-radius: 10px;
     border-width: 1.5px;
+    font-style: italic;
 }

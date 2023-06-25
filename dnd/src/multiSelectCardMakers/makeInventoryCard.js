@@ -13,15 +13,6 @@ const MakeInventoryCard = () => {
     const [itemQty, setItemQty] = useState(1);
     const [newItemNotes, setNewItemNotes] = useState('');
 
-    useEffect(() => {
-       console.log('item cost', document.getElementById('itemCost')?.value);
-    //    console.log('other tem type answer', document.getElementById('itemOtherTypeAnswer')?.value);
-    //    console.log('normal item type answer', document.getElementById('itemType')?.value);
-
-        //setRangedAnswer(rangedAnswer);
-        //console.log('get elem ID', document.getElementById('typeOfRange')?.value);
-    }, [itemType]);
-
     return (
         <div className="loneItemBox">
             <div className="newItemInfoUpperBox">
@@ -56,7 +47,6 @@ const MakeInventoryCard = () => {
                             className="itemTypeSelector" 
                             id="itemType"
                             onClick={(e) => {
-                                console.log('on click', e.target.value);
                                 setItemType(e.target.value);
                             }}>
                                 <option>---</option>

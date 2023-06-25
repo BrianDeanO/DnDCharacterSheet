@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { determineModifier } from "../helpers/determineModSign";
 
+/* 
+    Possible fix for not immediate update of passive wisdom is to use useComeback?
+*/
 export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBonus, passivePerception}) => {
-
-    const skillsBoxInfo = JSON.parse(localStorage.getItem("skillsBoxInfo"));
-    // const passivePerception = skillsBoxInfo ? skillsBoxInfo.Perception : ['12', false];
-    console.log('passive perception', passivePerception);
 
     const [additionalInfoIsEdit, setAdditionalInfoIsEdit] = useState(false);
     const [profBonus, setProfiencyBonus] = useState(proficiencyBonus ? proficiencyBonus : 2);
@@ -23,7 +22,6 @@ export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBo
         localStorage.setItem("additionalInfoBoxInfo", JSON.stringify(
             {profBonus: profBonus, armorClass: armorClass, speed: speed}));
     }, [profBonus, armorClass, speed]);
-
 
     return (
         <div className="ProficiencyBonus-Armor-Speed-OuterBox">
@@ -77,11 +75,6 @@ export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBo
             </div>
             <div className="PassiveWisdomBox">
                 <div className="PassiveTextValue"> 
-                    {/* { passivePerception[1] ? 
-                        (((parseInt(determineModifier(passivePerception[0])) + parseInt(profBonus))) >= 0) ?
-                           `+${((parseInt(determineModifier(passivePerception[0])) + parseInt(profBonus)))}` 
-                           : ((parseInt(determineModifier(passivePerception[0])) + parseInt(profBonus))) 
-                        : determineModifier(passivePerception[0])} */}
                     {passivePerception[0]}
                 </div>
                 <span id="PassiveTextMiddle"> Passive Wisdom </span>

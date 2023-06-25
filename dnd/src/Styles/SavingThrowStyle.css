@@ -6,16 +6,14 @@
 .SavingThrowsOuterBox {
     display: flex;
     flex-direction: column;
-    width: 244px;
-    height: 203px;
-    background-color: rgb(255, 0, 200);
+    width: 249px;
+    height: 210px;
     border-style: solid;
 }
 
 .SavingThrowText {
-    margin: 0px auto 0px auto;
+    margin: 2px auto 0px auto;
     font-size: 20px;
-    border-bottom-style: solid;
     width: 150px;
     text-align: center;
 }
@@ -23,27 +21,30 @@
 .SavingThrowInnerBox {
     display: flex;
     flex-direction: row;
-    width: 250px;
+    width: 249px;
     height: 200px;
-    background-color: rgb(245, 128, 128);
+    margin: -3px 0px 0px 0px;
 }
 
 .SavingsThrowHeader {
     display: flex;
     flex-direction: row;
-    width: 250px;
-    height: 35px;
-    background-color: rgb(167, 167, 167);
+    width: 249px;
+    height: 40px;
+    border: 2px solid #222;
+    border-top-style: none;
+    border-left-style: none;
 }
 
 .SaveThrowsEditButton {
-    height: 25px;
+    height: 20px;
     width: 40px;
-    margin: 5px 10px 0px -40px;
+    margin: 7px 10px 0px -40px;
     background-color: rgb(112, 112, 148);
     color:azure;
     border-radius: 10px;
     border-width: 1.5px;
+    font-style: italic;
 }
 
 button:hover {
@@ -94,10 +95,4 @@ button:hover {
     font-size: 16px;
     margin: 0px 5px;
     font-weight: 500;
-}
-
-.ProfAndLangOuterBox {
-    width: 250px;
-    height: 500px;
-    background-color: rgb(89, 63, 151);
 }

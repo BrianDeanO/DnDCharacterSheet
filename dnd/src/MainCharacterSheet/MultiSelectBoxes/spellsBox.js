@@ -10,8 +10,6 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
     const spells = JSON.parse(localStorage.getItem("spells"));
     const spellHeaderInfo = JSON.parse(localStorage.getItem("spellHeaderInfo"));
 
-    //console.log('passed in spells', spells);
-
     const [spellCards, setSpellCards] = useState(spells ? spells.spellCardArray : []);
     const [makeNewSpell, setMakeNewSpell] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
@@ -21,12 +19,7 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
     const [spellBonus, setSpellBonus] = useState(spellHeaderInfo ? spellHeaderInfo.spellBonus : 4);
     const [spellSaveDC, setSpellSaveDC] = useState(spellHeaderInfo ? spellHeaderInfo.spellSaveDC : 15);
 
-    //console.log('after spell cards', spellCards);
-
     const spellCardArray = useMemo(() => fillSpellCardArray(spellCards), [spellCards]);
-
-    //console.log('after spell arrat', spellCardArray);
-
 
     useEffect(() => {
         localStorage.setItem("spells", JSON.stringify({spellCardArray}));
@@ -39,49 +32,14 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
     }, [spellCardArray, spellMod ,spellBonus ,spellSaveDC]);
 
     function updateSkillHeaderInfo(mod, bonus, dc) {
-        // console.log('MOD', document.getElementById('MOD')?.value);
-        // console.log('BONUS', document.getElementById('BONUS')?.value);
-        // console.log('DC', document.getElementById('DC')?.value);
         setSpellMod(mod);
         setSpellBonus(bonus);
         setSpellSaveDC(dc);
     }
 
-    const cantrip = {
-        spellLevel: '0',
-        spellName: 'Healing Word'
-    };
-    const oneLevel = {
-        spellLevel: '1',
-        spellName: 'Jump'
-    };
-    const oneLevel2 = {
-        spellLevel: '1',
-        spellName: 'Speak With Animals'
-    };
-    const threeLevel = {
-        spellLevel: '3',
-        spellName: 'Cure Wounds'
-    };
-    const fourLevel = {
-        spellLevel: '4',
-        spellName: 'Flame Arrows'
-    };
-
-
-
     const SpellCard = ({spellSubArray, spellObj, index}) => {
-        console.log('spell sub card array', spellSubArray);
-        console.log('main spell card array', spellCardArray);
-        console.log('sspellObj', spellObj);
-        console.log()
-
-        console.log('level', spellObj.spellLevel, 'index', index, 'spell', spellCardArray[spellObj.spellLevel][index]);
-
-        
         const [notes, setNotes] = useState(spellObj ? spellObj.notes : "");
         const dcValue = determineSpellDC(spellObj.DCType, abilityBoxInfo);
-        //console.log('dc value', dcValue, spellObj.DCType);
 
         useEffect(() => {
             setNotes(notes);
@@ -100,9 +58,15 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                     <div className="spellFinalTimeBox">
                         <div>Time</div>
                         <div className="spellInnerTimeBox">
-                            <div className="spellTimeValueBox">
-                                {spellObj.castingTimeValue}{spellObj.castingTimeUnit}
-                            </div>
+                            {(  (spellObj.castingTimeUnit === 'N.A.') || 
+                                (spellObj.castingTimeUnit === 'R') ||
+                                (spellObj.castingTimeUnit === 'S')) ?
+                                <div className="spellTimeValueBox">
+                                    {spellObj.castingTimeUnit}
+                                </div> : 
+                                <div className="spellTimeValueBox">
+                                    {spellObj.castingTimeValue}{spellObj.castingTimeUnit}
+                                </div>}
                         </div>
                     </div>
 
@@ -161,7 +125,6 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                     className="DeleteSpellBox"
                     id={`${spellObj.spellLevel}_${index}`}
                     onClick={(e) => {
-                        console.log('delete array',  spellCardArray[spellObj.spellLevel][index]);
                         spellCardArray[spellObj.spellLevel].splice(index, 1);
                         setSpellCards(spellCardArray);
                     }}>X</div>
@@ -182,23 +145,15 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                     </div>
 
                     <textarea
-                    className="finalSpellNotesBox"
-                    value={spellObj.notes}
-                    id={`${spellObj.spellLevel}_${index}`}
-                    // onFocus={()  => {
-                    //     setSpellCards(spellCardArray);
-                    // }}
-                    onChange={(e) => {
-                        //setWeaponProficiencies(e.target.value.toString());
-
-                        spellCardArray[spellObj.spellLevel][index].notes = e.target.value.toString();
-                        //spellCardArray[spellLevel][spellIndex].notes = e.target.value.toString();
-                        //attackObj.notes = e.target.value.toString();
-                        setNotes(spellObj.notes);
-                        //setSpellCards(attackCardArray);
-                    }}
-                    cols={1}
-                    rows={4}></textarea>
+                        className="finalSpellNotesBox"
+                        value={spellObj.notes}
+                        id={`${spellObj.spellLevel}_${index}`}
+                        onChange={(e) => {
+                            spellCardArray[spellObj.spellLevel][index].notes = e.target.value.toString();
+                            setNotes(spellObj.notes);
+                        }}
+                        cols={1}
+                        rows={4}></textarea>
                 </div>
             </div>
         )
@@ -214,9 +169,6 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                     className="spellHeaderNewButton"
                     onClick={() => {
                         const newSpellEffectChoice = JSON.parse(localStorage.getItem("newSpellEffectChoice"));
-                        // console.log('other effect', document.getElementById('spellOtherEffect')?.value);
-                        console.log('dc', document.getElementById('DCType')?.value);
-                        console.log('ability info', abilityBoxInfo);
                         if(makeNewSpell) {
                             if( 
                                 (document.getElementById('NewSpellName')?.value !== '') &&
@@ -230,9 +182,6 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                                    (document.getElementById('typeOfSpellDice')?.value !== 'Type')) || 
                                   (newSpellEffectChoice.spellEffectChoice === 'other' && (document.getElementById('spellOtherEffect')?.value)))
                                 ){
-
-                                    console.log('type spell dice', document.getElementById('typeOfSpellDice')?.value);
-                                    console.log('# spell dice', document.getElementById('numberOfSpellDice')?.value);
                                 const spellLevel = parseInt(document.getElementById('spellLevel')?.value);
                                 const newSpell = {
                                     spellName: document.getElementById('NewSpellName')?.value, 
@@ -243,7 +192,6 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                                         document.getElementById('typeOfRange')?.value : 
                                         document.getElementById('spellRange')?.value,
 
-                                    //DCType: determineSpellDC(document.getElementById('DCType')?.value, abilityBoxInfo), 
                                     DCType: document.getElementById('DCType')?.value,
                                     spellLevel: spellLevel, 
                                     spellEffectChoice: newSpellEffectChoice.spellEffectChoice ? newSpellEffectChoice.spellEffectChoice : 'N/A', 
@@ -259,19 +207,12 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                                 
                                     notes: document.getElementById('NewSpellNotes')?.value,
                                 };
-                                console.log('New Spell', newSpell);
                                 spellCardArray[spellLevel].push(newSpell);
                                 setSpellCards(spellCardArray);
                                 setMakeNewSpell(false);
                             }
                             
                         } else {
-                            // spellCardArray[cantrip.spellLevel].push(cantrip);
-                            // setSpellCards(spellCardArray);
-                            // spellCardArray[cantrip.spellLevel].push(fourLevel);
-                            // setSpellCards(spellCardArray);
-                            // spellCardArray[cantrip.spellLevel].push(threeLevel);
-                            // setSpellCards(spellCardArray);
                             setMakeNewSpell(true);
                         }
                     }}> {makeNewSpell ? 'Add Spell' : 'Make New Spell'}</button>
@@ -341,10 +282,6 @@ export const SpellsSelectionBox = ({abilityBoxInfo}) => {
                 {spellCardArray.map((spellSubArray) => {
                     return (
                         spellSubArray.map((spellObj, index) => {
-                            console.log('spell array', spellCardArray);
-                            console.log('spellSubArray', spellSubArray);
-                            console.log('spellObj', spellObj);
-                            // console.log('attackObj name', spellObj.name);
                             return (
                                 <Fragment>
                                     {(index === 0 && spellObj) ? 

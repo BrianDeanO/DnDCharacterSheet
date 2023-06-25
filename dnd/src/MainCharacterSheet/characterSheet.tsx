@@ -20,15 +20,6 @@ const CharacterSheet = ({
         profAndLangBoxInfo,
         additionalInfoBoxInfo,
         healthBoxInfo,
-        // attacks,
-        // newAttackInfo,
-        // spells,
-        // spellHeaderInfo,
-        // inventory,
-        // inventoryHeaderInfo,
-        featsAndTraits,
-        description,
-        notes
 }) => {
 
     const [proficiencyBonus, setProfiencyBonus] = useState<number>(additionalInfoBoxInfo ? additionalInfoBoxInfo.profBonus : 2);
@@ -36,7 +27,6 @@ const CharacterSheet = ({
     const [multiBoxSelection, setMultiBoxSelection] = useState<string>('ATTACKS');
 
     const MultiSelectBox = () => {
-       // console.log('mult select', multiBoxSelection);
         switch(multiBoxSelection) {
             case 'ATTACKS':
                 return (
@@ -55,9 +45,7 @@ const CharacterSheet = ({
                 return (<AttacksSelectionBox abilityBoxInfo={abilityBoxInfo} />)
         }
     }
-
-    console.log('skillsBxin', skillsBoxInfo);
-
+    
     return (
         <div className="CharacterSheet">
             <div className="MainAbilityAndHitPointRow">

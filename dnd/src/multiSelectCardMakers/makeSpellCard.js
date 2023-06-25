@@ -7,8 +7,7 @@ const MakeSpellCard = () => {
     const [newSpellNotes, setNewSpellNotes] = useState('');
     const [spellOtherEffect, setSpellOtherEffect] = useState('');
 
-    const [rangedAnswer, setRangedAnswer] = useState(
-        document.getElementById('typeOfRange')?.value ? document.getElementById('typeOfRange')?.value : -1);
+    const [rangedAnswer, setRangedAnswer] = useState(document.getElementById('typeOfRange')?.value ? document.getElementById('typeOfRange')?.value : -1);
     const [spellRange, setSpellRange] = useState(1);
 
     const [castingTimeValue, setCastingTimeValue] = useState(1)
@@ -20,7 +19,6 @@ const MakeSpellCard = () => {
     const [otherEffect, setOtherEffect] = useState(false);
 
     useEffect(() => {
-       // console.log('ranged Answer', rangedAnswer);
         setRangedAnswer(rangedAnswer);
 
         localStorage.setItem('newSpellEffectChoice', JSON.stringify({
@@ -28,8 +26,6 @@ const MakeSpellCard = () => {
                                     healEffect ? 'healing' :
                                     otherEffect ? 'other' : 'N/A', 
         }));
-
-
     }, [rangedAnswer,damageEffect, healEffect, otherEffect]);
 
     return (
@@ -152,7 +148,7 @@ const MakeSpellCard = () => {
                             <option value={'BA'}>Bonus Action</option>
                             <option value={'min'}>Minute</option>
                             <option value={'hr'}>Hour</option>
-                            <option value={'NA'}>No Action</option>
+                            <option value={'N.A.'}>No Action</option>
                             <option value={'R'}>Reaction</option>
                             <option value={'S'}>Special</option>
                         </select>     

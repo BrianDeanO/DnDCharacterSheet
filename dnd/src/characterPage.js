@@ -6,13 +6,6 @@ import CharacterSheet from "./MainCharacterSheet/characterSheet.tsx";
 export const backgroundColor = 'rgb(235, 225, 225)';
 
 const CharacterPage = () => {
-    // const abilityBoxObj = {str: 10, dex: 12, const: 14, int: 17, wis: 8, cha: 16};
-    // localStorage.setItem("abilityBoxInfo", JSON.stringify(abilityBoxObj));
-
-    // if(localStorage.getItem("abilityBoxInfo")) {
-    //     const abilityBoxObj = {str: 10, dex: 12, const: 14, int: 17, wis: 8, cha: 16};
-    //     localStorage.setItem("abilityBoxInfo", JSON.stringify(abilityBoxObj));
-    // }
 
     const character = JSON.parse(localStorage.getItem("characterInfo"));
     const abilityBoxInfo = JSON.parse(localStorage.getItem("abilityBoxInfo"));
@@ -21,15 +14,6 @@ const CharacterPage = () => {
     const profAndLangBoxInfo = JSON.parse(localStorage.getItem("profAndLangBoxInfo"));
     const additionalInfoBoxInfo = JSON.parse(localStorage.getItem("additionalInfoBoxInfo"));
     const healthBoxInfo = JSON.parse(localStorage.getItem("healthBoxInfo"));
-    // const attacks = JSON.parse(localStorage.getItem("attacks"));
-    // const newAttackInfo = JSON.parse(localStorage.getItem("newAttackInfo"));
-    // const spells = JSON.parse(localStorage.getItem("spells"));
-    // const spellHeaderInfo = JSON.parse(localStorage.getItem("spellHeaderInfo"));
-    // const inventory = JSON.parse(localStorage.getItem("inventory"));
-    // const inventoryHeaderInfo = JSON.parse(localStorage.getItem("inventoryHeaderInfo"));
-    const featsAndTraits = JSON.parse(localStorage.getItem("featsAndTraits"));
-    const description = JSON.parse(localStorage.getItem("description"));
-    const notes = JSON.parse(localStorage.getItem("notes"));
  
     return (
         <div className="MainPage">
@@ -41,15 +25,6 @@ const CharacterPage = () => {
                 profAndLangBoxInfo={profAndLangBoxInfo}
                 additionalInfoBoxInfo={additionalInfoBoxInfo}
                 healthBoxInfo={healthBoxInfo}
-                // attacks={attacks}
-                // newAttackInfo={newAttackInfo}
-                // spells={spells}
-                // spellHeaderInfo={spellHeaderInfo}
-                // inventory={inventory}
-                // inventoryHeaderInfo={inventoryHeaderInfo}
-                featsAndTraits={featsAndTraits}
-                description={description}
-                notes={notes}
             />
         </div>
 

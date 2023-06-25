@@ -18,14 +18,16 @@
     display: flex;
     flex-direction: row;
     background-color: var(--sheetBackground);
-    background-color: transparent;
+    height: 120px;
+    margin: 15px 0px 0px 0px;
   }
   
   .AbilityBoxBottomRow {
     display: flex;
     flex-direction: row;
-    background-color: rgb(0, 255, 55);
-    background-color: transparent;
+    background-color: var(--sheetBackground);
+    margin: 15px 0px 0px 0px;
+    height: 120px;
   }
   
   .LoneAbilityBox {
@@ -34,7 +36,7 @@
     border-color: #222;
     width: 80px;
     height: 100px;
-    margin: 20px auto;
+    margin: 0px auto 0px auto;
     text-align: center;
     border-radius: 10px;
     background-color: moccasin;
@@ -62,11 +64,17 @@
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
   }
-
+  .AbilityBoxEditButtonBox {
+    display: flex;
+    height: 20px;
+    width: 400px;
+    align-items: center;
+    font-style: italic;
+  }
   .AbilityBoxEditButton {
-    height: 27px;
+    height: 20px;
     width: 40px;
-    margin: -5px 0px -10px 177px;
+    margin: 5px 0px 0px 177px;
     background-color: rgb(112, 112, 148);
     color:azure;
     border-radius: 10px;

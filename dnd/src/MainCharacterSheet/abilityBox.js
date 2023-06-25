@@ -3,12 +3,6 @@ import React from "react";
 import { determineModifier } from "../helpers/determineModSign";
 
 export const AbilityBoxInfo = ({abilityBoxInfo}) => {
-    //const abilityBoxObj = {str: 12, dex: 12, const: 14, int: 17, wis: 8, cha: 16};
-    //localStorage.setItem("abilityBoxInfo", JSON.stringify(abilityBoxObj));
-   // const abilityScores = JSON.parse(abilityBoxInfo);
-
-//    const abilityBoxInfo2 = JSON.parse(localStorage.getItem("abilityBoxInfo"));
-//    console.log(abilityBoxInfo2);
 
    const [abilityBoxEdit, setAbilityBoxEdit] = useState(false);
    const [strengthScore, setStrengthScore] = useState(abilityBoxInfo ? abilityBoxInfo.str : 15);
@@ -74,21 +68,18 @@ export const AbilityBoxInfo = ({abilityBoxInfo}) => {
                 </div>
             </div>
 
-            {/* 
-            
-                    WE CAN TRY TO USE ONfOCUSOUT
-            */}
-
-            <button 
-                        className="AbilityBoxEditButton"
-                        onClick={(e) => {
-                            abilityBoxEdit ? 
-                            updateAbilityBoxInfo( document.getElementById('STR')?.value, document.getElementById('DEX')?.value,
-                                            document.getElementById('CONST')?.value, document.getElementById('INT')?.value,
-                                            document.getElementById('WIS')?.value, document.getElementById('CHA')?.value) :
-                            updateAbilityBoxInfo( strengthScore, dexterityScore, constitutionScore, intelligenceScore,  wisdomScore, charismaScore);
-                            setAbilityBoxEdit(!abilityBoxEdit);
-                            }}>{abilityBoxEdit ? 'save' : 'edit'}</button> 
+            <div className="AbilityBoxEditButtonBox">
+                <button 
+                    className="AbilityBoxEditButton"
+                    onClick={(e) => {
+                        abilityBoxEdit ? 
+                        updateAbilityBoxInfo( document.getElementById('STR')?.value, document.getElementById('DEX')?.value,
+                                        document.getElementById('CONST')?.value, document.getElementById('INT')?.value,
+                                        document.getElementById('WIS')?.value, document.getElementById('CHA')?.value) :
+                        updateAbilityBoxInfo( strengthScore, dexterityScore, constitutionScore, intelligenceScore,  wisdomScore, charismaScore);
+                        setAbilityBoxEdit(!abilityBoxEdit);
+                        }}>{abilityBoxEdit ? 'save' : 'edit'}</button> 
+            </div>
 
             <div className="AbilityBoxBottomRow">
                     <div className="LoneAbilityBox">
@@ -131,18 +122,3 @@ export const AbilityBoxInfo = ({abilityBoxInfo}) => {
         </div>
     )
 }
-
-
-// onFocus={(e)  => {
-//     updateAbilityBoxInfo( strengthScore, dexterityScore, constitutionScore, intelligenceScore,  wisdomScore, charismaScore);
-
-//     setAbilityBoxEdit(!abilityBoxEdit);
-// }}
-// onBlur={(e) => {
-// updateAbilityBoxInfo( document.getElementById('STR')?.value, document.getElementById('DEX')?.value,
-//                     //@ts-ignore 
-//                     document.getElementById('CONST')?.value, document.getElementById('INT')?.value, 
-//                     //@ts-ignore
-//                     document.getElementById('WIS')?.value, document.getElementById('CHA')?.value)
-//     setAbilityBoxEdit(!abilityBoxEdit);
-// }}

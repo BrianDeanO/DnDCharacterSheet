@@ -8,9 +8,6 @@ export const InventorySelectionBox = () => {
     const inventory = JSON.parse(localStorage.getItem("inventory"));
     const inventoryHeaderInfo = JSON.parse(localStorage.getItem("inventoryHeaderInfo"));
 
-    console.log('coin info', inventoryHeaderInfo);
-    console.log('inventory', inventory);
-
     const [inventoryCards, setInventoryCards] = useState(inventory ? inventory.inventoryItemArray : []);
     const [makeNewItem, setMakeNewItem] = useState(false);
     const [itemIsEdit, setItemIsEdit] = useState(-1);
@@ -24,11 +21,7 @@ export const InventorySelectionBox = () => {
 
     const [totalWeight, setTotalWeight] = useState(inventoryHeaderInfo ? inventoryHeaderInfo.totalWeight : 0);
 
-    console.log('cards', inventoryCards);
-
     const inventoryItemArray = useMemo(() => fillCardArray(inventoryCards), [inventoryCards]);
-
-    console.log('after item array', inventoryItemArray);
 
     useEffect(() => {
         localStorage.setItem("inventory", JSON.stringify({inventoryItemArray}));
@@ -45,22 +38,13 @@ export const InventorySelectionBox = () => {
     }, [totalWeight, platinumPieces, goldPieces ,silverPieces ,copperPieces]);
 
     function updateCoinInfo(pp, gp, sp, cp) {
-        // console.log('PP', document.getElementById('PP')?.value);
-        // console.log('GP', document.getElementById('GP')?.value);
-        // console.log('SP', document.getElementById('SP')?.value);
-        // console.log('CP', document.getElementById('CP')?.value);
-
         setPlatinumPieces(pp ? pp : "0");
         setGoldPieces(gp ? gp : "0");
         setSilverPieces(sp ? sp : "0");
         setCopperPieces(cp ? cp : "0");
     }
 
-    console.log('total weight', totalWeight);
-
     const InventoryCard = ({inventoryItemArray, itemObj, index}) => {
-        // console.log('inventory', inventory);
-        // console.log('invetnory card array', inventoryItemArray);
         
         const [notes, setNotes] = useState(itemObj ? itemObj.notes : "");
 
@@ -68,9 +52,6 @@ export const InventorySelectionBox = () => {
             setNotes(notes);
             localStorage.setItem("inventory", JSON.stringify({inventoryItemArray}));
         }, [notes, inventoryItemArray]);
-
-        // const test = "The Armor Of Agathist - Fire";
-        // console.log('test', test.length);
     
         return (
             <div className="newLoneItemBox" 
@@ -164,7 +145,6 @@ export const InventorySelectionBox = () => {
                                     ((document.getElementById('itemType')?.value && document.getElementById('itemType')?.value !== '---') || 
                                     (document.getElementById('itemOtherTypeAnswer')?.value)) &&
                                     (document.getElementById('itemWeight')?.value !== 0)){
-
                                     const newItem = {
                                         itemName: document.getElementById('newItemName')?.value, 
                                         itemType: document.getElementById('itemOtherTypeAnswer')?.value ? 
@@ -176,9 +156,7 @@ export const InventorySelectionBox = () => {
                                         itemQty: document.getElementById('itemQty')?.value,
                                         notes: document.getElementById('newItemNotes')?.value,
                                     };
-
                                     setTotalWeight(parseInt(totalWeight + parseInt(document.getElementById('itemWeight')?.value)));
-                                  //  console.log('New Item', newItem);
                                     inventoryItemArray.push(newItem);
                                     setInventoryCards(inventoryItemArray);
                                     setMakeNewItem(false);
@@ -276,10 +254,10 @@ export const InventorySelectionBox = () => {
                             </div>
                         </div>
                         <div className="totalWeightBox">
-                            <div className="totalWeightText">
+                            <div className="totalWeightTopText">
                                 Total Weight
                             </div>
-                            <div className="totalWeightText">
+                            <div className="totalWeightBottomText">
                                 {totalWeight} lb.
                             </div>
                         </div>
@@ -290,8 +268,6 @@ export const InventorySelectionBox = () => {
                     <MakeInventoryCard /> : null}
                 <div className="inventoryCardsMainBox">
                     {inventoryItemArray.map((itemObj, index) => {
-                        console.log('attackObj', itemObj, index);
-                        console.log('attackObj name', itemObj.itemName);
                         return (
                             <InventoryCard 
                                 inventoryItemArray={inventoryItemArray}

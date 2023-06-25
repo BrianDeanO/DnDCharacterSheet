@@ -4,24 +4,10 @@ import { determineModifier } from "../helpers/determineModSign";
 
 export const ProfAndLanguagesBox = ({profAndLangBoxInfo}) => {
 
-   // console.log('profs and langs', profAndLangBoxInfo);
-
     const [armorProficiencies,setArmorProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.armor : 'None');
     const [weaponProficiencies,setWeaponProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.weapons : 'None');
     const [toolProficiencies,setToolProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.tools : 'None');
     const [languageProficiencies,setLanguageProficiencies] = useState(profAndLangBoxInfo ? profAndLangBoxInfo.languages : 'None');
-
-    // const handleChange = (input) => {
-    //     console.log(input);
-    //     setArmorProficiencies(input);
-    // }
-    // var armorStuff;
-
-    // useEffect(() => {
-    //     if(document.getElementById('ArmorInfo')) {
-    //         console.log('armor stuff', document.getElementById('ArmorInfo').value);
-    //     }
-    // }, [document.getElementById('ArmorInfo').value]);
 
     useEffect(() => {
         localStorage.setItem("profAndLangBoxInfo", JSON.stringify(

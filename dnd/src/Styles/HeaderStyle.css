@@ -12,9 +12,10 @@ CSS Styles for Character Sheet Header
   max-height: 100%;
   width: 1000px;
   padding-bottom: 10px;
-  background-color: #222;
+  background-color: var(--sheetBackground);
   margin: 0px auto 0px auto;
   border-style: solid;
+  border-bottom: none;
 }
 
 .Character-Info {
@@ -30,6 +31,7 @@ CSS Styles for Character Sheet Header
   border-radius: 50%;
   height: 100px;
   width: 100px;
+  background-color: var(--sheetBackground);
 }
 
 .Player-Image {
@@ -37,10 +39,12 @@ CSS Styles for Character Sheet Header
   height: auto;
   max-width: 100%;
   width: 69px;
+  background-color: var(--sheetBackground);
 }
 
 .Image-Circle {
   margin: 0px  0px 0px 0px;
+  background-color: var(--sheetBackground);
 }
 
 .Character-Info-Box {
@@ -61,30 +65,30 @@ CSS Styles for Character Sheet Header
 }
 
 .Character-Name-Text {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 24px;
   font-style: italic;
   margin: 0px 10px 10px 10px;
 }
 
 .Character-Name-Input {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 20px;
   font-style: italic;
   margin: 0px 10px 10px 10px;
-  background-color: #222;
-  border-color: #ffd300;
+  background-color: whitesmoke;
+  border-width: 1.5px;
 }
 
 .Character-Level-Title {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 14px;
   font-weight: bold;
   margin: 10px 5px 10px 0px;
 }
 
 .Character-Level {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 14px;
   font-style: italic;
   font-weight: normal;
@@ -92,13 +96,13 @@ CSS Styles for Character Sheet Header
 }
 
 .Character-Level-Input {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 14px;
   font-style: italic;
   font-weight: normal;
   margin: 10px 10px 10px 0px;
-  background-color: #222;
-  border-color: #ffd300;
+  background-color: rgb(223, 223, 223);
+  border-width: 1.5px;
 }
 
 .Character-Race-Class {
@@ -109,7 +113,7 @@ CSS Styles for Character Sheet Header
 }
 
 .Character-Race-Class  h2 {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 14px;
   text-align: center;
   font-weight: normal;
@@ -117,14 +121,14 @@ CSS Styles for Character Sheet Header
 }
 
 .Character-Race-Class-Input {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 14px;
   text-align: center;
   font-weight: normal;
   margin: 0px 10px 10px 10px;
   width: 150px;
-  background-color: #222;
-  border-color: #ffd300;
+  background-color: whitesmoke;
+  border-width: 1.5px;
 }
 
 .Character-XP {
@@ -135,7 +139,7 @@ CSS Styles for Character Sheet Header
 }
 
 .Character-XP h2 {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 14px;
   text-align: center;
   font-weight: normal;
@@ -143,22 +147,14 @@ CSS Styles for Character Sheet Header
 }
 
 .Character-XP-Input {
-  color: whitesmoke;
+  color: rgb(48, 48, 48);
   font-size: 14px;
   text-align: center;
-  font-weight: normal;
+  font-weight: 500;
   margin: 0px 0px 10px 10px;
   width: 100px;
-  background-color: #222;
-  border-color: #ffd300;
-}
-
-.Spacer {
-  width: 375px;
-  /* flex: 1 1 auto;
-  @media screen and (max-width: 200px) {
-  display: none;
-  } */
+  background-color: rgb(223, 223, 223);
+  border-width: 1.5px;
 }
 
 .Character-Header-Edit-Button {
@@ -169,6 +165,7 @@ CSS Styles for Character Sheet Header
   color:azure;
   border-radius: 10px;
   border-width: 1.5px;
+  font-style: italic;
 }
 .mainHeaderButtonsBox {
   display: flex;
@@ -176,7 +173,7 @@ CSS Styles for Character Sheet Header
   height: 130px;
   width: 80px;
   color: white;
-  margin: 0px 0px 0px auto;
+  margin: 0px 10px 0px auto;
 }
 .mainSaveButton {
   height: 40px;

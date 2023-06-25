@@ -5,8 +5,6 @@ import { determineSkillCheckBonus } from "../helpers/determineSkillCheck";
 
 export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => {
 
-    //console.log("skillbs box", skillsBoxInfo);
-
     const [skillsIsEdit, setSkillsIsEdit] = useState(false);
 
     const [Acrobatics, setAcrobatics] = useState(abilityBoxInfo ? abilityBoxInfo.dex : 14);
@@ -63,18 +61,11 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
     const [Survival, setSurvival] = useState(abilityBoxInfo ? abilityBoxInfo.wis : 12);
     const [profInSurvival, setProfInSurvival] = useState(skillsBoxInfo ? skillsBoxInfo.Survival[1] : false);
 
-
     // const skillNamesArray = [
     //     ['Acrobatics', 'DEX'], ['Animal Handling', 'WIS'], ['Arcana','INT'], ['Athletics', 'STR'], ['Deception', 'CHA'], 
     //     ['History', 'INT'], ['Insight', 'WIS'], ['Intimidation', 'CHA'], ['Investigation', 'INT'], ['Medicine', 'WIS'], 
     //     ['Nature', 'INT'], ['Perception', 'WIS'], ['Performance', 'CHA'], ['Persuasion', 'CHA'], ['Religion', 'INT'], 
     //     ['Sleight of Hand', 'DEX'], ['Stealth', 'DEX'], ['Survival', 'WIS']];
-
-    // const proficientSkillsArray = skillNamesArray.map((skillName) => {
-    //     return(
-    //         {skill: skillName[0], ability: skillName[1], proficient: false, modifier: 0}
-    //     )
-    // });
 
     useEffect(() => {
         localStorage.setItem("skillsBoxInfo", JSON.stringify(

@@ -18,15 +18,20 @@ export function saveCharacterData() {
         healthBoxInfo: JSON.parse(localStorage.getItem("healthBoxInfo")),
         attacks: JSON.parse(localStorage.getItem("attacks")),
     }
-    console.log('no space name', (chracterData.characterInfo.name).split(' ').join(''));
     const downloadLink = document.createElement('a');
     const saveFile = new Blob([JSON.stringify(chracterData)], { type: 'text/plain'});
     downloadLink.href = URL.createObjectURL(saveFile);
     downloadLink.download = `${(chracterData.characterInfo.name).split(' ').join('')}_CharacterSheet.json`;
     downloadLink.click();
     URL.revokeObjectURL(downloadLink.href);
-    // return JSON.stringify(chracterData);
 };
+
+
+export const characterSheetJSONFields = [
+    "characterInfo", "inventoryHeaderInfo", "inventory", "notes",
+    "abilityBoxInfo", "skillsBoxInfo", "newSpellEffectChoice","spells",
+    "featsAndTraits","additionalInfoBoxInfo","profAndLangBoxInfo",
+    "characteristics","descriptions","savingThrowsBoxInfo","spellHeaderInfo", "healthBoxInfo","attacks"];
 
 export function loadCharacterData(saveData) {
     const readInFile = new FileReader();
@@ -46,7 +51,6 @@ export function loadCharacterData(saveData) {
         })
 
         if(loadError) {
-            console.log("successs");
             localStorage.setItem("characterInfo", JSON.stringify(loadedData.characterInfo));
             localStorage.setItem("inventoryHeaderInfo", JSON.stringify(loadedData.inventoryHeaderInfo));
             localStorage.setItem("inventory", JSON.stringify(loadedData.inventory));
@@ -64,16 +68,9 @@ export function loadCharacterData(saveData) {
             localStorage.setItem("spellHeaderInfo", JSON.stringify(loadedData.spellHeaderInfo));
             localStorage.setItem("healthBoxInfo", JSON.stringify(loadedData.healthBoxInfo));
             localStorage.setItem("attacks", JSON.stringify(loadedData.attacks));
-
             window.location.reload();
         } else {
             alert("Invalid File. Try Again.");
         }
     };
 };
-
-export const characterSheetJSONFields = [
-    "characterInfo", "inventoryHeaderInfo", "inventory", "notes",
-    "abilityBoxInfo", "skillsBoxInfo", "newSpellEffectChoice","spells",
-    "featsAndTraits","additionalInfoBoxInfo","profAndLangBoxInfo",
-    "characteristics","descriptions","savingThrowsBoxInfo","spellHeaderInfo", "healthBoxInfo","attacks"];

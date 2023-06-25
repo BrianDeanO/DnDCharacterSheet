@@ -21,7 +21,6 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
     }, [attackCardArray]);
 
     const AttackCard = ({attackCardArray, attackObj, index}) => {
-        console.log('attack card', attackCardArray);
         
         const [notes, setNotes] = useState(attackObj ? attackObj.notes : "");
         const damageBonus = attackObj.finesse ? 
@@ -29,10 +28,6 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
             determineModifier(abilityBoxInfo.str) : determineModifier(abilityBoxInfo.dex)) : 
         ((attackObj.longRange === -1) ? 
         determineModifier(abilityBoxInfo.str) :  determineModifier(abilityBoxInfo.dex));
-
-        // console.log("damage bons", damageBonus);
-        // console.log('str', determineModifier(abilityBoxInfo.str));
-        // console.log('dex', determineModifier(abilityBoxInfo.dex));
 
         useEffect(() => {
             setNotes(notes);
@@ -42,7 +37,6 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
         return (
             <div className="newLoneAttackBox" 
                     key={`${attackObj.name}_${index}`} 
-                //  id={`${attackObj.name}_${index}`}
                     id={`${index}`}
                     >
                     <div className="attackInfoUpperBox">
@@ -93,7 +87,6 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
                         </div>
                         </div>
 
-                    
                         <div 
                         className="DeleteAttackBox"
                         id={`${index}`}
@@ -121,17 +114,9 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
                     className="finalAttackNotesBox"
                     value={attackObj.notes}
                     id={`${index}`}
-                    // onFocus={()  => {
-                    //     setAttackCards(attackCardArray);
-                    // }}
                     onChange={(e) => {
-                        //setWeaponProficiencies(e.target.value.toString());
-                        console.log('id', e.target.id, 'notes', attackCardArray[e.target.id]);
-                        console.log('entered', e.target.value);
                         attackCardArray[e.target.id].notes = e.target.value.toString();
-                        //attackObj.notes = e.target.value.toString();
                         setNotes(attackObj.notes);
-                        //setAttackCards(attackCardArray);
                     }}
                     cols={1}
                     rows={4}></textarea>
@@ -165,13 +150,11 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
                                         document.getElementById('longRange')?.value : -1,
                                     notes: document.getElementById('NewAttackNotes')?.value,
                                 };
-                                //console.log('IN temp2', newAttack);
                                 attackCardArray.push(newAttack);
                                 setAttackCards(attackCardArray);
                                 setMakeNewAttack(false);
                             }
                         } else {
-                            // resetNewAttackInfo();
                             setMakeNewAttack(true);
                         }
                     }}> {makeNewAttack ? 'Add Attack' : 'Make New Attack'}</button>
@@ -183,18 +166,11 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
 
                 <div className="attackCardsMainBox">
                     {attackCardArray.map((attackObj, index) => {
-                        console.log('attackObj', attackObj);
-                        console.log('attackObj name', attackObj.name);
                         return (
                             <AttackCard 
                                 attackCardArray={attackCardArray}
                                 attackObj={attackObj} 
                                 index={index}/>
-                            // <TestBox2 attName={attackObj} index={index}/>
-                            // <div key={index} className="Test">
-                            //     {attackObj}
-                            // </div>
-                            
                         );
                     })}                
                 </div>

@@ -3,19 +3,6 @@ import React from "react";
 import { saveCharacterData, loadCharacterData } from "../helpers/handleCharacterSaveData";
 
 const CharacterInfo = ({character}) => {
-    let name = "Balto Butterdream";
-    // let characterRace = "Harengon";
-    // let characterClass = "Paladin";
-    // let characterLevel = 1;
-    // let characterXP = 0;
-
-    //console.log("character", character);
-
-    //const character = localStorage.getItem("characterInfo");
-    // let parseChar;
-    // if(character) {
-    //     parseChar = JSON.parse(character);
-    // }
 
     const [skillsIsEdit, setSkillsIsEdit] = useState<boolean>(false);
     const [characterName, setCharacterName] = useState<string>(character ? character.name : "Sir John Doe");
@@ -43,15 +30,16 @@ const CharacterInfo = ({character}) => {
     return (
         <div className="Header">
             <div className="Character-Info">
+
                 <svg className="Player-ImageSVG">
                     <circle className="Image-Circle" 
                             cx="50" 
                             cy="50" 
                             r="50" 
-                            fill="#222" 
-                            stroke="gold"
+                            fill="transparent"
+                            stroke="black"
                             strokeWidth={3}
-                            strokeOpacity={"50%"} 
+                            strokeOpacity={"100%"} 
                     /> 
                     <image className="Player-Image" href="HotMobbinLogo.png"  x="14px" y="6px"/>
                 </svg>
@@ -126,14 +114,9 @@ const CharacterInfo = ({character}) => {
                 </div>
             </div>
 
-            {/* <Spacer /> */}
-
             <div className="mainHeaderButtonsBox">
                 <button className="mainSaveButton"
-                    onClick={() => {
-                        const saveData = saveCharacterData();
-                        console.log('save data', saveData);
-                    }}>Save</button>
+                    onClick={() => {saveCharacterData();}}>Save</button>
                     <div className="loadLabel">
                         <label htmlFor="loadFile" className="loadInnerLabel">
                                 Load

@@ -15,8 +15,6 @@
     width: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
-    scrollbar-arrow-color: rgb(141, 226, 43);
-    scrollbar-gutter: red;
 }
 
 
@@ -78,7 +76,6 @@
 }
 #activeNotesButton {
     background-color: rgb(255, 203, 139);
-    text-decoration: underline;
 }
 
 
@@ -88,7 +85,7 @@
     flex-direction: row;
     width: 480px;
     height: 40px;
-    margin: 5px 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
     background-color: rgba(31, 95, 95, 0);
     color: rgb(22, 50, 73);
 }
@@ -99,11 +96,14 @@
 }
 .addOrganizationButton{
     margin: 7px 3px 0px 10px;
-    background-color: bisque;
+    background-color: rgb(35, 73, 73);
     width: 170px;
     height: 25px;
     text-align: center;
     border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    color:ghostwhite;
 }
 
 
@@ -126,11 +126,14 @@
 }
 .addAlliesButton{
     margin: 7px 3px 0px 10px;
-    background-color: bisque;
+    background-color: rgb(35, 73, 73);
     width: 170px;
     height: 25px;
     text-align: center;
     border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    color:ghostwhite;
 }
 
 
@@ -153,11 +156,14 @@
 }
 .addEnemiesButton{
     margin: 7px 3px 0px 10px;
-    background-color: bisque;
+    background-color: rgb(35, 73, 73);
     width: 170px;
     height: 25px;
     text-align: center;
     border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    color:ghostwhite;
 }
 
 
@@ -180,11 +186,14 @@
 }
 .addBackstoryButton{
     margin: 7px 3px 0px 10px;
-    background-color: bisque;
+    background-color: rgb(35, 73, 73);
     width: 170px;
     height: 25px;
     text-align: center;
     border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    color:ghostwhite;
 }
 
 
@@ -207,11 +216,14 @@
 }
 .addOtherButton {
     margin: 7px 3px 0px 10px;
-    background-color: bisque;
+    background-color: rgb(35, 73, 73);
     width: 170px;
     height: 25px;
     text-align: center;
     border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    color:ghostwhite;
 }
 #selectedNoTopBorder {
     margin: 0px 10px 0px 10px;
@@ -226,14 +238,14 @@
     height: 110px;
     width: 450px;
     margin: 10px 0px 0px 10px;
-    background-color: azure;
+    background-color: rgb(5, 109, 109);
+    border-radius: 5px;
 }
 .notesDetailsUpperBox {
     display: flex;
     flex-direction: row;
     height: 35px;
     width: 450px;
-    background-color: rgb(78, 100, 100);
 }
 
 
@@ -259,7 +271,7 @@
 }
 .notesCardTitleInput {
     height: 20px;
-    width: 195px;
+    width: 225px;
     font-size: 9.5pt;
 }
 
@@ -269,7 +281,6 @@
     flex-direction: row;
     height: 75px;
     width: 450px;
-    background-color: rgb(78, 100, 100);
     margin: 0px 0px 0px 0px;
 }
 .noteDetailsText {
@@ -281,7 +292,7 @@
 }
 .noteDetailsInputBox {
     height: 65px;
-    width: 360px;
+    width: 370px;
     font-size: 8pt;
 }
 
@@ -292,43 +303,55 @@
 .noTitleLoneNoteBox {
     display: flex;
     flex-direction: column;
-    height: 110px;
+    height: 115px;
     width: 450px;
     margin: 10px 0px 0px 10px;
-    background-color: azure;
+    background-color: rgb(5, 109, 109);
+    border-radius: 5px;
 }
 .noTitleDetailsBox {
     display: flex;
     flex-direction: row;
     height: 115px;
     width: 450px;
-    background-color: rgb(78, 100, 100);
-    margin: 0px 0px 0px 0px;
+    background-color: rgb(5, 109, 109);
+    margin: 2px 0px 0px 0px;
 }
 .noTitleNoteDetailsInputBox {
-    height: 110px;
+    height: 105px;
     width: 360px;
     font-size: 8pt;
 }
 
 /* No Title Final Notes Box */
-.noTitleNewLoneNotesBox {
+.noTitleShortNewLoneNotesBox {
     display: flex;
     flex-direction: column;
-    height: 95px;
+    height: 150px;
     width: 475px;
     margin: 5px 0px 10px 10px;
-    background-color: azure;
+}
+.noTitleLongNewLoneNotesBox {
+    display: flex;
+    flex-direction: column;
+    height: 560px;
+    width: 475px;
+    margin: -5px 0px 5px 10px;
+    background-color: rgb(5, 109, 109);
+}
+.noTitleFinalShortNoteDetailsBox {
+    height: 100px;
+    width: 475px;
+    font-size: 9pt;
 }
 .noTitleNoteDetailsLowerBox {
     display: flex;
     flex-direction: row;
     height: 95px;
     width: 475px;
-    background-color: rgb(114, 141, 111);
 }
-.noTitleFinalNoteDetailsBox {
-    height: 95px;
+.noTitleFinalLongNoteDetailsBox {
+    height: 565px;
     width: 475px;
     font-size: 9pt;
 }
@@ -339,13 +362,23 @@
 /* 
     CSS Styles for Final Notes Card 
 */
-.newLoneNotesBox {
+.newLoneShortWithTitleNotesBox {
     display: flex;
     flex-direction: column;
     height: 100px;
     width: 475px;
     margin: 5px 0px 0px 10px;
-    background-color: azure;
+    background-color: rgb(5, 109, 109);
+    border-radius: 5px;
+}
+.newLoneLongWithTitleNotesBox {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 475px;
+    margin: 5px 0px 10px 10px;
+    background-color: rgb(5, 109, 109);
+    border-radius: 5px;
 }
 .finalNotesTitleUpperBox {
     display: flex;
@@ -353,14 +386,7 @@
     height: 25px;
     width: 475px;
     background-color: rgb(5, 109, 109);
-}
-.longNewLoneNotesBox {
-    display: flex;
-    flex-direction: column;
-    height: 180px;
-    width: 475px;
-    margin: 5px 0px 5px 10px;
-    background-color: azure;
+    border-radius: 5px;
 }
 
 
@@ -382,12 +408,21 @@
 }
 
 /* Final Note Details Box */
-.noteDetailsLowerBox {
+.noteDetailsShortWithTitleLowerBox {
     display: flex;
     flex-direction: row;
     height: 75px;
     width: 475px;
     background-color: rgb(114, 141, 111);
+    border-radius: 5px;
+}
+.noteDetailsLongWithTitleLowerBox {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    width: 475px;
+    background-color: rgb(114, 141, 111);
+    border-radius: 5px;
 }
 .finalNoteDetailsInnerBox {
     display: flex;
@@ -395,6 +430,7 @@
     height: 50px;
     width: 90px;
     background-color: rgb(114, 141, 111);
+    border-radius: 5px;
     align-items: end;
 }
 .finalNoteDetailsText {
@@ -402,12 +438,22 @@
     color: aliceblue;
     font-weight: bold;
 }
-.finalNoteDetailsBox {
+.finalNoteShortWithTitleDetailsBox {
     height: 70px;
     width: 475px;
     font-size: 9pt;
 }
 .longFinalNoteDetailsBox {
+    height: 150px;
+    width: 475px;
+    font-size: 9pt;
+}
+.finalNoteLongWithTitleDetailsBox {
+    height: 225px;
+    width: 475px;
+    font-size: 9pt;
+}
+.longFinalNoteShortWithTitleDetailsBox {
     height: 150px;
     width: 475px;
     font-size: 9pt;

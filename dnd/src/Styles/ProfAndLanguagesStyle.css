@@ -1,9 +1,12 @@
 .ProfAndLangOuterBox {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 249px;
+    height: 500px;
+    border: 2px solid #222;
+    border-top-style: none;
+    border-bottom-style: none;
 }
-
 .ProfAndLangText {
     margin: 5px auto 0px auto;
     font-size: 17px;
@@ -11,7 +14,6 @@
     border-block-width: 1.5px;
     width: 200px;
     text-align: center;
-    color:ghostwhite;
 }
 
 .ProfAndLangBoxText {
@@ -19,7 +21,6 @@
     font-weight: bold;
     width: 200px;
     margin: 0px 0px 2px 0px;
-    color:ghostwhite;
 }
 
 .ArmorBox, .WeaponsBox, .ToolsBox, .LanguagesBox {
@@ -33,4 +34,5 @@ textarea {
     font-family: cursive;
     resize: none;
     height: 76px;
+    border-width: 1.5px;
 }

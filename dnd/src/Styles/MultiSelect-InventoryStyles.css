@@ -13,8 +13,6 @@
     width: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
-    scrollbar-arrow-color: rgb(141, 226, 43);
-    scrollbar-gutter: red;
 }
 .inventoryCardText {
     font-size: 12pt;
@@ -74,7 +72,6 @@
     width: 220px;
     margin: 0px 10px 0px 0px;
     text-align: center;
-    background-color: rgb(141, 140, 214);
 }
 .coinHeaderBox {
     display: flex;
@@ -90,6 +87,7 @@
     height: 20px;
     font-size: 13pt;
     margin: 0px 0px 0px 60px;
+    text-decoration: underline;
 }
 .coinEditButton {
     width: 45px;
@@ -100,6 +98,7 @@
     border-radius: 10px;
     border-width: 1.5px;
     font-size: 10pt;
+    font-style: italic;
 }
 .allCoinHolderBox {
     display: flex;
@@ -109,7 +108,6 @@
     margin: 5px 0px 0px 0px;
     text-align: center;
     align-items:center;
-    background-color: rgba(67, 214, 124, 0.849);
 }
 .coinLeftBox {
     display: flex;
@@ -171,7 +169,7 @@
     padding-bottom: 2px;
     height: 15px;
     margin: 0px 0px 0px 2px;
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(223, 223, 223);
     border-color: #222;
     align-items: center;
 }
@@ -199,7 +197,7 @@
     padding-bottom: 2px;
     height: 15px;
     margin: 0px 0px 0px 2px;
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(223, 223, 223);
     border-color: #222;
     align-items: center;
 }
@@ -227,7 +225,7 @@
     padding-bottom: 2px;
     height: 15px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(218, 218, 218);
+  background-color: rgb(223, 223, 223);
     border-color: #222;
     align-items: center;
 }
@@ -255,7 +253,7 @@
     padding-bottom: 2px;
     height: 15px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(223, 223, 223);
     border-color: #222;
     align-items: center;
 }
@@ -269,14 +267,19 @@ button:hover {
     width: 130px;
     margin: 0px 5px 0px 10px;
     text-align: center;
-    background-color: aqua;
     font-size: 11pt;
 }
-.totalWeightText {
+.totalWeightTopText {
     height: 40px;
     margin: 0px 0px 0px 0px;
     text-align: center;
-    background-color: aqua;
+    font-size: 11pt;
+    color:rgb(0, 0, 0);
+}
+.totalWeightBottomText {
+    height: 40px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
     font-size: 11pt;
 }
 
@@ -287,23 +290,26 @@ button:hover {
     flex-direction: column;
     height: 110px;
     width: 475px;
+    background-color: rgb(5, 109, 109);
     margin: 30px 0px 0px 10px;
-    background-color: azure;
+    border-radius: 5px;
 }
 .newItemInfoUpperBox {
     display: flex;
     flex-direction: row;
     height: 80px;
     width: 475px;
-    background-color: rgb(5, 109, 109);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .newItemNotesLowerBox {
     display: flex;
     flex-direction: row;
     height: 50px;
     width: 475px;
-    background-color: rgb(114, 141, 111);
     margin: 0px 0px 0px 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -314,7 +320,6 @@ button:hover {
     height: 50px;
     width: 100px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     align-items: center;
 }
@@ -324,7 +329,6 @@ button:hover {
     height: 20px;
     width: 130px;
     margin: 5px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -349,7 +353,6 @@ button:hover {
     width: 100px;
     margin: 1px 10px 0px 10px;
     text-align: center;
-    background-color: rgb(141, 140, 214);
 }
 .itemTypeSelectorText, .spellLevelSelectorText {
     font-weight: bold;
@@ -428,7 +431,7 @@ button:hover {
     text-align: center;
     font-size: 11pt;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
+    background-color: rgb(223, 223, 223);
     text-align: center;
 }
 .castingTimeText{
@@ -446,7 +449,6 @@ button:hover {
     width: 85px;
     margin: -1px 10px 0px 0px;
     text-align: center;
-    background-color: rgb(146, 146, 153);
 }
 .itemRaritySelectorText {
     font-weight: bold;
@@ -492,7 +494,7 @@ button:hover {
     text-align: left;
     font-size: 10pt;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
+    background-color: rgb(223, 223, 223);
 }
 .itemWeightPoundText {
     font-size: 11pt;
@@ -525,7 +527,7 @@ button:hover {
     text-align: left;
     font-size: 10pt;
     color:rgb(0, 0, 0);
-    background-color: #ffd300;
+    background-color: rgb(223, 223, 223);
 }
 .itemQtyText{
     color: rgb(0, 0, 0);
@@ -547,15 +549,15 @@ button:hover {
     flex-direction: column;
     height: 100px;
     width: 450px;
-    margin: 10px 0px 0px 10px;
-    background-color: azure;
+    background-color: rgb(5, 109, 109);
+    margin: 5px 0px 0px 10px;
+    border-radius: 5px;
 }
 .itemInfoUpperBox {
     display: flex;
     flex-direction: row;
     height: 80px;
     width: 450px;
-    background-color: rgb(5, 109, 109);
 }
 .itemFinalLevelHeader {
     height: 25px;
@@ -603,7 +605,6 @@ button:hover {
     height: 50px;
     width: 40px;
     margin: 0px 15px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -615,7 +616,6 @@ button:hover {
     height: 20px;
     width: 35px;
     margin: 0px 0px 0px 10px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: light;
@@ -629,7 +629,6 @@ button:hover {
     height: 50px;
     width: 40px;
     margin: 0px 5px 0px 8px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -641,7 +640,6 @@ button:hover {
     height: 20px;
     width: 35px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: light;
@@ -653,7 +651,6 @@ button:hover {
     height: 20px;
     width: 35px;
     margin: 0px 0px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: light;
@@ -667,7 +664,6 @@ button:hover {
     height: 50px;
     width: 60px;
     margin: 0px 15px 0px 8px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -679,7 +675,6 @@ button:hover {
     height: 20px;
     width: 60px;
     margin: 0px 15px 0px 5px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -691,7 +686,6 @@ button:hover {
     height: 20px;
     width: 60px;
     margin: 0px 0px 0px 17px;
-    background-color: rgb(5, 109, 109);
     color:aliceblue;
     font-size: 11pt;
     font-weight: bold;
@@ -727,45 +721,4 @@ button:hover {
 }
 .DeleteItemBox:hover {
     cursor: pointer;
-}
-
-
-/* Final Spells Note Box */
-.spellNotesLowerBox {
-    display: flex;
-    flex-direction: row;
-    height: 50px;
-    width: 450px;
-    background-color: rgb(114, 141, 111);
-    margin: 0px 0px 0px 0px;
-}
-.spellNotesInnerBox {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    width: 90px;
-    background-color: rgb(114, 141, 111);
-    align-items: end;
-}
-.spellNotesText {
-    margin: 2.5px 5px 0px 5px;
-    color: aliceblue;
-    font-weight: bold;
-}
-.spellNotesInputBox {
-    height: 40px;
-    width: 290px;
-}
-.finalSpellNotesBox {
-    height: 40px;
-    width: 340px;
-}
-.SpellBoxSaveButton {
-    height: 20px;
-    width: 80px;
-    margin: 2px 5px 0px 5px;
-    background-color: rgb(112, 112, 148);
-    color:azure;
-    border-radius: 10px;
-    border-width: 1.5px;
 }

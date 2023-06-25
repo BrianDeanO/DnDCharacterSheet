@@ -120,12 +120,6 @@ export const SavingThrowsBox = ({abilityBoxInfo, savingThrowsBoxInfo, proficienc
                             <span className="SaveNameText"> Constituion </span>
                         </div>
                     </div>
-                    {/* IF HERE do -      margin: 70px 10px 0px -35px; */}
-                    {/* <button 
-                    className="SaveThrowsEditButton"
-                    onClick={(e) => {
-                        setThrowsIsEdit(!throwsIsEdit);
-                        }}>{throwsIsEdit ? 'save' : 'edit'}</button> */}
                     <div className="SavingThrowsSecondColumn">
                         <div className="LoneSavesBox">
                             <div className="LoneSavesBoxInnerTop">

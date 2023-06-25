@@ -7,11 +7,7 @@ export const FeatsAndTraitsSelectionBox = () => {
     const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
     const featsAndTraits = JSON.parse(localStorage.getItem("featsAndTraits"));
 
-    console.log('pass in traits', featsAndTraits);
-
     const [featAndTraitCards, setFeatAndTraitCards] = useState(featsAndTraits ? featsAndTraits.featAndTraitArray : []);
-    const [makeNewEntry, setMakeNewEntry] = useState(false);
-    const [itemIsEdit, setItemIsEdit] = useState(-1);
     const [isEdit, setIsEdit] = useState(false);
     const entryDetailsRef = useRef(null);
     
@@ -25,25 +21,11 @@ export const FeatsAndTraitsSelectionBox = () => {
     const raceTraitIndex = 1;
     const baseFeatIndex = 2;
 
-    console.log('after cards', featAndTraitCards);
-
     const featAndTraitArray = useMemo(() => fillTraitAndFeatArray(featAndTraitCards), [featAndTraitCards]);
-
-    console.log('feat array', featAndTraitArray);
 
     useEffect(() => {
         localStorage.setItem("featsAndTraits", JSON.stringify({featAndTraitArray}));
     }, [featAndTraitArray]);
-
-
-    // WORK ON EXPANDING TEXTAREA
-    function increaseDetailsBox(id) {
-        console.log('doc 1', document.getElementById(id).scrollHeight);
-        console.log('height', document.getElementById(id).style.height);
-        console.log('current target', entryDetailsRef.target);
-        document.getElementById(id).style.height = 'auto';
-        document.getElementById(id).style.height = document.getElementById(id).scrollHeight + 'px';
-    }
 
     const FeatAndTraitCard = ({featAndTraitArray, featTraitCard, index}) => {
         const [details, setDetails] = useState(featTraitCard ? featTraitCard.entryDetails : "");
@@ -52,9 +34,6 @@ export const FeatsAndTraitsSelectionBox = () => {
             setDetails(details);
             localStorage.setItem("featsAndTraits", JSON.stringify({featAndTraitArray}));
         }, [details, featAndTraitArray]);
-
-        // const test = "The Armor Of Agathist - Fire";
-        // console.log('test', test.length);
     
         return (
             <div className="newLoneEntryBox" 
@@ -88,7 +67,7 @@ export const FeatsAndTraitsSelectionBox = () => {
                             setEntryCardBeingEdited(`${featTraitCard.entryCategoryIndex}_${index}`) : setEntryCardBeingEdited('NO');
                             setIsEdit(!isEdit);
                             }}>
-                                {(isEdit && (entryCardBeingEdited === `${featTraitCard.entryCategoryIndex}_${index}`)) ? 'save notes' : 'edit notes'}
+                                {(isEdit && (entryCardBeingEdited === `${featTraitCard.entryCategoryIndex}_${index}`)) ? 'save' : 'edit'}
                         </button> 
                     </div>
 
@@ -100,8 +79,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                     onChange={(e) => {
                         featAndTraitArray[featTraitCard.entryCategoryIndex][index].entryDetails = e.target.value.toString();
                         setDetails(featTraitCard.entryDetails);
-                       // console.log('doc', document.getElementById(`${featTraitCard.entryCategoryIndex}_${index}_Details`));
-                        increaseDetailsBox(`${featTraitCard.entryCategoryIndex}_${index}_Details`);
                     }}
                     cols={1}
                     rows={4}></textarea>
@@ -111,7 +88,6 @@ export const FeatsAndTraitsSelectionBox = () => {
     }
 
     const MultiFeatsAndTraitsBox = () => {
-        // console.log('mult select', multiBoxSelection);
         switch(featAndTraitBoxSelection) {
             case 'CLASS_FEATS':
                 return (<ClassFeatsSubBox />)
@@ -146,7 +122,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                                 if( (document.getElementById('NewEntryTitle')?.value !== '') &&
                                     (document.getElementById('NewEntrySourceBook')?.value !== '') &&
                                     (document.getElementById('NewEntryDetails')?.value !== '')){
-                                
                                         const newEntry = {
                                             entryTitle: document.getElementById('NewEntryTitle')?.value,
                                             entrySourceBook: document.getElementById('NewEntrySourceBook')?.value,
@@ -154,7 +129,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                                             entryDetails: document.getElementById('NewEntryDetails')?.value,
                                             entryCategoryIndex: classFeatureIndex,
                                         };
-                                        console.log('new enrt', newEntry);
                                         featAndTraitArray[classFeatureIndex].push(newEntry);
                                         setIsAddClassFeature(false);
                                     }  
@@ -171,8 +145,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                 {isAddClassFeature ? <MakeFeatAndTraitCard typeOfEntry={'classFeature'}/> : null}
 
                 {featAndTraitArray[classFeatureIndex].map((featTraitCard, index) => {
-                    console.log('spell array', featAndTraitArray[classFeatureIndex]);
-                    console.log('spellObj', featTraitCard);
                     return (
                         <Fragment>
                             {(featTraitCard) ? 
@@ -203,7 +175,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                                 if( (document.getElementById('NewEntryTitle')?.value !== '') &&
                                 (document.getElementById('NewEntrySourceBook')?.value !== '') &&
                                 (document.getElementById('NewEntryDetails')?.value !== '')){
-
                                     const newEntry = {
                                         entryTitle: document.getElementById('NewEntryTitle')?.value,
                                         entrySourceBook: document.getElementById('NewEntrySourceBook')?.value,
@@ -211,7 +182,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                                         entryDetails: document.getElementById('NewEntryDetails')?.value,
                                         entryCategoryIndex: raceTraitIndex,
                                     };
-                                    console.log('new enrt', newEntry);
                                     featAndTraitArray[raceTraitIndex].push(newEntry);
                                     setIsAddClassFeature(false);
                                 }  
@@ -229,8 +199,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                 {isAddRaceTrait ? <MakeFeatAndTraitCard typeOfEntry={'racialTrait'}/> : null}
 
                 {featAndTraitArray[raceTraitIndex].map((featTraitCard, index) => {
-                    console.log('spell array', featAndTraitArray[classFeatureIndex]);
-                    console.log('spellObj', featTraitCard);
                     return (
                         <Fragment>
                             {(featTraitCard) ? 
@@ -257,7 +225,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                                 if( (document.getElementById('NewEntryTitle')?.value !== '') &&
                                 (document.getElementById('NewEntrySourceBook')?.value !== '') &&
                                 (document.getElementById('NewEntryDetails')?.value !== '')){
-
                                     const newEntry = {
                                         entryTitle: document.getElementById('NewEntryTitle')?.value,
                                         entrySourceBook: document.getElementById('NewEntrySourceBook')?.value,
@@ -265,7 +232,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                                         entryDetails: document.getElementById('NewEntryDetails')?.value,
                                         entryCategoryIndex: baseFeatIndex,
                                     };
-                                    console.log('new enrt', newEntry);
                                     featAndTraitArray[baseFeatIndex].push(newEntry);
                                     setIsAddBaseFeat(false);
                                 }  
@@ -282,8 +248,6 @@ export const FeatsAndTraitsSelectionBox = () => {
                 {isAddBaseFeat ? <MakeFeatAndTraitCard typeOfEntry={'baseFeat'}/> : null}
 
                 {featAndTraitArray[baseFeatIndex].map((featTraitCard, index) => {
-                    console.log('spell array', featAndTraitArray[classFeatureIndex]);
-                    console.log('spellObj', featTraitCard);
                     return (
                         <Fragment>
                             {(featTraitCard) ? 
@@ -301,8 +265,6 @@ export const FeatsAndTraitsSelectionBox = () => {
         <Fragment>
             <div className="FeatsAndTraits-MultiSelectBox">
                 <div className="featsAndTraitsHeader"> 
-                    {/* <div className="inventoryHeaderText">Class - {characterInfo.cls}</div>
-                    <div className="inventoryHeaderText">Race - {characterInfo.race}</div> */}
                     <button
                         className="AllButton"
                         id={featAndTraitBoxSelection === 'ALL' ? 'activeFeatsAndTraitsButton' : 'notActiveFeatsAndTraitsButton'}

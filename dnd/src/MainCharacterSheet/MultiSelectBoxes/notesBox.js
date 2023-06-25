@@ -4,14 +4,9 @@ import { fillNotesArray } from "../../helpers/fillCardArrays";
 import MakeNotesCard from "../../multiSelectCardMakers/makeNotesCard";
 
 export const NotesSelectionBox = () => {
-    const characterInfo = JSON.parse(localStorage.getItem("characterInfo"));
     const notes = JSON.parse(localStorage.getItem("notes"));
 
-    console.log('pass in notes', notes);
-
     const [noteCards, setNoteCards] = useState(notes ? notes.noteCardArray : []);
-    const [makeNewEntry, setMakeNewEntry] = useState(false);
-    const [itemIsEdit, setItemIsEdit] = useState(-1);
     const [isEdit, setIsEdit] = useState(false);
     
     const [entryCardBeingEdited, setEntryCardBeingEdited] = useState('NO');
@@ -30,24 +25,14 @@ export const NotesSelectionBox = () => {
     const otherIndex = 4;
     const singleEntryIndex = 0;
 
-    console.log('after - notecards', noteCards);
-
     const noteCardArray = useMemo(() => fillNotesArray(noteCards), [noteCards]);
 
-    console.log('after function note array', noteCardArray);
-
     useEffect(() => {
-        console.log('saving notes array', noteCardArray);
         localStorage.setItem("notes", JSON.stringify({noteCardArray}));
     }, [noteCardArray]);
 
     const NoteCard = ({noteCardArray, noteCard, index}) => {
-        if((noteCard.noteCategoryIndex === alliesIndex)) {
-            console.log('ALLIES NOTE card array', noteCardArray);
-            console.log('NTOE carddddd', noteCardArray[noteCard.noteCategoryIndex]);
-            console.log('index', index);
-        }
-        
+  
         const [details, setDetails] = useState(noteCard ? noteCard.noteDetails : "");
 
         useEffect(() => {
@@ -55,13 +40,27 @@ export const NotesSelectionBox = () => {
             localStorage.setItem("notes", JSON.stringify({noteCardArray}));
         }, [details, noteCardArray]);
 
-        console.log('org NOTE CARD', noteCard);
-        return (
-            <div className={((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) ? "noTitleNewLoneNotesBox" : 
-                    ((noteBoxSelection === 'ALL') ? "newLoneNotesBox" : "longNewLoneNotesBox")}
-                key={`${noteCard.noteCategoryIndex}_${index}`}
-                >
-                {((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) ? null : 
+        if((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) {
+            return (
+                <div className={(noteBoxSelection === 'ALL') ? "noTitleShortNewLoneNotesBox" : "noTitleLongNewLoneNotesBox"} 
+                    key={`${noteCard.noteCategoryIndex}_${index}`}>                    
+                    <textarea
+                        className={(noteBoxSelection === 'ALL') ? "finalNoteDetailsBox" : "noTitleFinalLongNoteDetailsBox"} 
+                        value={noteCard.noteDetails}
+                        onChange={(e) => {
+                            noteCardArray[noteCard.noteCategoryIndex][index].noteDetails = e.target.value.toString();
+                            setDetails(noteCard.noteDetails);
+                        }}
+                        cols={1}
+                        rows={4}></textarea>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div className={(noteBoxSelection === 'ALL') ? "newLoneShortWithTitleNotesBox" : "newLoneLongWithTitleNotesBox"}
+                    key={`${noteCard.noteCategoryIndex}_${index}`}
+                    >
                     <div className="finalNotesTitleUpperBox">
                         <div className="finalNotesTitleBox">
                             <span className="finalNotesTitleText">
@@ -76,29 +75,24 @@ export const NotesSelectionBox = () => {
                             setNoteCards(noteCardArray);
                         }}>X</div>
                     </div>
-                }
-                <div className={((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) ? "noTitleNoteDetailsLowerBox" : "noteDetailsLowerBox"}>
-                    <textarea
-                    className={((noteCard.noteCategoryIndex === backstoryIndex) || (noteCard.noteCategoryIndex === otherIndex)) ? "noTitleFinalNoteDetailsBox" : 
-                        ((noteBoxSelection === 'ALL') ? "finalNoteDetailsBox" : "longFinalNoteDetailsBox")}
-                    value={noteCard.noteDetails}
-                    // id={`${noteCard.noteCategoryIndex}_${index}`}
-                    id={(((noteCard.noteCategoryIndex === backstoryIndex) && (noteBoxSelection === 'BACKSTORY')) || 
-                        ((noteCard.noteCategoryIndex === otherIndex) && (noteBoxSelection === 'OTHER'))) ? 'extendedDetailsBox' : null}
-                    onChange={(e) => {
-                        noteCardArray[noteCard.noteCategoryIndex][index].noteDetails = e.target.value.toString();
-                        setDetails(noteCard.noteDetails);
-                    }}
-                    cols={1}
-                    rows={4}></textarea>
+                    <div 
+                    className={(noteBoxSelection === 'ALL') ? "noteDetailsShortWithTitleLowerBox" : "noteDetailsLongWithTitleLowerBox"}>
+                        <textarea
+                        className={(noteBoxSelection === 'ALL') ? "finalNoteShortWithTitleDetailsBox" : "finalNoteLongWithTitleDetailsBox"}
+                        value={noteCard.noteDetails}
+                        onChange={(e) => {
+                            noteCardArray[noteCard.noteCategoryIndex][index].noteDetails = e.target.value.toString();
+                            setDetails(noteCard.noteDetails);
+                        }}
+                        cols={1}
+                        rows={4}></textarea>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 
     const OrgsSubBox = () => {
-        console.log("orgs sub box", noteCardArray[orgsIndex]);
-
         return(
             <Fragment>
                 <div className="OrganizationsSubBoxHeader" id={noteBoxSelection === 'ORGANIZATIONS' ? "selectedNoTopBorder" : null}>
@@ -112,15 +106,12 @@ export const NotesSelectionBox = () => {
                             if(isAddOrg) {
                                 if( (document.getElementById('NewNotesTitle')?.value !== '') &&
                                     (document.getElementById('NewNotesDetails')?.value !== '')){
-                                        
                                         const newNotes = {
                                             notesTitle: document.getElementById('NewNotesTitle')?.value,
                                             noteDetails: document.getElementById('NewNotesDetails')?.value,
                                             noteCategoryIndex: orgsIndex,
                                         };
-                                        console.log('org index new neotes', newNotes);
                                         noteCardArray[orgsIndex].push(newNotes);
-                                        console.log('notes after push', noteCardArray);
                                         setIsAddOrg(false);
                                     }  
                             } else {
@@ -146,21 +137,8 @@ export const NotesSelectionBox = () => {
                         </button>}
                 </div>
 
-                {isAddOrg ? <MakeNotesCard typeOfEntry={'Org'}/> : null}
-                {/* 
-                {noteCardArray[orgsIndex].map((notesCard, index) => {
-                    console.log('or notes array', noteCardArray[orgsIndex]);
-                    console.log('org notesObj', notesCard);
-                    return (
-                        <Fragment>
-                            {(notesCard) ? 
-                                <NoteCard 
-                                    noteCardArray={noteCardArray}
-                                    noteCard={notesCard} 
-                                    index={index}/> : null}
-                        </Fragment>
-                    )
-                })} */}
+                {isAddOrg ? <MakeNotesCard typeOfEntry={'Organization'}/> : null}
+
                 {(noteCardArray[orgsIndex][singleEntryIndex]) ? 
                     <NoteCard 
                         noteCardArray={noteCardArray}
@@ -182,13 +160,11 @@ export const NotesSelectionBox = () => {
                             if(isAddAllies) {
                                 if( (document.getElementById('NewNotesTitle')?.value !== '') &&
                                     (document.getElementById('NewNotesDetails')?.value !== '')){
-
                                     const newNotes = {
                                         notesTitle: document.getElementById('NewNotesTitle')?.value,
                                         noteDetails: document.getElementById('NewNotesDetails')?.value,
                                         noteCategoryIndex: alliesIndex,
                                     };
-                                    console.log('new enrt', newNotes);
                                     noteCardArray[alliesIndex].push(newNotes);
                                     setIsAddAllies(false);
                                 }  
@@ -207,8 +183,6 @@ export const NotesSelectionBox = () => {
                 {isAddAllies ? <MakeNotesCard typeOfEntry={'Allies'}/> : null}
 
                 {noteCardArray[alliesIndex].map((notesCard, index) => {
-                    console.log('note array', noteCardArray[alliesIndex]);
-                    console.log('notesCard', notesCard);
                     return (
                         <Fragment>
                             {(notesCard) ? 
@@ -241,7 +215,6 @@ export const NotesSelectionBox = () => {
                                         noteDetails: document.getElementById('NewNotesDetails')?.value,
                                         noteCategoryIndex: enemiesIndex,
                                     };
-                                    console.log('new enrt', newNotes);
                                     noteCardArray[enemiesIndex].push(newNotes);
                                     setIsAddEnemies(false);
                                 }  
@@ -260,8 +233,6 @@ export const NotesSelectionBox = () => {
                 {isAddEnemies ? <MakeNotesCard typeOfEntry={'Enemies'}/> : null}
 
                 {noteCardArray[enemiesIndex].map((notesCard, index) => {
-                    console.log('spell array', noteCardArray[enemiesIndex]);
-                    console.log('spellObj', notesCard);
                     return (
                         <Fragment>
                             {(notesCard) ? 
@@ -288,12 +259,10 @@ export const NotesSelectionBox = () => {
                         onClick={() => {
                             if(isAddBackstory) {
                                 if((document.getElementById('NewNotesTitle')?.value !== '')){
-                                
                                         const newNotes = {
                                             noteDetails: document.getElementById('NewNotesDetails')?.value,
                                             noteCategoryIndex: backstoryIndex,
                                         };
-                                        console.log('new enrt', newNotes);
                                         noteCardArray[backstoryIndex].push(newNotes);
                                         setIsAddBackstory(false);
                                     }  
@@ -321,19 +290,6 @@ export const NotesSelectionBox = () => {
 
                 {isAddBackstory ? <MakeNotesCard typeOfEntry={'Backstory'}/> : null}
 
-                {/* {noteCardArray[backstoryIndex].map((notesCard, index) => {
-                    console.log('spell array', noteCardArray[backstoryIndex]);
-                    console.log('spellObj', notesCard);
-                    return (
-                        <Fragment>
-                            {(notesCard) ? 
-                                <NoteCard 
-                                    noteCardArray={noteCardArray}
-                                    noteCard={notesCard} 
-                                    index={index}/> : null}
-                        </Fragment>
-                    )
-                })} */}
                 {(noteCardArray[backstoryIndex][singleEntryIndex]) ? 
                     <NoteCard 
                         noteCardArray={noteCardArray}
@@ -360,7 +316,6 @@ export const NotesSelectionBox = () => {
                                             noteDetails: document.getElementById('NewNotesDetails')?.value,
                                             noteCategoryIndex: otherIndex,
                                         };
-                                        console.log('new enrt', newNotes);
                                         noteCardArray[otherIndex].push(newNotes);
                                         setIsAddOther(false);
                                     }  
@@ -389,19 +344,6 @@ export const NotesSelectionBox = () => {
 
                 {isAddOther ? <MakeNotesCard typeOfEntry={'Other'}/> : null}
 
-                {/* {noteCardArray[otherIndex].map((notesCard, index) => {
-                    console.log('spell array', noteCardArray[otherIndex]);
-                    console.log('spellObj', notesCard);
-                    return (
-                        <Fragment>
-                            {(notesCard) ? 
-                                <NoteCard 
-                                    noteCardArray={noteCardArray}
-                                    noteCard={notesCard} 
-                                    index={index}/> : null}
-                        </Fragment>
-                    )
-                })} */}
                 {(noteCardArray[otherIndex][singleEntryIndex]) ? 
                     <NoteCard 
                         noteCardArray={noteCardArray}

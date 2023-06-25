@@ -3,8 +3,6 @@
     flex-direction: row;
     height: 88px;
     width: 600px;
-    background-color: blueviolet;
-    background-color: transparent;
     margin: 5px auto 0px auto;
 }
 
@@ -13,8 +11,10 @@
     flex-direction: column;
     height: 70px;
     width: 100px;
-    background-color: coral;
     margin: auto;
+    border: 1.5px solid #222;
+    border-radius: 10px;
+    background-color: moccasin;
 }
 
 #ProfTextTop {
@@ -22,9 +22,9 @@
 }
 
 .ProfTextValue {
-    margin: -2px auto 0px auto;
-    border-style: dotted;
-    border-width: 3px;
+    margin: -2px auto 1px auto;
+    border-style:dotted;
+    border-width: 1.5px;
     width: 30px;
     text-align: center;
     font-weight: bold;
@@ -42,7 +42,7 @@
     width: 45px;
     padding-bottom: 2px;
     height: 20px;
-    margin: 3px auto 2.5px auto;
+    margin: 3px auto 0px auto;
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
     border-color: #222;
@@ -54,10 +54,11 @@
     flex-direction: column;
     height: 70px;
     width: 70px;
-    background-color: rgb(144, 152, 230);
     margin: auto;
+    border: 1.5px solid #222;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
+    background-color: moccasin;
 }
 
 #ArmorTextTop {
@@ -98,6 +99,7 @@
     color:azure;
     border-radius: 10px;
     border-width: 1.5px;
+    font-style: italic;
 }
 
 button:hover {
@@ -109,14 +111,15 @@ button:hover {
     flex-direction: column;
     height: 70px;
     width: 70px;
-    background-color: rgb(238, 140, 209);
+    border: 1.5px solid #222;
     margin: auto;
+    background-color: moccasin;
 }
 
 .SpeedTextValue {
     margin: 5px auto 0px auto;
     border-style: solid;
-    border-width: 3px;
+    border-width: 1.5px;
     border-radius: 20px;
     width: 45px;
     height: 30px;
@@ -136,7 +139,7 @@ button:hover {
     width: 45px;
     padding-bottom: 2px;
     height: 30px;
-    margin: 5px auto 0px auto;
+    margin: 5px auto -3px auto;
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
     border-color: #222;
@@ -148,7 +151,8 @@ button:hover {
     flex-direction: column;
     height: 70px;
     width: 120px;
-    background-color: rgb(252, 255, 80);
+    border: 1.5px solid #222;
+    background-color: moccasin;
     margin: auto;
 }
 
