@@ -95,7 +95,7 @@ export const InventorySelectionBox = () => {
                     className="DeleteItemBox"
                     id={`${index}`}
                     onClick={(e) => {
-                        setTotalWeight(totalWeight - parseInt(inventoryItemArray[e.target.id].itemWeight));
+                        setTotalWeight(totalWeight - parseFloat(inventoryItemArray[e.target.id].itemWeight));
                         inventoryItemArray.splice(e.target.id, 1);
                         setInventoryCards(inventoryItemArray);
                     }}>X</div>
@@ -156,7 +156,7 @@ export const InventorySelectionBox = () => {
                                         itemQty: document.getElementById('itemQty')?.value,
                                         notes: document.getElementById('newItemNotes')?.value,
                                     };
-                                    setTotalWeight(parseInt(totalWeight + parseInt(document.getElementById('itemWeight')?.value)));
+                                    setTotalWeight(parseFloat(totalWeight + parseFloat(document.getElementById('itemWeight')?.value)));
                                     inventoryItemArray.push(newItem);
                                     setInventoryCards(inventoryItemArray);
                                     setMakeNewItem(false);

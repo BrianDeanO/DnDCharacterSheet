@@ -6,13 +6,17 @@
   },
   "devDependencies": {
     "@webpack-cli/generators": "^3.0.4",
+    "gh-pages": "^5.0.0",
     "webpack-cli": "^5.1.1"
   },
+  "name": "dnd-character-sheet",
   "version": "1.0.0",
-  "description": "My webpack project",
-  "name": "my-webpack-project",
+  "homepage": "https://BrianDeanO.github.io/DnDCharacterSheet",
   "scripts": {
-    "build": "webpack --mode=production --node-env=production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
