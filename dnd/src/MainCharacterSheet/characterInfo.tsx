@@ -31,7 +31,7 @@ const CharacterInfo = ({character}) => {
         <div className="Header">
             <div className="Character-Info">
 
-                <svg className="Player-ImageSVG">
+                {/* <svg className="Player-ImageSVG">
                     <circle className="Image-Circle" 
                             cx="50" 
                             cy="50" 
@@ -42,7 +42,17 @@ const CharacterInfo = ({character}) => {
                             strokeOpacity={"100%"} 
                     /> 
                     <image className="Player-Image" href="HotMobbinLogo.png"  x="14px" y="6px"/>
-                </svg>
+                </svg> */}
+
+                
+                {/* <div className="ImageCircle">
+                    TEST
+                    <img 
+                        className="Player-Image"
+                        src="./HotMobbinLogo.png"
+                        alt="logo"
+                    />
+                </div> */}
             
                 <div className="Character-Info-Box">     
                     <div className="Character-Name-Lvl">
@@ -119,8 +129,8 @@ const CharacterInfo = ({character}) => {
                     onClick={() => {saveCharacterData();}}>Save</button>
                     <div className="loadLabel">
                         <label htmlFor="loadFile" className="loadInnerLabel">
-                                Load
-                            </label>
+                            Load
+                        </label>
                         <input 
                             type="file"
                             name="load"

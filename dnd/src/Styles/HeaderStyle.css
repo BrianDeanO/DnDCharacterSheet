@@ -47,6 +47,14 @@ CSS Styles for Character Sheet Header
   background-color: var(--sheetBackground);
 }
 
+.ImageCircle {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border-style: solid;
+  overflow: hidden;
+}
+
 .Character-Info-Box {
   display: flex;
   flex-direction: column;

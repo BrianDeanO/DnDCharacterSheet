@@ -11,6 +11,11 @@ export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBo
     const [profBonus, setProfiencyBonus] = useState(proficiencyBonus ? proficiencyBonus : 2);
     const [armorClass, setArmorClass] = useState(additionalInfoBoxInfo ? additionalInfoBoxInfo.armorClass : 10);
     const [speed, setSpeed] = useState(additionalInfoBoxInfo ? additionalInfoBoxInfo.speed : 30);    
+
+    let passivePerceptionValue = 10 + parseInt(determineModifier(parseInt(passivePerception[0])));
+    if(passivePerception[1]) {
+        passivePerceptionValue += parseInt(profBonus);
+    }
     
     function updateAdditionalBoxInfo(proficiency, armor, speed) {
         setProfiencyBonus(proficiency);
@@ -75,7 +80,7 @@ export const AdditionalCharacterInfoBox = ({additionalInfoBoxInfo, proficiencyBo
             </div>
             <div className="PassiveWisdomBox">
                 <div className="PassiveTextValue"> 
-                    {passivePerception[0]}
+                    {passivePerceptionValue}
                 </div>
                 <span id="PassiveTextMiddle"> Passive Wisdom </span>
                 <span id="PassiveTextBottom"> (Perception) </span>

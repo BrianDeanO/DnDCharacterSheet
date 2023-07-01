@@ -103,8 +103,11 @@ export const SkillsBox = ({abilityBoxInfo, skillsBoxInfo, proficiencyBonus}) => 
                 <button 
                     className="SkillsEditButton"
                     onClick={(e) => {
+                        if(skillsIsEdit) { 
+                            window.location.reload();
+                        }
                         setSkillsIsEdit(!skillsIsEdit);
-                        }}>{skillsIsEdit ? 'save' : 'edit'}</button>
+                    }}>{skillsIsEdit ? 'save' : 'edit'}</button>
             </div>
             <div className="LoneSkillsBox">
                 <span 
