@@ -10,7 +10,7 @@ const CharacterInfo = ({character}) => {
     const [characterClass, setCharacterClass] = useState<string>(character ? character.cls : "Paladin");
     const [characterLevel, setCharacterLevel] = useState<number>(character ? character.lvl : 1);
     const [characterXP, setCharacterXP] = useState<number>(character ? character.xp : 0);
-    const [playerImage, setPlayerImage] = useState<string>(character ? character.playerImage : '');
+    const [playerImageURL, setPlayerImageURL] = useState<string>(character ? character.playerImageURL : '');
 
     if(!character) {
         localStorage.setItem("characterInfo", JSON.stringify({
@@ -19,7 +19,7 @@ const CharacterInfo = ({character}) => {
             cls: characterClass, 
             lvl: characterLevel, 
             xp: characterXP,
-            playerImage: playerImage,
+            playerImageURL: playerImageURL,
         }));
     }
 
@@ -32,12 +32,23 @@ const CharacterInfo = ({character}) => {
     }
 
     function loadCharacterImage(imageFile) {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+            if(reader.result) {
+                //@ts-ignore
+                setPlayerImageURL(reader.result);
+            }
+        })
+        reader.readAsDataURL(imageFile);
+    } 
+    
+    useEffect(() => {
         const imageElement = document.getElementById('playerImage');
-        const finalImage = URL.createObjectURL(imageFile);
-        setPlayerImage(finalImage);
-        //@ts-ignore
-        imageElement.src  = finalImage;
-    }   
+        if(playerImageURL !== '') {
+            //@ts-ignore
+            imageElement.src  = playerImageURL;
+        }
+    })
 
     useEffect(() => {
         localStorage.setItem("characterInfo", JSON.stringify({
@@ -46,23 +57,15 @@ const CharacterInfo = ({character}) => {
                 cls: characterClass, 
                 lvl: characterLevel, 
                 xp: characterXP,
-                playerImage: playerImage
+                playerImageURL: playerImageURL
         }));
-    }, [characterName, characterRace, characterClass, characterLevel, characterXP, playerImage]);
-
-    useEffect(() => {
-        const imageElement = document.getElementById('playerImage');
-        if(playerImage !== '') {
-            //@ts-ignore
-            imageElement.src  = playerImage;
-        }
-    })
+    }, [characterName, characterRace, characterClass, characterLevel, characterXP, playerImageURL]);
     
     return (
         <div className="Header">
             <div className="characterInfo">
                 <div className="playerImageBox">
-                    {playerImage !== '' ? 
+                    {playerImageURL !== '' ? 
                         <img src='' alt="" id="playerImage" className='playerImage'/> : 
                         <div className='blankPlayerImage'>?</div>
                     }
