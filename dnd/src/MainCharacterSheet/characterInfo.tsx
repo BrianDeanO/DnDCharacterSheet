@@ -10,9 +10,17 @@ const CharacterInfo = ({character}) => {
     const [characterClass, setCharacterClass] = useState<string>(character ? character.cls : "Paladin");
     const [characterLevel, setCharacterLevel] = useState<number>(character ? character.lvl : 1);
     const [characterXP, setCharacterXP] = useState<number>(character ? character.xp : 0);
+    const [playerImage, setPlayerImage] = useState<string>(character ? character.playerImage : '');
 
     if(!character) {
-        localStorage.setItem("characterInfo", JSON.stringify({name: characterName, race: characterRace, cls: characterClass, lvl: characterLevel, xp: characterXP}));
+        localStorage.setItem("characterInfo", JSON.stringify({
+            name: characterName, 
+            race: characterRace, 
+            cls: characterClass, 
+            lvl: characterLevel, 
+            xp: characterXP,
+            playerImage: playerImage,
+        }));
     }
 
     function updateCharInfo(name: string, race: string, cls: string, lvl: number, xp: number) {
@@ -23,60 +31,65 @@ const CharacterInfo = ({character}) => {
         setCharacterXP(xp);
     }
 
+    function loadCharacterImage(imageFile) {
+        const imageElement = document.getElementById('playerImage');
+        const finalImage = URL.createObjectURL(imageFile);
+        setPlayerImage(finalImage);
+        //@ts-ignore
+        imageElement.src  = finalImage;
+    }   
+
     useEffect(() => {
-        localStorage.setItem("characterInfo", JSON.stringify({name: characterName, race: characterRace, cls: characterClass, lvl: characterLevel, xp: characterXP}));
-    }, [characterName, characterRace, characterClass, characterLevel, characterXP]);
+        localStorage.setItem("characterInfo", JSON.stringify({
+                name: characterName, 
+                race: characterRace, 
+                cls: characterClass, 
+                lvl: characterLevel, 
+                xp: characterXP,
+                playerImage: playerImage
+        }));
+    }, [characterName, characterRace, characterClass, characterLevel, characterXP, playerImage]);
+
+    useEffect(() => {
+        const imageElement = document.getElementById('playerImage');
+        if(playerImage !== '') {
+            //@ts-ignore
+            imageElement.src  = playerImage;
+        }
+    })
     
     return (
         <div className="Header">
-            <div className="Character-Info">
-
-                {/* <svg className="Player-ImageSVG">
-                    <circle className="Image-Circle" 
-                            cx="50" 
-                            cy="50" 
-                            r="50" 
-                            fill="transparent"
-                            stroke="black"
-                            strokeWidth={3}
-                            strokeOpacity={"100%"} 
-                    /> 
-                    <image className="Player-Image" href="HotMobbinLogo.png"  x="14px" y="6px"/>
-                </svg> */}
-
-                
-                {/* <div className="ImageCircle">
-                    TEST
-                    <img 
-                        className="Player-Image"
-                        src="./HotMobbinLogo.png"
-                        alt="logo"
-                    />
-                </div> */}
-            
-                <div className="Character-Info-Box">     
-                    <div className="Character-Name-Lvl">
+            <div className="characterInfo">
+                <div className="playerImageBox">
+                    {playerImage !== '' ? 
+                        <img src='' alt="" id="playerImage" className='playerImage'/> : 
+                        <div className='blankPlayerImage'>?</div>
+                    }
+                </div>
+                <div className="characterInfoBox">     
+                    <div className="characterNameLvl">
                     {skillsIsEdit ? 
                     <> 
-                        <input  className="Character-Name-Input" 
+                        <input  className="characterNameInput" 
                                 id="CharName" 
                                 type='text' 
                                 defaultValue={characterName}
                                 placeholder="Name"></input>
-                        <h2 className="Character-Level-Title" > Lvl. </h2>
-                        <input  className="Character-Level-Input" 
+                        <h2 className="characterLevelTitle" > Lvl. </h2>
+                        <input  className="characterLevelInput" 
                                 id="CharLvl" 
                                 type='number' 
                                 defaultValue={characterLevel} 
                                 min={"1"} max={"20"}></input>
                     </> : 
                     <> 
-                        <h1 className="Character-Name-Text" > {characterName} </h1>
-                        <h2 className="Character-Level-Title"> Lvl. </h2>
-                        <h2 className="Character-Level"> {characterLevel} </h2> 
+                        <h1 className="characterNameText" > {characterName} </h1>
+                        <h2 className="characterLevelTitle"> Lvl. </h2>
+                        <h2 className="characterLevel"> {characterLevel} </h2> 
                     </>}
                     <button 
-                        className="Character-Header-Edit-Button"
+                        className="characterHeaderEditButton"
                         onClick={(e) => {
                             skillsIsEdit ? 
                                             //@ts-ignore
@@ -89,37 +102,58 @@ const CharacterInfo = ({character}) => {
                             setSkillsIsEdit(!skillsIsEdit);
                             }}>{skillsIsEdit ? 'save' : 'edit'}</button>    
                     </div>
-                    <div className="Character-Race-Class">
+                    <div className="characterRaceClass">
                         {skillsIsEdit ? 
                         <>
-                            <input  className="Character-Race-Class-Input" 
+                            <input  className="characterRaceClassInput" 
                                     id="CharRace" 
                                     type='text' 
                                     defaultValue={characterRace}
                                     placeholder="Race"></input> 
-                            <input  className="Character-Race-Class-Input"
+                            <input  className="characterRaceClassInput"
                                     id="CharClass" 
                                     type='text' 
                                     defaultValue={characterClass}
                                     placeholder="Class"></input>
                         </> : 
                         <>
-                            <h2 className="Character-Race-Class"> {characterRace} </h2> 
-                            <h2 className="Character-Race-Class"> {characterClass} </h2>
+                            <h2 className="characterRaceClassText"> {characterRace} </h2> 
+                            <h2 className="characterRaceClassText"> {characterClass} </h2>
                         </>}
 
                     </div>
+                    
+                    <div className="characterInfoBottomBox">
+                        <div className="characterXPBox">
+                            <h2 className="characterXPTitle"> XP -  </h2> 
+                            {skillsIsEdit ? 
+                                <input  className="characterXPInput" 
+                                        id="CharXP" 
+                                        type='number' 
+                                        defaultValue={characterXP}
+                                        min={"0"} max={"355000"}></input> : 
+                                <div className="characterXPValue"> {characterXP} </div>}
 
-                    <div className="Character-XP">
-                        <h2 className="Character-XP-Title" style={{fontWeight:"bold"}}> XP -  </h2> 
-                        {skillsIsEdit ? 
-                            <input  className="Character-XP-Input" 
-                                    id="CharXP" 
-                                    type='number' 
-                                    defaultValue={characterXP}
-                                    min={"0"} max={"355000"}></input> : 
-                            <h2 className="Character-XP"> {characterXP} </h2>}
-
+                        </div>
+                        {skillsIsEdit ?
+                            <div className="imageInputBox">
+                                <label htmlFor="loadImage" className="imageInputLabel">
+                                    {`Update Player Image (PNG, JPEG)`}
+                                </label>
+                                <input 
+                                    className="ImageInput"
+                                    type="file"
+                                    name="load"
+                                    id="loadImage"
+                                    accept="image/png, image/jpeg"
+                                    onChange={(e) => {
+                                        // console.log('image ifle', e.target?.files?.[0]);
+                                        loadCharacterImage(e.target?.files?.[0]);
+                                        //loadCharacterData(e.target?.files?.[0]);
+                                        e.target.value = '';
+                                    }}
+                                    />
+                            </div> : null}
                     </div>
                 </div>
             </div>
@@ -142,15 +176,10 @@ const CharacterInfo = ({character}) => {
                             }}
                             />
                     </div>
-                   
-                    
-               
             </div>
         </div>
         
     )
 }
-
-const Spacer = () => <div className="Spacer"/>;
 
 export default CharacterInfo;
