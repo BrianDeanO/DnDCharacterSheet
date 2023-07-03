@@ -135,8 +135,8 @@ const AttacksSelectionBox = ({abilityBoxInfo}) => {
                     onClick={() => {
                         if(makeNewAttack) {
                             if( (document.getElementById('rangedOrMeleeAnswer')?.value !== '') &&
-                                (document.getElementById('typeOfHitDice')?.value !== 'Type') &&
-                                (document.getElementById('typeOfDamage')?.value !== 'Select Type') &&
+                                (document.getElementById('typeOfHitDice')?.value !== '---') &&
+                                (document.getElementById('typeOfDamage')?.value !== '---') &&
                                 (document.getElementById('NewAttackName')?.value !== '')) {
                                 const newAttack = {
                                     name: document.getElementById('NewAttackName')?.value, 

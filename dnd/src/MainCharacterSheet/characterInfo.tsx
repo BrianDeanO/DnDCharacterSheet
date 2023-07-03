@@ -150,10 +150,7 @@ const CharacterInfo = ({character}) => {
                                     id="loadImage"
                                     accept="image/png, image/jpeg"
                                     onChange={(e) => {
-                                        // console.log('image ifle', e.target?.files?.[0]);
                                         loadCharacterImage(e.target?.files?.[0]);
-                                        //loadCharacterData(e.target?.files?.[0]);
-                                        e.target.value = '';
                                     }}
                                     />
                             </div> : null}

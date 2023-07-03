@@ -292,7 +292,7 @@ button:hover {
     height: 110px;
     width: 475px;
     background-color: rgb(5, 97, 150);
-    margin: 30px 0px 0px 10px;
+    margin: 30px 0px 5px 10px;
     border-radius: 5px;
 }
 .newItemInfoUpperBox {
@@ -314,7 +314,24 @@ button:hover {
 }
 
 
-/* Spell Name Input Box */
+/* Reset Button Styles */
+.resetInventoryCardBox {
+    display: flex;
+    width: 520px;
+}
+.inventoryResetButton {
+    height: 20px;
+    width: 70px;
+    margin: 5px 5px -20px 10px;
+    background-color: rgb(224, 69, 42);
+    color:aliceblue;
+    font-weight: 600;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-style: italic;
+}
+
+/* Item Name Input Box */
 .itemNameInputBox {
     display: flex;
     flex-direction: column;

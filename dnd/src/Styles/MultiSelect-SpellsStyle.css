@@ -228,6 +228,23 @@ button:hover {
     align-items: center;
 }
 
+/* Reset Button Styles */
+.resetSpellCardBox {
+    display: flex;
+    width: 520px;
+}
+.spellResetButton {
+    height: 20px;
+    width: 70px;
+    margin: 10px 5px -10px 10px;
+    background-color: rgb(224, 69, 42);
+    color:aliceblue;
+    font-weight: 600;
+    border-radius: 10px;
+    border-width: 1.5px;
+    font-style: italic;
+}
+
 
 /* Spell Name Input Box */
 .spellNameBox {
