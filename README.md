@@ -15,3 +15,6 @@ The project is a React application, therefore to run the application:
 1. Clone the Git repository.
 2. Run `npm install` terminal to download all necessary dependencies.
 3. Finally, enter `npm run start` to run the application on your local host.
+
+#### OR 
+Use this link to run the application online: [D&D Character Sheet](https://briandeano.github.io/DnDCharacterSheet/)
