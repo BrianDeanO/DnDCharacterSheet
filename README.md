@@ -1,5 +1,5 @@
 # Dungeons and Dragons Character Sheet
-### Design Your Own Character [HERE!](https://briandeano.github.io/DnDCharacterSheet/)
+### [Design Your Own Character HERE!](https://briandeano.github.io/DnDCharacterSheet/)
 
 ![image](https://github.com/BrianDeanO/DnDCharacterSheet/assets/54780901/f1a2e058-09ca-4e8f-8518-21c0127967de)
 
